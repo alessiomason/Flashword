@@ -18,19 +18,15 @@ struct NewWordCardView: View {
             TextField("Enter a new term", text: $term)
                 .textFieldStyle(.roundedBorder)
             
-            Button("Add") {
-                let word = Word(term: term, learntOn: .now)
-                router.path.append(word)
-                modelContext.insert(word)
-                term = ""
-            }
-            .padding(.vertical, 10)
-            .padding(.horizontal, 20)
-            .background(
-                .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
-            )
-            .foregroundStyle(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            Button("Add", action: insertNewWord)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .buttonStyle(.plain)
+                .background(
+                    .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+                .foregroundStyle(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
         }
         .padding()
         .overlay {
@@ -39,6 +35,15 @@ struct NewWordCardView: View {
                     .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
         }
+    }
+    
+    func insertNewWord() {
+        guard !term.isEmpty else { return }
+        
+        let word = Word(term: term.trimmingCharacters(in: .whitespacesAndNewlines), learntOn: .now)
+        router.path.append(word)
+        modelContext.insert(word)
+        term = ""
     }
 }
 
