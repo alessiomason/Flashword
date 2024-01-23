@@ -11,6 +11,27 @@
         }
       }
     },
+    "Are you sure you want to delete the word \"%@\"?" : {
+      "comment" : "Confirmation message for deleting a word",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei sicuro di voler eliminare la parola \"%@\"?"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla"
+          }
+        }
+      }
+    },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
       "localizations" : {
@@ -18,6 +39,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Categoria: %@"
+          }
+        }
+      }
+    },
+    "Confirm deletion" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conferma eliminazione"
           }
         }
       }

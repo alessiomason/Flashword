@@ -15,6 +15,7 @@ struct WordView: View {
     
     @State private var showingDictionary = false
     @State private var modifyingNotes = false
+    @State private var showingDeleteAlert = false
     @FocusState private var focusingTextEditor: Bool
     
     var body: some View {
@@ -71,36 +72,46 @@ struct WordView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
-            .navigationTitle(word.term)
-            .toolbar {
-                if modifyingNotes {
-                    Button("Done") {
-                        modifyingNotes = false
-                    }
-                } else {
-                    Button("Modify the notes", systemImage: "square.and.pencil") {
-                        modifyingNotes = true
-                    }
+        }
+        .navigationTitle(word.term)
+        .scrollBounceBehavior(.basedOnSize)
+        .toolbar {
+            if modifyingNotes {
+                Button("Done") {
+                    modifyingNotes = false
                 }
-                
-                Menu {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        let removedWord = router.path.popLast()
-                        guard removedWord == word else {
-                            fatalError("There was an error removing the word \(word.term)")
-                        }
-                        modelContext.delete(word)
-                    }
-                } label: {
-                    Label("More", systemImage: "ellipsis.circle")
+            } else {
+                Button("Modify the notes", systemImage: "square.and.pencil") {
+                    modifyingNotes = true
                 }
             }
-            .sheet(isPresented: $showingDictionary) {
-                DictionaryView(term: word.term)
-                    .ignoresSafeArea()
+            
+            Menu {
+                Button("Delete", systemImage: "trash", role: .destructive) {
+                    showingDeleteAlert = true
+                }
+            } label: {
+                Label("More", systemImage: "ellipsis.circle")
             }
         }
-        .scrollBounceBehavior(.basedOnSize)
+        .sheet(isPresented: $showingDictionary) {
+            DictionaryView(term: word.term)
+                .ignoresSafeArea()
+        }
+        .alert("Confirm deletion", isPresented: $showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive, action: deleteWord)
+        } message: {
+            Text("Are you sure you want to delete the word \"\(word.term)\"?", comment: "Confirmation message for deleting a word")
+        }
+    }
+    
+    func deleteWord() {
+        let removedWord = router.path.popLast()
+        guard removedWord == word else {
+            fatalError("There was an error removing the word \(word.term)")
+        }
+        modelContext.delete(word)
     }
 }
 
