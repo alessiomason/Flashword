@@ -13,14 +13,20 @@ class Word {
     let term: String
     let learntOn: Date
     var notes: String
+    @Relationship(inverse: \Category.words) var category: Category?
     
-    init(term: String, learntOn: Date, notes: String = "") {
+    var categoryName: String {
+        category?.name ?? "No category"
+    }
+    
+    init(term: String, learntOn: Date, notes: String = "", category: Category? = nil) {
         self.term = term
         self.learntOn = learntOn
         self.notes = notes
+        self.category = category
     }
     
-#if DEBUG
+    #if DEBUG
     static let example = Word(term: "Swift", learntOn: .now, notes: "A swift testing word.")
-#endif
+    #endif
 }

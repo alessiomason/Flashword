@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct LearnDictApp: App {
+struct FlashwordApp: App {
     var body: some Scene {
         WindowGroup {
             AppView()
