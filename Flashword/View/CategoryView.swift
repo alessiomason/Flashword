@@ -1,27 +1,19 @@
 //
-//  WordCardsListView.swift
+//  CategoryView.swift
 //  Flashword
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 26/01/24.
 //
 
 import SwiftData
 import SwiftUI
 
-struct WordCardsListView: View {
-    var words: [Word]
+struct CategoryView: View {
+    let category: Category
     
     var body: some View {
-        List {
-            NewWordCardView()
-                .listRowSeparator(.hidden)
-            
-            ForEach(words) { word in
-                WordCardView(word: word)
-                    .listRowSeparator(.hidden)
-            }
-        }
-        .listStyle(.plain)
+        WordCardsListView(words: category.words)
+            .navigationTitle(category.name)
     }
 }
 
@@ -31,14 +23,14 @@ struct WordCardsListView: View {
         let container = try ModelContainer(for: Word.self, configurations: config)
         let words = [
             Word(term: "Test", learntOn: .now.addingTimeInterval(-86400)),
-            Word(term: "Swift", learntOn: .now)
+            Word(term: "Swift", learntOn: .now, category: .example)
         ]
         
         words.forEach {
             container.mainContext.insert($0)
         }
         
-        return WordCardsListView(words: words)
+        return CategoryView(category: .example)
             .modelContainer(container)
             .environment(Router())
     } catch {

@@ -13,10 +13,17 @@ struct AppView: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            WordsCardsListView()
+            CategoryListView()
                 .navigationTitle(Text("Flashword", comment: "The name of the app"))
-                .navigationDestination(for: Word.self) { word in
-                    WordView(word: word)
+                .navigationDestination(for: RouterDestination.self) { destination in
+                    switch destination {
+                        case .allWordsCategory:
+                            AllWordsCategoryView()
+                        case let .category(category):
+                            CategoryView(category: category)
+                        case let .word(word):
+                            WordView(word: word)
+                    }
                 }
         }
         .environment(router)

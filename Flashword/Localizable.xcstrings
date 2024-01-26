@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld words" : {
+
+    },
     "Add" : {
       "localizations" : {
         "it" : {
@@ -10,6 +13,12 @@
           }
         }
       }
+    },
+    "Add a new category" : {
+
+    },
+    "All words" : {
+
     },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
@@ -31,6 +40,9 @@
           }
         }
       }
+    },
+    "Category name" : {
+
     },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
@@ -143,6 +155,9 @@
           }
         }
       }
+    },
+    "No category" : {
+      "comment" : "The text to display in absence of a user-defined category"
     },
     "No notes" : {
       "comment" : "A short phrase describing the absence of notes in the WordCard",

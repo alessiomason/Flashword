@@ -1,27 +1,21 @@
 //
-//  WordCardsListView.swift
+//  AllWordsCategoryView.swift
 //  Flashword
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 26/01/24.
 //
 
 import SwiftData
 import SwiftUI
 
-struct WordCardsListView: View {
-    var words: [Word]
+struct AllWordsCategoryView: View {
+    @Query(sort: [
+        SortDescriptor(\Word.learntOn, order: .reverse)
+    ]) private var words: [Word]
     
     var body: some View {
-        List {
-            NewWordCardView()
-                .listRowSeparator(.hidden)
-            
-            ForEach(words) { word in
-                WordCardView(word: word)
-                    .listRowSeparator(.hidden)
-            }
-        }
-        .listStyle(.plain)
+        WordCardsListView(words: words)
+            .navigationTitle("All words")
     }
 }
 
@@ -38,7 +32,7 @@ struct WordCardsListView: View {
             container.mainContext.insert($0)
         }
         
-        return WordCardsListView(words: words)
+        return AllWordsCategoryView()
             .modelContainer(container)
             .environment(Router())
     } catch {

@@ -5,9 +5,15 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
-import Foundation
+import SwiftUI
+
+enum RouterDestination: Hashable {
+    case allWordsCategory
+    case category(category: Category)
+    case word(word: Word)
+}
 
 @Observable
 class Router {
-    var path: [Word] = []
+    var path = [RouterDestination]()
 }

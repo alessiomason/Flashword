@@ -14,7 +14,7 @@ struct WordCardView: View {
     
     var body: some View {
         Button {
-            router.path.append(word)
+            router.path.append(RouterDestination.word(word: word))
         } label: {
             ZStack(alignment: .topTrailing) {
                 VStack(alignment: .leading) {
