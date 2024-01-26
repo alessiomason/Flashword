@@ -21,7 +21,7 @@ struct WordView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text("Category: \(word.term)", comment: "The category the word belongs to")
+                Text("Category: \(word.categoryName)", comment: "The category the word belongs to")
                     .padding(.bottom, 5)
                 
                 Text("Word learnt on \(word.learntOn.formatted(date: .complete, time: .shortened))", comment: "The time the word has been learnt, including the name of the day, the date and the time")

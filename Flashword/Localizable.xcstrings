@@ -53,6 +53,9 @@
         }
       }
     },
+    "Current category: %@" : {
+
+    },
     "Delete" : {
       "localizations" : {
         "it" : {

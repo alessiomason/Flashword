@@ -41,7 +41,7 @@ struct NewWordCardView: View {
         let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTerm.isEmpty else { return }
         
-        let word = Word(term: trimmedTerm, learntOn: .now)
+        let word = Word(term: trimmedTerm, learntOn: .now, category: .example)
         router.path.append(word)
         modelContext.insert(word)
         term = ""
