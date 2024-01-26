@@ -107,8 +107,16 @@ struct WordView: View {
     }
     
     func deleteWord() {
-        router.path.removeLast()
-        modelContext.delete(word)
+        let removedDestination = router.path.removeLast()
+        switch removedDestination {
+            case let .word(removedWord):
+                // check that the last word in the router path (which has now been removed)
+                // is the same word displayed in the view, otherwise something went very wrong
+                guard removedWord == word else { fallthrough }
+                modelContext.delete(word)
+            default:
+                fatalError("There was an error removing the word \(word).")
+        }
     }
 }
 
