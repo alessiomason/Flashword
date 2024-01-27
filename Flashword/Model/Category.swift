@@ -5,6 +5,7 @@
 //  Created by Alessio Mason on 25/01/24.
 //
 
+import Foundation
 import SwiftData
 
 @Model
@@ -41,6 +42,9 @@ class Category: Codable, Equatable {
     static func ==(lhs: Category, rhs: Category) -> Bool {
         lhs.name == rhs.name
     }
+    
+    /// The sort order used for querying the list of categories.
+    static let sortDescriptors = [SortDescriptor(\Category.name)]
     
     #if DEBUG
     static let example = Category(name: "General", primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))

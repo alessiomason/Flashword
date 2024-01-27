@@ -9,8 +9,14 @@ import SwiftData
 import SwiftUI
 
 struct CategoryListView: View {
-    @Query(sort: [SortDescriptor(\Category.name)]) private var categories: [Category]
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.editMode) var editMode
+    @Query(sort: Category.sortDescriptors) private var categories: [Category]
     @State private var showingAddCategorySheet = false
+    
+    var isEditing: Bool {
+        editMode?.wrappedValue.isEditing ?? false
+    }
     
     var body: some View {
         List {
@@ -27,15 +33,29 @@ struct CategoryListView: View {
                     }
                 }
             }
+            .onDelete(perform: removeCategories)
         }
         .toolbar {
-            Button("Add a new category", systemImage: "plus") {
-                showingAddCategorySheet = true
+            ToolbarItem(placement: .topBarLeading) {
+                EditButton()
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Add a new category", systemImage: "plus") {
+                    showingAddCategorySheet = true
+                }
+                .disabled(isEditing)
             }
         }
         .sheet(isPresented: $showingAddCategorySheet) {
             AddCategoryView()
         }
+    }
+    
+    func removeCategories(at offsets: IndexSet) {
+        offsets
+            .map { categories[$0] }
+            .forEach { modelContext.delete($0) }
     }
 }
 
