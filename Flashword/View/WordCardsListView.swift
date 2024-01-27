@@ -16,7 +16,7 @@ struct WordCardsListView: View {
             NewWordCardView()
                 .listRowSeparator(.hidden)
             
-            ForEach(words) { word in
+            ForEach(words.sorted()) { word in
                 WordCardView(word: word)
                     .listRowSeparator(.hidden)
             }

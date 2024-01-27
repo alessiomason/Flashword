@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Word {
+class Word: Comparable {
     let term: String
     let learntOn: Date
     var notes: String
@@ -25,6 +25,10 @@ class Word {
         self.learntOn = learntOn
         self.notes = notes
         self.category = category
+    }
+    
+    static func <(lhs: Word, rhs: Word) -> Bool {
+        lhs.learntOn > rhs.learntOn
     }
     
     #if DEBUG

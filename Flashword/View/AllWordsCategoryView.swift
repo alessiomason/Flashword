@@ -9,9 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct AllWordsCategoryView: View {
-    @Query(sort: [
-        SortDescriptor(\Word.learntOn, order: .reverse)
-    ]) private var words: [Word]
+    @Query private var words: [Word]
     
     var body: some View {
         WordCardsListView(words: words)
