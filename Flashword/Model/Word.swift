@@ -27,10 +27,13 @@ class Word {
     }
     
     static func predicate(category: Category?) -> Predicate<Word> {
+        let categoryName = category?.name
+        
         return #Predicate<Word> { word in
-            // the predicate does not support comparing two different objects (either Words or Categories)
-            // also, it fails when accessing word.category?.name, either with optional chaining or force unwrapping
-            category == nil || word.category == category
+            // the predicate does not support comparing two different objects (either Words or Categories);
+            // also, Predicates do not support external variables, local ones have to be used:
+            // the working solution is to compare strings and not objects and use a local variable (categoryName)
+            categoryName == nil || word.category?.name == categoryName
         }
     }
     
