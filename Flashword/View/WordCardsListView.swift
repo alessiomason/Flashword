@@ -9,11 +9,12 @@ import SwiftData
 import SwiftUI
 
 struct WordCardsListView: View {
+    let category: Category?
     var words: [Word]
     
     var body: some View {
         List {
-            NewWordCardView()
+            NewWordCardView(category: category)
                 .listRowSeparator(.hidden)
             
             ForEach(words.sorted()) { word in
@@ -22,6 +23,11 @@ struct WordCardsListView: View {
             }
         }
         .listStyle(.plain)
+    }
+    
+    init(category: Category? = nil, words: [Word]) {
+        self.category = category
+        self.words = words
     }
 }
 

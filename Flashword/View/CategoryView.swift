@@ -12,7 +12,7 @@ struct CategoryView: View {
     let category: Category
     
     var body: some View {
-        WordCardsListView(words: category.words)
+        WordCardsListView(category: category, words: category.words)
             .navigationTitle(category.name)
     }
 }

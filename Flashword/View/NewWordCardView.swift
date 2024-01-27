@@ -9,9 +9,10 @@ import SwiftData
 import SwiftUI
 
 struct NewWordCardView: View {
-    @State private var term = ""
     @Environment(Router.self) var router
     @Environment(\.modelContext) var modelContext
+    @State private var term = ""
+    let category: Category?
     
     var body: some View {
         VStack {
@@ -37,13 +38,17 @@ struct NewWordCardView: View {
         }
     }
     
+    init(category: Category? = nil) {
+        self.category = category
+    }
+    
     func insertNewWord() {
         let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTerm.isEmpty else { return }
         
-        let word = Word(term: trimmedTerm, learntOn: .now)
-        router.path.append(RouterDestination.word(word: word))
+        let word = Word(term: trimmedTerm, learntOn: .now, category: category)
         modelContext.insert(word)
+        router.path.append(RouterDestination.word(word: word))
         term = ""
     }
 }
