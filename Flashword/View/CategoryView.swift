@@ -9,11 +9,21 @@ import SwiftData
 import SwiftUI
 
 struct CategoryView: View {
+    // category already contains the list of words for the category, but a query is performed nevertheless
+    // because it needs to update live after every possible insertion or deletion of words in the category
     let category: Category
+    @Query private var words: [Word]
     
     var body: some View {
-        WordCardsListView(category: category, words: category.words)
+        WordCardsListView(category: category, words: words)
             .navigationTitle(category.name)
+    }
+    
+    init(category: Category) {
+        self.category = category
+        
+        let predicate = Word.predicate(category: category)
+        _words = Query(filter: predicate, sort: Word.sortDescriptors)
     }
 }
 
