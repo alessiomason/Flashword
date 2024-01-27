@@ -82,6 +82,16 @@
         }
       }
     },
+    "Categories" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categorie"
+          }
+        }
+      }
+    },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
       "localizations" : {
@@ -262,17 +272,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è rischio di confondersi :)"
-          }
-        }
-      }
-    },
-    "The name of the category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il nome della categoria"
+            "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
           }
         }
       }

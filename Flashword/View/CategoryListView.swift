@@ -20,20 +20,24 @@ struct CategoryListView: View {
     
     var body: some View {
         List {
-            NavigationLink(value: RouterDestination.allWordsCategory) {
-                Text("All words")
-            }
-            
-            ForEach(categories) { category in
-                NavigationLink(value: RouterDestination.category(category: category)) {
-                    VStack(alignment: .leading) {
-                        Text(category.name)
-                        Text("\(category.words.count) words")
-                            .foregroundStyle(.secondary)
-                    }
+            Section {
+                NavigationLink(value: RouterDestination.allWordsCategory) {
+                    Text("All words")
                 }
             }
-            .onDelete(perform: removeCategories)
+            
+            Section("Categories") {
+                ForEach(categories) { category in
+                    NavigationLink(value: RouterDestination.category(category: category)) {
+                        VStack(alignment: .leading) {
+                            Text(category.name)
+                            Text("\(category.words.count) words")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                .onDelete(perform: removeCategories)
+            }
         }
         .toolbar {
             if !categories.isEmpty {

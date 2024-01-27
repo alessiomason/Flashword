@@ -19,8 +19,6 @@ struct AddCategoryView: View {
             Form {
                 Section {
                     TextField("Category's name", text: $name)
-                } header: {
-                    Text("The name of the category")
                 } footer: {
                     Text("The name has to be unique across all categories: let's not get you confused :)", comment: "The text inviting the user to enter a unique name for the new category")
                 }
@@ -41,8 +39,6 @@ struct AddCategoryView: View {
     }
     
     func insertNewCategory() {
-        let category = Category(name: name, primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))
-        
         // check if a category with the same name is already present
         let descriptor = FetchDescriptor<Category>(
             predicate: #Predicate { category in
@@ -56,6 +52,7 @@ struct AddCategoryView: View {
         // Throwing an error if this query fails did not seem necessary (thanks to SwiftData still
         // handling everything correctly, albeit transparently to the user)
         if duplicatesCount == 0 || duplicatesCount == nil {
+            let category = Category(name: name, primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))
             modelContext.insert(category)
             dismiss()
         } else {
