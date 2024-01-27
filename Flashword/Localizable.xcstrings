@@ -4,6 +4,9 @@
     "%lld words" : {
 
     },
+    "A category named \"%@\" already exists!" : {
+
+    },
     "Add" : {
       "localizations" : {
         "it" : {
@@ -41,7 +44,7 @@
         }
       }
     },
-    "Category name" : {
+    "Cannot create a duplicate category!" : {
 
     },
     "Category: %@" : {
@@ -54,6 +57,9 @@
           }
         }
       }
+    },
+    "Category's name" : {
+
     },
     "Confirm deletion" : {
       "localizations" : {
@@ -179,6 +185,15 @@
           }
         }
       }
+    },
+    "OK" : {
+
+    },
+    "The name has to be unique across all categories: let's not get you confused :)" : {
+
+    },
+    "The name of the category" : {
+
     },
     "Word learnt on %@" : {
       "comment" : "The time the word has been learnt, including the name of the day, the date and the time",
