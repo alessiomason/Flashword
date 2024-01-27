@@ -36,8 +36,10 @@ struct CategoryListView: View {
             .onDelete(perform: removeCategories)
         }
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                EditButton()
+            if !categories.isEmpty {
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
             }
             
             ToolbarItem(placement: .topBarTrailing) {
