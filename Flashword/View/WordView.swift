@@ -98,11 +98,9 @@ struct WordView: View {
             DictionaryView(term: word.term)
                 .ignoresSafeArea()
         }
-        .alert("Confirm deletion", isPresented: $showingDeleteAlert) {
+        .alert("Are you sure you want to delete the word \"\(word.term)\"?", isPresented: $showingDeleteAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Delete", role: .destructive, action: deleteWord)
-        } message: {
-            Text("Are you sure you want to delete the word \"\(word.term)\"?", comment: "Confirmation message for deleting a word")
         }
     }
     

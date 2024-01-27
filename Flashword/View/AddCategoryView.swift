@@ -22,7 +22,7 @@ struct AddCategoryView: View {
                 } header: {
                     Text("The name of the category")
                 } footer: {
-                    Text("The name has to be unique across all categories: let's not get you confused :)")
+                    Text("The name has to be unique across all categories: let's not get you confused :)", comment: "The text inviting the user to enter a unique name for the new category")
                 }
             }
             .navigationTitle("Add a new category")

@@ -2,10 +2,24 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%lld words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld parole"
+          }
+        }
+      }
     },
     "A category named \"%@\" already exists!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una categoria chiamata \"%@\" esiste già!"
+          }
+        }
+      }
     },
     "Add" : {
       "localizations" : {
@@ -18,10 +32,24 @@
       }
     },
     "Add a new category" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi una nuova categoria"
+          }
+        }
+      }
     },
     "All words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutte le parole"
+          }
+        }
+      }
     },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
@@ -29,7 +57,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sei sicuro di voler eliminare la parola \"%@\"?"
+            "value" : "Confermi di voler eliminare la parola \"%@\"?"
           }
         }
       }
@@ -45,7 +73,14 @@
       }
     },
     "Cannot create a duplicate category!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile creare una categoria duplicata!"
+          }
+        }
+      }
     },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
@@ -59,14 +94,11 @@
       }
     },
     "Category's name" : {
-
-    },
-    "Confirm deletion" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conferma eliminazione"
+            "value" : "Nome della categoria"
           }
         }
       }
@@ -91,12 +123,12 @@
         }
       }
     },
-    "Enter a new term" : {
+    "Enter a new word" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inserisci un nuovo termine"
+            "value" : "Inserisci una nuova parola"
           }
         }
       }
@@ -163,7 +195,15 @@
       }
     },
     "No category" : {
-      "comment" : "The text to display in absence of a user-defined category"
+      "comment" : "The text to display in absence of a user-defined category",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna categoria"
+          }
+        }
+      }
     },
     "No notes" : {
       "comment" : "A short phrase describing the absence of notes in the WordCard",
@@ -187,13 +227,35 @@
       }
     },
     "OK" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "The name has to be unique across all categories: let's not get you confused :)" : {
-
+      "comment" : "The text inviting the user to enter a unique name for the new category",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è rischio di confondersi :)"
+          }
+        }
+      }
     },
     "The name of the category" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il nome della categoria"
+          }
+        }
+      }
     },
     "Word learnt on %@" : {
       "comment" : "The time the word has been learnt, including the name of the day, the date and the time",

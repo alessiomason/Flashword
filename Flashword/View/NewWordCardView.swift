@@ -16,7 +16,7 @@ struct NewWordCardView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter a new term", text: $term)
+            TextField("Enter a new word", text: $term)
                 .textFieldStyle(.roundedBorder)
             
             Button("Add", action: insertNewWord)
