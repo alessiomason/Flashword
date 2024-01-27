@@ -48,5 +48,6 @@ class Category: Codable, Equatable {
     
     #if DEBUG
     static let example = Category(name: "General", primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))
+    static let otherExample = Category(name: "Italian words", primaryColor: ColorComponents(color: .yellow), secondaryColor: ColorComponents(color: .red))
     #endif
 }

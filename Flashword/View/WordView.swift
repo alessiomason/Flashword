@@ -14,6 +14,7 @@ struct WordView: View {
     @Bindable var word: Word
     
     @State private var showingDictionary = false
+    @State private var showingChangeCategorySheet = false
     @State private var modifyingNotes = false
     @State private var showingDeleteAlert = false
     @FocusState private var focusingTextEditor: Bool
@@ -77,8 +78,11 @@ struct WordView: View {
         .scrollBounceBehavior(.basedOnSize)
         .toolbar {
             if modifyingNotes {
-                Button("Done") {
+                Button {
                     modifyingNotes = false
+                } label: {
+                    Text("Done")
+                        .bold()
                 }
             } else {
                 Button("Modify the notes", systemImage: "square.and.pencil") {
@@ -87,6 +91,10 @@ struct WordView: View {
             }
             
             Menu {
+                Button("Change category", systemImage: "tray.full") {
+                    showingChangeCategorySheet = true
+                }
+                
                 Button("Delete", systemImage: "trash", role: .destructive) {
                     showingDeleteAlert = true
                 }
@@ -97,6 +105,9 @@ struct WordView: View {
         .sheet(isPresented: $showingDictionary) {
             DictionaryView(term: word.term)
                 .ignoresSafeArea()
+        }
+        .sheet(isPresented: $showingChangeCategorySheet) {
+            ChangeCategoryView(word: word)
         }
         .alert("Are you sure you want to delete the word \"\(word.term)\"?", isPresented: $showingDeleteAlert) {
             Button("Cancel", role: .cancel) { }

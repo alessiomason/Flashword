@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				5667625B2B60080000C3F1CA /* AppView.swift */,
 				56C775A82B64096B00742E1F /* CategoryListView.swift */,
 				56C775AC2B64134A00742E1F /* CategoryView.swift */,
+				562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */,
 				5667625D2B60081C00C3F1CA /* DictionaryView.swift */,
 				5667625F2B60083200C3F1CA /* NewWordCardView.swift */,
 				566762632B60085E00C3F1CA /* WordCardsListView.swift */,
@@ -198,6 +201,7 @@
 			files = (
 				5667625A2B6007D800C3F1CA /* Word.swift in Sources */,
 				566762582B6007B400C3F1CA /* Router.swift in Sources */,
+				562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */,
 				566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */,
 				56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */,
 				5667625C2B60080000C3F1CA /* AppView.swift in Sources */,

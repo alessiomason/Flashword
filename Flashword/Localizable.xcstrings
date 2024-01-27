@@ -103,6 +103,26 @@
         }
       }
     },
+    "Change category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambia categoria"
+          }
+        }
+      }
+    },
+    "Current category: %@" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categoria attuale: %@"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "it" : {
@@ -264,6 +284,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parola imparata %@"
+          }
+        }
+      }
+    },
+    "Word: %@" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parola: %@"
           }
         }
       }
