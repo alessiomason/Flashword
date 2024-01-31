@@ -23,7 +23,7 @@ struct WordView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Image("Leaves and book")
+            Image(decorative: "Leaves and book")
                 .resizable()
                 .scaledToFit()
                 .padding(10)
