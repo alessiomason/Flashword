@@ -13,6 +13,8 @@ struct NewWordCardView: View {
     @Environment(\.modelContext) var modelContext
     @State private var term = ""
     let category: Category?
+    let primaryColor: Color
+    let secondaryColor: Color
     
     var body: some View {
         VStack {
@@ -24,7 +26,7 @@ struct NewWordCardView: View {
                 .padding(.horizontal, 20)
                 .buttonStyle(.plain)
                 .background(
-                    .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -33,13 +35,15 @@ struct NewWordCardView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 15)
                 .strokeBorder(
-                    .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
         }
     }
     
     init(category: Category? = nil) {
         self.category = category
+        self.primaryColor = category?.primaryColor ?? .mint
+        self.secondaryColor = category?.secondaryColor ?? .blue
     }
     
     func insertNewWord() {
@@ -48,7 +52,7 @@ struct NewWordCardView: View {
         
         let word = Word(term: trimmedTerm, learntOn: .now, category: category)
         modelContext.insert(word)
-        router.path.append(RouterDestination.word(word: word))
+        router.path.append(RouterDestination.word(word: word, primaryColor: primaryColor, secondaryColor: secondaryColor))
         term = ""
     }
 }

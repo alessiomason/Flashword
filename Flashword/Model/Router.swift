@@ -10,7 +10,7 @@ import SwiftUI
 enum RouterDestination: Hashable {
     case allWordsCategory
     case category(category: Category)
-    case word(word: Word)
+    case word(word: Word, primaryColor: Color, secondaryColor: Color)
 }
 
 @Observable

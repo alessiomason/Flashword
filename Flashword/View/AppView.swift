@@ -21,8 +21,8 @@ struct AppView: View {
                             AllWordsCategoryView()
                         case let .category(category):
                             CategoryView(category: category)
-                        case let .word(word):
-                            WordView(word: word)
+                        case let .word(word, primaryColor, secondaryColor):
+                            WordView(word: word, primaryColor: primaryColor, secondaryColor: secondaryColor)
                     }
                 }
         }

@@ -13,12 +13,6 @@ struct CategoryListItemView: View {
     let primaryColor: Color
     let secondaryColor: Color
     
-    init(category: Category) {
-        self.category = category
-        self.primaryColor = Color(colorComponents: category.primaryColor)
-        self.secondaryColor = Color(colorComponents: category.secondaryColor)
-    }
-    
     var body: some View {
         NavigationLink(value: RouterDestination.category(category: category)) {
             HStack {
@@ -35,6 +29,12 @@ struct CategoryListItemView: View {
                 }
             }
         }
+    }
+    
+    init(category: Category) {
+        self.category = category
+        self.primaryColor = Color(colorComponents: category.primaryColorComponents)
+        self.secondaryColor = Color(colorComponents: category.secondaryColorComponents)
     }
 }
 

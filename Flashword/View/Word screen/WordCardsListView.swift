@@ -12,17 +12,26 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    var tintColor: Color {
+        category?.secondaryColor ?? .mint
+    }
+    
     var body: some View {
         List {
             NewWordCardView(category: category)
                 .listRowSeparator(.hidden)
             
             ForEach(words) { word in
-                WordCardView(word: word)
+                WordCardView(
+                    word: word,
+                    primaryColor: category?.primaryColor ?? .mint,
+                    secondaryColor: category?.secondaryColor ?? .blue
+                )
                     .listRowSeparator(.hidden)
             }
         }
         .listStyle(.plain)
+        .tint(tintColor)
     }
     
     init(category: Category? = nil, words: [Word]) {

@@ -12,6 +12,8 @@ struct WordView: View {
     @Environment(Router.self) var router
     @Environment(\.modelContext) var modelContext
     @Bindable var word: Word
+    let primaryColor: Color
+    let secondaryColor: Color
     
     @State private var showingDictionary = false
     @State private var showingChangeCategorySheet = false
@@ -25,7 +27,7 @@ struct WordView: View {
                 .resizable()
                 .scaledToFit()
                 .padding(10)
-                .blending(color: .mint)
+                .blending(color: primaryColor)
                 .opacity(0.5)
             
             
@@ -72,7 +74,7 @@ struct WordView: View {
                         .padding(.vertical, 10)
                         .padding(.horizontal, 20)
                         .background(
-                            .linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+                            .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                         )
                         .foregroundStyle(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -128,7 +130,7 @@ struct WordView: View {
     func deleteWord() {
         let removedDestination = router.path.removeLast()
         switch removedDestination {
-            case let .word(removedWord):
+            case let .word(removedWord, _, _):
                 // check that the last word in the router path (which has now been removed)
                 // is the same word displayed in the view, otherwise something went very wrong
                 guard removedWord == word else { fallthrough }
@@ -145,7 +147,7 @@ struct WordView: View {
         let container = try ModelContainer(for: Word.self, configurations: config)
         
         return NavigationStack {
-            WordView(word: .example)
+            WordView(word: .example, primaryColor: .mint, secondaryColor: .blue)
         }
         .modelContainer(container)
         .environment(Router())

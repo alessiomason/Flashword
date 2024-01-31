@@ -85,7 +85,7 @@ struct AddCategoryView: View {
             let primaryColorComponents = ColorComponents(resolvedColor: resolvedPrimaryColor)
             let secondaryColorComponents = ColorComponents(resolvedColor: resolvedSecondaryColor)
             
-            let category = Category(name: name, primaryColor: primaryColorComponents, secondaryColor: secondaryColorComponents)
+            let category = Category(name: name, primaryColorComponents: primaryColorComponents, secondaryColorComponents: secondaryColorComponents)
             modelContext.insert(category)
             dismiss()
         } else {

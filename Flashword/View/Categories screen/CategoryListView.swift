@@ -65,7 +65,7 @@ struct CategoryListView: View {
         let container = try ModelContainer(for: Category.self, configurations: config)
         let categories = [
             Category.example,
-            Category(name: "Example", primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))
+            Category.otherExample
         ]
         
         categories.forEach {
