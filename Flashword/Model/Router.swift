@@ -16,4 +16,18 @@ enum RouterDestination: Hashable {
 @Observable
 class Router {
     var path = [RouterDestination]()
+    
+    var tintColor: Color? {
+        guard path.count > 0 else { return nil }
+        let currentDestination = path[path.count - 1]
+        
+        return switch currentDestination {
+            case let .category(category):
+                category.secondaryColor
+            case let .word(_, _, secondaryColor):
+                secondaryColor
+            default:
+                nil
+        }
+    }
 }

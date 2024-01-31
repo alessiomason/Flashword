@@ -12,10 +12,6 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
-    var tintColor: Color {
-        category?.secondaryColor ?? .mint
-    }
-    
     var body: some View {
         List {
             NewWordCardView(category: category)
@@ -31,7 +27,6 @@ struct WordCardsListView: View {
             }
         }
         .listStyle(.plain)
-        .tint(tintColor)
     }
     
     init(category: Category? = nil, words: [Word]) {

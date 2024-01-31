@@ -26,6 +26,7 @@ struct AppView: View {
                     }
                 }
         }
+        .tint(router.tintColor)
         .environment(router)
     }
 }
