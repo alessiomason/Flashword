@@ -92,6 +92,9 @@
         }
       }
     },
+    "Category color" : {
+
+    },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
       "localizations" : {

@@ -9,10 +9,14 @@ import SwiftData
 import SwiftUI
 
 struct AddCategoryView: View {
+    @Environment(\.self) var environment
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
+    @State private var selectedColor: ColorChoice = ColorChoice.colorChoices[0]
+    
+    let columns = [GridItem(.adaptive(minimum: 60))]
     
     var body: some View {
         NavigationStack {
@@ -21,6 +25,30 @@ struct AddCategoryView: View {
                     TextField("Category's name", text: $name)
                 } footer: {
                     Text("The name has to be unique across all categories: let's not get you confused :)", comment: "The text inviting the user to enter a unique name for the new category")
+                }
+                
+                Section("Category color") {
+                    LazyVGrid(columns: columns) {
+                        ForEach(ColorChoice.colorChoices) { colorChoice in
+                            Button {
+                                selectedColor = colorChoice
+                            } label: {
+                                ZStack {
+                                    ColorCircle(primaryColor: colorChoice.primaryColor, secondaryColor: colorChoice.secondaryColor)
+                                        .frame(width: 60)
+                                    
+                                    if colorChoice == selectedColor {
+                                        Image(systemName: "checkmark")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25)
+                                            .foregroundStyle(.white)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             .navigationTitle("Add a new category")
@@ -52,7 +80,12 @@ struct AddCategoryView: View {
         // Throwing an error if this query fails did not seem necessary (thanks to SwiftData still
         // handling everything correctly, albeit transparently to the user)
         if duplicatesCount == 0 || duplicatesCount == nil {
-            let category = Category(name: name, primaryColor: ColorComponents(color: .mint), secondaryColor: ColorComponents(color: .blue))
+            let resolvedPrimaryColor = selectedColor.primaryColor.resolve(in: environment)
+            let resolvedSecondaryColor = selectedColor.secondaryColor.resolve(in: environment)
+            let primaryColorComponents = ColorComponents(resolvedColor: resolvedPrimaryColor)
+            let secondaryColorComponents = ColorComponents(resolvedColor: resolvedSecondaryColor)
+            
+            let category = Category(name: name, primaryColor: primaryColorComponents, secondaryColor: secondaryColorComponents)
             modelContext.insert(category)
             dismiss()
         } else {
