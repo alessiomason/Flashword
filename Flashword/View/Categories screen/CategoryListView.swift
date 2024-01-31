@@ -28,13 +28,7 @@ struct CategoryListView: View {
             
             Section("Categories") {
                 ForEach(categories) { category in
-                    NavigationLink(value: RouterDestination.category(category: category)) {
-                        VStack(alignment: .leading) {
-                            Text(category.name)
-                            Text("\(category.words.count) words")
-                                .foregroundStyle(.secondary)
-                        }
-                    }
+                    CategoryListItemView(category: category)
                 }
                 .onDelete(perform: removeCategories)
             }

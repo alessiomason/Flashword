@@ -17,6 +17,7 @@ struct CategoryView: View {
     var body: some View {
         WordCardsListView(category: category, words: words)
             .navigationTitle(category.name)
+            .tint(Color(colorComponents: category.secondaryColor))
     }
     
     init(category: Category) {
