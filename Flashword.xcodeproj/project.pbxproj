@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
+		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
+		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,11 +115,36 @@
 		566762562B6007A700C3F1CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5667625B2B60080000C3F1CA /* AppView.swift */,
+				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
+				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
+				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
+				56DDCB5D2B6A8F12002E4644 /* Word screen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56DDCB5B2B6A8E8D002E4644 /* Categories screen */ = {
+			isa = PBXGroup;
+			children = (
 				56C775AA2B640BA700742E1F /* AddCategoryView.swift */,
 				56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */,
-				5667625B2B60080000C3F1CA /* AppView.swift */,
 				56C775A82B64096B00742E1F /* CategoryListView.swift */,
+			);
+			path = "Categories screen";
+			sourceTree = "<group>";
+		};
+		56DDCB5C2B6A8EEB002E4644 /* Single category screen */ = {
+			isa = PBXGroup;
+			children = (
 				56C775AC2B64134A00742E1F /* CategoryView.swift */,
+			);
+			path = "Single category screen";
+			sourceTree = "<group>";
+		};
+		56DDCB5D2B6A8F12002E4644 /* Word screen */ = {
+			isa = PBXGroup;
+			children = (
 				562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */,
 				5667625D2B60081C00C3F1CA /* DictionaryView.swift */,
 				5667625F2B60083200C3F1CA /* NewWordCardView.swift */,
@@ -125,7 +152,7 @@
 				566762612B60084C00C3F1CA /* WordCardView.swift */,
 				566762652B60087100C3F1CA /* WordView.swift */,
 			);
-			path = View;
+			path = "Word screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +241,7 @@
 				566762622B60084C00C3F1CA /* WordCardView.swift in Sources */,
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
+				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,
 				56C775A72B64082A00742E1F /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
