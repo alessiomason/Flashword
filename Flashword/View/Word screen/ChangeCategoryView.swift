@@ -13,28 +13,41 @@ struct ChangeCategoryView: View {
     @Query(sort: Category.sortDescriptors) var categories: [Category]
     let word: Word
     
+    @State private var showingAddCategorySheet = false
+    
     var body: some View {
         NavigationStack {
             List {
-                Button {
-                    word.category = nil
-                    dismiss()
-                } label: {
-                    SelectableCategoryListItemView(category: nil, selected: word.category == nil)
-                }
-                
-                ForEach(categories) { category in
+                Section {
                     Button {
-                        word.category = category
+                        word.category = nil
                         dismiss()
                     } label: {
-                        SelectableCategoryListItemView(category: category, selected: word.category == category)
+                        SelectableCategoryListItemView(category: nil, selected: word.category == nil)
+                    }
+                    
+                    ForEach(categories) { category in
+                        Button {
+                            word.category = category
+                            dismiss()
+                        } label: {
+                            SelectableCategoryListItemView(category: category, selected: word.category == category)
+                        }
+                    }
+                }
+                
+                Section {
+                    Button("Add a new category") {
+                        showingAddCategorySheet = true
                     }
                 }
             }
             .scrollBounceBehavior(.basedOnSize)
             .navigationTitle("Change category of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $showingAddCategorySheet) {
+                AddCategoryView()
+            }
         }
     }
 }

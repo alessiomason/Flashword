@@ -3,10 +3,40 @@
   "strings" : {
     "%lld words" : {
       "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld word"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld words"
+                }
+              }
+            }
+          }
+        },
         "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld parole"
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld parola"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld parole"
+                }
+              }
+            }
           }
         }
       }
