@@ -14,19 +14,17 @@ struct CategoryListItemView: View {
     let secondaryColor: Color
     
     var body: some View {
-        NavigationLink(value: RouterDestination.category(category: category)) {
-            HStack {
-                ColorCircle(primaryColor: primaryColor, secondaryColor: secondaryColor)
-                    .padding(.vertical, 8)
-                    .padding(.trailing, 8)
-                    .fixedSize(horizontal: true, vertical: false)
-                
-                VStack(alignment: .leading) {
-                    Text(category.name)
-                        .foregroundStyle(secondaryColor)
-                    Text("\(category.words.count) words")
-                        .foregroundStyle(.secondary)
-                }
+        HStack {
+            ColorCircle(primaryColor: primaryColor, secondaryColor: secondaryColor)
+                .padding(.vertical, 8)
+                .padding(.trailing, 8)
+                .fixedSize(horizontal: true, vertical: false)
+            
+            VStack(alignment: .leading) {
+                Text(category.name)
+                    .foregroundStyle(secondaryColor)
+                Text("\(category.words.count) words")
+                    .foregroundStyle(.secondary)
             }
         }
     }

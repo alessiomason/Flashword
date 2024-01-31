@@ -93,7 +93,14 @@
       }
     },
     "Category color" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colore della categoria"
+          }
+        }
+      }
     },
     "Category: %@" : {
       "comment" : "The category the word belongs to",
@@ -126,12 +133,12 @@
         }
       }
     },
-    "Current category: %@" : {
+    "Change category of \"%@\"" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Categoria attuale: %@"
+            "value" : "Cambia la categoria di \"%@\""
           }
         }
       }
@@ -287,16 +294,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parola imparata %@"
-          }
-        }
-      }
-    },
-    "Word: %@" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Parola: %@"
           }
         }
       }

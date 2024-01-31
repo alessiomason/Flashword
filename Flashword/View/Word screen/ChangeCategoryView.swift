@@ -13,44 +13,49 @@ struct ChangeCategoryView: View {
     @Query(sort: Category.sortDescriptors) var categories: [Category]
     let word: Word
     
-    /// All categories but current one.
-    var filteredCategories: [Category] {
-        categories.filter { category in
-            category != word.category
-        }
-    }
-    
     var body: some View {
         NavigationStack {
-            VStack {
-                VStack(alignment: .leading) {
-                    Text("Word: \(word.term)")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                    Text("Current category: \(word.categoryName)")
+            List {
+                Button {
+                    word.category = nil
+                    dismiss()
+                } label: {
+                    SelectableCategoryListItemView(category: nil, selected: word.category == nil)
                 }
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
                 
-                List {
-                    if word.category != nil {
-                        Button("No category") {
-                            word.category = nil
-                            dismiss()
-                        }
-                    }
-                    
-                    ForEach(filteredCategories) { category in
-                        Button(category.name) {
-                            word.category = category
-                            dismiss()
-                        }
+                ForEach(categories) { category in
+                    Button {
+                        word.category = category
+                        dismiss()
+                    } label: {
+                        SelectableCategoryListItemView(category: category, selected: word.category == category)
                     }
                 }
-                .scrollBounceBehavior(.basedOnSize)
             }
-            .navigationTitle("Change category")
+            .scrollBounceBehavior(.basedOnSize)
+            .navigationTitle("Change category of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}
+
+struct SelectableCategoryListItemView: View {
+    let category: Category?
+    let selected: Bool
+    
+    var body: some View {
+        HStack {
+            if let category {
+                CategoryListItemView(category: category)
+            } else {
+                Text("No category")
+            }
+            
+            Spacer()
+            
+            if selected {
+                Image(systemName: "checkmark")
+            }
         }
     }
 }

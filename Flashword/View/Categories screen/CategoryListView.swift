@@ -28,7 +28,9 @@ struct CategoryListView: View {
             
             Section("Categories") {
                 ForEach(categories) { category in
-                    CategoryListItemView(category: category)
+                    NavigationLink(value: RouterDestination.category(category: category)) {
+                        CategoryListItemView(category: category)
+                    }
                 }
                 .onDelete(perform: removeCategories)
             }
