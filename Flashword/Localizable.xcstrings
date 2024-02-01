@@ -254,6 +254,16 @@
         }
       }
     },
+    "Modify the notes of \"%@\"" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica le note di \"%@\""
+          }
+        }
+      }
+    },
     "More" : {
       "localizations" : {
         "it" : {
@@ -287,6 +297,7 @@
       }
     },
     "Notes" : {
+      "comment" : "Button for modifying the word notes",
       "localizations" : {
         "it" : {
           "stringUnit" : {

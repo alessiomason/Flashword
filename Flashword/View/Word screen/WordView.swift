@@ -15,9 +15,8 @@ struct WordView: View {
     
     @State private var showingDictionary = false
     @State private var showingChangeCategorySheet = false
-    @State private var modifyingNotes = false
+    @State private var showingModifyNotesSheet = false
     @State private var showingDeleteAlert = false
-    @FocusState private var focusingTextEditor: Bool
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -37,48 +36,27 @@ struct WordView: View {
                     Text("Word learnt on \(word.learntOn.formatted(date: .complete, time: .shortened))", comment: "The time the word has been learnt, including the name of the day, the date and the time")
                         .padding(.bottom, 20)
                     
-                    Text(modifyingNotes ? "Modify the notes" : "Notes", comment: "Button for modifying the word notes")
+                    Text("Notes")
                         .padding(.bottom, 5)
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    if modifyingNotes {
-                        ZStack(alignment: .topLeading) {
-                            if word.notes.isEmpty {
-                                Text("Enter your notes here...")
-                                    .foregroundStyle(.secondary)
-                                    .padding(.top, 8)
-                                    .padding(.leading, 5)
-                            }
-                            
-                            TextEditor(text: $word.notes)
-                                .frame(height: 200)
-                                .scrollContentBackground(.hidden)
-                                .focused($focusingTextEditor)
-                                .onAppear {
-                                    focusingTextEditor = true
-                                }
-                        }
-                    } else {
-                        Text(word.notes)
-                            .padding(.top, 8)
-                            .padding(.horizontal, 5)
-                    }
+                    Text(word.notes)
+                        .padding(.top, 8)
+                        .padding(.horizontal, 5)
                     
-                    if !modifyingNotes {
-                        Button("Look up word") {
-                            showingDictionary = true
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 20)
-                        .background(
-                            .linearGradient(colors: [word.primaryColor, word.secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        )
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 15)
+                    Button("Look up word") {
+                        showingDictionary = true
                     }
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .background(
+                        .linearGradient(colors: [word.primaryColor, word.secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 15)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -86,17 +64,8 @@ struct WordView: View {
             .navigationTitle(word.term)
             .scrollBounceBehavior(.basedOnSize)
             .toolbar {
-                if modifyingNotes {
-                    Button {
-                        modifyingNotes = false
-                    } label: {
-                        Text("Done")
-                            .bold()
-                    }
-                } else {
-                    Button("Modify the notes", systemImage: "square.and.pencil") {
-                        modifyingNotes = true
-                    }
+                Button("Modify the notes", systemImage: "square.and.pencil") {
+                    showingModifyNotesSheet = true
                 }
                 
                 Menu {
@@ -114,6 +83,9 @@ struct WordView: View {
             .sheet(isPresented: $showingDictionary) {
                 DictionaryView(term: word.term)
                     .ignoresSafeArea()
+            }
+            .sheet(isPresented: $showingModifyNotesSheet) {
+                ModifyNotesView(word: word)
             }
             .sheet(isPresented: $showingChangeCategorySheet) {
                 ChangeCategoryView(word: word)
