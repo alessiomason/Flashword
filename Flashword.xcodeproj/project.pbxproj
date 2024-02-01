@@ -183,8 +183,8 @@
 				562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */,
 				5667625D2B60081C00C3F1CA /* DictionaryView.swift */,
 				56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */,
-				566762652B60087100C3F1CA /* WordView.swift */,
 				56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */,
+				566762652B60087100C3F1CA /* WordView.swift */,
 			);
 			path = "Word screen";
 			sourceTree = "<group>";
@@ -433,6 +433,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,6 +468,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
