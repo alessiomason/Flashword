@@ -34,7 +34,6 @@ Below you can find some links to follow me online!
                     Link(destination: URL(string: "https://www.alessiomason.it")!) {
                         HStack {
                             Image(systemName: "globe")
-                            
                             Text("Personal website")
                         }
                     }
@@ -61,27 +60,62 @@ Below you can find some links to follow me online!
                 }
                 
                 Section {
+                    Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword")!) {
+                        HStack {
+                            Image(systemName: "globe")
+                            Text("Flashword's website")
+                        }
+                    }
+                    
+                    /*
                     Link(destination: URL(string: "https://github.com/alessiomason")!) {
                         HStack {
                             Image("GitHub")
                                 .frame(width: 20)
-                                .blendingHorizontally(color: .gray)
+                                .blendingHorizontally(color: .blue)
                             
                             Text("Flashword repository")
                         }
                     }
-                    .disabled(true)
+                    */
                 } header: {
                     Text("Follow the app development")
                 } footer: {
                     VStack(alignment: .leading) {
-                        Text("I will soon publish the repository containing the source code for this app on my GitHub profile!")
+                        Text("I will soon publish the repository containing the source code for this app on my GitHub profile. In the meantime, you can visit the app's website.")
                             .padding(.bottom, 5)
                         
                         if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                             Text("App version: \(appVersion)")
                         }
                     }
+                }
+                
+                Section {
+                    Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/terms-of-use")!) {
+                        HStack {
+                            Image(systemName: "doc.text.magnifyingglass")
+                            Text("Terms of use")
+                        }
+                    }
+                    
+                    Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!) {
+                        HStack {
+                            Image(systemName: "lock")
+                            Text("Privacy policy")
+                        }
+                    }
+                    
+                    Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
+                        HStack {
+                            Image(systemName: "paperplane")
+                            Text("Contact me")
+                        }
+                    }
+                } header: {
+                    Text("App's terms of use and privacy policy")
+                } footer: {
+                    Text("Feel free to contact me for any comment, suggestion or problem you might have!")
                 }
             }
             .navigationTitle("About Flashword")

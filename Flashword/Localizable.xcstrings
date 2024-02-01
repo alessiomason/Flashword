@@ -101,6 +101,16 @@
         }
       }
     },
+    "App's terms of use and privacy policy" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termini di utilizzo e privacy policy dell'app"
+          }
+        }
+      }
+    },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
       "localizations" : {
@@ -193,6 +203,16 @@
         }
       }
     },
+    "Contact me" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contattami"
+          }
+        }
+      }
+    },
     "Continue" : {
       "localizations" : {
         "it" : {
@@ -253,6 +273,16 @@
         }
       }
     },
+    "Feel free to contact me for any comment, suggestion or problem you might have!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contattami pure per qualsiasi commento, suggerimento o problema che potresti avere!"
+          }
+        }
+      }
+    },
     "Flashword" : {
       "comment" : "The name of the app",
       "localizations" : {
@@ -265,11 +295,22 @@
       }
     },
     "Flashword repository" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Repository di Flashword"
+          }
+        }
+      }
+    },
+    "Flashword's website" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sito web di Flashword"
           }
         }
       }
@@ -314,12 +355,12 @@
         }
       }
     },
-    "I will soon publish the repository containing the source code for this app on my GitHub profile!" : {
+    "I will soon publish the repository containing the source code for this app on my GitHub profile. In the meantime, you can visit the app's website." : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pubblicherò presto il repository contenente il codice sorgente di questa app sul mio profilo GitHub!"
+            "value" : "Pubblicherò presto il repository contenente il codice sorgente di questa app sul mio profilo GitHub. Nel frattempo, puoi visitare il sito web dell'app."
           }
         }
       }
@@ -433,6 +474,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sito web personale"
+          }
+        }
+      }
+    },
+    "Privacy policy" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Terms of use" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termini di utilizzo"
           }
         }
       }
