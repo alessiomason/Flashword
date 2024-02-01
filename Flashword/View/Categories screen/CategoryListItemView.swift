@@ -24,7 +24,8 @@ struct CategoryListItemView: View {
                 Text(category.name)
                     .foregroundStyle(secondaryColor)
                 Text("\(category.words.count) words")
-                    .foregroundStyle(.secondary)
+                    .font(.subheadline)
+                    .foregroundStyle(secondaryColor.secondary)
             }
         }
     }
@@ -53,6 +54,10 @@ struct ColorCircle: View {
     }
 }
 
+#Preview("ColorCircle") {
+    ColorCircle(primaryColor: .mint, secondaryColor: .blue)
+}
+
 #Preview("CategoryListItemView") {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
@@ -67,8 +72,4 @@ struct ColorCircle: View {
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
-}
-
-#Preview("ColorCircle") {
-    ColorCircle(primaryColor: .mint, secondaryColor: .blue)
 }
