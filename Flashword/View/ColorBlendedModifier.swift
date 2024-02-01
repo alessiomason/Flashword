@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct ColorBlended: ViewModifier {
+public struct ColorBlendedVerticallyConstrained: ViewModifier {
     fileprivate var color: Color
     
     public func body(content: Content) -> some View {
@@ -23,9 +23,28 @@ public struct ColorBlended: ViewModifier {
     }
 }
 
+public struct ColorBlendedHorizontallyConstrained: ViewModifier {
+    fileprivate var color: Color
+    
+    public func body(content: Content) -> some View {
+        VStack {
+            ZStack {
+                content
+                color.blendMode(.sourceAtop)
+            }
+            .fixedSize(horizontal: true, vertical: false)
+            .drawingGroup(opaque: false)
+        }
+    }
+}
+
 extension View {
-    public func blending(color: Color) -> some View {
-        modifier(ColorBlended(color: color))
+    public func blendingVertically(color: Color) -> some View {
+        modifier(ColorBlendedVerticallyConstrained(color: color))
+    }
+    
+    public func blendingHorizontally(color: Color) -> some View {
+        modifier(ColorBlendedHorizontallyConstrained(color: color))
     }
 }
 
@@ -37,7 +56,7 @@ extension View {
             .resizable()
             .scaledToFit()
             .padding(10)
-            .blending(color: .mint)
+            .blendingVertically(color: .mint)
             .opacity(0.5)
     }
 }

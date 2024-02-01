@@ -51,6 +51,16 @@
         }
       }
     },
+    "About Flashword" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informazioni su Flashword"
+          }
+        }
+      }
+    },
     "Add" : {
       "localizations" : {
         "it" : {
@@ -77,6 +87,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tutte le parole"
+          }
+        }
+      }
+    },
+    "App version: %@" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versione dell'app: %@"
           }
         }
       }
@@ -244,6 +264,66 @@
         }
       }
     },
+    "Flashword repository" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repository di Flashword"
+          }
+        }
+      }
+    },
+    "Follow me online" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seguimi online"
+          }
+        }
+      }
+    },
+    "Follow the app development" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segui lo sviluppo dell'app"
+          }
+        }
+      }
+    },
+    "GitHub profile" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profilo GitHub"
+          }
+        }
+      }
+    },
+    "Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano 🇮🇹!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
+          }
+        }
+      }
+    },
+    "I will soon publish the repository containing the source code for this app on my GitHub profile!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pubblicherò presto il repository contenente il codice sorgente di questa app sul mio profilo GitHub!"
+          }
+        }
+      }
+    },
     "Look up word" : {
       "localizations" : {
         "it" : {
@@ -260,6 +340,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Definire una parola"
+          }
+        }
+      }
+    },
+    "Mastodon profile" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profilo Mastodon"
           }
         }
       }
@@ -333,6 +423,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "Personal website" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sito web personale"
           }
         }
       }

@@ -12,7 +12,9 @@ struct CategoryListView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.editMode) var editMode
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
+    
     @State private var showingAddCategorySheet = false
+    @State private var showingAboutScreen = false
     
     var isEditing: Bool {
         editMode?.wrappedValue.isEditing ?? false
@@ -43,6 +45,13 @@ struct CategoryListView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
+                Button("About Flashword", systemImage: "info.circle") {
+                    showingAboutScreen = true
+                }
+                .disabled(isEditing)
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
                 Button("Add a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
@@ -51,6 +60,9 @@ struct CategoryListView: View {
         }
         .sheet(isPresented: $showingAddCategorySheet) {
             AddCategoryView()
+        }
+        .sheet(isPresented: $showingAboutScreen) {
+            AboutView()
         }
     }
     
