@@ -10,7 +10,7 @@ import SwiftUI
 enum RouterDestination: Hashable {
     case allWordsCategory
     case category(category: Category)
-    case word(word: Word, primaryColor: Color, secondaryColor: Color)
+    case word(word: Word)
 }
 
 @Observable
@@ -24,8 +24,8 @@ class Router {
         return switch currentDestination {
             case let .category(category):
                 category.secondaryColor
-            case let .word(_, _, secondaryColor):
-                secondaryColor
+            case let .word(word):
+                word.category?.secondaryColor ?? .blue
             default:
                 nil
         }

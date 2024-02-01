@@ -18,11 +18,7 @@ struct WordCardsListView: View {
                 .listRowSeparator(.hidden)
             
             ForEach(words) { word in
-                WordCardView(
-                    word: word,
-                    primaryColor: category?.primaryColor ?? .mint,
-                    secondaryColor: category?.secondaryColor ?? .blue
-                )
+                WordCardView(word: word)
                     .listRowSeparator(.hidden)
             }
         }

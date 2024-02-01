@@ -52,7 +52,7 @@ struct NewWordCardView: View {
         
         let word = Word(term: trimmedTerm, learntOn: .now, category: category)
         modelContext.insert(word)
-        router.path.append(RouterDestination.word(word: word, primaryColor: primaryColor, secondaryColor: secondaryColor))
+        router.path.append(RouterDestination.word(word: word))
         term = ""
     }
 }

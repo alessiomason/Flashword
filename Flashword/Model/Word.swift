@@ -5,7 +5,7 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
-import Foundation
+import SwiftUI
 import SwiftData
 
 @Model
@@ -18,6 +18,13 @@ class Word {
     var categoryName: String {
         let localizedNoCategory = String(localized: "No category", comment: "The text to display in absence of a user-defined category")
         return category?.name ?? localizedNoCategory
+    }
+    
+    var primaryColor: Color {
+        category?.primaryColor ?? .mint
+    }
+    var secondaryColor: Color {
+        category?.secondaryColor ?? .blue
     }
     
     init(term: String, learntOn: Date, notes: String = "", category: Category? = nil) {

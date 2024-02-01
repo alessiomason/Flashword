@@ -11,12 +11,10 @@ import SwiftUI
 struct WordCardView: View {
     @Environment(Router.self) var router
     let word: Word
-    let primaryColor: Color
-    let secondaryColor: Color
     
     var body: some View {
         Button {
-            router.path.append(RouterDestination.word(word: word, primaryColor: primaryColor, secondaryColor: secondaryColor))
+            router.path.append(RouterDestination.word(word: word))
         } label: {
             ZStack(alignment: .topTrailing) {
                 VStack(alignment: .leading) {
@@ -44,7 +42,7 @@ struct WordCardView: View {
             .padding()
         }
         .background(
-            .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .linearGradient(colors: [word.primaryColor, word.secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
         .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 15))
@@ -57,7 +55,7 @@ struct WordCardView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return WordCardView(word: .example, primaryColor: .mint, secondaryColor: .blue)
+        return WordCardView(word: .example)
             .padding()
             .modelContainer(container)
             .environment(Router())
