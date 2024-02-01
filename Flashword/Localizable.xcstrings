@@ -173,6 +173,16 @@
         }
       }
     },
+    "Continue" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continua"
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "it" : {
@@ -240,6 +250,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Definisci parola"
+          }
+        }
+      }
+    },
+    "Looking up a word" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definire una parola"
           }
         }
       }
@@ -324,6 +344,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
+          }
+        }
+      }
+    },
+    "Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button." : {
+      "comment" : "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le definizioni delle parole sono fornite dai dizionari di sistema. Puoi gestire i tuoi dizionari dal pulsante \"Gestisci dizionari\"."
           }
         }
       }

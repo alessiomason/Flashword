@@ -13,7 +13,6 @@ struct WordView: View {
     @Environment(\.modelContext) var modelContext
     @Bindable var word: Word
     
-    @State private var showingDictionary = false
     @State private var showingChangeCategorySheet = false
     @State private var showingModifyNotesSheet = false
     @State private var showingDeleteAlert = false
@@ -45,18 +44,8 @@ struct WordView: View {
                         .padding(.top, 8)
                         .padding(.horizontal, 5)
                     
-                    Button("Look up word") {
-                        showingDictionary = true
-                    }
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .background(
-                        .linearGradient(colors: [word.primaryColor, word.secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 15)
+                    ShowDictionaryButton(word: word)
+                        .padding(.top, 15)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -79,10 +68,6 @@ struct WordView: View {
                 } label: {
                     Label("More", systemImage: "ellipsis.circle")
                 }
-            }
-            .sheet(isPresented: $showingDictionary) {
-                DictionaryView(term: word.term)
-                    .ignoresSafeArea()
             }
             .sheet(isPresented: $showingModifyNotesSheet) {
                 ModifyNotesView(word: word)
