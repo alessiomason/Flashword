@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AboutView: View {
+    @Environment(\.dismiss) var dismiss
+    
     let personalDescription = String(localized: """
 Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!
 This is the first app I develop, thank you so very much for even just trying it out!
@@ -33,7 +35,7 @@ Below you can find some links to follow me online!
                 Section("Follow me online") {
                     Link(destination: URL(string: "https://www.alessiomason.it")!) {
                         HStack {
-                            Image(systemName: "globe")
+                            Image(systemName: "person")
                             Text("Personal website")
                         }
                     }
@@ -109,17 +111,25 @@ Below you can find some links to follow me online!
                     Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
                         HStack {
                             Image(systemName: "paperplane")
+                                //.frame(width: 18)
                             Text("Contact me")
                         }
                     }
                 } header: {
-                    Text("App's terms of use and privacy policy")
+                    Text("About Flashword")
                 } footer: {
                     Text("Feel free to contact me for any comment, suggestion or problem you might have!")
                 }
             }
             .navigationTitle("About Flashword")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Close", systemImage: "multiply.circle") {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
 }

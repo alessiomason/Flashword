@@ -54,8 +54,16 @@ struct AddCategoryView: View {
             .navigationTitle("Add a new category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Button("Add", action: insertNewCategory)
-                    .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Close", systemImage: "multiply.circle") {
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem {
+                    Button("Add", action: insertNewCategory)
+                        .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                }
             }
             .alert("Cannot create a duplicate category!", isPresented: $showingDuplicateCategoryAlert) {
                 Button("OK") { }

@@ -101,16 +101,6 @@
         }
       }
     },
-    "App's terms of use and privacy policy" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Termini di utilizzo e privacy policy dell'app"
-          }
-        }
-      }
-    },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
       "localizations" : {
@@ -199,6 +189,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cambia la categoria di \"%@\""
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
           }
         }
       }

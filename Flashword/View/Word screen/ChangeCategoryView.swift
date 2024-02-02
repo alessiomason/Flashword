@@ -49,6 +49,13 @@ struct ChangeCategoryView: View {
             .sheet(isPresented: $showingAddCategorySheet) {
                 AddCategoryView()
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Close", systemImage: "multiply.circle") {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
 }
