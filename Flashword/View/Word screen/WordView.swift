@@ -23,6 +23,7 @@ struct WordView: View {
                 .resizable()
                 .scaledToFit()
                 .padding(10)
+                .frame(maxHeight: 300)
                 .blendingVertically(color: word.primaryColor)
                 .opacity(0.5)
             
