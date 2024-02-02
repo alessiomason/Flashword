@@ -49,8 +49,6 @@ class Word {
     /// The sort order used for querying the list of words.
     static let sortDescriptors = [SortDescriptor(\Word.learntOn, order: .reverse)]
     
-    #if DEBUG
     static let example = Word(term: "Swift", learntOn: .now, notes: "A swift testing word.")
     static let otherExample = Word(term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?")
-    #endif
 }

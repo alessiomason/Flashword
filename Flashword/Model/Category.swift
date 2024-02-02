@@ -53,8 +53,6 @@ class Category: Codable, Equatable {
     /// The sort order used for querying the list of categories.
     static let sortDescriptors = [SortDescriptor(\Category.name)]
     
-    #if DEBUG
     static let example = Category(name: "General", primaryColorComponents: ColorComponents(color: .mint), secondaryColorComponents: ColorComponents(color: .blue))
     static let otherExample = Category(name: "Italian words", primaryColorComponents: ColorComponents(color: .yellow), secondaryColorComponents: ColorComponents(color: .red))
-    #endif
 }
