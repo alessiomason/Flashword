@@ -51,6 +51,7 @@
 		566762632B60085E00C3F1CA /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
 		566762652B60087100C3F1CA /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		566762672B60093F00C3F1CA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		56B4E1202B6D017600E0983C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		56C775A42B6407FD00742E1F /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
 		56C775A62B64082A00742E1F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		56C775A82B64096B00742E1F /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		566762462B60071500C3F1CA /* Flashword */ = {
 			isa = PBXGroup;
 			children = (
+				56B4E1202B6D017600E0983C /* Info.plist */,
 				566762552B6007A200C3F1CA /* Model */,
 				566762562B6007A700C3F1CA /* View */,
 				566762472B60071500C3F1CA /* FlashwordApp.swift */,
@@ -419,6 +421,7 @@
 				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Flashword/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Flashword;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -454,6 +457,7 @@
 				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Flashword/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Flashword;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
