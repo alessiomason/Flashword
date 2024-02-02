@@ -33,6 +33,7 @@ struct ChangeCategoryView: View {
                         } label: {
                             SelectableCategoryListItemView(category: category, selected: word.category == category)
                         }
+                        .tint(category.secondaryColor)
                     }
                 }
                 

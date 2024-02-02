@@ -25,7 +25,7 @@ struct CategoryListItemView: View {
                     .foregroundStyle(secondaryColor)
                 Text("\(category.words.count) words")
                     .font(.subheadline)
-                    .foregroundStyle(secondaryColor.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
     }
