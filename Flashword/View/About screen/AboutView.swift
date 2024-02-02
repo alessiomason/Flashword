@@ -34,52 +34,51 @@ Below you can find some links to follow me online!
                 
                 Section("Follow me online") {
                     Link(destination: URL(string: "https://www.alessiomason.it")!) {
-                        HStack {
-                            Image(systemName: "person")
-                            Text("Personal website")
-                        }
+                        Label("Personal website", systemImage: "person")
                     }
                     
                     Link(destination: URL(string: "https://mastodon.social/@alemason")!) {
-                        HStack {
-                            Image("Mastodon")
-                                .frame(width: 20)
-                                .blendingHorizontally(color: .blue)
-                            
+                        Label {
                             Text("Mastodon profile")
+                        } icon: {
+                            Image("Mastodon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                                .blendingHorizontally(color: .blue)
                         }
                     }
                     
                     Link(destination: URL(string: "https://github.com/alessiomason")!) {
-                        HStack {
-                            Image("GitHub")
-                                .frame(width: 20)
-                                .blendingHorizontally(color: .blue)
-                            
+                        Label {
                             Text("GitHub profile")
+                        } icon: {
+                            Image("GitHub")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                                .blendingHorizontally(color: .blue)
                         }
                     }
                 }
                 
                 Section {
                     Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword")!) {
-                        HStack {
-                            Image(systemName: "globe")
-                            Text("Flashword's website")
-                        }
+                        Label("Flashword's website", systemImage: "globe")
                     }
                     
                     /*
                     Link(destination: URL(string: "https://github.com/alessiomason")!) {
-                        HStack {
-                            Image("GitHub")
-                                .frame(width: 20)
-                                .blendingHorizontally(color: .blue)
-                            
+                        Label {
                             Text("Flashword repository")
+                        } icon: {
+                            Image("GitHub")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                                .blendingHorizontally(color: .blue)
                         }
-                    }
-                    */
+                    }*/
                 } header: {
                     Text("Follow the app development")
                 } footer: {
@@ -95,25 +94,15 @@ Below you can find some links to follow me online!
                 
                 Section {
                     Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/terms-of-use")!) {
-                        HStack {
-                            Image(systemName: "doc.text.magnifyingglass")
-                            Text("Terms of use")
-                        }
+                        Label("Terms of use", systemImage: "doc.text.magnifyingglass")
                     }
                     
                     Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!) {
-                        HStack {
-                            Image(systemName: "lock")
-                            Text("Privacy policy")
-                        }
+                        Label("Privacy policy", systemImage: "lock")
                     }
                     
                     Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
-                        HStack {
-                            Image(systemName: "paperplane")
-                                //.frame(width: 18)
-                            Text("Contact me")
-                        }
+                        Label("Contact me", systemImage: "paperplane")
                     }
                 } header: {
                     Text("About Flashword")
