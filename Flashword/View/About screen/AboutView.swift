@@ -26,20 +26,25 @@ Below you can find some links to follow me online!
                             Image("Alessio 2021")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 75)
+                                .containerRelativeFrame(.horizontal) { width, axis in
+                                    width * 0.25
+                                }
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .padding(.horizontal, 8)
                             
                             Image(uiImage: .init(named: "AppIcon") ?? .init())
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 75)
+                                .containerRelativeFrame(.horizontal) { width, axis in
+                                    width * 0.25
+                                }
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .padding(.horizontal, 8)
                         }
                         .padding(.bottom, 8)
                         
                         Text(personalDescription)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 
