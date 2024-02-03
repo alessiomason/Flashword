@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AboutView: View {
     @Environment(\.dismiss) var dismiss
+    @ScaledMetric var iconHeight = 20.0
     
     let personalDescription = String(localized: """
 Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!
@@ -44,7 +45,7 @@ Below you can find some links to follow me online!
                             Image("Mastodon")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 20)
+                                .frame(height: iconHeight)
                                 .blendingHorizontally(color: .blue)
                         }
                     }
@@ -56,7 +57,7 @@ Below you can find some links to follow me online!
                             Image("GitHub")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 20)
+                                .frame(height: iconHeight)
                                 .blendingHorizontally(color: .blue)
                         }
                     }
@@ -75,7 +76,7 @@ Below you can find some links to follow me online!
                             Image("GitHub")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 20)
+                                .frame(height: iconHeight)
                                 .blendingHorizontally(color: .blue)
                         }
                     }*/
