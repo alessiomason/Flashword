@@ -21,13 +21,23 @@ Below you can find some links to follow me online!
         NavigationStack {
             List {
                 Section {
-                    HStack(alignment: .top) {
-                        Image("Alessio 2021")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 75)
-                            .clipShape(.circle)
-                            .padding(.trailing, 10)
+                    VStack {
+                        HStack {
+                            Image("Alessio 2021")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .padding(.horizontal, 8)
+                            
+                            Image(uiImage: .init(named: "AppIcon") ?? .init())
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 75)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                                .padding(.horizontal, 8)
+                        }
+                        .padding(.bottom, 8)
                         
                         Text(personalDescription)
                     }
