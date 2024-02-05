@@ -52,7 +52,7 @@ struct NewWordCardView: View {
     }
     
     func insertNewWord() {
-        let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
         let word = Word(term: trimmedTerm, learntOn: .now, category: category)
