@@ -32,7 +32,7 @@ Below you can find some links to follow me online!
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .padding(.horizontal, 8)
                             
-                            Image(uiImage: .init(named: "AppIcon") ?? .init())
+                            Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
                                 .resizable()
                                 .scaledToFit()
                                 .containerRelativeFrame(.horizontal) { width, axis in
