@@ -9,14 +9,25 @@ import SwiftData
 import SwiftUI
 
 struct ShowDictionaryButton: View {
-    let word: Word
+    let term: String
+    let primaryColor: Color
+    let secondaryColor: Color
+    var smaller = false
     
     @AppStorage("alreadyUsedDictionary") private var alreadyUsedDictionary = false
     @State private var showingDictionaryExplanationAlert = false
     @State private var showingDictionary = false
     
+    var buttonText: String {
+        if smaller {
+            String(localized: "Look up")
+        } else {
+            String(localized: "Look up word")
+        }
+    }
+    
     var body: some View {
-        Button("Look up word") {
+        Button(buttonText) {
             if alreadyUsedDictionary {
                 showingDictionary = true
             } else {
@@ -26,11 +37,10 @@ struct ShowDictionaryButton: View {
         .padding(.vertical, 10)
         .padding(.horizontal, 20)
         .background(
-            .linearGradient(colors: [word.primaryColor, word.secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
         .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .frame(maxWidth: .infinity)
         .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
             Button("Continue") {
                 alreadyUsedDictionary = true
@@ -40,7 +50,7 @@ struct ShowDictionaryButton: View {
             Text("Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button.", comment: "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.")
         }
         .sheet(isPresented: $showingDictionary) {
-            DictionaryView(term: word.term)
+            DictionaryView(term: term)
                 .ignoresSafeArea()
         }
     }
@@ -51,7 +61,7 @@ struct ShowDictionaryButton: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return ShowDictionaryButton(word: .example)
+        return ShowDictionaryButton(term: Word.example.term, primaryColor: Word.example.primaryColor, secondaryColor: Word.example.secondaryColor)
             .modelContainer(container)
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")

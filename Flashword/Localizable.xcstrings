@@ -396,6 +396,16 @@
         }
       }
     },
+    "Look up" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definisci"
+          }
+        }
+      }
+    },
     "Look up word" : {
       "localizations" : {
         "it" : {

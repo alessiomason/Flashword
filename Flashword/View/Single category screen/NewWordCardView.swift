@@ -21,15 +21,20 @@ struct NewWordCardView: View {
             TextField("Enter a new word", text: $term)
                 .textFieldStyle(.roundedBorder)
             
-            Button("Add", action: insertNewWord)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .buttonStyle(.plain)
-                .background(
-                    .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                )
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            HStack {
+                ShowDictionaryButton(term: term, primaryColor: .gray.opacity(0.25), secondaryColor: .gray, smaller: true)
+                
+                Button("Add", action: insertNewWord)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .buttonStyle(.plain)
+                    .background(
+                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .padding(.top, 8)
         }
         .padding()
         .overlay {
