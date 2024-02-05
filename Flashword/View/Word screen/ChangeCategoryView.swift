@@ -38,7 +38,7 @@ struct ChangeCategoryView: View {
                 }
                 
                 Section {
-                    Button("Add a new category") {
+                    Button("Insert a new category") {
                         showingAddCategorySheet = true
                     }
                 }

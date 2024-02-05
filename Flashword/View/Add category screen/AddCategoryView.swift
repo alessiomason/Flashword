@@ -51,7 +51,7 @@ struct AddCategoryView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .navigationTitle("Add a new category")
+            .navigationTitle("Insert a new category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

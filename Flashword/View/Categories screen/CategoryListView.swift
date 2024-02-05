@@ -28,13 +28,17 @@ struct CategoryListView: View {
                 }
             }
             
-            Section("Categories") {
-                ForEach(categories) { category in
-                    NavigationLink(value: RouterDestination.category(category: category)) {
-                        CategoryListItemView(category: category)
+            if !categories.isEmpty {
+                Section("Categories") {
+                    ForEach(categories) { category in
+                        NavigationLink(value: RouterDestination.category(category: category)) {
+                            CategoryListItemView(category: category)
+                        }
                     }
+                    .onDelete(perform: removeCategories)
                 }
-                .onDelete(perform: removeCategories)
+            } else {
+                NoCategoriesView(showingAddCategorySheet: $showingAddCategorySheet)
             }
         }
         .toolbar {
@@ -52,7 +56,7 @@ struct CategoryListView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Add a new category", systemImage: "plus") {
+                Button("Insert a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
                 .disabled(isEditing)
