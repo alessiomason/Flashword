@@ -71,16 +71,6 @@
         }
       }
     },
-    "Add a new category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiungi una nuova categoria"
-          }
-        }
-      }
-    },
     "All words" : {
       "localizations" : {
         "it" : {
@@ -233,6 +223,16 @@
         }
       }
     },
+    "Delete category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina categoria"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "it" : {
@@ -365,6 +365,57 @@
         }
       }
     },
+    "Insert a new category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci una nuova categoria"
+          }
+        }
+      }
+    },
+    "Insert a new category or enter the \"%@\" category to add your first word!" : {
+      "comment" : "The string interpolates the \"All words\" category name",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci una nuova categoria o entra nella categoria \"%@\" per aggiungere la tua prima parola!"
+          }
+        }
+      }
+    },
+    "Insert your first category!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci la tua prima categoria!"
+          }
+        }
+      }
+    },
+    "It's a bit quiet here!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutto tace qui!"
+          }
+        }
+      }
+    },
+    "Look up" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definisci"
+          }
+        }
+      }
+    },
     "Look up word" : {
       "localizations" : {
         "it" : {
@@ -391,6 +442,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profilo Mastodon"
+          }
+        }
+      }
+    },
+    "Modify category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica categoria"
+          }
+        }
+      }
+    },
+    "Modify the category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica la categoria"
           }
         }
       }
@@ -484,6 +555,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
           }
         }
       }

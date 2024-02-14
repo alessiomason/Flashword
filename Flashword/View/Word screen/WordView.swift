@@ -45,7 +45,8 @@ struct WordView: View {
                         .padding(.top, 8)
                         .padding(.horizontal, 5)
                     
-                    ShowDictionaryButton(word: word)
+                    ShowDictionaryButton(term: word.term, primaryColor: word.primaryColor, secondaryColor: word.secondaryColor)
+                        .frame(maxWidth: .infinity)
                         .padding(.top, 15)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

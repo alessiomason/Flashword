@@ -13,16 +13,18 @@ struct WordCardsListView: View {
     var words: [Word]
     
     var body: some View {
-        List {
-            NewWordCardView(category: category)
-                .listRowSeparator(.hidden)
-            
-            ForEach(words) { word in
-                WordCardView(word: word)
-                    .listRowSeparator(.hidden)
+        ScrollView {
+            LazyVStack {
+                NewWordCardView(category: category)
+                    .padding(.bottom, 8)
+                
+                ForEach(words) { word in
+                    WordCardView(word: word)
+                        .padding(.vertical, 5)
+                }
             }
+            .padding(.horizontal)
         }
-        .listStyle(.plain)
     }
     
     init(category: Category? = nil, words: [Word]) {

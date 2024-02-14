@@ -10,7 +10,11 @@ import SwiftUI
 
 struct WordCardView: View {
     @Environment(Router.self) var router
+    @Environment(\.modelContext) var modelContext
     let word: Word
+    
+    @State private var showingChangeCategorySheet = false
+    @State private var showingDeleteAlert = false
     
     var body: some View {
         Button {
@@ -47,6 +51,26 @@ struct WordCardView: View {
         .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .shadow(radius: 5)
+        .contextMenu {
+            Button("Change category", systemImage: "tray.full") {
+                showingChangeCategorySheet = true
+            }
+            
+            Button("Delete", systemImage: "trash", role: .destructive) {
+                showingDeleteAlert = true
+            }
+        }
+        .sheet(isPresented: $showingChangeCategorySheet) {
+            ChangeCategoryView(word: word)
+        }
+        .alert("Are you sure you want to delete the word \"\(word.term)\"?", isPresented: $showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive, action: deleteWord)
+        }
+    }
+    
+    func deleteWord() {
+        modelContext.delete(word)
     }
 }
 

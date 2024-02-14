@@ -9,7 +9,11 @@ import SwiftUI
 import SwiftData
 
 @Model
-class Word {
+class Word: Codable {
+    enum CodingKeys: CodingKey {
+        case term, learntOn, notes, category
+    }
+    
     let term: String
     let learntOn: Date
     var notes: String
@@ -32,6 +36,39 @@ class Word {
         self.learntOn = learntOn
         self.notes = notes
         self.category = category
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.term = try container.decode(String.self, forKey: .term)
+        let learntOn = try container.decode(String.self, forKey: .learntOn)
+        self.learntOn = try Date(learntOn, strategy: .iso8601)
+        self.notes = try container.decode(String.self, forKey: .notes)
+        self.category = try container.decode(Category?.self, forKey: .category)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.term, forKey: .term)
+        try container.encode(self.learntOn, forKey: .learntOn)
+        try container.encode(self.notes, forKey: .notes)
+        try container.encode(self.category, forKey: .category)
+    }
+    
+    func decodeWords(from json: String) throws -> [Word] {
+        let data = json.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode([Word].self, from: data)
+    }
+    
+    func encodeWords(_ words: [Word]) throws -> String {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = .prettyPrinted
+        
+        let encodedWords = try encoder.encode(words)
+        return String(data: encodedWords, encoding: .utf8)!
     }
     
     /// The predicate used for querying the list of words.

@@ -21,15 +21,20 @@ struct NewWordCardView: View {
             TextField("Enter a new word", text: $term)
                 .textFieldStyle(.roundedBorder)
             
-            Button("Add", action: insertNewWord)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
-                .buttonStyle(.plain)
-                .background(
-                    .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                )
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            HStack {
+                ShowDictionaryButton(term: term, primaryColor: .gray.opacity(0.25), secondaryColor: .gray, smaller: true)
+                
+                Button("Add", action: insertNewWord)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .buttonStyle(.plain)
+                    .background(
+                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .padding(.top, 8)
         }
         .padding()
         .overlay {
@@ -47,7 +52,7 @@ struct NewWordCardView: View {
     }
     
     func insertNewWord() {
-        let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
         let word = Word(term: trimmedTerm, learntOn: .now, category: category)

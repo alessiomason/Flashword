@@ -38,7 +38,7 @@ struct ChangeCategoryView: View {
                 }
                 
                 Section {
-                    Button("Add a new category") {
+                    Button("Insert a new category") {
                         showingAddCategorySheet = true
                     }
                 }
@@ -47,7 +47,7 @@ struct ChangeCategoryView: View {
             .navigationTitle("Change category of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingAddCategorySheet) {
-                AddCategoryView()
+                AddModifyCategoryView()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
