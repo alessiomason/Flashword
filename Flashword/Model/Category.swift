@@ -48,6 +48,22 @@ class Category: Codable, Equatable {
         try container.encode(self.secondaryColorComponents, forKey: .secondaryColor)
     }
     
+    func decodeCategories(from json: String) throws -> [Category] {
+        let data = json.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try decoder.decode([Category].self, from: data)
+    }
+    
+    func encodeCategories(_ categories: [Category]) throws -> String {
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = .prettyPrinted
+        
+        let encodedCategories = try encoder.encode(categories)
+        return String(data: encodedCategories, encoding: .utf8)!
+    }
+    
     static func ==(lhs: Category, rhs: Category) -> Bool {
         lhs.name == rhs.name
     }
