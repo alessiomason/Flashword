@@ -54,14 +54,14 @@ class Category: Codable, Equatable {
         try container.encode(self.symbol, forKey: .symbol)
     }
     
-    func decodeCategories(from json: String) throws -> [Category] {
+    static func decodeCategories(from json: String) throws -> [Category] {
         let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return try decoder.decode([Category].self, from: data)
     }
     
-    func encodeCategories(_ categories: [Category]) throws -> String {
+    static func encodeCategories(_ categories: [Category]) throws -> String {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
