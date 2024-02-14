@@ -21,9 +21,8 @@ struct AddModifyCategoryView: View {
     
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
-    @State private var selectedColorChoice: ColorChoice = ColorChoice.choices[0]
-    
-    let columns = [GridItem(.adaptive(minimum: 60))]
+    @State private var selectedColorChoice = ColorChoice.choices[0]
+    @State private var selectedSymbol = Symbol.allCases[0]
     
     var body: some View {
         NavigationStack {
@@ -35,27 +34,11 @@ struct AddModifyCategoryView: View {
                 }
                 
                 Section("Category color") {
-                    LazyVGrid(columns: columns) {
-                        ForEach(ColorChoice.choices) { colorChoice in
-                            Button {
-                                selectedColorChoice = colorChoice
-                            } label: {
-                                ZStack {
-                                    ColorCircle(primaryColor: colorChoice.primaryColor, secondaryColor: colorChoice.secondaryColor)
-                                        .frame(width: 60)
-                                    
-                                    if colorChoice == selectedColorChoice {
-                                        Image(systemName: "checkmark")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 25)
-                                            .foregroundStyle(.white)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .buttonStyle(.plain)
+                    ChooseColorView(selectedColorChoice: $selectedColorChoice)
+                }
+                
+                Section("Symbol for the category") {
+                    ChooseSymbolView(selectedColorChoice: selectedColorChoice, selectedSymbol: $selectedSymbol)
                 }
             }
             .navigationTitle(modifying ? "Modify the category" : "Insert a new category")
@@ -75,7 +58,7 @@ struct AddModifyCategoryView: View {
                             insertNewCategory()
                         }
                     }
-                    .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .alert("Cannot create a duplicate category!", isPresented: $showingDuplicateCategoryAlert) {
@@ -97,6 +80,7 @@ struct AddModifyCategoryView: View {
                 colorChoice.id == category.colorChoiceId
             }
             self._selectedColorChoice = State(initialValue: colorChoice ?? ColorChoice.choices[0])
+            self._selectedSymbol = State(initialValue: category.symbol ?? Symbol.allCases[0])
         }
     }
     
@@ -123,7 +107,7 @@ struct AddModifyCategoryView: View {
             let primaryColorComponents = ColorComponents(resolvedColor: resolvedPrimaryColor)
             let secondaryColorComponents = ColorComponents(resolvedColor: resolvedSecondaryColor)
             
-            let category = Category(name: name, primaryColorComponents: primaryColorComponents, secondaryColorComponents: secondaryColorComponents, colorChoiceId: selectedColorChoice.id)
+            let category = Category(name: name, primaryColorComponents: primaryColorComponents, secondaryColorComponents: secondaryColorComponents, colorChoiceId: selectedColorChoice.id, symbol: selectedSymbol)
             modelContext.insert(category)
             dismiss()
         } else {
@@ -142,6 +126,7 @@ struct AddModifyCategoryView: View {
         if duplicatesCount == 0 || duplicatesCount == nil {
             categoryToBeModified.name = name
             categoryToBeModified.colorChoiceId = selectedColorChoice.id
+            categoryToBeModified.symbol = selectedSymbol
             
             let resolvedPrimaryColor = selectedColorChoice.primaryColor.resolve(in: environment)
             let resolvedSecondaryColor = selectedColorChoice.secondaryColor.resolve(in: environment)

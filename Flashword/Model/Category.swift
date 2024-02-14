@@ -11,13 +11,14 @@ import SwiftData
 @Model
 class Category: Codable, Equatable {
     enum CodingKeys: CodingKey {
-        case name, primaryColor, secondaryColor
+        case name, primaryColor, secondaryColor, colorChoiceId, symbol
     }
     
     @Attribute(.unique) var name: String
     var primaryColorComponents: ColorComponents
     var secondaryColorComponents: ColorComponents
     var colorChoiceId: UUID? = nil
+    var symbol: Symbol? = nil
     var words = [Word]()
     
     var primaryColor: Color {
@@ -27,11 +28,12 @@ class Category: Codable, Equatable {
         Color(colorComponents: secondaryColorComponents)
     }
     
-    init(name: String, primaryColorComponents: ColorComponents, secondaryColorComponents: ColorComponents, colorChoiceId: UUID? = nil) {
+    init(name: String, primaryColorComponents: ColorComponents, secondaryColorComponents: ColorComponents, colorChoiceId: UUID? = nil, symbol: Symbol? = nil) {
         self.name = name
         self.primaryColorComponents = primaryColorComponents
         self.secondaryColorComponents = secondaryColorComponents
         self.colorChoiceId = colorChoiceId
+        self.symbol = symbol
     }
     
     required init(from decoder: Decoder) throws {
@@ -39,6 +41,8 @@ class Category: Codable, Equatable {
         self.name = try container.decode(String.self, forKey: .name)
         self.primaryColorComponents = try container.decode(ColorComponents.self, forKey: .primaryColor)
         self.secondaryColorComponents = try container.decode(ColorComponents.self, forKey: .secondaryColor)
+        self.colorChoiceId = try container.decode(UUID.self, forKey: .colorChoiceId)
+        self.symbol = try container.decode(Symbol.self, forKey: .symbol)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -46,6 +50,8 @@ class Category: Codable, Equatable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.primaryColorComponents, forKey: .primaryColor)
         try container.encode(self.secondaryColorComponents, forKey: .secondaryColor)
+        try container.encode(self.colorChoiceId, forKey: .colorChoiceId)
+        try container.encode(self.symbol, forKey: .symbol)
     }
     
     func decodeCategories(from json: String) throws -> [Category] {
@@ -71,6 +77,6 @@ class Category: Codable, Equatable {
     /// The sort order used for querying the list of categories.
     static let sortDescriptors = [SortDescriptor(\Category.name)]
     
-    static let example = Category(name: "General", primaryColorComponents: ColorComponents(color: .mint), secondaryColorComponents: ColorComponents(color: .blue))
-    static let otherExample = Category(name: "Italian words", primaryColorComponents: ColorComponents(color: .yellow), secondaryColorComponents: ColorComponents(color: .red), colorChoiceId: ColorChoice.choices[1].id)
+    static let example = Category(name: "General", primaryColorComponents: ColorComponents(color: .mint), secondaryColorComponents: ColorComponents(color: .blue), colorChoiceId: ColorChoice.choices[0].id, symbol: .bolt)
+    static let otherExample = Category(name: "Italian words", primaryColorComponents: ColorComponents(color: .yellow), secondaryColorComponents: ColorComponents(color: .red), colorChoiceId: ColorChoice.choices[1].id, symbol: .car)
 }
