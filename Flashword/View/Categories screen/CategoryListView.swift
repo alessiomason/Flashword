@@ -13,8 +13,9 @@ struct CategoryListView: View {
     @Environment(\.editMode) var editMode
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     
-    @State private var showingAddCategorySheet = false
     @State private var showingAboutScreen = false
+    @State private var showingAddCategorySheet = false
+    @State private var categoryToBeModified: Category? = nil
     
     var isEditing: Bool {
         editMode?.wrappedValue.isEditing ?? false
@@ -33,6 +34,20 @@ struct CategoryListView: View {
                     ForEach(categories) { category in
                         NavigationLink(value: RouterDestination.category(category: category)) {
                             CategoryListItemView(category: category)
+                        }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                removeCategory(category: category)
+                            } label: {
+                                Label("Delete category", systemImage: "trash")
+                            }
+                            
+                            Button {
+                                print("Modifying \(category.name)")
+                                categoryToBeModified = category
+                            } label: {
+                                Label("Modify category", systemImage: "pencil")
+                            }
                         }
                     }
                     .onDelete(perform: removeCategories)
@@ -62,12 +77,19 @@ struct CategoryListView: View {
                 .disabled(isEditing)
             }
         }
-        .sheet(isPresented: $showingAddCategorySheet) {
-            AddCategoryView()
-        }
         .sheet(isPresented: $showingAboutScreen) {
             AboutView()
         }
+        .sheet(isPresented: $showingAddCategorySheet) {
+            AddModifyCategoryView()
+        }
+        .sheet(item: $categoryToBeModified) { category in
+            AddModifyCategoryView(category: category)
+        }
+    }
+    
+    func removeCategory(category: Category) {
+        modelContext.delete(category)
     }
     
     func removeCategories(at offsets: IndexSet) {

@@ -12,7 +12,7 @@ struct ColorChoice: Equatable, Identifiable {
     let primaryColor: Color
     let secondaryColor: Color
     
-    static let colorChoices = [
+    static let choices = [
         ColorChoice(primaryColor: .mint, secondaryColor: .blue),
         ColorChoice(primaryColor: .yellow, secondaryColor: .red),
         ColorChoice(primaryColor: .purple, secondaryColor: .indigo),

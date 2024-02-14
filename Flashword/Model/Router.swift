@@ -25,7 +25,7 @@ class Router {
             case let .category(category):
                 category.secondaryColor
             case let .word(word):
-                word.category?.secondaryColor ?? .blue
+                word.category?.secondaryColor ?? nil
             default:
                 nil
         }

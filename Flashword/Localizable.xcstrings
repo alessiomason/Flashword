@@ -223,6 +223,16 @@
         }
       }
     },
+    "Delete category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina categoria"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "it" : {
@@ -436,6 +446,26 @@
         }
       }
     },
+    "Modify category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica categoria"
+          }
+        }
+      }
+    },
+    "Modify the category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica la categoria"
+          }
+        }
+      }
+    },
     "Modify the notes" : {
       "localizations" : {
         "it" : {
@@ -525,6 +555,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
           }
         }
       }

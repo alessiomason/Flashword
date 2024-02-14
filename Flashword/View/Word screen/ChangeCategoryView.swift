@@ -47,7 +47,7 @@ struct ChangeCategoryView: View {
             .navigationTitle("Change category of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showingAddCategorySheet) {
-                AddCategoryView()
+                AddModifyCategoryView()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

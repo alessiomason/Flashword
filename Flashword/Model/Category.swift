@@ -14,9 +14,10 @@ class Category: Codable, Equatable {
         case name, primaryColor, secondaryColor
     }
     
-    @Attribute(.unique) let name: String
-    let primaryColorComponents: ColorComponents
-    let secondaryColorComponents: ColorComponents
+    @Attribute(.unique) var name: String
+    var primaryColorComponents: ColorComponents
+    var secondaryColorComponents: ColorComponents
+    var colorChoiceId: UUID? = nil
     var words = [Word]()
     
     var primaryColor: Color {
@@ -26,10 +27,11 @@ class Category: Codable, Equatable {
         Color(colorComponents: secondaryColorComponents)
     }
     
-    init(name: String, primaryColorComponents: ColorComponents, secondaryColorComponents: ColorComponents) {
+    init(name: String, primaryColorComponents: ColorComponents, secondaryColorComponents: ColorComponents, colorChoiceId: UUID? = nil) {
         self.name = name
         self.primaryColorComponents = primaryColorComponents
         self.secondaryColorComponents = secondaryColorComponents
+        self.colorChoiceId = colorChoiceId
     }
     
     required init(from decoder: Decoder) throws {
@@ -54,5 +56,5 @@ class Category: Codable, Equatable {
     static let sortDescriptors = [SortDescriptor(\Category.name)]
     
     static let example = Category(name: "General", primaryColorComponents: ColorComponents(color: .mint), secondaryColorComponents: ColorComponents(color: .blue))
-    static let otherExample = Category(name: "Italian words", primaryColorComponents: ColorComponents(color: .yellow), secondaryColorComponents: ColorComponents(color: .red))
+    static let otherExample = Category(name: "Italian words", primaryColorComponents: ColorComponents(color: .yellow), secondaryColorComponents: ColorComponents(color: .red), colorChoiceId: ColorChoice.choices[1].id)
 }
