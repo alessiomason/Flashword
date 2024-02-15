@@ -40,9 +40,11 @@ struct CategoryView: View {
             container.mainContext.insert($0)
         }
         
-        return CategoryView(category: .example)
-            .modelContainer(container)
-            .environment(Router())
+        return NavigationStack {
+            CategoryView(category: .example)
+        }
+        .modelContainer(container)
+        .environment(Router())
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }

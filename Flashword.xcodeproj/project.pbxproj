@@ -21,6 +21,10 @@
 		566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762632B60085E00C3F1CA /* WordCardsListView.swift */; };
 		566762662B60087100C3F1CA /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762652B60087100C3F1CA /* WordView.swift */; };
 		566762682B60093F00C3F1CA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 566762672B60093F00C3F1CA /* Localizable.xcstrings */; };
+		5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3D92B7D10BB008EEB16 /* Symbol.swift */; };
+		5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */; };
+		5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */; };
+		5684D3E12B7E059C008EEB16 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 5684D3E02B7E059C008EEB16 /* OrderedCollections */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
 		56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A42B6407FD00742E1F /* ColorComponents.swift */; };
 		56C775A72B64082A00742E1F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A62B64082A00742E1F /* Category.swift */; };
@@ -31,7 +35,7 @@
 		56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */; };
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
-		56CF966D2B6BA498008C4AA6 /* ColorCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966C2B6BA498008C4AA6 /* ColorCircle.swift */; };
+		56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */; };
 		56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8C3A32B6AA23900D518AA /* ColorChoice.swift */; };
 		56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,9 @@
 		566762632B60085E00C3F1CA /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
 		566762652B60087100C3F1CA /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		566762672B60093F00C3F1CA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		5684D3D92B7D10BB008EEB16 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
+		5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSymbolView.swift; sourceTree = "<group>"; };
 		568CE83D2B70F77300A8482D /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
 		56B4E1202B6D017600E0983C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		56C775A42B6407FD00742E1F /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
@@ -63,7 +70,7 @@
 		56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyNotesView.swift; sourceTree = "<group>"; };
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		56CF966C2B6BA498008C4AA6 /* ColorCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCircle.swift; sourceTree = "<group>"; };
+		56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
 		56D8C3A32B6AA23900D518AA /* ColorChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoice.swift; sourceTree = "<group>"; };
 		56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5684D3E12B7E059C008EEB16 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +132,7 @@
 				56D8C3A32B6AA23900D518AA /* ColorChoice.swift */,
 				56C775A42B6407FD00742E1F /* ColorComponents.swift */,
 				566762572B6007B400C3F1CA /* Router.swift */,
+				5684D3D92B7D10BB008EEB16 /* Symbol.swift */,
 				566762592B6007D800C3F1CA /* Word.swift */,
 			);
 			path = Model;
@@ -132,13 +141,13 @@
 		566762562B6007A700C3F1CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5667625B2B60080000C3F1CA /* AppView.swift */,
+				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56CF96692B6BA209008C4AA6 /* About screen */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
-				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
-				5667625B2B60080000C3F1CA /* AppView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				56C775AA2B640BA700742E1F /* AddModifyCategoryView.swift */,
+				5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */,
+				5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */,
 			);
 			path = "Add category screen";
 			sourceTree = "<group>";
@@ -162,9 +173,9 @@
 		56DDCB5B2B6A8E8D002E4644 /* Categories screen */ = {
 			isa = PBXGroup;
 			children = (
+				56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */,
 				56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */,
 				56C775A82B64096B00742E1F /* CategoryListView.swift */,
-				56CF966C2B6BA498008C4AA6 /* ColorCircle.swift */,
 				568CE83D2B70F77300A8482D /* NoCategoriesView.swift */,
 			);
 			path = "Categories screen";
@@ -210,6 +221,9 @@
 			dependencies = (
 			);
 			name = Flashword;
+			packageProductDependencies = (
+				5684D3E02B7E059C008EEB16 /* OrderedCollections */,
+			);
 			productName = Flashword;
 			productReference = 566762442B60071500C3F1CA /* Flashword.app */;
 			productType = "com.apple.product-type.application";
@@ -238,6 +252,9 @@
 				Base,
 			);
 			mainGroup = 5667623B2B60071500C3F1CA;
+			packageReferences = (
+				5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 566762452B60071500C3F1CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -272,8 +289,10 @@
 				566762582B6007B400C3F1CA /* Router.swift in Sources */,
 				562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */,
 				56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */,
+				5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */,
 				566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */,
-				56CF966D2B6BA498008C4AA6 /* ColorCircle.swift in Sources */,
+				5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */,
+				56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */,
 				56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */,
 				56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */,
 				5667625C2B60080000C3F1CA /* AppView.swift in Sources */,
@@ -286,6 +305,7 @@
 				566762622B60084C00C3F1CA /* WordCardView.swift in Sources */,
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
+				5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */,
 				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,
 				56C775A72B64082A00742E1F /* Category.swift in Sources */,
 				568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */,
@@ -510,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5684D3E02B7E059C008EEB16 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5667623C2B60071500C3F1CA /* Project object */;
 }
