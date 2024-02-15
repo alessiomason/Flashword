@@ -84,7 +84,7 @@ private struct ChooseSymbolGridView: View {
                     Image(systemName: symbol.rawValue)
                         .font(.title)
                         .padding(10)
-                        .foregroundStyle(selectedSymbol == symbol ? .white : .black)
+                        .foregroundStyle(selectedSymbol == symbol ? .white : .primary)
                         .background {
                             if selectedSymbol == symbol {
                                 Circle()
