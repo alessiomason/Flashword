@@ -40,6 +40,7 @@ struct ChooseSymbolView: View {
         }
         .navigationTitle("Choose a symbol for the category")
         .navigationBarTitleDisplayMode(.inline)
+        .sensoryFeedback(.impact, trigger: selectedSymbol)
     }
 }
 
@@ -65,6 +66,7 @@ struct ChooseHighlightedSymbolView: View {
         // Constant binding as, in this case, the previously selected symbol must not change, to ensure
         // that it is still displayed even if the current selection changes.
         ChooseSymbolGridView(selectedColorChoice: selectedColorChoice, symbols: symbols, previouslySelectedSymbol: .constant(previouslySelectedSymbol), selectedSymbol: $selectedSymbol)
+            .sensoryFeedback(.impact, trigger: selectedSymbol)
     }
 }
 

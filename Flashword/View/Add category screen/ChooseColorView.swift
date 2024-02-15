@@ -33,6 +33,7 @@ struct ChooseColorView: View {
             }
         }
         .buttonStyle(.plain)
+        .sensoryFeedback(.impact, trigger: selectedColorChoice)
     }
 }
 
