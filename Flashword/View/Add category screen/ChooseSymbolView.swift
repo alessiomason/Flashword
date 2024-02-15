@@ -51,11 +51,12 @@ struct ChooseHighlightedSymbolView: View {
     // This ensures the list of symbols contains the one previously selected and that the list does not change
     // even if a new selection is made.  It only changes when a selection is made from ChooseSymbolView.
     var symbols: [Symbol] {
-        if Symbol.highlighted.contains(previouslySelectedSymbol) {
-            return Symbol.highlighted
+        if Symbol.suggested.contains(previouslySelectedSymbol) {
+            return Symbol.suggested
         } else {
-            var expandedList = Symbol.highlighted
+            var expandedList = Symbol.suggested
             expandedList.insert(previouslySelectedSymbol, at: 0)
+            expandedList.removeLast()   // to ensure the list still contains only 16 elements
             return expandedList
         }
     }

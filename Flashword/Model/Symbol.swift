@@ -33,6 +33,7 @@ enum Symbol: String, CaseIterable, Codable {
     // MARK: Maps and transports
     case mappin = "mappin"
     case map = "map"
+    case signpostRightAndLeft = "signpost.right.and.left"
     case binoculars = "binoculars"
     case bicycle = "bicycle"
     case car = "car"
@@ -63,7 +64,6 @@ enum Symbol: String, CaseIterable, Codable {
     case stethoscope = "stethoscope"
     case printer = "printer"
     case lightbulb = "lightbulb"
-    case signpostRightAndLeft = "signpost.right.and.left"
     case key = "key"
     case eyeglasses = "eyeglasses"
     case clock = "clock"
@@ -99,9 +99,25 @@ enum Symbol: String, CaseIterable, Codable {
     case snowboard = "snowboard"
     case surfboard = "surfboard"
     
-    static let highlighted = [
-        Symbol.person,
-        .sunMax
+    static let suggested = [
+        Symbol.sunMax,
+        .sparkles,
+        .bolt,
+        .rainbow,
+        .leaf,
+        .map,
+        .signpostRightAndLeft,
+        .binoculars,
+        .graduationCap,
+        .camera,
+        .booksVertical,
+        .lightbulb,
+        .key,
+        .clock,
+        .headphones,
+        .tv,
+        .heart,
+        .trophy
     ]
     
     static let weather = [
@@ -130,6 +146,7 @@ enum Symbol: String, CaseIterable, Codable {
     static let transports = [
         Symbol.mappin,
         .map,
+        .signpostRightAndLeft,
         .binoculars,
         .bicycle,
         .car,
@@ -161,7 +178,6 @@ enum Symbol: String, CaseIterable, Codable {
         .stethoscope,
         .printer,
         .lightbulb,
-        .signpostRightAndLeft,
         .key,
         .eyeglasses,
         .clock,

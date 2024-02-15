@@ -22,9 +22,9 @@ struct AddModifyCategoryView: View {
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
     @State private var selectedColorChoice = ColorChoice.choices[0]!
-    // the previously selected symbol, to be shown in the hightlighted symbols list even if the current one changes
-    @State private var previouslySelectedSymbol = Symbol.highlighted[0]
-    @State private var selectedSymbol = Symbol.highlighted[0]
+    // the previously selected symbol, to be shown in the suggested symbols list even if the current one changes
+    @State private var previouslySelectedSymbol = Symbol.suggested[0]
+    @State private var selectedSymbol = Symbol.suggested[0]
     
     var body: some View {
         NavigationStack {
