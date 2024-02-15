@@ -43,7 +43,6 @@ struct CategoryListView: View {
                             }
                             
                             Button {
-                                print("Modifying \(category.name)")
                                 categoryToBeModified = category
                             } label: {
                                 Label("Modify category", systemImage: "pencil")

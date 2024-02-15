@@ -21,7 +21,7 @@ struct AddModifyCategoryView: View {
     
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
-    @State private var selectedColorChoice = ColorChoice.choices[0]
+    @State private var selectedColorChoice = ColorChoice.choices[0]!
     @State private var selectedSymbol = Symbol.allCases[0]
     
     var body: some View {
@@ -76,10 +76,8 @@ struct AddModifyCategoryView: View {
         if let category {
             self._name = State(initialValue: category.name)
             
-            let colorChoice = ColorChoice.choices.first { colorChoice in
-                colorChoice.id == category.colorChoiceId
-            }
-            self._selectedColorChoice = State(initialValue: colorChoice ?? ColorChoice.choices[0])
+            let colorChoice = ColorChoice.choices[category.colorChoiceId] ?? ColorChoice.choices[0]!
+            self._selectedColorChoice = State(initialValue: colorChoice)
             self._selectedSymbol = State(initialValue: category.symbol ?? Symbol.allCases[0])
         }
     }
@@ -102,12 +100,7 @@ struct AddModifyCategoryView: View {
         // Throwing an error if this query fails did not seem necessary (thanks to SwiftData still
         // handling everything correctly, albeit transparently to the user)
         if duplicatesCount == 0 || duplicatesCount == nil {
-            let resolvedPrimaryColor = selectedColorChoice.primaryColor.resolve(in: environment)
-            let resolvedSecondaryColor = selectedColorChoice.secondaryColor.resolve(in: environment)
-            let primaryColorComponents = ColorComponents(resolvedColor: resolvedPrimaryColor)
-            let secondaryColorComponents = ColorComponents(resolvedColor: resolvedSecondaryColor)
-            
-            let category = Category(name: name, primaryColorComponents: primaryColorComponents, secondaryColorComponents: secondaryColorComponents, colorChoiceId: selectedColorChoice.id, symbol: selectedSymbol)
+            let category = Category(name: name, colorChoiceId: selectedColorChoice.id, symbol: selectedSymbol)
             modelContext.insert(category)
             dismiss()
         } else {
@@ -119,21 +112,12 @@ struct AddModifyCategoryView: View {
         guard let categoryToBeModified else { fatalError("Missing category to be modified.") }
         
         // if changing name, check that no duplicates exist
-        print(categoryToBeModified.name)
-        print(name)
         let duplicatesCount = categoryToBeModified.name != name ? fetchDuplicates() : 0
         
         if duplicatesCount == 0 || duplicatesCount == nil {
             categoryToBeModified.name = name
             categoryToBeModified.colorChoiceId = selectedColorChoice.id
             categoryToBeModified.symbol = selectedSymbol
-            
-            let resolvedPrimaryColor = selectedColorChoice.primaryColor.resolve(in: environment)
-            let resolvedSecondaryColor = selectedColorChoice.secondaryColor.resolve(in: environment)
-            let primaryColorComponents = ColorComponents(resolvedColor: resolvedPrimaryColor)
-            let secondaryColorComponents = ColorComponents(resolvedColor: resolvedSecondaryColor)
-            categoryToBeModified.primaryColorComponents = primaryColorComponents
-            categoryToBeModified.secondaryColorComponents = secondaryColorComponents
             
             dismiss()
         } else {

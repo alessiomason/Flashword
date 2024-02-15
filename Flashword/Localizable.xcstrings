@@ -570,7 +570,14 @@
       }
     },
     "Symbol for the category" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simbolo per la categoria"
+          }
+        }
+      }
     },
     "Terms of use" : {
       "localizations" : {

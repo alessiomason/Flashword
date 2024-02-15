@@ -38,5 +38,5 @@ struct ChooseSymbolView: View {
 }
 
 #Preview {
-    ChooseSymbolView(selectedColorChoice: ColorChoice.choices[0], selectedSymbol: .constant(Symbol.allCases[0]))
+    ChooseSymbolView(selectedColorChoice: ColorChoice.choices[0]!, selectedSymbol: .constant(Symbol.allCases[0]))
 }

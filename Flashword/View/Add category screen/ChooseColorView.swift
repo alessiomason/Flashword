@@ -13,7 +13,7 @@ struct ChooseColorView: View {
     
     var body: some View {
         LazyVGrid(columns: columns) {
-            ForEach(ColorChoice.choices) { colorChoice in
+            ForEach(ColorChoice.choices.values) { colorChoice in
                 Button {
                     selectedColorChoice = colorChoice
                 } label: {
@@ -37,5 +37,5 @@ struct ChooseColorView: View {
 }
 
 #Preview {
-    ChooseColorView(selectedColorChoice: .constant(ColorChoice.choices[0]))
+    ChooseColorView(selectedColorChoice: .constant(ColorChoice.choices[0]!))
 }

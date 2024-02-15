@@ -10,30 +10,22 @@ import SwiftUI
 
 struct CategoryListItemView: View {
     let category: Category
-    let primaryColor: Color
-    let secondaryColor: Color
     
     var body: some View {
         HStack {
-            ColorCircle(primaryColor: primaryColor, secondaryColor: secondaryColor)
+            ColorCircle(primaryColor: category.primaryColor, secondaryColor: category.secondaryColor)
                 .padding(.vertical, 8)
                 .padding(.trailing, 8)
                 .fixedSize(horizontal: true, vertical: false)
             
             VStack(alignment: .leading) {
                 Text(category.name)
-                    .foregroundStyle(secondaryColor)
+                    .foregroundStyle(category.secondaryColor)
                 Text("\(category.words.count) words")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
         }
-    }
-    
-    init(category: Category) {
-        self.category = category
-        self.primaryColor = Color(colorComponents: category.primaryColorComponents)
-        self.secondaryColor = Color(colorComponents: category.secondaryColorComponents)
     }
 }
 
