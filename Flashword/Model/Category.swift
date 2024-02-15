@@ -5,7 +5,7 @@
 //  Created by Alessio Mason on 25/01/24.
 //
 //  Category only contains the id of the chosen color. This was done to avoid saving the whole ColorChoice struct in SwiftData,
-//  avoiding to code the Color properties contained (which would have to be decomposed in their components).
+//  avoiding to code the Color properties contained (which would have to be decomposed to their components).
 
 import SwiftUI
 import SwiftData
