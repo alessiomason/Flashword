@@ -78,7 +78,7 @@ struct AddModifyCategoryView: View {
             
             let colorChoice = ColorChoice.choices[category.colorChoiceId] ?? ColorChoice.choices[0]!
             self._selectedColorChoice = State(initialValue: colorChoice)
-            self._selectedSymbol = State(initialValue: category.symbol ?? Symbol.allCases[0])
+            self._selectedSymbol = State(initialValue: category.symbol)
         }
     }
     

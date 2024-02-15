@@ -18,7 +18,7 @@ class Category: Codable, Equatable {
     
     @Attribute(.unique) var name: String
     var colorChoiceId: Int
-    var symbol: Symbol? = nil
+    var symbol: Symbol
     var words = [Word]()
     
     var primaryColor: Color {
@@ -28,7 +28,7 @@ class Category: Codable, Equatable {
         ColorChoice.choices[colorChoiceId]?.secondaryColor ?? .blue
     }
     
-    init(name: String, colorChoiceId: Int, symbol: Symbol? = nil) {
+    init(name: String, colorChoiceId: Int, symbol: Symbol) {
         self.name = name
         self.colorChoiceId = colorChoiceId
         self.symbol = symbol
@@ -38,7 +38,7 @@ class Category: Codable, Equatable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.colorChoiceId = try container.decode(Int.self, forKey: .colorChoiceId)
-        self.symbol = try container.decode(Symbol?.self, forKey: .symbol)
+        self.symbol = try container.decode(Symbol.self, forKey: .symbol)
     }
     
     func encode(to encoder: Encoder) throws {

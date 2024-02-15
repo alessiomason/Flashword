@@ -13,7 +13,7 @@ struct CategoryListItemView: View {
     
     var body: some View {
         HStack {
-            ColorCircle(primaryColor: category.primaryColor, secondaryColor: category.secondaryColor)
+            CategoryIcon(category: category)
                 .padding(.vertical, 8)
                 .padding(.trailing, 8)
                 .fixedSize(horizontal: true, vertical: false)
@@ -29,7 +29,7 @@ struct CategoryListItemView: View {
     }
 }
 
-#Preview("CategoryListItemView") {
+#Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
