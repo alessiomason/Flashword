@@ -183,6 +183,16 @@
         }
       }
     },
+    "Choose a symbol for the category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli un simbolo per la categoria"
+          }
+        }
+      }
+    },
     "Close" : {
       "localizations" : {
         "it" : {
@@ -233,6 +243,16 @@
         }
       }
     },
+    "Devices" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dispositivi"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "it" : {
@@ -253,12 +273,12 @@
         }
       }
     },
-    "Enter your notes here..." : {
+    "Enter your notes here…" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inserisci qui le tue note..."
+            "value" : "Inserisci qui le tue note…"
           }
         }
       }
@@ -436,6 +456,16 @@
         }
       }
     },
+    "Maps and transports" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mappe e trasporti"
+          }
+        }
+      }
+    },
     "Mastodon profile" : {
       "localizations" : {
         "it" : {
@@ -496,6 +526,16 @@
         }
       }
     },
+    "More symbols…" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Più simboli…"
+          }
+        }
+      }
+    },
     "No category" : {
       "comment" : "The text to display in absence of a user-defined category",
       "localizations" : {
@@ -529,12 +569,32 @@
         }
       }
     },
+    "Objects" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oggetti"
+          }
+        }
+      }
+    },
     "OK" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "People" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Persone"
           }
         }
       }
@@ -569,6 +629,16 @@
         }
       }
     },
+    "Sports" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sport"
+          }
+        }
+      }
+    },
     "Symbol for the category" : {
       "localizations" : {
         "it" : {
@@ -596,6 +666,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
+          }
+        }
+      }
+    },
+    "Weather" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meteo"
           }
         }
       }

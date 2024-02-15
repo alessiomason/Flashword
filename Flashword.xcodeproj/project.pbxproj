@@ -132,8 +132,8 @@
 				56D8C3A32B6AA23900D518AA /* ColorChoice.swift */,
 				56C775A42B6407FD00742E1F /* ColorComponents.swift */,
 				566762572B6007B400C3F1CA /* Router.swift */,
-				566762592B6007D800C3F1CA /* Word.swift */,
 				5684D3D92B7D10BB008EEB16 /* Symbol.swift */,
+				566762592B6007D800C3F1CA /* Word.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,13 +141,13 @@
 		566762562B6007A700C3F1CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5667625B2B60080000C3F1CA /* AppView.swift */,
+				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56CF96692B6BA209008C4AA6 /* About screen */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
-				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
-				5667625B2B60080000C3F1CA /* AppView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,9 +173,9 @@
 		56DDCB5B2B6A8E8D002E4644 /* Categories screen */ = {
 			isa = PBXGroup;
 			children = (
+				56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */,
 				56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */,
 				56C775A82B64096B00742E1F /* CategoryListView.swift */,
-				56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */,
 				568CE83D2B70F77300A8482D /* NoCategoriesView.swift */,
 			);
 			path = "Categories screen";

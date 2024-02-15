@@ -22,7 +22,9 @@ struct AddModifyCategoryView: View {
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
     @State private var selectedColorChoice = ColorChoice.choices[0]!
-    @State private var selectedSymbol = Symbol.allCases[0]
+    // the previously selected symbol, to be shown in the hightlighted symbols list even if the current one changes
+    @State private var previouslySelectedSymbol = Symbol.highlighted[0]
+    @State private var selectedSymbol = Symbol.highlighted[0]
     
     var body: some View {
         NavigationStack {
@@ -38,7 +40,11 @@ struct AddModifyCategoryView: View {
                 }
                 
                 Section("Symbol for the category") {
-                    ChooseSymbolView(selectedColorChoice: selectedColorChoice, selectedSymbol: $selectedSymbol)
+                    ChooseHighlightedSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
+                    
+                    NavigationLink("More symbols…") {
+                        ChooseSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: $previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
+                    }
                 }
             }
             .navigationTitle(modifying ? "Modify the category" : "Insert a new category")
@@ -78,6 +84,7 @@ struct AddModifyCategoryView: View {
             
             let colorChoice = ColorChoice.choices[category.colorChoiceId] ?? ColorChoice.choices[0]!
             self._selectedColorChoice = State(initialValue: colorChoice)
+            self._previouslySelectedSymbol = State(initialValue: category.symbol)
             self._selectedSymbol = State(initialValue: category.symbol)
         }
     }
