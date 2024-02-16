@@ -57,12 +57,15 @@ struct AddModifyCategoryView: View {
                 }
                 
                 ToolbarItem {
-                    Button(modifying ? "Save" : "Add") {
+                    Button {
                         if modifying {
                             updateCategory()
                         } else {
                             insertNewCategory()
                         }
+                    } label: {
+                        Text(modifying ? "Save" : "Add")
+                            .bold()
                     }
                     .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
