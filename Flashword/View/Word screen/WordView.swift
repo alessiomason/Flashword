@@ -9,8 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct WordView: View {
-    @Environment(Router.self) var router
-    @Environment(\.modelContext) var modelContext
+    @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var modelContext
     @Bindable var word: Word
     
     @State private var showingChangeCategorySheet = false

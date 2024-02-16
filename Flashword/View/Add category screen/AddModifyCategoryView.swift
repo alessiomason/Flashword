@@ -10,9 +10,9 @@ import SwiftUI
 
 /// If a category is passed in, it will be used to initialize the field and the View will modify said category. Otherwise, a new category will be created.
 struct AddModifyCategoryView: View {
-    @Environment(\.self) var environment
-    @Environment(\.modelContext) var modelContext
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.self) private var environment
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     
     @State private var categoryToBeModified: Category?
     var modifying: Bool {

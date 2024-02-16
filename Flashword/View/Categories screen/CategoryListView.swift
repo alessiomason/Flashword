@@ -9,8 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct CategoryListView: View {
-    @Environment(\.modelContext) var modelContext
-    @Environment(\.editMode) var editMode
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.editMode) private var editMode
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     
     @State private var showingAboutScreen = false
