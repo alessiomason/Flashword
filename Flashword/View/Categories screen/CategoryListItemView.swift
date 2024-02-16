@@ -20,7 +20,7 @@ struct CategoryListItemView: View {
             
             VStack(alignment: .leading) {
                 Text(category.name)
-                    .foregroundStyle(category.secondaryColor)
+                    .foregroundStyle(category.tintColor)
                 Text("\(category.words.count) words")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

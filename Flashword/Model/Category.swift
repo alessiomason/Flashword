@@ -27,6 +27,9 @@ class Category: Codable, Equatable {
     var secondaryColor: Color {
         ColorChoice.choices[colorChoiceId]?.secondaryColor ?? .blue
     }
+    var tintColor: Color {
+        ColorChoice.choices[colorChoiceId]?.tintColor ?? .blue
+    }
     
     init(name: String, colorChoiceId: Int, symbol: Symbol) {
         self.name = name
@@ -71,6 +74,6 @@ class Category: Codable, Equatable {
     /// The sort order used for querying the list of categories.
     static let sortDescriptors = [SortDescriptor(\Category.name)]
     
-    static let example = Category(name: "General", colorChoiceId: 0, symbol: .trayFull)
+    static let example = Category(name: "General", colorChoiceId: 7, symbol: .trayFull)
     static let otherExample = Category(name: "Italian words", colorChoiceId: 1, symbol: .sunHorizon)
 }
