@@ -7,6 +7,6 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSMinimumSystemVersion</key>
-	<string>14.4</string>
+	<string>14.3</string>
 </dict>
 </plist>
