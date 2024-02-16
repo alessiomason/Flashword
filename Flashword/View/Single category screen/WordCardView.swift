@@ -9,12 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct WordCardView: View {
-    @Environment(Router.self) var router
-    @Environment(\.modelContext) var modelContext
+    @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var modelContext
     let word: Word
     
-    @State private var showingChangeCategorySheet = false
-    @State private var showingDeleteAlert = false
+    @Binding var wordToBeReassigned: Word?
+    @Binding var wordToBeDeleted: Word?
+    @Binding var showingDeleteAlert: Bool
     
     var body: some View {
         Button {
@@ -53,24 +54,14 @@ struct WordCardView: View {
         .shadow(radius: 5)
         .contextMenu {
             Button("Change category", systemImage: "tray.full") {
-                showingChangeCategorySheet = true
+                wordToBeReassigned = word
             }
             
             Button("Delete", systemImage: "trash", role: .destructive) {
+                wordToBeDeleted = word
                 showingDeleteAlert = true
             }
         }
-        .sheet(isPresented: $showingChangeCategorySheet) {
-            ChangeCategoryView(word: word)
-        }
-        .alert("Are you sure you want to delete the word \"\(word.term)\"?", isPresented: $showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete", role: .destructive, action: deleteWord)
-        }
-    }
-    
-    func deleteWord() {
-        modelContext.delete(word)
     }
 }
 
@@ -79,7 +70,7 @@ struct WordCardView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return WordCardView(word: .example)
+        return WordCardView(word: .example, wordToBeReassigned: .constant(nil), wordToBeDeleted: .constant(nil), showingDeleteAlert: .constant(false))
             .padding()
             .modelContainer(container)
             .environment(Router())
