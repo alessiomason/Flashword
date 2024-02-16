@@ -32,5 +32,13 @@ struct AppView: View {
 }
 
 #Preview {
-    AppView()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Word.self, configurations: config)
+        
+        return AppView()
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create the preview: \(error.localizedDescription)")
+    }
 }

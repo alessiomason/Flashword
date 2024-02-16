@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct ModifyNotesView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @Bindable var word: Word
     
     var body: some View {

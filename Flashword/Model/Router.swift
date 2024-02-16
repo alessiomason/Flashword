@@ -23,9 +23,9 @@ class Router {
         
         return switch currentDestination {
             case let .category(category):
-                category.secondaryColor
+                category.tintColor
             case let .word(word):
-                word.category?.secondaryColor ?? nil
+                word.category?.tintColor ?? nil
             default:
                 nil
         }

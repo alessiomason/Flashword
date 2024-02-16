@@ -9,8 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct ChangeCategoryView: View {
-    @Environment(\.dismiss) var dismiss
-    @Query(sort: Category.sortDescriptors) var categories: [Category]
+    @Environment(\.dismiss) private var dismiss
+    @Query(sort: Category.sortDescriptors) private var categories: [Category]
     let word: Word
     
     @State private var showingAddCategorySheet = false
@@ -33,7 +33,7 @@ struct ChangeCategoryView: View {
                         } label: {
                             SelectableCategoryListItemView(category: category, selected: word.category == category)
                         }
-                        .tint(category.secondaryColor)
+                        .tint(category.primaryColor)
                     }
                 }
                 

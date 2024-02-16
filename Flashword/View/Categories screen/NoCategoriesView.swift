@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct NoCategoriesView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) private var modelContext
     @Binding var showingAddCategorySheet: Bool
     
     @State private var noWordsInApp = false

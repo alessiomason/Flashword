@@ -9,8 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct WordCardsListView: View {
+    @Environment(\.modelContext) private var modelContext
     let category: Category?
     var words: [Word]
+    
+    @State private var wordToBeReassigned: Word? = nil
+    @State private var wordToBeDeleted: Word? = nil
+    @State private var showingDeleteAlert = false
     
     var body: some View {
         ScrollView {
@@ -19,17 +24,29 @@ struct WordCardsListView: View {
                     .padding(.bottom, 8)
                 
                 ForEach(words) { word in
-                    WordCardView(word: word)
+                    WordCardView(word: word, wordToBeReassigned: $wordToBeReassigned, wordToBeDeleted: $wordToBeDeleted, showingDeleteAlert: $showingDeleteAlert)
                         .padding(.vertical, 5)
                 }
             }
             .padding(.horizontal)
+        }
+        .sheet(item: $wordToBeReassigned) { word in
+            ChangeCategoryView(word: word)
+        }
+        .alert("Are you sure you want to delete the word \"\(wordToBeDeleted?.term ?? "")\"?", isPresented: $showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive, action: deleteWord)
         }
     }
     
     init(category: Category? = nil, words: [Word]) {
         self.category = category
         self.words = words
+    }
+    
+    func deleteWord() {
+        guard let wordToBeDeleted else { return }
+        modelContext.delete(wordToBeDeleted)
     }
 }
 

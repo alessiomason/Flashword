@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AboutView: View {
-    @Environment(\.dismiss) var dismiss
-    @ScaledMetric var iconHeight = 20.0
+    @Environment(\.dismiss) private var dismiss
+    @ScaledMetric private var iconHeight = 20.0
     
     let personalDescription = String(localized: """
 Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!

@@ -9,12 +9,13 @@ import SwiftData
 import SwiftUI
 
 struct NewWordCardView: View {
-    @Environment(Router.self) var router
-    @Environment(\.modelContext) var modelContext
-    @State private var term = ""
+    @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var modelContext
+    
     let category: Category?
     let primaryColor: Color
     let secondaryColor: Color
+    @State private var term = ""
     
     var body: some View {
         VStack {
