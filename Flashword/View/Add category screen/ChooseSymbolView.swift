@@ -14,7 +14,7 @@ struct ChooseSymbolView: View {
     
     var body: some View {
         List {
-            Section("Weather") {
+            Section("Nature") {
                 ChooseSymbolGridView(selectedColorChoice: selectedColorChoice, symbols: Symbol.weather, previouslySelectedSymbol: $previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
             }
             
@@ -71,7 +71,7 @@ struct ChooseHighlightedSymbolView: View {
 }
 
 private struct ChooseSymbolGridView: View {
-    let columns = [GridItem(.adaptive(minimum: 40))]
+    let columns = [GridItem(.adaptive(minimum: 45))]
     let selectedColorChoice: ColorChoice
     let symbols: [Symbol]
     @Binding var previouslySelectedSymbol: Symbol

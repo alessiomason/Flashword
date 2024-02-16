@@ -536,6 +536,16 @@
         }
       }
     },
+    "Nature" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Natura"
+          }
+        }
+      }
+    },
     "No category" : {
       "comment" : "The text to display in absence of a user-defined category",
       "localizations" : {
@@ -666,16 +676,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
-          }
-        }
-      }
-    },
-    "Weather" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meteo"
           }
         }
       }
