@@ -557,6 +557,16 @@
         }
       }
     },
+    "No definition available for \"%@\"." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna definizione disponibile per \"%@\"."
+          }
+        }
+      }
+    },
     "No notes" : {
       "comment" : "A short phrase describing the absence of notes in the WordCard",
       "localizations" : {

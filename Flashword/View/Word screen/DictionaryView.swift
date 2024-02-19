@@ -20,12 +20,9 @@ struct DictionaryView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIReferenceLibraryViewController, context: Context) {
         print("Updating the DictionaryView")
     }
-    
-    func definitionIsAvailable() -> Bool {
-        return UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: term)
-    }
 }
 
 #Preview {
     DictionaryView(term: "Swift")
+        .ignoresSafeArea()
 }
