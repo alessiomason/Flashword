@@ -10,16 +10,17 @@ import SwiftUI
 
 struct ShowDictionaryButton: View {
     let term: String
+    let dictionaryHasDefinition: Bool
     let primaryColor: Color
     let secondaryColor: Color
-    var smaller = false
+    var smallerButton: Bool
     
     @AppStorage("alreadyUsedDictionary") private var alreadyUsedDictionary = false
     @State private var showingDictionaryExplanationAlert = false
     @State private var showingDictionary = false
     
     var buttonText: String {
-        if smaller {
+        if smallerButton {
             String(localized: "Look up")
         } else {
             String(localized: "Look up word")
@@ -27,26 +28,53 @@ struct ShowDictionaryButton: View {
     }
     
     var body: some View {
-        Button(buttonText, action: showDictionary)
-            .padding(.vertical, 10)
-            .padding(.horizontal, 20)
-            .background(
-                .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-            )
-            .foregroundStyle(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
-                Button("Continue") {
-                    alreadyUsedDictionary = true
-                    showingDictionary = true
-                }
-            } message: {
-                Text("Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button.", comment: "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.")
+        // UIReferenceLibraryViewController is not available on the Mac, so don't show the button altogether
+        if !ProcessInfo.processInfo.isiOSAppOnMac {
+            // smaller button is used for text fields, so avoid button appearing and disappering as the
+            // user types, always show it
+            if smallerButton || dictionaryHasDefinition {
+                Button(buttonText, action: showDictionary)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .background(
+                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
+                        Button("Continue") {
+                            alreadyUsedDictionary = true
+                            showingDictionary = true
+                        }
+                    } message: {
+                        Text("Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button.", comment: "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.")
+                    }
+                    .sheet(isPresented: $showingDictionary) {
+                        DictionaryView(term: term)
+                            .ignoresSafeArea()
+                    }
+            } else if !smallerButton {    // say that no definition is available, but not in smaller buttons
+                Text("No definition available for \"\(term)\".")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(
+                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    )
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
             }
-            .sheet(isPresented: $showingDictionary) {
-                DictionaryView(term: term)
-                    .ignoresSafeArea()
-            }
+        }
+    }
+    
+    init(term: String, primaryColor: Color, secondaryColor: Color, smaller: Bool = false) {
+        self.term = term
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
+        self.smallerButton = smaller
+        
+        // UIReferenceLibraryViewController is not available on the Mac
+        self.dictionaryHasDefinition = if ProcessInfo.processInfo.isiOSAppOnMac { false } else {
+            UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: term)
+        }
     }
     
     func showDictionary() {

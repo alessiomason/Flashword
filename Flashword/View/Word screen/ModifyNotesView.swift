@@ -11,6 +11,7 @@ import SwiftUI
 struct ModifyNotesView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var word: Word
+    @FocusState private var textEditorFocused: Bool
     
     var body: some View {
         NavigationStack {
@@ -24,8 +25,12 @@ struct ModifyNotesView: View {
                 }
                 
                 TextEditor(text: $word.notes)
+                    .focused($textEditorFocused)
                     .scrollContentBackground(.hidden)
                     .padding()
+                    .onAppear {
+                        textEditorFocused = true
+                    }
             }
             .navigationTitle("Modify the notes of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)

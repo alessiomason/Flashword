@@ -86,6 +86,7 @@ private struct ChooseSymbolGridView: View {
                 } label: {
                     Image(systemName: symbol.rawValue)
                         .font(.title)
+                        .frame(minWidth: 35, minHeight: 35)
                         .padding(10)
                         .foregroundStyle(selectedSymbol == symbol ? .white : .primary)
                         .background {

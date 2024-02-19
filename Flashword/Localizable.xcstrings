@@ -314,8 +314,7 @@
         }
       }
     },
-    "Flashword repository" : {
-      "extractionState" : "stale",
+    "Flashword's repository" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -371,16 +370,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano 🇮🇹!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
-          }
-        }
-      }
-    },
-    "I will soon publish the repository containing the source code for this app on my GitHub profile. In the meantime, you can visit the app's website." : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pubblicherò presto il repository contenente il codice sorgente di questa app sul mio profilo GitHub. Nel frattempo, puoi visitare il sito web dell'app."
           }
         }
       }
@@ -553,6 +542,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nessuna categoria"
+          }
+        }
+      }
+    },
+    "No definition available for \"%@\"." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna definizione disponibile per \"%@\"."
           }
         }
       }
