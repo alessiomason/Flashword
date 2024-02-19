@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version 1.0.1
+- Show keyboard when modifying the notes of a word
 
 ## Version 1.0
 ### February 17, 2024
