@@ -23,7 +23,12 @@ struct NewWordCardView: View {
                 .textFieldStyle(.roundedBorder)
             
             HStack {
-                ShowDictionaryButton(term: term, primaryColor: .gray.opacity(0.25), secondaryColor: .gray, smaller: true)
+                ShowDictionaryButton(
+                    term: term,
+                    primaryColor: Color(red: 0.886, green: 0.886, blue: 0.890),
+                    secondaryColor: Color(red: 0.557, green: 0.557, blue: 0.576),
+                    smaller: true
+                )
                 
                 Button("Add", action: insertNewWord)
                     .padding(.vertical, 10)
