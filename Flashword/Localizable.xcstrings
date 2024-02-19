@@ -183,6 +183,16 @@
         }
       }
     },
+    "Change date range" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambia l'intervallo di date"
+          }
+        }
+      }
+    },
     "Choose a symbol for the category" : {
       "localizations" : {
         "it" : {
@@ -598,6 +608,16 @@
         }
       }
     },
+    "Past seven days" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scorsi sette giorni"
+          }
+        }
+      }
+    },
     "People" : {
       "localizations" : {
         "it" : {
@@ -624,6 +644,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
+          }
+        }
+      }
+    },
+    "Recently added" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunte recentemente"
           }
         }
       }
@@ -675,6 +705,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
+          }
+        }
+      }
+    },
+    "This week" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa settimana"
+          }
+        }
+      }
+    },
+    "Today" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oggi"
           }
         }
       }

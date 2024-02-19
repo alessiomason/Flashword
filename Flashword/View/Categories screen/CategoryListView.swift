@@ -27,6 +27,9 @@ struct CategoryListView: View {
                 NavigationLink(value: RouterDestination.allWordsCategory) {
                     Text("All words")
                 }
+                NavigationLink(value: RouterDestination.recentlyAddedCategory) {
+                    Text("Recently added")
+                }
             }
             
             if !categories.isEmpty {

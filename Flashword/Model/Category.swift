@@ -67,7 +67,7 @@ class Category: Codable, Equatable {
         return String(data: encodedCategories, encoding: .utf8)!
     }
     
-    static func ==(lhs: Category, rhs: Category) -> Bool {
+    static func == (lhs: Category, rhs: Category) -> Bool {
         lhs.name == rhs.name
     }
     

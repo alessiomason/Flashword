@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedWordsCategoryView.swift; sourceTree = "<group>"; };
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */,
 				56C775AC2B64134A00742E1F /* CategoryView.swift */,
 				5667625F2B60083200C3F1CA /* NewWordCardView.swift */,
+				561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */,
 				566762632B60085E00C3F1CA /* WordCardsListView.swift */,
 				566762612B60084C00C3F1CA /* WordCardView.swift */,
 			);
@@ -306,6 +309,7 @@
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
 				5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */,
+				561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */,
 				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,
 				56C775A72B64082A00742E1F /* Category.swift in Sources */,
 				568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */,

@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 1.0.2
+- Recently added words page
+
 ## Version 1.0.1
 - Show dictionary button in words list view
 - Show keyboard when modifying the notes of a word
