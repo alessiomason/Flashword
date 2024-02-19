@@ -3,6 +3,7 @@
 ## Version 1.0.1
 - Show keyboard when modifying the notes of a word
 - Fixed Show dictionary button background
+- Fixed selected symbol background (in symbol grid)
 
 ## Version 1.0
 ### February 17, 2024
