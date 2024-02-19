@@ -83,10 +83,9 @@ Below you can find some links to follow me online!
                         Label("Flashword's website", systemImage: "globe")
                     }
                     
-                    /*
-                    Link(destination: URL(string: "https://github.com/alessiomason")!) {
+                    Link(destination: URL(string: "https://github.com/alessiomason/Flashword")!) {
                         Label {
-                            Text("Flashword repository")
+                            Text("Flashword's repository")
                         } icon: {
                             Image("GitHub")
                                 .resizable()
@@ -94,17 +93,12 @@ Below you can find some links to follow me online!
                                 .frame(height: iconHeight)
                                 .blendingHorizontally(color: .blue)
                         }
-                    }*/
+                    }
                 } header: {
                     Text("Follow the app development")
                 } footer: {
-                    VStack(alignment: .leading) {
-                        Text("I will soon publish the repository containing the source code for this app on my GitHub profile. In the meantime, you can visit the app's website.")
-                            .padding(.bottom, 5)
-                        
-                        if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                            Text("App version: \(appVersion)")
-                        }
+                    if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                        Text("App version: \(appVersion)")
                     }
                 }
                 
