@@ -25,7 +25,10 @@ struct CategoryListView: View {
         List {
             Section {
                 NavigationLink(value: RouterDestination.allWordsCategory) {
-                    Text("All words")
+                    Label("All words", systemImage: "books.vertical")
+                }
+                NavigationLink(value: RouterDestination.recentlyAddedCategory) {
+                    Label("Recently added", systemImage: "clock.badge")
                 }
             }
             

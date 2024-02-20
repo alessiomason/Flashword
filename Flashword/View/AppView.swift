@@ -19,6 +19,8 @@ struct AppView: View {
                     switch destination {
                         case .allWordsCategory:
                             AllWordsCategoryView()
+                        case .recentlyAddedCategory:
+                            RecentlyAddedWordsCategoryView()
                         case let .category(category):
                             CategoryView(category: category)
                         case let .word(word):

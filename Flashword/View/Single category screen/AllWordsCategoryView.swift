@@ -30,9 +30,11 @@ struct AllWordsCategoryView: View {
             container.mainContext.insert($0)
         }
         
-        return AllWordsCategoryView()
-            .modelContainer(container)
-            .environment(Router())
+        return NavigationStack {
+            AllWordsCategoryView()
+        }
+        .modelContainer(container)
+        .environment(Router())
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
