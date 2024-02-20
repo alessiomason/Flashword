@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RecentlyAddedWordsCategoryView: View {
     /// Specifies which of the different ranges of the calendar to show.
-    private enum DateRange: CaseIterable {
+    private enum DateRange {
         case today, thisWeek, lastSevenDays, lastThirtyDays
     }
     
