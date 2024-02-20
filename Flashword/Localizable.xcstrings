@@ -425,6 +425,26 @@
         }
       }
     },
+    "Last 7 days" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ultimi 7 giorni"
+          }
+        }
+      }
+    },
+    "Last 30 days" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ultimi 30 giorni"
+          }
+        }
+      }
+    },
     "Look up" : {
       "localizations" : {
         "it" : {
@@ -604,16 +624,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : ""
-          }
-        }
-      }
-    },
-    "Past seven days" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scorsi sette giorni"
           }
         }
       }

@@ -10,28 +10,30 @@ import SwiftUI
 
 struct RecentlyAddedWordsCategoryView: View {
     /// Specifies which of the different ranges of the calendar to show.
-    private enum Range: CaseIterable {
-        case today, thisWeek, pastSevenDays
+    private enum DateRange: CaseIterable {
+        case today, thisWeek, lastSevenDays, lastThirtyDays
     }
     
     @Query(sort: Word.sortDescriptors) private var words: [Word]
-    @State private var range = Range.today
+    @State private var dateRange = DateRange.today
     
     var title: String {
-        return switch range {
+        return switch dateRange {
             case .today:
                 String(localized: "Today")
             case .thisWeek:
                 String(localized: "This week")
-            case .pastSevenDays:
-                String(localized: "Past seven days")
+            case .lastSevenDays:
+                String(localized: "Last 7 days")
+            case .lastThirtyDays:
+                String(localized: "Last 30 days")
         }
     }
     
     // cannot be filtered using a SwiftData Predicate as the Calendar functions are
     // not supported within a predicate
     var filteredWords: [Word] {
-        return switch range {
+        return switch dateRange {
             case .today:
                 words.filter { word in
                     Calendar.current.isDateInToday(word.learntOn)
@@ -40,11 +42,17 @@ struct RecentlyAddedWordsCategoryView: View {
                 words.filter { word in
                     Calendar.current.isDate(word.learntOn, equalTo: .now, toGranularity: .weekOfYear)
                 }
-            case .pastSevenDays:
+            case .lastSevenDays:
                 words.filter { word in
                     let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now)
                     guard let sevenDaysAgo else { return false }
                     return word.learntOn >= sevenDaysAgo
+                }
+            case .lastThirtyDays:
+                words.filter { word in
+                    let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: .now)
+                    guard let thirtyDaysAgo else { return false }
+                    return word.learntOn >= thirtyDaysAgo
                 }
         }
     }
@@ -54,10 +62,11 @@ struct RecentlyAddedWordsCategoryView: View {
             .navigationTitle(title)
             .toolbar {
                 Menu {
-                    Picker("Change date range", selection: $range) {
-                        Text("Today").tag(Range.today)
-                        Text("This week").tag(Range.thisWeek)
-                        Text("Past seven days").tag(Range.pastSevenDays)
+                    Picker("Change date range", selection: $dateRange) {
+                        Text("Today").tag(DateRange.today)
+                        Text("This week").tag(DateRange.thisWeek)
+                        Text("Last 7 days").tag(DateRange.lastSevenDays)
+                        Text("Last 30 days").tag(DateRange.lastThirtyDays)
                     }
                 } label: {
                     Label("Change date range", systemImage: "line.3.horizontal.decrease.circle")
