@@ -52,7 +52,7 @@ extension View {
     VStack {
         Spacer()
         
-        Image("Leaves and book")
+        Image(.leavesAndBook)
             .resizable()
             .scaledToFit()
             .padding(10)
