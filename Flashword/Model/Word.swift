@@ -14,9 +14,9 @@ class Word: Codable {
         case term, learntOn, notes, category
     }
     
-    let term: String
-    let learntOn: Date
-    var notes: String
+    let term: String = ""
+    let learntOn: Date = Date.now
+    var notes: String = ""
     @Relationship(inverse: \Category.words) var category: Category?
     
     var categoryName: String {

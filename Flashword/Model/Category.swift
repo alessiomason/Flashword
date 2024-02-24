@@ -16,10 +16,14 @@ class Category: Codable, Equatable {
         case name, primaryColor, secondaryColor, colorChoiceId, symbol
     }
     
-    @Attribute(.unique) var name: String
-    var colorChoiceId: Int
-    var symbol: Symbol
-    var words = [Word]()
+    var name: String = ""   // not marked as unique due to iCloud requirements with SwiftData, enforced at creation
+    var colorChoiceId: Int = 0
+    var symbol: Symbol = Symbol.sunMax
+    var words: [Word]? = [Word]()
+    
+    var unwrappedWords: [Word] {
+        words ?? []
+    }
     
     var primaryColor: Color {
         ColorChoice.choices[colorChoiceId]?.primaryColor ?? .mint

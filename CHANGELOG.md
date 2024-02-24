@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version 1.1
+- iCloud syncing
 - Fixed a bug with the accent color in the home screen
 
 ## Version 1.0.2

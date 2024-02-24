@@ -8,5 +8,9 @@
 	<false/>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.3</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
