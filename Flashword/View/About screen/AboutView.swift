@@ -23,7 +23,7 @@ Below you can find some links to follow me online!
                 Section {
                     VStack {
                         HStack {
-                            Image("Alessio 2021")
+                            Image(.alessio2021)
                                 .resizable()
                                 .scaledToFit()
                                 .containerRelativeFrame(.horizontal) { width, axis in
@@ -57,7 +57,7 @@ Below you can find some links to follow me online!
                         Label {
                             Text("Mastodon profile")
                         } icon: {
-                            Image("Mastodon")
+                            Image(.mastodon)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: iconHeight)
@@ -69,7 +69,7 @@ Below you can find some links to follow me online!
                         Label {
                             Text("GitHub profile")
                         } icon: {
-                            Image("GitHub")
+                            Image(.gitHub)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: iconHeight)
@@ -87,7 +87,7 @@ Below you can find some links to follow me online!
                         Label {
                             Text("Flashword's repository")
                         } icon: {
-                            Image("GitHub")
+                            Image(.gitHub)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: iconHeight)

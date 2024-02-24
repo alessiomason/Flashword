@@ -25,10 +25,20 @@ struct CategoryListView: View {
         List {
             Section {
                 NavigationLink(value: RouterDestination.allWordsCategory) {
-                    Label("All words", systemImage: "books.vertical")
+                    Label {
+                        Text("All words")
+                    } icon: {
+                        Image(systemName: "books.vertical")
+                            .foregroundStyle(.blue)
+                    }
                 }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory) {
-                    Label("Recently added", systemImage: "clock.badge")
+                    Label {
+                        Text("Recently added")
+                    } icon: {
+                        Image(systemName: "clock")
+                            .foregroundStyle(.blue)
+                    }
                 }
             }
             
@@ -62,6 +72,7 @@ struct CategoryListView: View {
             if !categories.isEmpty {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
+                        .tint(.blue)
                 }
             }
             
@@ -69,6 +80,7 @@ struct CategoryListView: View {
                 Button("About Flashword", systemImage: "info.circle") {
                     showingAboutScreen = true
                 }
+                .tint(.blue)
                 .disabled(isEditing)
             }
             
@@ -76,6 +88,7 @@ struct CategoryListView: View {
                 Button("Insert a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
+                .tint(.blue)
                 .disabled(isEditing)
             }
         }
