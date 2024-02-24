@@ -313,6 +313,16 @@
         }
       }
     },
+    "Edit the category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica la categoria"
+          }
+        }
+      }
+    },
     "Enter a new word" : {
       "localizations" : {
         "it" : {
@@ -531,16 +541,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profilo Mastodon"
-          }
-        }
-      }
-    },
-    "Modify the category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifica la categoria"
           }
         }
       }

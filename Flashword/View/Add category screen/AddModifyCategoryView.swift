@@ -47,7 +47,7 @@ struct AddModifyCategoryView: View {
                     }
                 }
             }
-            .navigationTitle(modifying ? "Modify the category" : "Insert a new category")
+            .navigationTitle(modifying ? "Edit the category" : "Insert a new category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
