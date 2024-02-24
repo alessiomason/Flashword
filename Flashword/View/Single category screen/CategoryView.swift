@@ -25,7 +25,7 @@ struct CategoryView: View {
             .navigationTitle(category.name)
             .toolbar {
                 Menu {
-                    Button("Modify category", systemImage: "paintbrush") {
+                    Button("Edit category", systemImage: "paintbrush") {
                         showingModifyCategory = true
                     }
                     
@@ -47,7 +47,7 @@ struct CategoryView: View {
                 })
                 Button("Cancel", role: .cancel) { }
             } message: {
-                Text("You can delete the category and all its associated words, or delete the category and mark all the words as uncategorized.")
+                Text("You can delete the category and all its associated words, or delete the category alone and mark all the words as uncategorized.")
             }
     }
     

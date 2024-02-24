@@ -303,6 +303,16 @@
         }
       }
     },
+    "Edit category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica categoria"
+          }
+        }
+      }
+    },
     "Enter a new word" : {
       "localizations" : {
         "it" : {
@@ -521,16 +531,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profilo Mastodon"
-          }
-        }
-      }
-    },
-    "Modify category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifica categoria"
           }
         }
       }
@@ -791,12 +791,12 @@
         }
       }
     },
-    "You can delete the category and all its associated words, or delete the category and mark all the words as uncategorized." : {
+    "You can delete the category and all its associated words, or delete the category alone and mark all the words as uncategorized." : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puoi eliminare la categoria e tutte le parole associate o eliminare la categoria e segnare tutte le parole come non categorizzate."
+            "value" : "Puoi eliminare la categoria e tutte le parole associate o eliminare solo la categoria e segnare tutte le parole come non categorizzate."
           }
         }
       }

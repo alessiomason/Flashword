@@ -50,7 +50,7 @@ struct CategoryListView: View {
                         }
                         .swipeActions {
                             Button(role: .destructive) {
-                                removeCategory(category: category)
+                                deleteCategory(category: category)
                             } label: {
                                 Label("Delete category", systemImage: "trash")
                             }
@@ -58,11 +58,11 @@ struct CategoryListView: View {
                             Button {
                                 categoryToBeModified = category
                             } label: {
-                                Label("Modify category", systemImage: "pencil")
+                                Label("Edit category", systemImage: "pencil")
                             }
                         }
                     }
-                    .onDelete(perform: removeCategories)
+                    .onDelete(perform: deleteCategories)
                 }
             } else {
                 NoCategoriesView(showingAddCategorySheet: $showingAddCategorySheet)
@@ -103,11 +103,11 @@ struct CategoryListView: View {
         }
     }
     
-    func removeCategory(category: Category) {
+    func deleteCategory(category: Category) {
         modelContext.delete(category)
     }
     
-    func removeCategories(at offsets: IndexSet) {
+    func deleteCategories(at offsets: IndexSet) {
         offsets
             .map { categories[$0] }
             .forEach { modelContext.delete($0) }
