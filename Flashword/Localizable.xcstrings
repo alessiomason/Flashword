@@ -102,6 +102,16 @@
         }
       }
     },
+    "Are you sure you want to delete this category?" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confermi di voler eliminare questa categoria?"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "it" : {
@@ -243,12 +253,32 @@
         }
       }
     },
+    "Delete but keep words" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina ma conserva le parole"
+          }
+        }
+      }
+    },
     "Delete category" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elimina categoria"
+          }
+        }
+      }
+    },
+    "Delete words too" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina anche le parole"
           }
         }
       }
@@ -269,6 +299,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fine"
+          }
+        }
+      }
+    },
+    "Edit category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica categoria"
+          }
+        }
+      }
+    },
+    "Edit the category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica la categoria"
           }
         }
       }
@@ -491,26 +541,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profilo Mastodon"
-          }
-        }
-      }
-    },
-    "Modify category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifica categoria"
-          }
-        }
-      }
-    },
-    "Modify the category" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifica la categoria"
           }
         }
       }
@@ -757,6 +787,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Parola imparata %@"
+          }
+        }
+      }
+    },
+    "You can delete the category and all its associated words, or delete the category alone and mark all the words as uncategorized." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puoi eliminare la categoria e tutte le parole associate o eliminare solo la categoria e segnare tutte le parole come non categorizzate."
           }
         }
       }

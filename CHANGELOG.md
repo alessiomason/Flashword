@@ -2,6 +2,7 @@
 
 ## Version 1.1
 - iCloud syncing
+- Modify and delete category from category view
 - Fixed a bug with the accent color in the home screen
 
 ## Version 1.0.2

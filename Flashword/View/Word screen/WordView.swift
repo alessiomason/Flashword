@@ -93,7 +93,7 @@ struct WordView: View {
                 guard removedWord == word else { fallthrough }
                 modelContext.delete(word)
             default:
-                fatalError("There was an error removing the word \(word).")
+                fatalError("There was an error removing the word \(word.term).")
         }
     }
 }
