@@ -1,9 +1,13 @@
 # Flashword
 #### Treasure the words you learn
 
-<img src="images/App%20icon.png" alt="The app icon" width="200"/>
+<p align="center">
+	<img src="images/App%20icon.png" alt="The app icon" width="200"/>
+</p>
 
-<a href="https://apps.apple.com/app/flashword-save-learnt-words/id6477286559?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 150px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1708041600" alt="Download on the App Store" style="border-radius: 13px; width: 150px; height: 83px;"></a>
+<p align="center">
+	<a href="https://apps.apple.com/app/flashword-save-learnt-words/id6477286559?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 150px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1708041600" alt="Download on the App Store" style="border-radius: 13px; width: 150px; height: 83px;"></a>
+</p>
 
 Ever heard a word you did not know, looked it up, and then quickly forgot about it?
 If that is the case, Flashword comes to the rescue!
