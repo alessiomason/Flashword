@@ -16,6 +16,8 @@ struct NewWordCardView: View {
     let primaryColor: Color
     let secondaryColor: Color
     @State private var term = ""
+    @State private var showingDuplicateWordWarning = false
+    @State private var duplicateWordIsInDifferentCategory = false
     
     var body: some View {
         VStack {
@@ -30,7 +32,7 @@ struct NewWordCardView: View {
                     smaller: true
                 )
                 
-                Button("Add", action: insertNewWord)
+                Button("Add", action: checkWordBeforeInserting)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
                     .buttonStyle(.plain)
@@ -49,12 +51,57 @@ struct NewWordCardView: View {
                     .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
         }
+        .alert("The word already exists!", isPresented: $showingDuplicateWordWarning) {
+            Button("Cancel", role: .cancel) { }
+            Button("Add anyway", action: insertNewWord)
+        } message: {
+            let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
+            
+            if duplicateWordIsInDifferentCategory {
+                Text("The word \"\(trimmedTerm)\" has already been saved in the app, but in a different category.")
+            } else {
+                Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
+            }
+        }
+
     }
     
     init(category: Category? = nil) {
         self.category = category
         self.primaryColor = category?.primaryColor ?? .mint
         self.secondaryColor = category?.secondaryColor ?? .blue
+    }
+    
+    func fetchDuplicates() -> [Word]? {
+        let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
+        
+        let descriptor = FetchDescriptor<Word>(
+            predicate: #Predicate { word in
+                word.term == trimmedTerm
+            }
+        )
+        return try? modelContext.fetch(descriptor)
+    }
+    
+    func checkWordBeforeInserting() {
+        let duplicates = fetchDuplicates()
+        guard let duplicates else {
+            insertNewWord()     // since words don't have to be unique, insert anyway
+            return
+        }
+        
+        if duplicates.isEmpty {
+            insertNewWord()
+        } else {
+            duplicateWordIsInDifferentCategory = true
+            for duplicate in duplicates {
+                if duplicate.category?.name == category?.name {
+                    duplicateWordIsInDifferentCategory = false
+                    break
+                }
+            }
+            showingDuplicateWordWarning = true
+        }
     }
     
     func insertNewWord() {
