@@ -69,6 +69,15 @@ struct NewWordCardView: View {
 }
 
 #Preview {
-    NewWordCardView()
-        .environment(Router())
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Word.self, configurations: config)
+        
+        return NewWordCardView()
+            .padding()
+            .modelContainer(container)
+            .environment(Router())
+    } catch {
+        return Text("Failed to create the preview: \(error.localizedDescription)")
+    }
 }
