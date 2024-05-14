@@ -18,18 +18,23 @@ struct WordCardsListView: View {
     var words: [Word]
     
     @AppStorage("sortingBy") private var sortingBy = SortingOptions.creationDate
+    @State private var searchText = ""
     @State private var wordToBeReassigned: Word? = nil
     @State private var wordToBeDeleted: Word? = nil
     @State private var showingDeleteAlert = false
     
-    private var sortedWords: [Word] {
+    private var displayedWords: [Word] {
+        let filteredWords = words.filter {
+            $0.term.lowercased().starts(with: searchText.lowercased())
+        }
+        
         return switch sortingBy {
             case .alphabetical:
-                words.sorted(by: { a, b in
+                filteredWords.sorted(by: { a, b in
                     a.term < b.term
                 })
             case .creationDate:
-                words.sorted(by: { a, b in
+                filteredWords.sorted(by: { a, b in
                     Calendar.current.compare(a.learntOn, to: b.learntOn, toGranularity: .second) == .orderedDescending
                 })
         }
@@ -41,13 +46,14 @@ struct WordCardsListView: View {
                 NewWordCardView(category: category)
                     .padding(.bottom, 8)
                 
-                ForEach(sortedWords) { word in
+                ForEach(displayedWords) { word in
                     WordCardView(word: word, wordToBeReassigned: $wordToBeReassigned, wordToBeDeleted: $wordToBeDeleted, showingDeleteAlert: $showingDeleteAlert)
                         .padding(.vertical, 5)
                 }
             }
             .padding(.horizontal)
         }
+        .searchable(text: $searchText)
         .toolbar {
             ToolbarItem {
                 Menu {
