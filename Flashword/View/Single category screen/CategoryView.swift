@@ -24,16 +24,18 @@ struct CategoryView: View {
         WordCardsListView(category: category, words: words)
             .navigationTitle(category.name)
             .toolbar {
-                Menu {
-                    Button("Edit category", systemImage: "paintbrush") {
-                        showingModifyCategory = true
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button("Edit category", systemImage: "paintbrush") {
+                            showingModifyCategory = true
+                        }
+                        
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            showingDeleteAlert = true
+                        }
+                    } label: {
+                        Label("More", systemImage: "ellipsis.circle")
                     }
-                    
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        showingDeleteAlert = true
-                    }
-                } label: {
-                    Label("More", systemImage: "ellipsis.circle")
                 }
             }.sheet(isPresented: $showingModifyCategory) {
                 AddModifyCategoryView(category: category)

@@ -61,15 +61,17 @@ struct RecentlyAddedWordsCategoryView: View {
         WordCardsListView(words: filteredWords)
             .navigationTitle(title)
             .toolbar {
-                Menu {
-                    Picker("Change date range", selection: $dateRange) {
-                        Text("Today").tag(DateRange.today)
-                        Text("This week").tag(DateRange.thisWeek)
-                        Text("Last 7 days").tag(DateRange.lastSevenDays)
-                        Text("Last 30 days").tag(DateRange.lastThirtyDays)
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Change date range", selection: $dateRange) {
+                            Text("Today").tag(DateRange.today)
+                            Text("This week").tag(DateRange.thisWeek)
+                            Text("Last 7 days").tag(DateRange.lastSevenDays)
+                            Text("Last 30 days").tag(DateRange.lastThirtyDays)
+                        }
+                    } label: {
+                        Label("Change date range", systemImage: "line.3.horizontal.decrease.circle")
                     }
-                } label: {
-                    Label("Change date range", systemImage: "line.3.horizontal.decrease.circle")
                 }
             }
     }

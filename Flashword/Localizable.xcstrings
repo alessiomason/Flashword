@@ -708,6 +708,36 @@
         }
       }
     },
+    "Sort alphabetically" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordine alfabetico"
+          }
+        }
+      }
+    },
+    "Sort by creation date" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordina per data di creazione"
+          }
+        }
+      }
+    },
+    "Sorting" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordinamento"
+          }
+        }
+      }
+    },
     "Sports" : {
       "localizations" : {
         "it" : {
