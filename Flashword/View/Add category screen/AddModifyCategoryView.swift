@@ -105,11 +105,7 @@ struct AddModifyCategoryView: View {
     func insertNewCategory() {
         let duplicatesCount = fetchDuplicates()
         
-        // if duplicatesCount is nil the query was not successful, however I still insert the category:
-        // SwiftData will still make sure that the category's name is unique and will ignore duplicates.
-        // Throwing an error if this query fails did not seem necessary (thanks to SwiftData still
-        // handling everything correctly, albeit transparently to the user)
-        if duplicatesCount == 0 || duplicatesCount == nil {
+        if duplicatesCount == 0  {
             let category = Category(name: name, colorChoiceId: selectedColorChoice.id, symbol: selectedSymbol)
             modelContext.insert(category)
             dismiss()

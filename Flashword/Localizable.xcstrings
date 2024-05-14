@@ -71,6 +71,16 @@
         }
       }
     },
+    "Add anyway" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi ugualmente"
+          }
+        }
+      }
+    },
     "All words" : {
       "localizations" : {
         "it" : {
@@ -708,6 +718,36 @@
         }
       }
     },
+    "Sort alphabetically" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordine alfabetico"
+          }
+        }
+      }
+    },
+    "Sort by creation date" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordina per data di creazione"
+          }
+        }
+      }
+    },
+    "Sorting" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordinamento"
+          }
+        }
+      }
+    },
     "Sports" : {
       "localizations" : {
         "it" : {
@@ -745,6 +785,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
+          }
+        }
+      }
+    },
+    "The word \"%@\" has already been saved in the app, but in a different category." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola \"%@\" è già stata salvata nell'app, ma in una categoria differente."
+          }
+        }
+      }
+    },
+    "The word \"%@\" has already been saved in this category." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola \"%@\" è già stata salvata in questa categoria."
+          }
+        }
+      }
+    },
+    "The word already exists!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola esiste già!"
           }
         }
       }
