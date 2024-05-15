@@ -57,7 +57,7 @@ struct CategoryView: View {
         self.category = category
         
         let predicate = Word.predicate(category: category)
-        _words = Query(filter: predicate, sort: Word.sortDescriptors)
+        _words = Query(filter: predicate, sort: Word.sortDescriptors, animation: .bouncy)
     }
     
     func deleteCategory(includingWords: Bool) {
