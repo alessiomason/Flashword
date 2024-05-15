@@ -132,6 +132,16 @@
         }
       }
     },
+    "Bookmarks" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnalibri"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "it" : {

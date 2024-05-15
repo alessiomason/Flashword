@@ -10,6 +10,7 @@ import SwiftUI
 enum RouterDestination: Hashable {
     case allWordsCategory
     case recentlyAddedCategory
+    case bookmarksCategory
     case category(category: Category)
     case word(word: Word)
 }

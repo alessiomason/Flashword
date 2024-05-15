@@ -21,6 +21,8 @@ struct AppView: View {
                             AllWordsCategoryView()
                         case .recentlyAddedCategory:
                             RecentlyAddedWordsCategoryView()
+                        case .bookmarksCategory:
+                            BookmarksCategoryView()
                         case let .category(category):
                             CategoryView(category: category)
                         case let .word(word):

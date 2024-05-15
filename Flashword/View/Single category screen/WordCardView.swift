@@ -61,7 +61,7 @@ struct WordCardView: View {
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .shadow(radius: 5)
         .contextMenu {
-            Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.slash" : "bookmark.fill") {
+            Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.slash" : "bookmark") {
                 word.bookmarked.toggle()
             }
             
