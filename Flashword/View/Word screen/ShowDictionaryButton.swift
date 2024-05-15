@@ -72,7 +72,10 @@ struct ShowDictionaryButton: View {
         self.smallerButton = smaller
         
         // UIReferenceLibraryViewController is not available on the Mac
-        self.dictionaryHasDefinition = if ProcessInfo.processInfo.isiOSAppOnMac { false } else {
+        self.dictionaryHasDefinition =
+        if ProcessInfo.processInfo.isiOSAppOnMac { false }
+        else if smaller { true }    // behave as if the definition is available (no room to show error), the dictionary itself will show the error if needed
+        else {
             UIReferenceLibraryViewController.dictionaryHasDefinition(forTerm: term)
         }
     }
