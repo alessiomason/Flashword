@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ModifyNotesView: View {
     @Environment(\.dismiss) private var dismiss
-    @Bindable var word: Word
+    var word: Word
+    @State private var notes: String
     @FocusState private var textEditorFocused: Bool
     
     var body: some View {
@@ -24,7 +25,7 @@ struct ModifyNotesView: View {
                         .padding(.leading, 5)
                 }
                 
-                TextEditor(text: $word.notes)
+                TextEditor(text: $notes)
                     .focused($textEditorFocused)
                     .scrollContentBackground(.hidden)
                     .padding()
@@ -36,6 +37,7 @@ struct ModifyNotesView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
+                    word.notes = notes
                     dismiss()
                 } label: {
                     Text("Done")
@@ -43,6 +45,11 @@ struct ModifyNotesView: View {
                 }
             }
         }
+    }
+    
+    init(word: Word) {
+        self.word = word
+        self.notes = word.notes
     }
 }
 
