@@ -32,6 +32,14 @@ struct CategoryListView: View {
                             .foregroundStyle(.blue)
                     }
                 }
+                NavigationLink(value: RouterDestination.bookmarksCategory) {
+                    Label {
+                        Text("Bookmarks")
+                    } icon: {
+                        Image(systemName: "bookmark")
+                            .foregroundStyle(.blue)
+                    }
+                }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory) {
                     Label {
                         Text("Recently added")

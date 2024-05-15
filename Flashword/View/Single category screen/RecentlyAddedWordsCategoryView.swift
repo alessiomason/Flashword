@@ -14,7 +14,7 @@ struct RecentlyAddedWordsCategoryView: View {
         case today, thisWeek, lastSevenDays, lastThirtyDays
     }
     
-    @Query(sort: Word.sortDescriptors) private var words: [Word]
+    @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
     @State private var dateRange = DateRange.today
     
     var title: String {

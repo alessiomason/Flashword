@@ -1,19 +1,20 @@
 //
-//  AllWordsCategoryView.swift
+//  BookmarksCategoryView.swift
 //  Flashword
 //
-//  Created by Alessio Mason on 26/01/24.
+//  Created by Alessio Mason on 15/05/24.
 //
 
 import SwiftData
 import SwiftUI
 
-struct AllWordsCategoryView: View {
-    @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
+
+struct BookmarksCategoryView: View {
+    @Query(filter: #Predicate<Word> { $0.bookmarked }, sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
     
     var body: some View {
         WordCardsListView(words: words)
-            .navigationTitle("All words")
+            .navigationTitle("Bookmarks")
     }
 }
 
@@ -22,8 +23,8 @@ struct AllWordsCategoryView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         let words = [
-            Word(term: "Test", learntOn: .now.addingTimeInterval(-86400)),
-            Word(term: "Swift", learntOn: .now)
+            Word(term: "Test", learntOn: .now.addingTimeInterval(-86400), bookmarked: true),
+            Word(term: "Swift", learntOn: .now, bookmarked: true)
         ]
         
         words.forEach {
@@ -31,7 +32,7 @@ struct AllWordsCategoryView: View {
         }
         
         return NavigationStack {
-            AllWordsCategoryView()
+            BookmarksCategoryView()
         }
         .modelContainer(container)
         .environment(Router())

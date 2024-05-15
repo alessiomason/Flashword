@@ -5,12 +5,14 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
+import StoreKit
 import SwiftData
 import SwiftUI
 
 struct NewWordCardView: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.requestReview) private var requestReview
     
     let category: Category?
     let primaryColor: Color
@@ -83,7 +85,7 @@ struct NewWordCardView: View {
         return try? modelContext.fetch(descriptor)
     }
     
-    func checkWordBeforeInserting() {
+    @MainActor func checkWordBeforeInserting() {
         let duplicates = fetchDuplicates()
         guard let duplicates else {
             insertNewWord()     // since words don't have to be unique, insert anyway
@@ -104,7 +106,7 @@ struct NewWordCardView: View {
         }
     }
     
-    func insertNewWord() {
+    @MainActor func insertNewWord() {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
@@ -112,6 +114,12 @@ struct NewWordCardView: View {
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
+        
+        let descriptor = FetchDescriptor<Word>()
+        let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
+        if wordCount >= 10 {
+            requestReview()
+        }
     }
 }
 

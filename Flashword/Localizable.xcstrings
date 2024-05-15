@@ -81,6 +81,16 @@
         }
       }
     },
+    "Add to bookmarks" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi ai segnalibri"
+          }
+        }
+      }
+    },
     "All words" : {
       "localizations" : {
         "it" : {
@@ -118,6 +128,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Confermi di voler eliminare questa categoria?"
+          }
+        }
+      }
+    },
+    "Bookmarks" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segnalibri"
           }
         }
       }
@@ -704,6 +724,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aggiunte recentemente"
+          }
+        }
+      }
+    },
+    "Remove from bookmarks" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rimuovi dai segnalibri"
           }
         }
       }

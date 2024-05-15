@@ -59,6 +59,10 @@ struct WordView: View {
                     showingModifyNotesSheet = true
                 }
                 
+                Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.fill" : "bookmark") {
+                    word.bookmarked.toggle()
+                }
+                
                 Menu {
                     Button("Change category", systemImage: "tray.full") {
                         showingChangeCategorySheet = true

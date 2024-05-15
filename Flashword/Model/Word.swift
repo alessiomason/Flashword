@@ -11,13 +11,14 @@ import SwiftData
 @Model
 class Word: Codable {
     enum CodingKeys: CodingKey {
-        case term, learntOn, notes, category
+        case term, learntOn, notes, category, bookmarked
     }
     
     let term: String = ""
     let learntOn: Date = Date.now
     var notes: String = ""
     @Relationship(inverse: \Category.words) var category: Category?
+    var bookmarked: Bool = false
     
     var categoryName: String {
         let localizedNoCategory = String(localized: "No category", comment: "The text to display in absence of a user-defined category")
@@ -31,11 +32,12 @@ class Word: Codable {
         category?.secondaryColor ?? .blue
     }
     
-    init(term: String, learntOn: Date, notes: String = "", category: Category? = nil) {
+    init(term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false) {
         self.term = term
         self.learntOn = learntOn
         self.notes = notes
         self.category = category
+        self.bookmarked = bookmarked
     }
     
     required init(from decoder: Decoder) throws {
@@ -45,6 +47,7 @@ class Word: Codable {
         self.learntOn = try Date(learntOn, strategy: .iso8601)
         self.notes = try container.decode(String.self, forKey: .notes)
         self.category = try container.decode(Category?.self, forKey: .category)
+        self.bookmarked = try container.decode(Bool.self, forKey: .bookmarked)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -53,6 +56,7 @@ class Word: Codable {
         try container.encode(self.learntOn, forKey: .learntOn)
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.category, forKey: .category)
+        try container.encode(self.bookmarked, forKey: .bookmarked)
     }
     
     static func decodeWords(from json: String) throws -> [Word] {
@@ -86,6 +90,6 @@ class Word: Codable {
     /// The sort order used for querying the list of words.
     static let sortDescriptors = [SortDescriptor(\Word.learntOn, order: .reverse)]
     
-    static let example = Word(term: "Swift", learntOn: .now, notes: "A swift testing word.")
+    static let example = Word(term: "Swift", learntOn: .now, notes: "A swift testing word.", bookmarked: true)
     static let otherExample = Word(term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?")
 }
