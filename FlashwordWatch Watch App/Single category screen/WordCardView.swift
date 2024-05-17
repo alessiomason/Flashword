@@ -15,7 +15,7 @@ struct WordCardView: View {
     var body: some View {
         NavigationLink(value: RouterDestination.word(word: word)) {
             HStack {
-                CategoryIcon(category: word.category ?? .example)       // CHANGE
+                CategoryIcon(category: word.category)
                     .padding(.vertical, 8)
                     .padding(.trailing, 8)
                     .fixedSize(horizontal: true, vertical: false)
