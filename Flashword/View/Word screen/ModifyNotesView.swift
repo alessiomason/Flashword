@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ModifyNotesView: View {
     @Environment(\.dismiss) private var dismiss
-    var word: Word
+    private var word: Word
     @State private var notes: String
     @FocusState private var textEditorFocused: Bool
     

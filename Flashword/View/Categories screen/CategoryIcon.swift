@@ -16,6 +16,13 @@ struct CategoryIcon: View {
             ColorCircle(primaryColor: category.primaryColor, secondaryColor: category.secondaryColor)
             
             Image(systemName: category.symbol.rawValue)
+                #if os(watchOS)
+                .resizable()
+                .scaledToFit()
+                .containerRelativeFrame(.horizontal) { width, axis in
+                    width * 0.09
+                }
+                #endif
                 .foregroundStyle(.white)
         }
     }
@@ -33,7 +40,11 @@ struct ColorCircle: View {
             .shadow(radius: 4)
             .overlay {
                 Circle()
+                    #if os(watchOS)
+                    .stroke(.white, lineWidth: 1)
+                    #else
                     .stroke(.white, lineWidth: 3)
+                    #endif
             }
     }
 }

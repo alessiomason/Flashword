@@ -26,6 +26,27 @@
 		5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */; };
 		5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */; };
 		5684D3E12B7E059C008EEB16 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 5684D3E02B7E059C008EEB16 /* OrderedCollections */; };
+		568B7E8D2BF5033A00FC4220 /* FlashwordWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7E8C2BF5033A00FC4220 /* FlashwordWatchApp.swift */; };
+		568B7E912BF5033B00FC4220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 568B7E902BF5033B00FC4220 /* Assets.xcassets */; };
+		568B7E972BF5033B00FC4220 /* Flashword.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 568B7E8A2BF5033A00FC4220 /* Flashword.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		568B7E9E2BF5056C00FC4220 /* ColorChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8C3A32B6AA23900D518AA /* ColorChoice.swift */; };
+		568B7E9F2BF5056C00FC4220 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3D92B7D10BB008EEB16 /* Symbol.swift */; };
+		568B7EA02BF5056C00FC4220 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A62B64082A00742E1F /* Category.swift */; };
+		568B7EA12BF5056C00FC4220 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762592B6007D800C3F1CA /* Word.swift */; };
+		568B7EA22BF5056C00FC4220 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A42B6407FD00742E1F /* ColorComponents.swift */; };
+		568B7EA32BF5056C00FC4220 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762572B6007B400C3F1CA /* Router.swift */; };
+		568B7EBC2BF5069B00FC4220 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 568B7EBB2BF5069B00FC4220 /* OrderedCollections */; };
+		568B7EBE2BF5070800FC4220 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7EBD2BF5070800FC4220 /* AppView.swift */; };
+		568B7EC02BF5078700FC4220 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7EBF2BF5078700FC4220 /* CategoryListView.swift */; };
+		568B7EC22BF5085A00FC4220 /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7EC12BF5085A00FC4220 /* NoCategoriesView.swift */; };
+		568B7EC42BF5088D00FC4220 /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7EC32BF5088D00FC4220 /* CategoryListItemView.swift */; };
+		568B7EC52BF508AD00FC4220 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */; };
+		568B7EC82BF509D100FC4220 /* BookmarksCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */; };
+		568B7EC92BF509D100FC4220 /* AllWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */; };
+		568B7ECA2BF509D100FC4220 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
+		568B7ECC2BF509E800FC4220 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECB2BF509E800FC4220 /* CategoryView.swift */; };
+		568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */; };
+		568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ED02BF50BB800FC4220 /* WordView.swift */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
 		56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A42B6407FD00742E1F /* ColorComponents.swift */; };
 		56C775A72B64082A00742E1F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A62B64082A00742E1F /* Category.swift */; };
@@ -40,7 +61,33 @@
 		56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8C3A32B6AA23900D518AA /* ColorChoice.swift */; };
 		56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */; };
 		56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */; };
+		56E1FF312BF668CD00B169D6 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1FF302BF668CD00B169D6 /* WordCardView.swift */; };
+		56EAA53D2BF5F62900139375 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 566762672B60093F00C3F1CA /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		568B7E952BF5033B00FC4220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5667623C2B60071500C3F1CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 568B7E892BF5033A00FC4220;
+			remoteInfo = "FlashwordWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		568B7E982BF5033B00FC4220 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				568B7E972BF5033B00FC4220 /* Flashword.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedWordsCategoryView.swift; sourceTree = "<group>"; };
@@ -62,6 +109,18 @@
 		5684D3D92B7D10BB008EEB16 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
 		5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSymbolView.swift; sourceTree = "<group>"; };
+		568B7E8A2BF5033A00FC4220 /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		568B7E8C2BF5033A00FC4220 /* FlashwordWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordWatchApp.swift; sourceTree = "<group>"; };
+		568B7E902BF5033B00FC4220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		568B7EBD2BF5070800FC4220 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		568B7EBF2BF5078700FC4220 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		568B7EC12BF5085A00FC4220 /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
+		568B7EC32BF5088D00FC4220 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
+		568B7ECB2BF509E800FC4220 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
+		568B7ED02BF50BB800FC4220 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		568B7ED22BF50CDF00FC4220 /* FlashwordWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlashwordWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlashwordWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		568CE83D2B70F77300A8482D /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
 		569B731E2B89FFE400F06012 /* Flashword.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashword.entitlements; sourceTree = "<group>"; };
 		56B4E1202B6D017600E0983C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +137,7 @@
 		56D8C3A32B6AA23900D518AA /* ColorChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoice.swift; sourceTree = "<group>"; };
 		56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 		56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCategoryView.swift; sourceTree = "<group>"; };
+		56E1FF302BF668CD00B169D6 /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +149,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		568B7E872BF5033A00FC4220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568B7EBC2BF5069B00FC4220 /* OrderedCollections in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,7 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				566762462B60071500C3F1CA /* Flashword */,
+				568B7E8B2BF5033A00FC4220 /* FlashwordWatch Watch App */,
 				566762452B60071500C3F1CA /* Products */,
+				568B7EBA2BF5069B00FC4220 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				566762442B60071500C3F1CA /* Flashword.app */,
+				568B7E8A2BF5033A00FC4220 /* Flashword.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +227,56 @@
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		568B7E8B2BF5033A00FC4220 /* FlashwordWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */,
+				568B7ED22BF50CDF00FC4220 /* FlashwordWatch-Watch-App-Info.plist */,
+				568B7EBD2BF5070800FC4220 /* AppView.swift */,
+				568B7E8C2BF5033A00FC4220 /* FlashwordWatchApp.swift */,
+				568B7EC62BF5091F00FC4220 /* Categories screen */,
+				568B7EC72BF5097B00FC4220 /* Single category screen */,
+				568B7ECF2BF50B9900FC4220 /* Word screen */,
+				568B7E902BF5033B00FC4220 /* Assets.xcassets */,
+			);
+			path = "FlashwordWatch Watch App";
+			sourceTree = "<group>";
+		};
+		568B7EBA2BF5069B00FC4220 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		568B7EC62BF5091F00FC4220 /* Categories screen */ = {
+			isa = PBXGroup;
+			children = (
+				568B7EC32BF5088D00FC4220 /* CategoryListItemView.swift */,
+				568B7EBF2BF5078700FC4220 /* CategoryListView.swift */,
+				568B7EC12BF5085A00FC4220 /* NoCategoriesView.swift */,
+			);
+			path = "Categories screen";
+			sourceTree = "<group>";
+		};
+		568B7EC72BF5097B00FC4220 /* Single category screen */ = {
+			isa = PBXGroup;
+			children = (
+				568B7ECB2BF509E800FC4220 /* CategoryView.swift */,
+				568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */,
+				56E1FF302BF668CD00B169D6 /* WordCardView.swift */,
+			);
+			path = "Single category screen";
+			sourceTree = "<group>";
+		};
+		568B7ECF2BF50B9900FC4220 /* Word screen */ = {
+			isa = PBXGroup;
+			children = (
+				568B7ED02BF50BB800FC4220 /* WordView.swift */,
+			);
+			path = "Word screen";
 			sourceTree = "<group>";
 		};
 		56CF96692B6BA209008C4AA6 /* About screen */ = {
@@ -223,10 +344,12 @@
 				566762402B60071500C3F1CA /* Sources */,
 				566762412B60071500C3F1CA /* Frameworks */,
 				566762422B60071500C3F1CA /* Resources */,
+				568B7E982BF5033B00FC4220 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				568B7E962BF5033B00FC4220 /* PBXTargetDependency */,
 			);
 			name = Flashword;
 			packageProductDependencies = (
@@ -236,6 +359,26 @@
 			productReference = 566762442B60071500C3F1CA /* Flashword.app */;
 			productType = "com.apple.product-type.application";
 		};
+		568B7E892BF5033A00FC4220 /* FlashwordWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 568B7E9B2BF5033B00FC4220 /* Build configuration list for PBXNativeTarget "FlashwordWatch Watch App" */;
+			buildPhases = (
+				568B7E862BF5033A00FC4220 /* Sources */,
+				568B7E872BF5033A00FC4220 /* Frameworks */,
+				568B7E882BF5033A00FC4220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FlashwordWatch Watch App";
+			packageProductDependencies = (
+				568B7EBB2BF5069B00FC4220 /* OrderedCollections */,
+			);
+			productName = "FlashwordWatch Watch App";
+			productReference = 568B7E8A2BF5033A00FC4220 /* Flashword.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,11 +386,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					566762432B60071500C3F1CA = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					568B7E892BF5033A00FC4220 = {
+						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
@@ -268,6 +414,7 @@
 			projectRoot = "";
 			targets = (
 				566762432B60071500C3F1CA /* Flashword */,
+				568B7E892BF5033A00FC4220 /* FlashwordWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -280,6 +427,15 @@
 				5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */,
 				5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */,
 				566762682B60093F00C3F1CA /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568B7E882BF5033A00FC4220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EAA53D2BF5F62900139375 /* Localizable.xcstrings in Resources */,
+				568B7E912BF5033B00FC4220 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +478,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		568B7E862BF5033A00FC4220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				568B7EC52BF508AD00FC4220 /* CategoryIcon.swift in Sources */,
+				568B7E9E2BF5056C00FC4220 /* ColorChoice.swift in Sources */,
+				56E1FF312BF668CD00B169D6 /* WordCardView.swift in Sources */,
+				568B7E9F2BF5056C00FC4220 /* Symbol.swift in Sources */,
+				568B7EBE2BF5070800FC4220 /* AppView.swift in Sources */,
+				568B7EC22BF5085A00FC4220 /* NoCategoriesView.swift in Sources */,
+				568B7EC82BF509D100FC4220 /* BookmarksCategoryView.swift in Sources */,
+				568B7ECC2BF509E800FC4220 /* CategoryView.swift in Sources */,
+				568B7EC92BF509D100FC4220 /* AllWordsCategoryView.swift in Sources */,
+				568B7ECA2BF509D100FC4220 /* RecentlyAddedWordsCategoryView.swift in Sources */,
+				568B7EA02BF5056C00FC4220 /* Category.swift in Sources */,
+				568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */,
+				568B7EC42BF5088D00FC4220 /* CategoryListItemView.swift in Sources */,
+				568B7EC02BF5078700FC4220 /* CategoryListView.swift in Sources */,
+				568B7EA12BF5056C00FC4220 /* Word.swift in Sources */,
+				568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */,
+				568B7EA22BF5056C00FC4220 /* ColorComponents.swift in Sources */,
+				568B7EA32BF5056C00FC4220 /* Router.swift in Sources */,
+				568B7E8D2BF5033A00FC4220 /* FlashwordWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		568B7E962BF5033B00FC4220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 568B7E892BF5033A00FC4220 /* FlashwordWatch Watch App */;
+			targetProxy = 568B7E952BF5033B00FC4220 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		566762502B60071600C3F1CA /* Debug */ = {
@@ -359,6 +549,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -379,12 +570,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -422,6 +615,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -436,22 +630,25 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
 		566762532B60071600C3F1CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "\"Flashword/Preview Content\"";
 				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
@@ -469,7 +666,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -485,11 +682,12 @@
 		566762542B60071600C3F1CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "\"Flashword/Preview Content\"";
 				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
@@ -507,7 +705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -517,6 +715,72 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		568B7E992BF5033B00FC4220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FlashwordWatch Watch App/FlashwordWatch Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlashwordWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = it.alessiomason.Flashword;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword.watchkitapp;
+				PRODUCT_NAME = Flashword;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		568B7E9A2BF5033B00FC4220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FlashwordWatch Watch App/FlashwordWatch Watch App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FlashwordWatch-Watch-App-Info.plist";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = it.alessiomason.Flashword;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = it.alessiomason.Flashword.watchkitapp;
+				PRODUCT_NAME = Flashword;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -541,6 +805,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		568B7E9B2BF5033B00FC4220 /* Build configuration list for PBXNativeTarget "FlashwordWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				568B7E992BF5033B00FC4220 /* Debug */,
+				568B7E9A2BF5033B00FC4220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -556,6 +829,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		5684D3E02B7E059C008EEB16 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		568B7EBB2BF5069B00FC4220 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;

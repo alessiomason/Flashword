@@ -1,8 +1,8 @@
 //
 //  AppView.swift
-//  Flashword
+//  FlashwordWatch Watch App
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 15/05/24.
 //
 
 import SwiftData
@@ -14,6 +14,9 @@ struct AppView: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             CategoryListView()
+                .onChange(of: router.path.count, { oldValue, newValue in
+                    print("router", router.path)
+                })
                 .navigationTitle(Text("Flashword", comment: "The name of the app"))
                 .navigationDestination(for: RouterDestination.self) { destination in
                     switch destination {
@@ -55,4 +58,3 @@ struct AppView: View {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
 }
-
