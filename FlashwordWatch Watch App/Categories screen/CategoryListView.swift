@@ -48,8 +48,6 @@ struct CategoryListView: View {
                         }
                     }
                 }
-            } else {
-                NoCategoriesView()
             }
         }
     }

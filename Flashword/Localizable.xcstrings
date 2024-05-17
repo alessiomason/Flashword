@@ -625,9 +625,6 @@
         }
       }
     },
-    "No categories" : {
-
-    },
     "No category" : {
       "comment" : "The text to display in absence of a user-defined category",
       "localizations" : {
