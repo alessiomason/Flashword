@@ -17,7 +17,7 @@ struct ModifyNotesView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topLeading) {
-                if word.notes.isEmpty {
+                if notes.isEmpty {
                     Text("Enter your notes here…")
                         .foregroundStyle(.secondary)
                         .padding()
