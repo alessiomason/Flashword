@@ -14,23 +14,13 @@ struct WordCardsListView: View {
     var words: [Word]
     
     var body: some View {
-//        ScrollView {
-//            LazyVStack {
-//                NewWordCardView(category: category)
-//                    .padding(.bottom, 8)
-//                
-//                ForEach(words) { word in
-//                    WordCardView(word: word, wordToBeReassigned: $wordToBeReassigned, wordToBeDeleted: $wordToBeDeleted, showingDeleteAlert: $showingDeleteAlert)
-//                    Text(word.term)
-//                        .padding(.vertical, 5)
-//                }
-//            }
-//            .padding(.horizontal)
-//        }
-        
         List(words) { word in
             WordCardView(word: word)
         }
+        .if(category != nil) { view in
+            view.containerBackground(category!.tintColor.gradient, for: .navigation)
+        }
+        .listStyle(.carousel)
     }
     
     init(category: Category? = nil, words: [Word]) {

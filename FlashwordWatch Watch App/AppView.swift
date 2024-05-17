@@ -14,9 +14,6 @@ struct AppView: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             CategoryListView()
-                .onChange(of: router.path.count, { oldValue, newValue in
-                    print("router", router.path)
-                })
                 .navigationTitle(Text("Flashword", comment: "The name of the app"))
                 .navigationDestination(for: RouterDestination.self) { destination in
                     switch destination {
