@@ -1,8 +1,8 @@
 //
 //  AppView.swift
-//  Flashword
+//  FlashwordWatch Watch App
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 15/05/24.
 //
 
 import SwiftData
@@ -55,4 +55,3 @@ struct AppView: View {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
 }
-

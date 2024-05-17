@@ -10,14 +10,14 @@ import SwiftUI
 
 struct ModifyNotesView: View {
     @Environment(\.dismiss) private var dismiss
-    var word: Word
+    private var word: Word
     @State private var notes: String
     @FocusState private var textEditorFocused: Bool
     
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topLeading) {
-                if word.notes.isEmpty {
+                if notes.isEmpty {
                     Text("Enter your notes here…")
                         .foregroundStyle(.secondary)
                         .padding()

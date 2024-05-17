@@ -9,13 +9,35 @@ import SwiftData
 import SwiftUI
 
 struct CategoryIcon: View {
-    let category: Category
+    let category: Category?
+    
+    var primaryColor: Color {
+        category?.primaryColor ?? .mint
+    }
+    var secondaryColor: Color {
+        category?.secondaryColor ?? .blue
+    }
+    
+    var image: Image {
+        if let category {
+            Image(systemName: category.symbol.rawValue)
+        } else {
+            Image(.customTraySlash)
+        }
+    }
     
     var body: some View {
         ZStack {
-            ColorCircle(primaryColor: category.primaryColor, secondaryColor: category.secondaryColor)
+            ColorCircle(primaryColor: primaryColor, secondaryColor: secondaryColor)
             
-            Image(systemName: category.symbol.rawValue)
+            image
+                #if os(watchOS)
+                .resizable()
+                .scaledToFit()
+                .containerRelativeFrame(.horizontal) { width, axis in
+                    width * 0.09
+                }
+                #endif
                 .foregroundStyle(.white)
         }
     }
@@ -33,7 +55,11 @@ struct ColorCircle: View {
             .shadow(radius: 4)
             .overlay {
                 Circle()
+                    #if os(watchOS)
+                    .stroke(.white, lineWidth: 1)
+                    #else
                     .stroke(.white, lineWidth: 3)
+                    #endif
             }
     }
 }

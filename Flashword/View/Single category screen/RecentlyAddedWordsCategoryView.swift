@@ -60,6 +60,7 @@ struct RecentlyAddedWordsCategoryView: View {
     var body: some View {
         WordCardsListView(words: filteredWords)
             .navigationTitle(title)
+        #if !os(watchOS)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
@@ -74,6 +75,7 @@ struct RecentlyAddedWordsCategoryView: View {
                     }
                 }
             }
+        #endif
     }
 }
 

@@ -10,7 +10,6 @@ import SwiftUI
 
 struct WordCardView: View {
     @Environment(Router.self) private var router
-    @Environment(\.modelContext) private var modelContext
     let word: Word
     
     @Binding var wordToBeReassigned: Word?
