@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct FlashwordWatch_Watch_AppApp: App {
+struct FlashwordWatchApp: App {
     var body: some Scene {
         WindowGroup {
             AppView()
