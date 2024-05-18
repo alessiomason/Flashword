@@ -14,27 +14,46 @@ struct WordView: View {
     var body: some View {
         TabView {
             VStack(alignment: .leading) {
-                Text("Category: \(word.categoryName)", comment: "The category the word belongs to")
-                    .padding(.bottom, 10)
+                HStack {
+                    word.categoryIcon
+                        .padding(.trailing, 4)
+                    
+                    Text(word.categoryName)
+                }
+                .padding(.horizontal)
+                .padding(.top)
                 
                 Spacer()
                 
                 Text("Word learnt on \(word.learntOn.formatted(date: .complete, time: .shortened))", comment: "The time the word has been learnt, including the name of the day, the date and the time")
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
             }
+            .frame(maxHeight: .infinity, alignment: .top)
             .if(word.category != nil) { view in
                 view.containerBackground(word.category!.tintColor.gradient, for: .tabView)
             }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.fill" : "bookmark") {
+                        word.bookmarked.toggle()
+                    }
+                }
+            }
             
             if !word.notes.isEmpty {
-                VStack {
+                VStack(alignment: .leading) {
                     Text("Notes")
+                        .padding(.horizontal)
                         .padding(.bottom, 5)
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(word.notes)
-                        .padding(.top, 8)
-                        .padding(.horizontal, 5)
+                        .padding(.horizontal)
                 }
                 .frame(maxHeight: .infinity, alignment: .top)
                 .if(word.category != nil) { view in
