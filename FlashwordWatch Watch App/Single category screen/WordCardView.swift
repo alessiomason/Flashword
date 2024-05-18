@@ -24,6 +24,7 @@ struct WordCardView: View {
                     Text(word.term)
                         .font(.headline)
                         .fontWeight(.bold)
+                        .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(word.learntOn.formatted(date: .abbreviated, time: .omitted))

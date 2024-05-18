@@ -34,8 +34,8 @@ struct CategoryIcon: View {
                 #if os(watchOS)
                 .resizable()
                 .scaledToFit()
-                .containerRelativeFrame(.horizontal) { width, axis in
-                    width * 0.09
+                .containerRelativeFrame(.vertical) { height, axis in
+                    height * 0.32
                 }
                 #endif
                 .foregroundStyle(.white)
