@@ -44,20 +44,22 @@ struct WordView: View {
             }
             
             if !word.notes.isEmpty {
-                VStack(alignment: .leading) {
-                    Text("Notes")
-                        .padding(.horizontal)
-                        .padding(.bottom, 5)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(word.notes)
-                        .padding(.horizontal)
-                }
-                .frame(maxHeight: .infinity, alignment: .top)
-                .if(word.category != nil) { view in
-                    view.containerBackground(word.category!.tintColor.gradient, for: .tabView)
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Notes")
+                            .padding(.horizontal)
+                            .padding(.bottom, 4)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text(word.notes)
+                            .padding(.horizontal)
+                    }
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .if(word.category != nil) { view in
+                        view.containerBackground(word.category!.tintColor.gradient, for: .tabView)
+                    }
                 }
             }
         }
