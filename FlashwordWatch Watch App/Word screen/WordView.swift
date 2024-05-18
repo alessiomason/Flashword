@@ -22,11 +22,14 @@ struct WordView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top)
-                .padding(.bottom, 16)
+                
+                Spacer()
                 
                 Text("Word learnt on \(word.learntOn.formatted(date: .complete, time: .shortened))", comment: "The time the word has been learnt, including the name of the day, the date and the time")
                     .padding(.horizontal)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .if(word.category != nil) { view in
