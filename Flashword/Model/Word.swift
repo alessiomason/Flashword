@@ -25,6 +25,14 @@ class Word: Codable {
         return category?.name ?? localizedNoCategory
     }
     
+    var categoryIcon: Image {
+        if let category {
+            Image(systemName: category.symbol.rawValue)
+        } else {
+            Image(.customTraySlash)
+        }
+    }
+    
     var primaryColor: Color {
         category?.primaryColor ?? .mint
     }
