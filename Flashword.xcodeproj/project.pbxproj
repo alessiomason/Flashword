@@ -47,6 +47,7 @@
 		568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */; };
 		568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ED02BF50BB800FC4220 /* WordView.swift */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
+		56A778542C076532004570F9 /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A778532C076532004570F9 /* AddWordView.swift */; };
 		56AF22582BF7971D00E13EAC /* OptionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF22572BF7971D00E13EAC /* OptionalModifier.swift */; };
 		56AF22592BF7971D00E13EAC /* OptionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF22572BF7971D00E13EAC /* OptionalModifier.swift */; };
 		56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775A42B6407FD00742E1F /* ColorComponents.swift */; };
@@ -123,6 +124,7 @@
 		568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlashwordWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		568CE83D2B70F77300A8482D /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
 		569B731E2B89FFE400F06012 /* Flashword.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashword.entitlements; sourceTree = "<group>"; };
+		56A778532C076532004570F9 /* AddWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordView.swift; sourceTree = "<group>"; };
 		56AF22572BF7971D00E13EAC /* OptionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalModifier.swift; sourceTree = "<group>"; };
 		56B4E1202B6D017600E0983C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		56C775A42B6407FD00742E1F /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		568B7EC72BF5097B00FC4220 /* Single category screen */ = {
 			isa = PBXGroup;
 			children = (
+				56A778532C076532004570F9 /* AddWordView.swift */,
 				568B7ECB2BF509E800FC4220 /* CategoryView.swift */,
 				568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */,
 				56E1FF302BF668CD00B169D6 /* WordCardView.swift */,
@@ -487,6 +490,7 @@
 				568B7EC52BF508AD00FC4220 /* CategoryIcon.swift in Sources */,
 				568B7E9E2BF5056C00FC4220 /* ColorChoice.swift in Sources */,
 				56E1FF312BF668CD00B169D6 /* WordCardView.swift in Sources */,
+				56A778542C076532004570F9 /* AddWordView.swift in Sources */,
 				568B7E9F2BF5056C00FC4220 /* Symbol.swift in Sources */,
 				568B7EBE2BF5070800FC4220 /* AppView.swift in Sources */,
 				568B7EC82BF509D100FC4220 /* BookmarksCategoryView.swift in Sources */,
