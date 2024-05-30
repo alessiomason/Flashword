@@ -13,9 +13,15 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    @State private var showingAddWordSheet = false
+    
     var body: some View {
-        List(words) { word in
-            WordCardView(word: word)
+        List {
+            AddWordView()
+            
+            ForEach(words) { word in
+                WordCardView(word: word)
+            }
         }
         .if(category != nil) { view in
             view.containerBackground(category!.tintColor.gradient, for: .navigation)

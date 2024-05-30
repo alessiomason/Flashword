@@ -1,57 +1,33 @@
 //
-//  NewWordCardView.swift
-//  Flashword
+//  AdWordView.swift
+//  FlashwordWatch Watch App
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 29/05/24.
 //
 
-import StoreKit
 import SwiftData
 import SwiftUI
 
-struct NewWordCardView: View {
+struct AddWordView: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.requestReview) private var requestReview
+    @Environment(\.dismiss) private var dismiss
     
-    let category: Category?
-    let primaryColor: Color
-    let secondaryColor: Color
+    let category: Category? = nil
     @State private var term = ""
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
     var body: some View {
-        VStack {
-            TextField("Enter a new word", text: $term)
-                .textFieldStyle(.roundedBorder)
-            
+        TextFieldLink(prompt: Text("Enter a new word")) {
             HStack {
-                ShowDictionaryButton(
-                    term: term,
-                    primaryColor: Color(red: 0.886, green: 0.886, blue: 0.890),
-                    secondaryColor: Color(red: 0.557, green: 0.557, blue: 0.576),
-                    smaller: true
-                )
-                
-                Button("Add", action: checkWordBeforeInserting)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .buttonStyle(.plain)
-                    .background(
-                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                Image(systemName: "plus")
+                    .padding(.horizontal, 8)
+                Text("Enter a new word")
             }
-            .padding(.top, 8)
-        }
-        .padding()
-        .overlay {
-            RoundedRectangle(cornerRadius: 15)
-                .strokeBorder(
-                    .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                )
+        } onSubmit: { text in
+            term = text
+            checkWordBeforeInserting()
         }
         .alert("The word already exists!", isPresented: $showingDuplicateWordWarning) {
             Button("Cancel", role: .cancel) { }
@@ -65,12 +41,6 @@ struct NewWordCardView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
-    }
-    
-    init(category: Category? = nil) {
-        self.category = category
-        self.primaryColor = category?.primaryColor ?? .mint
-        self.secondaryColor = category?.secondaryColor ?? .blue
     }
     
     func fetchDuplicates() -> [Word]? {
@@ -113,12 +83,6 @@ struct NewWordCardView: View {
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
-        
-        let descriptor = FetchDescriptor<Word>()
-        let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
-        if wordCount >= 10 {
-            requestReview()
-        }
     }
 }
 
@@ -127,8 +91,7 @@ struct NewWordCardView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return NewWordCardView()
-            .padding()
+        return AddWordView()
             .modelContainer(container)
             .environment(Router())
     } catch {
