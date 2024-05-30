@@ -20,7 +20,6 @@ struct AddWordView: View {
     
     var body: some View {
         TextFieldLink(prompt: Text("Enter a new word")) {
-            //Label("Enter a new word", systemImage: "plus")
             HStack {
                 Image(systemName: "plus")
                     .padding(.horizontal, 8)

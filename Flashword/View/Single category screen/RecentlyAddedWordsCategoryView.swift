@@ -16,6 +16,10 @@ struct RecentlyAddedWordsCategoryView: View {
     
     @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
     @State private var dateRange = DateRange.today
+    #if os(watchOS)
+    @Environment(\.dismiss) private var dismiss
+    @State private var showingPickerSheet = false
+    #endif
     
     var title: String {
         return switch dateRange {
@@ -60,7 +64,32 @@ struct RecentlyAddedWordsCategoryView: View {
     var body: some View {
         WordCardsListView(words: filteredWords)
             .navigationTitle(title)
-        #if !os(watchOS)
+        #if os(watchOS)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Change date range", systemImage: "line.3.horizontal.decrease.circle") {
+                        showingPickerSheet = true
+                    }
+                    .foregroundStyle(.white)
+                }
+            }
+            .sheet(isPresented: $showingPickerSheet) {
+                List {
+                    CustomPickerOption(selectedDateRange: $dateRange, optionDateRange: .today, optionText: String(localized: "Today"))
+                    CustomPickerOption(selectedDateRange: $dateRange, optionDateRange: .thisWeek, optionText: String(localized: "This week"))
+                    CustomPickerOption(selectedDateRange: $dateRange, optionDateRange: .lastSevenDays, optionText: String(localized: "Last 7 days"))
+                    CustomPickerOption(selectedDateRange: $dateRange, optionDateRange: .lastThirtyDays, optionText: String(localized: "Last 30 days"))
+                }
+                .navigationTitle("Change date range")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Close", systemImage: "multiply") {
+                            dismiss()
+                        }
+                    }
+                }
+            }
+        #else
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
@@ -77,6 +106,30 @@ struct RecentlyAddedWordsCategoryView: View {
             }
         #endif
     }
+    
+    #if os(watchOS)
+    private struct CustomPickerOption: View {
+        @Environment(\.dismiss) private var dismiss
+        @Binding var selectedDateRange: DateRange
+        let optionDateRange: DateRange
+        let optionText: String
+        
+        var body: some View {
+            Button {
+                selectedDateRange = optionDateRange
+                dismiss()
+            } label: {
+                HStack {
+                    Text(optionText)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if (selectedDateRange == optionDateRange) {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+        }
+    }
+    #endif
 }
 
 #Preview {
