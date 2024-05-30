@@ -23,8 +23,18 @@ struct NewWordCardView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter a new word", text: $term)
-                .textFieldStyle(.roundedBorder)
+            ZStack(alignment: .trailing) {
+                TextField("Enter a new word", text: $term)
+                    .textFieldStyle(.roundedBorder)
+                Button {
+                    term = ""
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                }
+                .padding(.trailing, 6)
+                .foregroundStyle(.secondary)
+                .opacity(term.isEmpty ? 0 : 1)
+            }
             
             HStack {
                 ShowDictionaryButton(
