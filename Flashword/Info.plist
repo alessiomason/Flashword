@@ -7,7 +7,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSMinimumSystemVersion</key>
-	<string>14.3</string>
+	<string>14.4</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
