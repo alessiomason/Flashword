@@ -17,10 +17,17 @@ struct WordCardsListView: View {
     
     var body: some View {
         List {
-            AddWordView()
-            
-            ForEach(words) { word in
-                WordCardView(word: word)
+            Section {
+                AddWordView()
+                
+                ForEach(words) { word in
+                    WordCardView(word: word)
+                }
+            } footer: {
+                Text((category == nil) ? "\(words.count) words" : "\(words.count) words in this category")
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 4)
             }
         }
         .if(category != nil) { view in
