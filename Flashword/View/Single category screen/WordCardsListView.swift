@@ -50,6 +50,13 @@ struct WordCardsListView: View {
                     WordCardView(word: word, wordToBeReassigned: $wordToBeReassigned, wordToBeDeleted: $wordToBeDeleted, showingDeleteAlert: $showingDeleteAlert)
                         .padding(.vertical, 5)
                 }
+                
+                Text((category == nil) ? "\(words.count) words" : "\(words.count) words in this category")
+                    .multilineTextAlignment(.center)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 8)
             }
             .padding(.horizontal)
         }
