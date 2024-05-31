@@ -20,6 +20,7 @@ struct CategoryListItemView: View {
             
             VStack(alignment: .leading) {
                 Text(category.name)
+                    .lineLimit(1)
                     .foregroundStyle(category.tintColor)
                 Text("\(category.unwrappedWords.count) words")
                     .font(.subheadline)
