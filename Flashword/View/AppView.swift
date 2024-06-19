@@ -5,10 +5,13 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
+import CoreSpotlight
 import SwiftData
 import SwiftUI
 
 struct AppView: View {
+    @Environment(\.modelContext) private var modelContext
+    @AppStorage("alreadyIndexedWords") private var alreadyIndexedWords = false  // app indexes all words only once (for backwords compatibility), then indexes new ones at insertion time
     @State private var router = Router()
     
     var body: some View {
@@ -32,7 +35,39 @@ struct AppView: View {
         }
         .tint(router.tintColor)
         .environment(router)
+        .task {
+            Task.detached(priority: .background) {
+                if !alreadyIndexedWords {
+                    indexWords(modelContext: modelContext)
+                    alreadyIndexedWords = true
+                }
+            }
+        }
     }
+}
+
+
+@Sendable private func indexWords(modelContext: ModelContext) {
+    CSSearchableIndex.default().deleteAllSearchableItems()
+    
+    let descriptor = FetchDescriptor<Word>()
+    let words = try? modelContext.fetch(descriptor)
+    guard let words else { return }
+    
+    var searchableItems = [CSSearchableItem]()
+    
+    for word in words {
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.displayName = word.term
+        attributeSet.containerIdentifier = word.category?.name
+        attributeSet.containerDisplayName = word.categoryName
+        attributeSet.addedDate = word.learntOn
+        
+        let searchableItem = CSSearchableItem(uniqueIdentifier: nil, domainIdentifier: word.categoryName, attributeSet: attributeSet)
+        searchableItems.append(searchableItem)
+    }
+    
+    CSSearchableIndex.default().indexSearchableItems(searchableItems)
 }
 
 #Preview {
