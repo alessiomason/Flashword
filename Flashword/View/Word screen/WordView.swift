@@ -95,6 +95,7 @@ struct WordView: View {
                 // check that the last word in the router path (which has now been removed)
                 // is the same word displayed in the view, otherwise something went very wrong
                 guard removedWord == word else { fallthrough }
+                removedWord.deleteIndex()
                 modelContext.delete(word)
             default:
                 fatalError("There was an error removing the word \(word.term).")

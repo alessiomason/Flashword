@@ -39,8 +39,8 @@ struct AppView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         let words = [
-            Word(term: "Test", learntOn: .now.addingTimeInterval(-86400), bookmarked: true),
-            Word(term: "Swift", learntOn: .now, category: .example)
+            Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400), bookmarked: true),
+            Word(uuid: UUID(), term: "Swift", learntOn: .now, category: .example)
         ]
         
         words.forEach {

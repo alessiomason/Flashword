@@ -29,6 +29,7 @@ struct ChangeCategoryView: View {
                     ForEach(categories) { category in
                         Button {
                             word.category = category
+                            word.index()
                             dismiss()
                         } label: {
                             SelectableCategoryListItemView(category: category, selected: word.category == category)

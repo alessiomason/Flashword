@@ -89,6 +89,7 @@ struct WordCardsListView: View {
     
     func deleteWord() {
         guard let wordToBeDeleted else { return }
+        wordToBeDeleted.deleteIndex()
         modelContext.delete(wordToBeDeleted)
     }
 }
@@ -98,8 +99,8 @@ struct WordCardsListView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         let words = [
-            Word(term: "Test", learntOn: .now.addingTimeInterval(-86400)),
-            Word(term: "Swift", learntOn: .now)
+            Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400)),
+            Word(uuid: UUID(), term: "Swift", learntOn: .now)
         ]
         
         words.forEach {
