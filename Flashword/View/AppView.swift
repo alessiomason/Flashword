@@ -35,18 +35,15 @@ struct AppView: View {
         }
         .tint(router.tintColor)
         .environment(router)
-        .task {
-            Task.detached(priority: .background) {
-                await indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
-                alreadyUpdatedWordsUuid = true
-            }
+        .onAppear {
+            indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
+            alreadyUpdatedWordsUuid = true
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
             handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
         }
     }
 }
-
 
 @Sendable private func indexWords(modelContext: ModelContext, alreadyUpdatedWordsUuid: Bool) {
     CSSearchableIndex.default().deleteAllSearchableItems()
