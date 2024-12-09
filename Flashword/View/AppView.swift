@@ -46,8 +46,6 @@ struct AppView: View {
 }
 
 @Sendable private func indexWords(modelContext: ModelContext, alreadyUpdatedWordsUuid: Bool) {
-    CSSearchableIndex.default().deleteAllSearchableItems()
-    
     let descriptor = FetchDescriptor<Word>(
         predicate: #Predicate { word in
             word.spotlightIndexed == false
