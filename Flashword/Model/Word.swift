@@ -67,7 +67,7 @@ class Word: Codable {
     }
     
     #if canImport(CoreSpotlight)
-    /// Used to create the searchable item to be indexed by Spotlight.
+    /// Create the searchable item to be indexed by Spotlight.
     func createSpotlightSearchableItem() -> CSSearchableItem {
         let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
         attributeSet.identifier = self.uuid.uuidString
@@ -77,6 +77,17 @@ class Word: Codable {
         attributeSet.addedDate = self.learntOn
         
         return CSSearchableItem(uniqueIdentifier: self.uuid.uuidString, domainIdentifier: self.categoryName, attributeSet: attributeSet)
+    }
+    
+    /// Index the word in Spotlight.
+    func index() {
+        let searchableItem = self.createSpotlightSearchableItem()
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+    }
+    
+    /// Remove the word from Spotlight.
+    func deleteIndex() {
+        CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [self.uuid.uuidString])
     }
     #endif
     

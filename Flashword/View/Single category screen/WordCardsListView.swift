@@ -89,6 +89,7 @@ struct WordCardsListView: View {
     
     func deleteWord() {
         guard let wordToBeDeleted else { return }
+        wordToBeDeleted.deleteIndex()
         modelContext.delete(wordToBeDeleted)
     }
 }

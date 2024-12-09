@@ -5,7 +5,6 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
-import CoreSpotlight
 import StoreKit
 import SwiftData
 import SwiftUI
@@ -126,9 +125,7 @@ struct NewWordCardView: View {
         router.path.append(RouterDestination.word(word: word))
         term = ""
         
-        // index new word in Spotlight
-        let searchableItem = word.createSpotlightSearchableItem()
-        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+        word.index()
         
         // request review
         let descriptor = FetchDescriptor<Word>()
