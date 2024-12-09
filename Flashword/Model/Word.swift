@@ -11,9 +11,10 @@ import SwiftData
 @Model
 class Word: Codable {
     enum CodingKeys: CodingKey {
-        case term, learntOn, notes, category, bookmarked
+        case uuid, term, learntOn, notes, category, bookmarked
     }
     
+    var uuid: UUID = UUID()
     let term: String = ""
     let learntOn: Date = Date.now
     var notes: String = ""
@@ -40,7 +41,8 @@ class Word: Codable {
         category?.secondaryColor ?? .blue
     }
     
-    init(term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false) {
+    init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false) {
+        self.uuid = uuid
         self.term = term
         self.learntOn = learntOn
         self.notes = notes
@@ -50,6 +52,7 @@ class Word: Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.uuid = try container.decode(UUID.self, forKey: .uuid)
         self.term = try container.decode(String.self, forKey: .term)
         let learntOn = try container.decode(String.self, forKey: .learntOn)
         self.learntOn = try Date(learntOn, strategy: .iso8601)
@@ -60,6 +63,7 @@ class Word: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.uuid, forKey: .uuid)
         try container.encode(self.term, forKey: .term)
         try container.encode(self.learntOn, forKey: .learntOn)
         try container.encode(self.notes, forKey: .notes)
@@ -98,6 +102,6 @@ class Word: Codable {
     /// The sort order used for querying the list of words.
     static let sortDescriptors = [SortDescriptor(\Word.learntOn, order: .reverse)]
     
-    static let example = Word(term: "Swift", learntOn: .now, notes: "A swift testing word.", bookmarked: true)
-    static let otherExample = Word(term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?")
+    static let example = Word(uuid: UUID(), term: "Swift", learntOn: .now, notes: "A swift testing word.", bookmarked: true)
+    static let otherExample = Word(uuid: UUID(), term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?")
 }

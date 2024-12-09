@@ -79,7 +79,7 @@ struct AddWordView: View {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
-        let word = Word(term: trimmedTerm, learntOn: .now, category: category)
+        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category)
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
