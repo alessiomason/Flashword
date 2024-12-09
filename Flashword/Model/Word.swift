@@ -5,7 +5,9 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
+#if canImport(CoreSpotlight)
 import CoreSpotlight
+#endif
 import SwiftUI
 import SwiftData
 
@@ -64,6 +66,7 @@ class Word: Codable {
         self.bookmarked = try container.decode(Bool.self, forKey: .bookmarked)
     }
     
+    #if canImport(CoreSpotlight)
     /// Used to create the searchable item to be indexed by Spotlight.
     func createSpotlightSearchableItem() -> CSSearchableItem {
         let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
@@ -75,6 +78,7 @@ class Word: Codable {
         
         return CSSearchableItem(uniqueIdentifier: self.uuid.uuidString, domainIdentifier: self.categoryName, attributeSet: attributeSet)
     }
+    #endif
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
