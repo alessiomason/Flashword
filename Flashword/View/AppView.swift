@@ -11,7 +11,7 @@ import SwiftUI
 
 struct AppView: View {
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("alreadyIndexedWords") private var alreadyIndexedWords = false  // app indexes all words only once (for backwords compatibility), then indexes new ones at insertion time
+    @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @State private var router = Router()
     
     var body: some View {
@@ -37,37 +37,59 @@ struct AppView: View {
         .environment(router)
         .task {
             Task.detached(priority: .background) {
-                if !alreadyIndexedWords {
-                    indexWords(modelContext: modelContext)
-                    alreadyIndexedWords = true
-                }
+                await indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
+                alreadyUpdatedWordsUuid = true
             }
+        }
+        .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
+            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
         }
     }
 }
 
 
-@Sendable private func indexWords(modelContext: ModelContext) {
+@Sendable private func indexWords(modelContext: ModelContext, alreadyUpdatedWordsUuid: Bool) {
     CSSearchableIndex.default().deleteAllSearchableItems()
     
-    let descriptor = FetchDescriptor<Word>()
+    let descriptor = FetchDescriptor<Word>(
+        predicate: #Predicate { word in
+            word.spotlightIndexed == false
+        }
+    )
     let words = try? modelContext.fetch(descriptor)
     guard let words else { return }
     
     var searchableItems = [CSSearchableItem]()
     
     for word in words {
-        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
-        attributeSet.displayName = word.term
-        attributeSet.containerIdentifier = word.category?.name
-        attributeSet.containerDisplayName = word.categoryName
-        attributeSet.addedDate = word.learntOn
+        // This solves a bug with SwiftData's lightweight migration:
+        // if words were already present when updating to thw new model with thw UUID (previously absent),
+        // all words are created withe the same UUID.
+        // This creates a unique UUID for every word only at first launch.
+        if !alreadyUpdatedWordsUuid {
+            word.uuid = UUID()
+        }
         
-        let searchableItem = CSSearchableItem(uniqueIdentifier: nil, domainIdentifier: word.categoryName, attributeSet: attributeSet)
+        let searchableItem = word.createSpotlightSearchableItem()
         searchableItems.append(searchableItem)
+        word.spotlightIndexed = true
     }
     
     CSSearchableIndex.default().indexSearchableItems(searchableItems)
+}
+
+func handleSpotlight(userActivity: NSUserActivity, modelContext: ModelContext, router: Router) {
+    guard let string = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String else { return }
+    guard let queryUuid = UUID(uuidString: string) else { return }
+    
+    let descriptor = FetchDescriptor<Word>(
+        predicate: #Predicate<Word> { word in
+            word.uuid == queryUuid
+        }
+    )
+    
+    guard let word = try? modelContext.fetch(descriptor).first else { return }
+    router.path.append(RouterDestination.word(word: word))
 }
 
 #Preview {

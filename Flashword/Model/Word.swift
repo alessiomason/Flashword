@@ -5,6 +5,7 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
+import CoreSpotlight
 import SwiftUI
 import SwiftData
 
@@ -20,6 +21,7 @@ class Word: Codable {
     var notes: String = ""
     @Relationship(inverse: \Category.words) var category: Category?
     var bookmarked: Bool = false
+    var spotlightIndexed: Bool = false
     
     var categoryName: String {
         let localizedNoCategory = String(localized: "No category", comment: "The text to display in absence of a user-defined category")
@@ -41,13 +43,14 @@ class Word: Codable {
         category?.secondaryColor ?? .blue
     }
     
-    init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false) {
+    init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false, spotlightIndexed: Bool = false) {
         self.uuid = uuid
         self.term = term
         self.learntOn = learntOn
         self.notes = notes
         self.category = category
         self.bookmarked = bookmarked
+        self.spotlightIndexed = spotlightIndexed
     }
     
     required init(from decoder: Decoder) throws {
@@ -59,6 +62,18 @@ class Word: Codable {
         self.notes = try container.decode(String.self, forKey: .notes)
         self.category = try container.decode(Category?.self, forKey: .category)
         self.bookmarked = try container.decode(Bool.self, forKey: .bookmarked)
+    }
+    
+    /// Used to create the searchable item to be indexed by Spotlight.
+    func createSpotlightSearchableItem() -> CSSearchableItem {
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.identifier = self.uuid.uuidString
+        attributeSet.displayName = self.term
+        attributeSet.containerIdentifier = self.category?.name
+        attributeSet.containerDisplayName = self.categoryName
+        attributeSet.addedDate = self.learntOn
+        
+        return CSSearchableItem(uniqueIdentifier: self.uuid.uuidString, domainIdentifier: self.categoryName, attributeSet: attributeSet)
     }
     
     func encode(to encoder: Encoder) throws {

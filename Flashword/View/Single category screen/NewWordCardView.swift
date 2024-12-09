@@ -5,6 +5,7 @@
 //  Created by Alessio Mason on 18/01/24.
 //
 
+import CoreSpotlight
 import StoreKit
 import SwiftData
 import SwiftUI
@@ -119,11 +120,17 @@ struct NewWordCardView: View {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
-        let word = Word(term: trimmedTerm, learntOn: .now, category: category)
+        // insert new word
+        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category, spotlightIndexed: true)
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
         
+        // index new word in Spotlight
+        let searchableItem = word.createSpotlightSearchableItem()
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+        
+        // request review
         let descriptor = FetchDescriptor<Word>()
         let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
         if wordCount >= 10 {
