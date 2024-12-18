@@ -484,12 +484,12 @@
         }
       }
     },
-    "Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
+    "Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!\nI am a high school teacher, but I like creating apps from time to time!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano 🇮🇹!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
+            "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano 🇮🇹!\nNella vita sono un insegnante della scuola superiore, ma mi diletto a creare app di tanto in tanto!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
           }
         }
       }

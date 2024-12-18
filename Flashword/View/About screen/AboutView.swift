@@ -13,6 +13,7 @@ struct AboutView: View {
     
     let personalDescription = String(localized: """
 Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!
+I am a high school teacher, but I like creating apps from time to time!
 This is the first app I develop, thank you so very much for even just trying it out!
 Below you can find some links to follow me online!
 """)
@@ -32,7 +33,7 @@ Below you can find some links to follow me online!
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .padding(.horizontal, 8)
                             
-                            Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
+                            Image(.flashwordIcon)
                                 .resizable()
                                 .scaledToFit()
                                 .containerRelativeFrame(.horizontal) { width, axis in
