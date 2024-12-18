@@ -64,6 +64,7 @@ struct RecentlyAddedWordsCategoryView: View {
     var body: some View {
         WordCardsListView(words: filteredWords)
             .navigationTitle(title)
+            .onAppear(perform: setMinimumDateRange)
         #if os(watchOS)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -130,6 +131,23 @@ struct RecentlyAddedWordsCategoryView: View {
         }
     }
     #endif
+    
+    /// Determines the minimum date range that displays at least a word (if possible).
+    /// This allows to open the view showing some data to the user, instead of a blank page.
+    func setMinimumDateRange() {
+        if filteredWords.count > 0 { return }
+        
+        dateRange = .thisWeek
+        if filteredWords.count > 0 { return }
+        
+        dateRange = .lastSevenDays
+        if filteredWords.count > 0 { return }
+        
+        dateRange = .lastThirtyDays
+        if filteredWords.count == 0 {
+            dateRange = .lastSevenDays
+        }
+    }
 }
 
 #Preview {
