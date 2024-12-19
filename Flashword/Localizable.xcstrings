@@ -1031,12 +1031,12 @@
         }
       }
     },
-    "You haven't added any words in the last 30 days: there's nothing to see here!" : {
+    "You haven't added any words as of late: there's nothing to see here!" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Non hai aggiunto nessuna parola negli ultimi 30 giorni: non c’è niente da vedere qui!"
+            "value" : "Non hai aggiunto nessuna parola ultimamente: non c’è niente da vedere qui!"
           }
         }
       }

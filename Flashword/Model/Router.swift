@@ -9,7 +9,7 @@ import SwiftUI
 
 enum RouterDestination: Hashable {
     case allWordsCategory
-    case recentlyAddedCategory
+    case recentlyAddedCategory(focusNewWordField: Bool = false)
     case bookmarksCategory
     case category(category: Category)
     case word(word: Word)
