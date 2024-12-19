@@ -23,7 +23,7 @@ struct RecentlyAddedWordsCategoryView: View {
     #endif
     
     let contentUnavailableLocalizedText = String(localized: "No recent words to display")
-    let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words in the last 30 days: there's nothing to see here!")
+    let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words as of late: there's nothing to see here!")
     
     var title: String {
         return switch dateRange {
