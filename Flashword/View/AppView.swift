@@ -63,6 +63,8 @@ struct AppView: View {
             case .none:
                 return
         }
+        
+        quickActionsManager.quickAction = nil
     }
 }
 
