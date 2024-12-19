@@ -12,8 +12,11 @@ import SwiftUI
 struct BookmarksCategoryView: View {
     @Query(filter: #Predicate<Word> { $0.bookmarked }, sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
     
+    let contentUnavailableLocalizedText = String(localized: "No bookmarked words to display")
+    let contentUnavailableLocalizedDescription = String(localized: "You haven't bookmarked any words yet: there's nothing to see here!")
+    
     var body: some View {
-        WordCardsListView(words: words)
+        WordCardsListView(words: words, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle("Bookmarks")
     }
 }

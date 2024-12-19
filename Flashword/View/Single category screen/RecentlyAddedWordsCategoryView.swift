@@ -16,10 +16,14 @@ struct RecentlyAddedWordsCategoryView: View {
     
     @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
     @State private var dateRange = DateRange.today
+    @Environment(\.modelContext) private var modelContext
     #if os(watchOS)
     @Environment(\.dismiss) private var dismiss
     @State private var showingPickerSheet = false
     #endif
+    
+    let contentUnavailableLocalizedText = String(localized: "No recent words to display")
+    let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words in the last 30 days: there's nothing to see here!")
     
     var title: String {
         return switch dateRange {
@@ -37,34 +41,12 @@ struct RecentlyAddedWordsCategoryView: View {
     // cannot be filtered using a SwiftData Predicate as the Calendar functions are
     // not supported within a predicate
     var filteredWords: [Word] {
-        return switch dateRange {
-            case .today:
-                words.filter { word in
-                    Calendar.current.isDateInToday(word.learntOn)
-                }
-            case .thisWeek:
-                words.filter { word in
-                    Calendar.current.isDate(word.learntOn, equalTo: .now, toGranularity: .weekOfYear)
-                }
-            case .lastSevenDays:
-                words.filter { word in
-                    let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now)
-                    guard let sevenDaysAgo else { return false }
-                    return word.learntOn >= sevenDaysAgo
-                }
-            case .lastThirtyDays:
-                words.filter { word in
-                    let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: .now)
-                    guard let thirtyDaysAgo else { return false }
-                    return word.learntOn >= thirtyDaysAgo
-                }
-        }
+        filterWordsByDateRange(words)
     }
     
     var body: some View {
-        WordCardsListView(words: filteredWords)
+        WordCardsListView(words: filteredWords, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle(title)
-            .onAppear(perform: setMinimumDateRange)
         #if os(watchOS)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -132,20 +114,50 @@ struct RecentlyAddedWordsCategoryView: View {
     }
     #endif
     
-    /// Determines the minimum date range that displays at least a word (if possible).
-    /// This allows to open the view showing some data to the user, instead of a blank page.
-    func setMinimumDateRange() {
-        if filteredWords.count > 0 { return }
+    // Determines the minimum date range that displays at least a word (if possible).
+    // This allows to open the view showing some data to the user, instead of a blank page.
+    init(modelContext: ModelContext) {
+        let descriptor = FetchDescriptor<Word>()
+        guard let localWords = try? modelContext.fetch(descriptor) else { return }
         
-        dateRange = .thisWeek
-        if filteredWords.count > 0 { return }
+        var localFilteredWords = filterWordsByDateRange(localWords, providedDateRange: .today)
+        if localFilteredWords.count > 0 { return }
         
-        dateRange = .lastSevenDays
-        if filteredWords.count > 0 { return }
+        _dateRange = State(initialValue: .thisWeek)
+        localFilteredWords = filterWordsByDateRange(localWords, providedDateRange: .thisWeek)
+        if localFilteredWords.count > 0 { return }
         
-        dateRange = .lastThirtyDays
-        if filteredWords.count == 0 {
-            dateRange = .lastSevenDays
+        _dateRange = State(initialValue: .lastSevenDays)
+        localFilteredWords = filterWordsByDateRange(localWords, providedDateRange: .lastSevenDays)
+        if localFilteredWords.count > 0 { return }
+        
+        _dateRange = State(initialValue: .lastThirtyDays)
+    }
+    
+    private func filterWordsByDateRange(_ words: [Word], providedDateRange: DateRange? = nil) -> [Word] {
+        let filteringDateRange = providedDateRange ?? dateRange
+        
+        return switch filteringDateRange {
+            case .today:
+                words.filter { word in
+                    Calendar.current.isDateInToday(word.learntOn)
+                }
+            case .thisWeek:
+                words.filter { word in
+                    Calendar.current.isDate(word.learntOn, equalTo: .now, toGranularity: .weekOfYear)
+                }
+            case .lastSevenDays:
+                words.filter { word in
+                    let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: .now)
+                    guard let sevenDaysAgo else { return false }
+                    return word.learntOn >= sevenDaysAgo
+                }
+            case .lastThirtyDays:
+                words.filter { word in
+                    let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: .now)
+                    guard let thirtyDaysAgo else { return false }
+                    return word.learntOn >= thirtyDaysAgo
+                }
         }
     }
 }
@@ -154,7 +166,7 @@ struct RecentlyAddedWordsCategoryView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
-        let words = [
+        let words: [Word] = [
             Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400*2)),
             Word(uuid: UUID(), term: "Swift", learntOn: .now)
         ]
@@ -164,7 +176,7 @@ struct RecentlyAddedWordsCategoryView: View {
         }
         
         return NavigationStack {
-            RecentlyAddedWordsCategoryView()
+            RecentlyAddedWordsCategoryView(modelContext: container.mainContext)
         }
         .modelContainer(container)
         .environment(Router())

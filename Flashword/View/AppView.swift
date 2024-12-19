@@ -12,6 +12,7 @@ import SwiftUI
 struct AppView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
+    @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     @State private var router = Router()
     
     var body: some View {
@@ -23,7 +24,7 @@ struct AppView: View {
                         case .allWordsCategory:
                             AllWordsCategoryView()
                         case .recentlyAddedCategory:
-                            RecentlyAddedWordsCategoryView()
+                            RecentlyAddedWordsCategoryView(modelContext: modelContext)
                         case .bookmarksCategory:
                             BookmarksCategoryView()
                         case let .category(category):
@@ -36,55 +37,15 @@ struct AppView: View {
         .tint(router.tintColor)
         .environment(router)
         .onAppear {
-            indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
-            alreadyUpdatedWordsUuid = true
+            if spotlightEnabled {
+                indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
+                alreadyUpdatedWordsUuid = true
+            }
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
             handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
         }
     }
-}
-
-@Sendable private func indexWords(modelContext: ModelContext, alreadyUpdatedWordsUuid: Bool) {
-    let descriptor = FetchDescriptor<Word>(
-        predicate: #Predicate { word in
-            word.spotlightIndexed == false
-        }
-    )
-    let words = try? modelContext.fetch(descriptor)
-    guard let words else { return }
-    
-    var searchableItems = [CSSearchableItem]()
-    
-    for word in words {
-        // This solves a bug with SwiftData's lightweight migration:
-        // if words were already present when updating to thw new model with thw UUID (previously absent),
-        // all words are created withe the same UUID.
-        // This creates a unique UUID for every word only at first launch.
-        if !alreadyUpdatedWordsUuid {
-            word.uuid = UUID()
-        }
-        
-        let searchableItem = word.createSpotlightSearchableItem()
-        searchableItems.append(searchableItem)
-        word.spotlightIndexed = true
-    }
-    
-    CSSearchableIndex.default().indexSearchableItems(searchableItems)
-}
-
-func handleSpotlight(userActivity: NSUserActivity, modelContext: ModelContext, router: Router) {
-    guard let string = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String else { return }
-    guard let queryUuid = UUID(uuidString: string) else { return }
-    
-    let descriptor = FetchDescriptor<Word>(
-        predicate: #Predicate<Word> { word in
-            word.uuid == queryUuid
-        }
-    )
-    
-    guard let word = try? modelContext.fetch(descriptor).first else { return }
-    router.path.append(RouterDestination.word(word: word))
 }
 
 #Preview {

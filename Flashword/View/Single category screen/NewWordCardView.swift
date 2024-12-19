@@ -13,6 +13,7 @@ struct NewWordCardView: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
     @Environment(\.requestReview) private var requestReview
+    @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     
     let category: Category?
     let primaryColor: Color
@@ -125,7 +126,9 @@ struct NewWordCardView: View {
         router.path.append(RouterDestination.word(word: word))
         term = ""
         
-        word.index()
+        if spotlightEnabled {
+            word.index()
+        }
         
         // request review
         let descriptor = FetchDescriptor<Word>()
