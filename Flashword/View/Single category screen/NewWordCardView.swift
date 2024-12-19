@@ -22,11 +22,18 @@ struct NewWordCardView: View {
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
+    let focusNewWordField: Bool
+    @FocusState private var isNewWordFieldFocused: Bool
+    
     var body: some View {
         VStack {
             ZStack(alignment: .trailing) {
                 TextField("Enter a new word", text: $term)
                     .textFieldStyle(.roundedBorder)
+                    .focused($isNewWordFieldFocused)
+                    .onAppear {
+                        isNewWordFieldFocused = focusNewWordField
+                    }
                 Button {
                     term = ""
                 } label: {
@@ -78,10 +85,11 @@ struct NewWordCardView: View {
         }
     }
     
-    init(category: Category? = nil) {
+    init(category: Category? = nil, focusNewWordField: Bool = false) {
         self.category = category
         self.primaryColor = category?.primaryColor ?? .mint
         self.secondaryColor = category?.secondaryColor ?? .blue
+        self.focusNewWordField = focusNewWordField
     }
     
     func fetchDuplicates() -> [Word]? {

@@ -30,7 +30,7 @@ struct CategoryListView: View {
                             .foregroundStyle(.blue)
                     }
                 }
-                NavigationLink(value: RouterDestination.recentlyAddedCategory) {
+                NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
                     Label {
                         Text("Recently added")
                     } icon: {

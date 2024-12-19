@@ -45,7 +45,7 @@ struct WordCardsListView: View {
         .listStyle(.carousel)
     }
     
-    init(category: Category? = nil, words: [Word], contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
+    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
         self.category = category
         self.words = words
         self.contentUnavailableText = contentUnavailableText ?? ""

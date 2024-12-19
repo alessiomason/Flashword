@@ -24,8 +24,8 @@ struct AppView: View {
                     switch destination {
                         case .allWordsCategory:
                             AllWordsCategoryView()
-                        case .recentlyAddedCategory:
-                            RecentlyAddedWordsCategoryView(modelContext: modelContext)
+                        case let .recentlyAddedCategory(focusNewWordField):
+                            RecentlyAddedWordsCategoryView(modelContext: modelContext, focusNewWordField: focusNewWordField)
                         case .bookmarksCategory:
                             BookmarksCategoryView()
                         case let .category(category):
@@ -59,7 +59,7 @@ struct AppView: View {
             case .showAllWords:
                 router.path.append(.allWordsCategory)
             case .addNewWord:
-                router.path.append(.recentlyAddedCategory)
+                router.path.append(.recentlyAddedCategory(focusNewWordField: true))
             case .none:
                 return
         }
