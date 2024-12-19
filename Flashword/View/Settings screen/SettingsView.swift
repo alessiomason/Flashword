@@ -29,11 +29,11 @@ struct SettingsView: View {
                         
                         VStack(alignment: .leading) {
                             Text("About Flashword")
-                                .font(.headline)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                             
                             Text("Discover more about Flashword and its creator!")
-                                .font(.footnote)
+                                .font(.subheadline)
                         }
                         .padding(.leading, 8)
                     }
