@@ -14,6 +14,7 @@ struct AppView: View {
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     @State private var router = Router()
+    @State private var quickActionsManager = QuickActionsManager.instance
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -37,6 +38,12 @@ struct AppView: View {
         .tint(router.tintColor)
         .environment(router)
         .onAppear {
+            handleQuickActions()
+        }
+        .onChange(of: quickActionsManager.quickAction, { _, _ in
+            handleQuickActions()
+        })
+        .onAppear {
             if spotlightEnabled {
                 indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
                 alreadyUpdatedWordsUuid = true
@@ -44,6 +51,17 @@ struct AppView: View {
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
             handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
+        }
+    }
+    
+    private func handleQuickActions() {
+        switch quickActionsManager.quickAction {
+            case .showAllWords:
+                router.path.append(.allWordsCategory)
+            case .addNewWord:
+                router.path.append(.recentlyAddedCategory)
+            case .none:
+                return
         }
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct FlashwordApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             AppView()
