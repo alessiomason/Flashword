@@ -23,7 +23,7 @@ struct AppView: View {
                         case .allWordsCategory:
                             AllWordsCategoryView()
                         case .recentlyAddedCategory:
-                            RecentlyAddedWordsCategoryView()
+                            RecentlyAddedWordsCategoryView(modelContext: modelContext)
                         case .bookmarksCategory:
                             BookmarksCategoryView()
                         case let .category(category):

@@ -17,8 +17,11 @@ struct CategoryView: View {
     let category: Category
     @Query private var words: [Word]
     
+    let contentUnavailableLocalizedText = String(localized: "No words in this category")
+    let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words to this category yet: there's nothing to see here!")
+    
     var body: some View {
-        WordCardsListView(category: category, words: words)
+        WordCardsListView(category: category, words: words, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle(category.name)
     }
     

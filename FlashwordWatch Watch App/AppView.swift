@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct AppView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var router = Router()
     
     var body: some View {
@@ -20,7 +21,7 @@ struct AppView: View {
                         case .allWordsCategory:
                             AllWordsCategoryView()
                         case .recentlyAddedCategory:
-                            RecentlyAddedWordsCategoryView()
+                            RecentlyAddedWordsCategoryView(modelContext: modelContext)
                         case .bookmarksCategory:
                             BookmarksCategoryView()
                         case let .category(category):

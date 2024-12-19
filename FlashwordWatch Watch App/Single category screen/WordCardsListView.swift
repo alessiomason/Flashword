@@ -13,6 +13,9 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    let contentUnavailableText: String
+    let contentUnavailableDescription: String
+    
     @State private var showingAddWordSheet = false
     
     var body: some View {
@@ -20,14 +23,20 @@ struct WordCardsListView: View {
             Section {
                 AddWordView()
                 
-                ForEach(words) { word in
-                    WordCardView(word: word)
+                if words.isEmpty {
+                    ContentUnavailableView(contentUnavailableText, image: "custom.tray.slash", description: Text(contentUnavailableDescription))
+                } else {
+                    ForEach(words) { word in
+                        WordCardView(word: word)
+                    }
                 }
             } footer: {
-                Text((category == nil) ? "\(words.count) words" : "\(words.count) words in this category")
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 4)
+                if !words.isEmpty {
+                    Text((category == nil) ? "\(words.count) words" : "\(words.count) words in this category")
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 4)
+                }
             }
         }
         .if(category != nil) { view in
@@ -36,9 +45,11 @@ struct WordCardsListView: View {
         .listStyle(.carousel)
     }
     
-    init(category: Category? = nil, words: [Word]) {
+    init(category: Category? = nil, words: [Word], contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
         self.category = category
         self.words = words
+        self.contentUnavailableText = contentUnavailableText ?? ""
+        self.contentUnavailableDescription = contentUnavailableDescription ?? ""
     }
 }
 
@@ -46,7 +57,7 @@ struct WordCardsListView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
-        let words = [
+        let words: [Word] = [
             Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400)),
             Word(uuid: UUID(), term: "Swift", learntOn: .now)
         ]
@@ -56,7 +67,7 @@ struct WordCardsListView: View {
         }
         
         return NavigationStack {
-            WordCardsListView(words: words)
+            WordCardsListView(words: words, contentUnavailableText: "No recent words to display", contentUnavailableDescription: "You haven't added any words in the last 30 days: there's nothing to see here!")
         }
         .modelContainer(container)
         .environment(Router())

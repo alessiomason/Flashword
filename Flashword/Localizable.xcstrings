@@ -484,12 +484,12 @@
         }
       }
     },
-    "Hi! My name is Alessio and I am a computer engineer from Italy 🇮🇹!\nI am a high school teacher, but I like creating apps from time to time!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
+    "Hi! My name is Alessio and I am a computer engineer from Italy! 🇮🇹\nI am a high school teacher, but I like creating apps from time to time!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano 🇮🇹!\nNella vita sono un insegnante della scuola superiore, ma mi diletto a creare app di tanto in tanto!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
+            "value" : "Ciao! Mi chiamo Alessio e sono un ingegnere informatico italiano! 🇮🇹\nNella vita sono un insegnante della scuola superiore, ma mi diletto a creare app di tanto in tanto!\nQuesta è la prima app che sviluppo, grazie davvero per averla anche solo provata!\nQui sotto trovi qualche link per seguirmi in giro per il web!"
           }
         }
       }
@@ -655,6 +655,16 @@
         }
       }
     },
+    "No bookmarked words to display" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna parola nei segnalibri"
+          }
+        }
+      }
+    },
     "No category" : {
       "comment" : "The text to display in absence of a user-defined category",
       "localizations" : {
@@ -683,6 +693,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nessuna nota"
+          }
+        }
+      }
+    },
+    "No recent words to display" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna parola recente da mostrare"
+          }
+        }
+      }
+    },
+    "No words in this category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna parola in questa categoria"
+          }
+        }
+      }
+    },
+    "No words to display" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna parola inserita"
           }
         }
       }
@@ -927,6 +967,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puoi eliminare la categoria e tutte le parole associate o eliminare solo la categoria e segnare tutte le parole come non categorizzate."
+          }
+        }
+      }
+    },
+    "You haven't added any words in the last 30 days: there's nothing to see here!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai aggiunto nessuna parola negli ultimi 30 giorni: non c’è niente da vedere qui!"
+          }
+        }
+      }
+    },
+    "You haven't added any words to this category yet: there's nothing to see here!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai ancora aggiunto nessuna parola a questa categoria: non c’è niente da vedere qui!"
+          }
+        }
+      }
+    },
+    "You haven't added any words yet: you can start now!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai ancora aggiunto nessuna parola: puoi iniziare ora!"
+          }
+        }
+      }
+    },
+    "You haven't bookmarked any words yet: there's nothing to see here!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai ancora aggiunto nessuna parola ai segnalibri: non c’è niente da vedere qui!"
           }
         }
       }
