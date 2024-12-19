@@ -13,7 +13,7 @@ struct CategoryListView: View {
     @Environment(\.editMode) private var editMode
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     
-    @State private var showingAboutScreen = false
+    @State private var showingSettingsScreen = false
     @State private var showingAddCategorySheet = false
     @State private var categoryToBeModified: Category? = nil
     
@@ -85,8 +85,8 @@ struct CategoryListView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button("About Flashword", systemImage: "info.circle") {
-                    showingAboutScreen = true
+                Button("About Flashword", systemImage: "gear") {
+                    showingSettingsScreen = true
                 }
                 .tint(.blue)
                 .disabled(isEditing)
@@ -100,8 +100,8 @@ struct CategoryListView: View {
                 .disabled(isEditing)
             }
         }
-        .sheet(isPresented: $showingAboutScreen) {
-            AboutView()
+        .sheet(isPresented: $showingSettingsScreen) {
+            SettingsView()
         }
         .sheet(isPresented: $showingAddCategorySheet) {
             AddModifyCategoryView()

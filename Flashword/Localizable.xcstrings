@@ -96,7 +96,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informazioni su Flashword"
+            "value" : "Info su Flashword"
           }
         }
       }
@@ -359,6 +359,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dispositivi"
+          }
+        }
+      }
+    },
+    "Discover more about Flashword and its creator!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scopri di più su Flashword e su come è stata creata!"
           }
         }
       }
@@ -818,6 +828,16 @@
         }
       }
     },
+    "Settings" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostazioni"
+          }
+        }
+      }
+    },
     "Sort alphabetically" : {
       "localizations" : {
         "it" : {
@@ -854,6 +874,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sport"
+          }
+        }
+      }
+    },
+    "Spotlight" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spotlight"
+          }
+        }
+      }
+    },
+    "Spotlight integration" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Integrazione con Spotlight"
+          }
+        }
+      }
+    },
+    "Spotlight integration is currently disabled. If you enable it, every word you create is indexed and can appear in your search results outside the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’integrazione con Spotlight è al momento disabilitata. Se la abiliti, ogni parola che crei viene indicizzata e può apparire nei risultati di ricerca al di fuori dell’app."
+          }
+        }
+      }
+    },
+    "Spotlight integration is currently enabled: every word you create is indexed and can appear in your search results outside the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’integrazione con Spotlight è abilitata: ogni parola che crei viene indicizzata e può apparire nei risultati di ricerca al di fuori dell’app."
           }
         }
       }
