@@ -22,6 +22,7 @@ struct NewWordCardView: View {
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
+    let addNewWordToBookmarks: Bool
     let focusNewWordField: Bool
     @FocusState private var isNewWordFieldFocused: Bool
     
@@ -85,11 +86,12 @@ struct NewWordCardView: View {
         }
     }
     
-    init(category: Category? = nil, focusNewWordField: Bool = false) {
+    init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {
         self.category = category
         self.primaryColor = category?.primaryColor ?? .mint
         self.secondaryColor = category?.secondaryColor ?? .blue
         self.focusNewWordField = focusNewWordField
+        self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     
     func fetchDuplicates() -> [Word]? {
@@ -129,7 +131,7 @@ struct NewWordCardView: View {
         guard !trimmedTerm.isEmpty else { return }
         
         // insert new word
-        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category, spotlightIndexed: true)
+        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category, bookmarked: addNewWordToBookmarks, spotlightIndexed: true)
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""

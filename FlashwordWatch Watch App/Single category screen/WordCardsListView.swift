@@ -13,6 +13,7 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    let addNewWordToBookmarks: Bool
     let contentUnavailableText: String
     let contentUnavailableDescription: String
     
@@ -21,7 +22,7 @@ struct WordCardsListView: View {
     var body: some View {
         List {
             Section {
-                AddWordView()
+                AddWordView(addNewWordToBookmarks: addNewWordToBookmarks)
                 
                 if words.isEmpty {
                     ContentUnavailableView(contentUnavailableText, image: "custom.tray.slash", description: Text(contentUnavailableDescription))
@@ -45,9 +46,10 @@ struct WordCardsListView: View {
         .listStyle(.carousel)
     }
     
-    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
+    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
         self.category = category
         self.words = words
+        self.addNewWordToBookmarks = addNewWordToBookmarks
         self.contentUnavailableText = contentUnavailableText ?? ""
         self.contentUnavailableDescription = contentUnavailableDescription ?? ""
     }

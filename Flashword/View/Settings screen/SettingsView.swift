@@ -39,6 +39,21 @@ struct SettingsView: View {
                     }
                 }
                 
+                NavigationLink {
+                    TipJarView()
+                } label: {
+                    HStack {
+                        Text("🍯")
+                            .font(.largeTitle)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Tip jar").bold()
+                            Text("Support the development")
+                        }
+                        .padding(.leading, 8)
+                    }
+                }
+                
                 Section {
                     Toggle("Spotlight integration", isOn: $spotlightEnabled)
                         .onChange(of: spotlightEnabled, handleSpotlightIntegration)

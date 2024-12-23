@@ -17,9 +17,10 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    let focusNewWordField: Bool
+    let addNewWordToBookmarks: Bool
     let contentUnavailableText: String
     let contentUnavailableDescription: String
-    let focusNewWordField: Bool
     
     @AppStorage("sortingBy") private var sortingBy = SortingOptions.creationDate
     @State private var searchText = ""
@@ -48,7 +49,7 @@ struct WordCardsListView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                NewWordCardView(category: category, focusNewWordField: focusNewWordField)
+                NewWordCardView(category: category, focusNewWordField: focusNewWordField, addNewWordToBookmarks: addNewWordToBookmarks)
                     .padding(.bottom, 8)
                 
                 if displayedWords.isEmpty {
@@ -91,10 +92,11 @@ struct WordCardsListView: View {
         }
     }
     
-    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
+    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
         self.category = category
         self.words = words
         self.focusNewWordField = focusNewWordField
+        self.addNewWordToBookmarks = addNewWordToBookmarks
         self.contentUnavailableText = contentUnavailableText ?? ""
         self.contentUnavailableDescription = contentUnavailableDescription ?? ""
     }

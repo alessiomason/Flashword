@@ -81,12 +81,58 @@
         }
       }
     },
+    "☕️ Buy me a coffee" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☕️ Offrimi un caffè"
+          }
+        }
+      }
+    },
+    "🍯" : {
+      "shouldTranslate" : false
+    },
+    "🍯 Tip jar" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🍯 Barattolo delle offerte"
+          }
+        }
+      }
+    },
+    "🙏" : {
+      "shouldTranslate" : false
+    },
     "A category named \"%@\" already exists!" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Una categoria chiamata \"%@\" esiste già!"
+          }
+        }
+      }
+    },
+    "A small tip to support the development of the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una piccola offerta per supportare lo sviluppo dell’app."
+          }
+        }
+      }
+    },
+    "A tip to support the development of the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un’offerta per supportare lo sviluppo dell’app."
           }
         }
       }
@@ -422,6 +468,9 @@
           }
         }
       }
+    },
+    "Failed to create the preview: %@" : {
+
     },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
       "localizations" : {
@@ -918,6 +967,16 @@
         }
       }
     },
+    "Support the development" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supporta lo sviluppo"
+          }
+        }
+      }
+    },
     "Symbol for the category" : {
       "localizations" : {
         "it" : {
@@ -934,6 +993,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Termini di utilizzo"
+          }
+        }
+      }
+    },
+    "Thank you so very much for your support!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie infinite per il tuo supporto!"
           }
         }
       }
@@ -985,6 +1054,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Questa settimana"
+          }
+        }
+      }
+    },
+    "Tip" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offerta"
+          }
+        }
+      }
+    },
+    "Tip jar" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barattolo delle offerte"
           }
         }
       }

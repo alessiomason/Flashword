@@ -22,6 +22,10 @@
 		566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762632B60085E00C3F1CA /* WordCardsListView.swift */; };
 		566762662B60087100C3F1CA /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762652B60087100C3F1CA /* WordView.swift */; };
 		566762682B60093F00C3F1CA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 566762672B60093F00C3F1CA /* Localizable.xcstrings */; };
+		566BD4FB2D15E16E00628678 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 566BD4FA2D15E16E00628678 /* RevenueCat */; };
+		566BD4FD2D15E16E00628678 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 566BD4FC2D15E16E00628678 /* RevenueCatUI */; };
+		566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD4FE2D15E31300628678 /* TipJarView.swift */; };
+		566BD5022D15E4D700628678 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD5012D15E4D700628678 /* IAPManager.swift */; };
 		5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3D92B7D10BB008EEB16 /* Symbol.swift */; };
 		5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */; };
 		5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */; };
@@ -113,6 +117,8 @@
 		566762632B60085E00C3F1CA /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
 		566762652B60087100C3F1CA /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		566762672B60093F00C3F1CA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		566BD4FE2D15E31300628678 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
+		566BD5012D15E4D700628678 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		5684D3D92B7D10BB008EEB16 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
 		5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSymbolView.swift; sourceTree = "<group>"; };
@@ -158,7 +164,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566BD4FB2D15E16E00628678 /* RevenueCat in Frameworks */,
 				5684D3E12B7E059C008EEB16 /* OrderedCollections in Frameworks */,
+				566BD4FD2D15E16E00628678 /* RevenueCatUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +206,7 @@
 				569B731E2B89FFE400F06012 /* Flashword.entitlements */,
 				56B4E1202B6D017600E0983C /* Info.plist */,
 				56FCE2972D1433E0006B5D64 /* Delegates */,
+				566BD5002D15E4AD00628678 /* In-app purchases */,
 				566762552B6007A200C3F1CA /* Model */,
 				56FCE2942D142684006B5D64 /* Functions */,
 				566762562B6007A700C3F1CA /* View */,
@@ -244,6 +253,14 @@
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		566BD5002D15E4AD00628678 /* In-app purchases */ = {
+			isa = PBXGroup;
+			children = (
+				566BD5012D15E4D700628678 /* IAPManager.swift */,
+			);
+			path = "In-app purchases";
 			sourceTree = "<group>";
 		};
 		568B7E8B2BF5033A00FC4220 /* FlashwordWatch Watch App */ = {
@@ -301,6 +318,7 @@
 			children = (
 				56CF966A2B6BA23E008C4AA6 /* AboutView.swift */,
 				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
+				566BD4FE2D15E31300628678 /* TipJarView.swift */,
 			);
 			path = "Settings screen";
 			sourceTree = "<group>";
@@ -389,6 +407,8 @@
 			name = Flashword;
 			packageProductDependencies = (
 				5684D3E02B7E059C008EEB16 /* OrderedCollections */,
+				566BD4FA2D15E16E00628678 /* RevenueCat */,
+				566BD4FC2D15E16E00628678 /* RevenueCatUI */,
 			);
 			productName = Flashword;
 			productReference = 566762442B60071500C3F1CA /* Flashword.app */;
@@ -444,6 +464,7 @@
 			mainGroup = 5667623B2B60071500C3F1CA;
 			packageReferences = (
 				5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				566BD4F92D15E16E00628678 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			productRefGroup = 566762452B60071500C3F1CA /* Products */;
 			projectDirPath = "";
@@ -483,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566BD5022D15E4D700628678 /* IAPManager.swift in Sources */,
 				56FCE2992D1433F1006B5D64 /* Delegates.swift in Sources */,
 				56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */,
 				56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */,
@@ -508,6 +530,7 @@
 				56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */,
 				566762662B60087100C3F1CA /* WordView.swift in Sources */,
 				566762602B60083200C3F1CA /* NewWordCardView.swift in Sources */,
+				566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */,
 				566762622B60084C00C3F1CA /* WordCardView.swift in Sources */,
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
@@ -862,6 +885,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		566BD4F92D15E16E00628678 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.3;
+			};
+		};
 		5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
@@ -873,6 +904,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		566BD4FA2D15E16E00628678 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 566BD4F92D15E16E00628678 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		566BD4FC2D15E16E00628678 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 566BD4F92D15E16E00628678 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
 		5684D3E02B7E059C008EEB16 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5684D3DF2B7E059C008EEB16 /* XCRemoteSwiftPackageReference "swift-collections" */;

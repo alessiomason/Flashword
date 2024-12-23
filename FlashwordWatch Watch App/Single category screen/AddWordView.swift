@@ -18,6 +18,8 @@ struct AddWordView: View {
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
+    let addNewWordToBookmarks: Bool
+    
     var body: some View {
         TextFieldLink(prompt: Text("Enter a new word")) {
             HStack {
@@ -41,6 +43,10 @@ struct AddWordView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
+    }
+    
+    init(addNewWordToBookmarks: Bool = false) {
+        self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     
     func fetchDuplicates() -> [Word]? {
@@ -79,7 +85,7 @@ struct AddWordView: View {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
-        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category)
+        let word = Word(uuid: UUID(), term: trimmedTerm, learntOn: .now, category: category, bookmarked: addNewWordToBookmarks)
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""

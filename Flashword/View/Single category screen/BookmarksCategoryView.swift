@@ -16,7 +16,7 @@ struct BookmarksCategoryView: View {
     let contentUnavailableLocalizedDescription = String(localized: "You haven't bookmarked any words yet: there's nothing to see here!")
     
     var body: some View {
-        WordCardsListView(words: words, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
+        WordCardsListView(words: words, addNewWordToBookmarks: true, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle("Bookmarks")
     }
 }
