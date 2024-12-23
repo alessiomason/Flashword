@@ -33,7 +33,7 @@ struct WordCardView: View {
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         } else {
-                            Text(word.notes)
+                            Text(.init(word.notes))
                                 .lineLimit(1)
                                 .font(.subheadline)
                         }
