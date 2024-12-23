@@ -41,7 +41,7 @@ struct WordView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text(word.notes)
+                    Text(.init(word.notes))
                         .padding(.top, 8)
                         .padding(.horizontal, 5)
                     
