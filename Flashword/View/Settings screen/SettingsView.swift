@@ -15,42 +15,44 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink {
-                    AboutView()
-                } label: {
-                    HStack {
-                        Image(.flashwordIcon)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, axis in
-                                width * 0.25
-                            }
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                        
-                        VStack(alignment: .leading) {
-                            Text("About Flashword")
-                                .font(.title3)
-                                .fontWeight(.semibold)
+                Section {
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        HStack {
+                            Image(.flashwordIcon)
+                                .resizable()
+                                .scaledToFit()
+                                .containerRelativeFrame(.horizontal) { width, axis in
+                                    width * 0.25
+                                }
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
                             
-                            Text("Discover more about Flashword and its creator!")
-                                .font(.subheadline)
+                            VStack(alignment: .leading) {
+                                Text("About Flashword")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                
+                                Text("Discover more about Flashword and its creator!")
+                                    .font(.subheadline)
+                            }
+                            .padding(.leading, 8)
                         }
-                        .padding(.leading, 8)
                     }
-                }
-                
-                NavigationLink {
-                    TipJarView()
-                } label: {
-                    HStack {
-                        Text("🍯")
-                            .font(.largeTitle)
-                        
-                        VStack(alignment: .leading) {
-                            Text("Tip jar").bold()
-                            Text("Support the development")
+                    
+                    NavigationLink {
+                        TipJarView()
+                    } label: {
+                        HStack {
+                            Text("🍯")
+                                .font(.largeTitle)
+                            
+                            VStack(alignment: .leading) {
+                                Text("Tip jar").bold()
+                                Text("Support the development")
+                            }
+                            .padding(.leading, 8)
                         }
-                        .padding(.leading, 8)
                     }
                 }
                 
@@ -64,6 +66,12 @@ struct SettingsView: View {
                         Text("Spotlight integration is currently enabled: every word you create is indexed and can appear in your search results outside the app.")
                     } else {
                         Text("Spotlight integration is currently disabled. If you enable it, every word you create is indexed and can appear in your search results outside the app.")
+                    }
+                }
+                
+                Section("System dictionaries") {
+                    NavigationLink("How to manage your dictionaries") {
+                        DictionariesExplanationView()
                     }
                 }
             }
