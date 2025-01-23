@@ -87,9 +87,11 @@ struct NewWordCardView: View {
     }
     
     init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {
+        let defaultColor = ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]
+        
         self.category = category
-        self.primaryColor = category?.primaryColor ?? .mint
-        self.secondaryColor = category?.secondaryColor ?? .blue
+        self.primaryColor = category?.primaryColor ?? defaultColor?.primaryColor ?? .mint
+        self.secondaryColor = category?.secondaryColor ?? defaultColor?.secondaryColor ?? .blue
         self.focusNewWordField = focusNewWordField
         self.addNewWordToBookmarks = addNewWordToBookmarks
     }

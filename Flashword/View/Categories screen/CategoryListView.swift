@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(Router.self) private var router
     @Environment(\.editMode) private var editMode
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     
@@ -29,7 +30,7 @@ struct CategoryListView: View {
                         Text("All words")
                     } icon: {
                         Image(systemName: "books.vertical")
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
                 NavigationLink(value: RouterDestination.bookmarksCategory) {
@@ -37,7 +38,7 @@ struct CategoryListView: View {
                         Text("Bookmarks")
                     } icon: {
                         Image(systemName: "bookmark")
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
@@ -45,7 +46,7 @@ struct CategoryListView: View {
                         Text("Recently added")
                     } icon: {
                         Image(systemName: "clock")
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
             }
@@ -80,7 +81,7 @@ struct CategoryListView: View {
             if !categories.isEmpty {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
-                        .tint(.blue)
+                        .tint(router.tintColor)
                 }
             }
             
@@ -88,7 +89,7 @@ struct CategoryListView: View {
                 Button("About Flashword", systemImage: "gear") {
                     showingSettingsScreen = true
                 }
-                .tint(.blue)
+                .tint(router.tintColor)
                 .disabled(isEditing)
             }
             
@@ -96,7 +97,7 @@ struct CategoryListView: View {
                 Button("Insert a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
-                .tint(.blue)
+                .tint(router.tintColor)
                 .disabled(isEditing)
             }
         }
