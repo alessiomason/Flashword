@@ -10,7 +10,14 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
+    
+    @ScaledMetric private var iconHeight = 35.0
+    @AppStorage("defaultColorChoiceId") private var defaultColorChoiceId = 0
+    private var defaultColorChoice: ColorChoice {
+        ColorChoice.choices[defaultColorChoiceId] ?? ColorChoice.choices[0]!
+    }
     
     var body: some View {
         NavigationStack {
@@ -67,6 +74,25 @@ struct SettingsView: View {
                     } else {
                         Text("Spotlight integration is currently disabled. If you enable it, every word you create is indexed and can appear in your search results outside the app.")
                     }
+                }
+                
+                Section {
+                    NavigationLink {
+                        DefaultColorView()
+                    } label: {
+                        HStack {
+                            ColorCircle(primaryColor: defaultColorChoice.primaryColor, secondaryColor: defaultColorChoice.secondaryColor)
+                                .padding(.vertical, 4)
+                                .padding(.trailing, 4)
+                                .frame(maxWidth: iconHeight, maxHeight: iconHeight)
+                            
+                            Text("Uncategorized words color")
+                        }
+                    }
+                } header: {
+                    Text("Uncategorized words")
+                } footer: {
+                    Text("Choose the color for the words that do not belong to a specific category.")
                 }
                 
                 Section("System dictionaries") {

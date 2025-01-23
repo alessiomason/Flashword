@@ -9,19 +9,19 @@ import SwiftUI
 
 struct ChooseColorView: View {
     let columns = [GridItem(.adaptive(minimum: 60))]
-    @Binding var selectedColorChoice: ColorChoice
+    @Binding var selectedColorChoiceId: Int
     
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(ColorChoice.choices.values) { colorChoice in
                 Button {
-                    selectedColorChoice = colorChoice
+                    selectedColorChoiceId = colorChoice.id
                 } label: {
                     ZStack {
                         ColorCircle(primaryColor: colorChoice.primaryColor, secondaryColor: colorChoice.secondaryColor)
                             .frame(width: 60)
                         
-                        if colorChoice == selectedColorChoice {
+                        if colorChoice.id == selectedColorChoiceId {
                             Image(systemName: "checkmark")
                                 .resizable()
                                 .scaledToFit()
@@ -33,10 +33,10 @@ struct ChooseColorView: View {
             }
         }
         .buttonStyle(.plain)
-        .sensoryFeedback(.impact, trigger: selectedColorChoice)
+        .sensoryFeedback(.impact, trigger: selectedColorChoiceId)
     }
 }
 
 #Preview {
-    ChooseColorView(selectedColorChoice: .constant(ColorChoice.choices[0]!))
+    ChooseColorView(selectedColorChoiceId: .constant(0))
 }

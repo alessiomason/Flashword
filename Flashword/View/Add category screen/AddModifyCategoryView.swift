@@ -21,7 +21,10 @@ struct AddModifyCategoryView: View {
     
     @State private var name = ""
     @State private var showingDuplicateCategoryAlert = false
-    @State private var selectedColorChoice = ColorChoice.choices[0]!
+    @State private var selectedColorChoiceId = 0
+    private var selectedColorChoice: ColorChoice {
+        ColorChoice.choices[selectedColorChoiceId] ?? ColorChoice.choices[0]!
+    }
     // the previously selected symbol, to be shown in the suggested symbols list even if the current one changes
     @State private var previouslySelectedSymbol = Symbol.suggested[0]
     @State private var selectedSymbol = Symbol.suggested[0]
@@ -36,7 +39,7 @@ struct AddModifyCategoryView: View {
                 }
                 
                 Section("Category color") {
-                    ChooseColorView(selectedColorChoice: $selectedColorChoice)
+                    ChooseColorView(selectedColorChoiceId: $selectedColorChoiceId)
                 }
                 
                 Section("Symbol for the category") {
@@ -85,8 +88,7 @@ struct AddModifyCategoryView: View {
         if let category {
             self._name = State(initialValue: category.name)
             
-            let colorChoice = ColorChoice.choices[category.colorChoiceId] ?? ColorChoice.choices[0]!
-            self._selectedColorChoice = State(initialValue: colorChoice)
+            self._selectedColorChoiceId = State(initialValue: category.colorChoiceId)
             self._previouslySelectedSymbol = State(initialValue: category.symbol)
             self._selectedSymbol = State(initialValue: category.symbol)
         }

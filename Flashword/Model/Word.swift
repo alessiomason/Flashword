@@ -39,10 +39,10 @@ class Word: Codable {
     }
     
     var primaryColor: Color {
-        category?.primaryColor ?? .mint
+        category?.primaryColor ?? ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]?.primaryColor ?? .mint
     }
     var secondaryColor: Color {
-        category?.secondaryColor ?? .blue
+        category?.secondaryColor ?? ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]?.secondaryColor ?? .blue
     }
     
     init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false, spotlightIndexed: Bool = false) {

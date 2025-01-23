@@ -20,16 +20,18 @@ class Router {
     var path = [RouterDestination]()
     
     var tintColor: Color? {
-        guard path.count > 0 else { return nil }
+        let defaultTintColor = ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]?.tintColor
+        
+        guard path.count > 0 else { return defaultTintColor }
         let currentDestination = path[path.count - 1]
         
         return switch currentDestination {
             case let .category(category):
                 category.tintColor
             case let .word(word):
-                word.category?.tintColor ?? nil
+                word.category?.tintColor ?? defaultTintColor
             default:
-                nil
+                defaultTintColor
         }
     }
 }

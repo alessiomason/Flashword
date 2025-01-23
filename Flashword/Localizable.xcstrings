@@ -329,6 +329,9 @@
         }
       }
     },
+    "Choose the color for the words that do not belong to a specific category." : {
+
+    },
     "Close" : {
       "localizations" : {
         "it" : {
@@ -468,6 +471,9 @@
           }
         }
       }
+    },
+    "Failed to create the preview: %@" : {
+
     },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
       "localizations" : {
@@ -865,6 +871,9 @@
         }
       }
     },
+    "Pick a color" : {
+
+    },
     "Privacy policy" : {
       "localizations" : {
         "it" : {
@@ -1118,6 +1127,12 @@
           }
         }
       }
+    },
+    "Uncategorized words" : {
+
+    },
+    "Uncategorized words color" : {
+
     },
     "Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button." : {
       "comment" : "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.",
