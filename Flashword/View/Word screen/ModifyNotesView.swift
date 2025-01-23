@@ -13,6 +13,16 @@ struct ModifyNotesView: View {
     private var word: Word
     @State private var notes: String
     @FocusState private var textEditorFocused: Bool
+    @State private var showingInfoAlert = false
+    
+    let infoAlertMessage = String(localized: """
+When writing your notes, you can use basic Markdown syntax to format them. For example:
+
+**Bold** text
+*Italic* text
+~Strikethrough~ text
+`Monospace` text
+""")
     
     var body: some View {
         NavigationStack {
@@ -36,6 +46,10 @@ struct ModifyNotesView: View {
             .navigationTitle("Modify the notes of \"\(word.term)\"")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                Button("Writing notes", systemImage: "info.circle") {
+                    showingInfoAlert = true
+                }
+                
                 Button {
                     word.notes = notes
                     dismiss()
@@ -44,6 +58,12 @@ struct ModifyNotesView: View {
                         .bold()
                 }
             }
+            .alert("You can use Markdown in your notes!", isPresented: $showingInfoAlert) {
+                Button("OK") { }
+            } message: {
+                Text(infoAlertMessage)
+            }
+
         }
     }
     

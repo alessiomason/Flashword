@@ -571,6 +571,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "Hi! My name is Alessio and I am a computer engineer from Italy! 🇮🇹\nI am a high school teacher, but I like creating apps from time to time!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
       "localizations" : {
         "it" : {
@@ -582,6 +585,9 @@
       }
     },
     "How to manage your dictionaries" : {
+
+    },
+    "How to use the app" : {
 
     },
     "Insert a new category" : {
@@ -1021,9 +1027,6 @@
         }
       }
     },
-    "System dictionaries" : {
-
-    },
     "Terms of use" : {
       "localizations" : {
         "it" : {
@@ -1129,6 +1132,9 @@
 
     },
     "Uncategorized words color" : {
+
+    },
+    "Use markdown to enrich your notes" : {
 
     },
     "Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button." : {

@@ -321,10 +321,10 @@
 			isa = PBXGroup;
 			children = (
 				56CF966A2B6BA23E008C4AA6 /* AboutView.swift */,
-				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
-				566BD4FE2D15E31300628678 /* TipJarView.swift */,
 				569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */,
 				569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */,
+				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
+				566BD4FE2D15E31300628678 /* TipJarView.swift */,
 			);
 			path = "Settings screen";
 			sourceTree = "<group>";
