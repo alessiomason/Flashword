@@ -30,7 +30,7 @@ struct ShowDictionaryButton: View {
     var body: some View {
         // UIReferenceLibraryViewController is not available on the Mac, so don't show the button altogether
         if !ProcessInfo.processInfo.isiOSAppOnMac {
-            // smaller button is used for text fields, so avoid button appearing and disappering as the
+            // smaller button is used for text fields, so avoid button appearing and disappearing as the
             // user types, always show it
             if smallerButton || dictionaryHasDefinition {
                 Button(buttonText, action: showDictionary)

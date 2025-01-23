@@ -330,7 +330,14 @@
       }
     },
     "Choose the color for the words that do not belong to a specific category." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli il color delle parole che non appartengono a una categoria specifica."
+          }
+        }
+      }
     },
     "Close" : {
       "localizations" : {
@@ -472,6 +479,16 @@
         }
       }
     },
+    "Failed to create the preview: %@" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile creare la preview: %@"
+          }
+        }
+      }
+    },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
       "localizations" : {
         "it" : {
@@ -513,7 +530,31 @@
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already), you have to do so from the Settings app.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings."
+                  "value" : "Flashword uses the system dictionaries to provide definitions for your words.\n\nYou can manage your dictionaries (or download them for the first time, if you haven't already) from the Settings app."
+                }
+              }
+            }
+          }
+        },
+        "it" : {
+          "variations" : {
+            "device" : {
+              "ipad" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni -> Generali -> Dizionario sul tuo iPad.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
+                }
+              },
+              "iphone" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni -> Generali -> Dizionario sul tuo iPhone.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPuoi gestire i tuoi dizionari (o scaricarli per la prima volta, se non lo hai ancora fatto) dall’app Impostazioni."
                 }
               }
             }
@@ -571,9 +612,6 @@
         }
       }
     },
-    "Hello, World!" : {
-
-    },
     "Hi! My name is Alessio and I am a computer engineer from Italy! 🇮🇹\nI am a high school teacher, but I like creating apps from time to time!\nThis is the first app I develop, thank you so very much for even just trying it out!\nBelow you can find some links to follow me online!" : {
       "localizations" : {
         "it" : {
@@ -585,10 +623,14 @@
       }
     },
     "How to manage your dictionaries" : {
-
-    },
-    "How to use the app" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Come gestire i dizionari"
+          }
+        }
+      }
     },
     "Insert a new category" : {
       "localizations" : {
@@ -875,7 +917,14 @@
       }
     },
     "Pick a color" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli un colore"
+          }
+        }
+      }
     },
     "Privacy policy" : {
       "localizations" : {
@@ -1027,6 +1076,16 @@
         }
       }
     },
+    "System dictionaries" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dizionari di sistema"
+          }
+        }
+      }
+    },
     "Terms of use" : {
       "localizations" : {
         "it" : {
@@ -1088,6 +1147,16 @@
         }
       }
     },
+    "This app is a little side project of mine. I try and develop it *while I'm busy making other plans*, as someone famous once said. If you happen to enjoy it, you might want to send a small tip my way: it helps to support the development of these few side projects of mine!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa app è un mio piccolo progetto che porto avanti nel tempo libero, *mentre sono impegnato a fare altri progetti*, come disse una volta qualcuno. Se l’app ti piace, magari ti può far piacere mandarmi una piccola offerta: sarà d’aiuto per supportare lo sviluppo di questo e altri miei piccoli progetti!"
+          }
+        }
+      }
+    },
     "This week" : {
       "localizations" : {
         "it" : {
@@ -1129,13 +1198,34 @@
       }
     },
     "Uncategorized words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parole non categorizzate"
+          }
+        }
+      }
     },
     "Uncategorized words color" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colore delle parole non categorizzate"
+          }
+        }
+      }
     },
-    "Use markdown to enrich your notes" : {
-
+    "When writing your notes, you can use basic Markdown syntax to format them. For example:\n\n**Bold** text\n*Italic* text\n~Strikethrough~ text\n`Monospace` text" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando scrivi le note puoi usare la sintassi Markdown di base per formattarle. Per esempio:\n\nTesto **in grassetto**\nTesto *in corsivo*\nTesto ~barrato~\nTesto `monospaziato`"
+          }
+        }
+      }
     },
     "Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button." : {
       "comment" : "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.",
@@ -1159,12 +1249,32 @@
         }
       }
     },
+    "Writing notes" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scrivere le note"
+          }
+        }
+      }
+    },
     "You can delete the category and all its associated words, or delete the category alone and mark all the words as uncategorized." : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puoi eliminare la categoria e tutte le parole associate o eliminare solo la categoria e segnare tutte le parole come non categorizzate."
+          }
+        }
+      }
+    },
+    "You can use Markdown in your notes!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puoi usare il Markdown nelle tue note!"
           }
         }
       }

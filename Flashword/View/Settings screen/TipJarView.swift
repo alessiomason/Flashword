@@ -29,7 +29,7 @@ struct TipJarView: View {
             }
             
             Section {
-                Text("This app is a little side-project of mine. I try and develop it *while I'm busy making other plans*, as someone famous once said. If you happen to enjoy it, you might want to send a small tip my way: it helps to pay the costs of maintaining these few side-projects of mine!")
+                Text("This app is a little side project of mine. I try and develop it *while I'm busy making other plans*, as someone famous once said. If you happen to enjoy it, you might want to send a small tip my way: it helps to support the development of these few side projects of mine!")
             }
             
             Section {
