@@ -1127,6 +1127,16 @@
         }
       }
     },
+    "The word \"%@\" has already been saved in the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola \"%@\" è già stata salvata nell'app."
+          }
+        }
+      }
+    },
     "The word \"%@\" has already been saved in this category." : {
       "localizations" : {
         "it" : {

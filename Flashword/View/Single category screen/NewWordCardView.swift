@@ -78,7 +78,9 @@ struct NewWordCardView: View {
         } message: {
             let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
             
-            if duplicateWordIsInDifferentCategory {
+            if category == nil {
+                Text("The word \"\(trimmedTerm)\" has already been saved in the app.")
+            } else if duplicateWordIsInDifferentCategory {
                 Text("The word \"\(trimmedTerm)\" has already been saved in the app, but in a different category.")
             } else {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
@@ -117,13 +119,16 @@ struct NewWordCardView: View {
         if duplicates.isEmpty {
             insertNewWord()
         } else {
-            duplicateWordIsInDifferentCategory = true
-            for duplicate in duplicates {
-                if duplicate.category?.name == category?.name {
-                    duplicateWordIsInDifferentCategory = false
-                    break
+            if category != nil {    // no need to check if category is already nil
+                duplicateWordIsInDifferentCategory = true
+                for duplicate in duplicates {
+                    if duplicate.category?.name == category?.name {
+                        duplicateWordIsInDifferentCategory = false
+                        break
+                    }
                 }
             }
+            
             showingDuplicateWordWarning = true
         }
     }
