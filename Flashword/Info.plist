@@ -12,28 +12,24 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-    <key>UIApplicationShortcutItems</key>
-    <array>
-        <dict>
-            <key>UIApplicationShortcutItemType</key>
-            <string>ShowAllWords</string>
-            <key>UIApplicationShortcutItemIconType</key>
-            <string>UIApplicationShortcutIconTypeSearch</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>Show all words</string>
-            <key>UIApplicationShortcutItemSubtitle</key>
-            <string>Show the list of all words</string>
-        </dict>
-        <dict>
-            <key>UIApplicationShortcutItemType</key>
-            <string>AddNewWord</string>
-            <key>UIApplicationShortcutItemIconType</key>
-            <string>UIApplicationShortcutIconTypeAdd</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>Add a word</string>
-            <key>UIApplicationShortcutItemSubtitle</key>
-            <string>Add a new word to the app</string>
-        </dict>
-    </array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>ShowAllWords</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Show all words</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>AddNewWord</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeAdd</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Add a word</string>
+		</dict>
+	</array>
 </dict>
 </plist>
