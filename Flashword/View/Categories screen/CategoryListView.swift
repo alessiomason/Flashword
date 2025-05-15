@@ -62,6 +62,7 @@ struct CategoryListView: View {
                                 deleteCategory(category: category)
                             } label: {
                                 Label("Delete category", systemImage: "trash")
+                                    .tint(Color.red)
                             }
                             
                             Button {

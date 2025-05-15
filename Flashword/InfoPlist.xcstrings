@@ -1,16 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Add a new word to the app" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inserisci una nuova parola nell’app"
-          }
-        }
-      }
-    },
     "Add a word" : {
       "localizations" : {
         "it" : {
@@ -79,16 +69,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostra tutte le parole"
-          }
-        }
-      }
-    },
-    "Show the list of all words" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostra l’elenco di tutte le parole"
           }
         }
       }

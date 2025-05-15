@@ -334,7 +334,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scegli il color delle parole che non appartengono a una categoria specifica."
+            "value" : "Scegli il colore delle parole che non appartengono a una categoria specifica."
           }
         }
       }
@@ -475,16 +475,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inserisci qui le tue note…"
-          }
-        }
-      }
-    },
-    "Failed to create the preview: %@" : {
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossibile creare la preview: %@"
           }
         }
       }
@@ -1127,6 +1117,16 @@
         }
       }
     },
+    "The word \"%@\" has already been saved in the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola \"%@\" è già stata salvata nell'app."
+          }
+        }
+      }
+    },
     "The word \"%@\" has already been saved in this category." : {
       "localizations" : {
         "it" : {
@@ -1147,12 +1147,12 @@
         }
       }
     },
-    "This app is a little side project of mine. I try and develop it *while I'm busy making other plans*, as someone famous once said. If you happen to enjoy it, you might want to send a small tip my way: it helps to support the development of these few side projects of mine!" : {
+    "This app is a little side project of mine. I try and develop it ”while I'm busy making other plans”, as someone famous once said. If you happen to enjoy it, you might want to send a small tip my way: it helps to support the development of these few side projects of mine!" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Questa app è un mio piccolo progetto che porto avanti nel tempo libero, *mentre sono impegnato a fare altri progetti*, come disse una volta qualcuno. Se l’app ti piace, magari ti può far piacere mandarmi una piccola offerta: sarà d’aiuto per supportare lo sviluppo di questo e altri miei piccoli progetti!"
+            "value" : "Questa app è un mio piccolo progetto che porto avanti nel tempo libero, “mentre sono impegnato a fare altri progetti”, come disse una volta qualcuno. Se l’app ti piace, magari ti può far piacere mandarmi una piccola offerta: sarà d’aiuto per supportare lo sviluppo di questo e altri miei piccoli progetti!"
           }
         }
       }
