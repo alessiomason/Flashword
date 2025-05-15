@@ -24,6 +24,7 @@ It started as a personal project to create something I personally needed. Every 
 - Save words you learn and append notes to each word
 - Divide words into categories to better sort them
 - Create and modify categories, assigning a color and a symbol to each of them
+- Every word is synced with iCloud and indexed in Spotlight
 
 ## Technologies
 The app is entirely built using the SwiftUI framework. All data are stored using SwiftData.
