@@ -32,10 +32,12 @@ struct CategoryView: View {
                         Button("Edit category", systemImage: "paintbrush") {
                             showingModifyCategory = true
                         }
+                        .tint(.primary)
                         
                         Button("Delete", systemImage: "trash", role: .destructive) {
                             showingDeleteAlert = true
                         }
+                        .tint(.red)
                     } label: {
                         Label("More", systemImage: "ellipsis.circle")
                     }

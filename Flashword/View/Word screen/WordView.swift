@@ -41,7 +41,7 @@ struct WordView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text(.init(word.notes))
+                    Text(.init(word.notes))     // allows for basic Markdown text
                         .padding(.top, 8)
                         .padding(.horizontal, 5)
                     
@@ -67,10 +67,12 @@ struct WordView: View {
                     Button("Change category", systemImage: "tray.full") {
                         showingChangeCategorySheet = true
                     }
+                    .tint(.primary)
                     
                     Button("Delete", systemImage: "trash", role: .destructive) {
                         showingDeleteAlert = true
                     }
+                    .tint(.red)
                 } label: {
                     Label("More", systemImage: "ellipsis.circle")
                 }
