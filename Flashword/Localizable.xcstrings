@@ -500,45 +500,21 @@
         }
       }
     },
-    "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings -> General -> Dictionary on your iPhone.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings." : {
+    "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings → General → Dictionary on your iPhone.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings." : {
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "device" : {
-              "ipad" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings -> General -> Dictionary on your iPad.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings."
-                }
-              },
-              "iphone" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings -> General -> Dictionary on your iPhone.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Flashword uses the system dictionaries to provide definitions for your words.\n\nYou can manage your dictionaries (or download them for the first time, if you haven't already) from the Settings app."
-                }
-              }
-            }
-          }
-        },
         "it" : {
           "variations" : {
             "device" : {
               "ipad" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni -> Generali -> Dizionario sul tuo iPad.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
+                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni → Generali → Dizionario sul tuo iPad.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
                 }
               },
               "iphone" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni -> Generali -> Dizionario sul tuo iPhone.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
+                  "value" : "Flashword usa i dizionari di sistema per fornirti le definizioni delle parole.\n\nPer gestire i tuoi dizionari (o per scaricarli per la prima volta, se non lo hai ancora fatto) puoi andare in Impostazioni → Generali → Dizionario sul tuo iPhone.\nAlternativamente, quando consulti una definizione di una parola in Flashword, puoi premere sul pulsante “Gestisci dizionari” per accedere alle stesse impostazioni."
                 }
               },
               "other" : {
