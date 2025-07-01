@@ -66,6 +66,7 @@ struct WordCardsListView: View {
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity)
                         .padding(.top, 8)
+                        .padding(.bottom, 16)
                 }
             }
             .padding(.horizontal)
