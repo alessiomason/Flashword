@@ -35,6 +35,7 @@ struct NewWordCardView: View {
                     .onAppear {
                         isNewWordFieldFocused = focusNewWordField
                     }
+                
                 Button {
                     term = ""
                 } label: {
@@ -48,20 +49,16 @@ struct NewWordCardView: View {
             HStack {
                 ShowDictionaryButton(
                     term: term,
-                    primaryColor: Color(red: 0.886, green: 0.886, blue: 0.890),
-                    secondaryColor: Color(red: 0.557, green: 0.557, blue: 0.576),
+                    primaryColor: primaryColor,
+                    secondaryColor: secondaryColor,
                     smaller: true
                 )
                 
                 Button("Add", action: checkWordBeforeInserting)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
-                    .buttonStyle(.plain)
-                    .background(
-                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
+                    .glassEffect(.regular.tint(primaryColor).interactive())
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .padding(.top, 8)
         }

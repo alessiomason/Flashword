@@ -36,23 +36,20 @@ struct ShowDictionaryButton: View {
                 Button(buttonText, action: showDictionary)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
-                    .background(
-                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
-                        Button("Continue") {
-                            alreadyUsedDictionary = true
-                            showingDictionary = true
-                        }
-                    } message: {
-                        Text("Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button.", comment: "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.")
+                    .glassEffect(.regular.tint(smallerButton ? .white : primaryColor).interactive())
+                    .foregroundStyle(smallerButton ? secondaryColor : .white)
+                .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
+                    Button("Continue") {
+                        alreadyUsedDictionary = true
+                        showingDictionary = true
                     }
-                    .sheet(isPresented: $showingDictionary) {
-                        DictionaryView(term: term)
-                            .ignoresSafeArea()
-                    }
+                } message: {
+                    Text("Word definitions are provided by the system dictionaries. You can manage your dictionaries from the \"Manage Dictionaries\" button.", comment: "An explanation (shown only once) of the system dictionaries. Make sure the name of the button matches the one displayed by the dictionary view Apple provides.")
+                }
+                .sheet(isPresented: $showingDictionary) {
+                    DictionaryView(term: term)
+                        .ignoresSafeArea()
+                }
             } else if !smallerButton {    // say that no definition is available, but not in smaller buttons
                 Text("No definition available for \"\(term)\".")
                     .multilineTextAlignment(.center)
