@@ -18,8 +18,8 @@ class Word: Codable {
     }
     
     var uuid: UUID = UUID()
-    let term: String = ""
-    let learntOn: Date = Date.now
+    private(set) var term: String = ""
+    private(set) var learntOn: Date = Date.now
     var notes: String = ""
     @Relationship(inverse: \Category.words) var category: Category?
     var bookmarked: Bool = false
