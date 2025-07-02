@@ -13,29 +13,28 @@ struct AppView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
-    @State private var router = Router()
     @State private var quickActionsManager = QuickActionsManager.instance
     
+    @State private var searchText = ""
+    
+    private var homeTabView = HomeTabView()
+    
     var body: some View {
-        NavigationStack(path: $router.path) {
-            CategoryListView()
-                .navigationTitle(Text("Flashword", comment: "The name of the app"))
-                .navigationDestination(for: RouterDestination.self) { destination in
-                    switch destination {
-                        case .allWordsCategory:
-                            AllWordsCategoryView()
-                        case let .recentlyAddedCategory(focusNewWordField):
-                            RecentlyAddedWordsCategoryView(modelContext: modelContext, focusNewWordField: focusNewWordField)
-                        case .bookmarksCategory:
-                            BookmarksCategoryView()
-                        case let .category(category):
-                            CategoryView(category: category)
-                        case let .word(word):
-                            WordView(word: word)
-                    }
-                }
+        TabView {
+            Tab("Home", systemImage: "house") {
+                homeTabView
+            }
+            
+            Tab("Quiz", systemImage: "questionmark.text.page") {
+                Text("Quiz tab")
+            }
+            
+            Tab("Search", systemImage: "magnifyingglass", role: .search) {
+                SearchTabView(searchText: searchText)
+            }
         }
-        .environment(router)
+        .searchable(text: $searchText)
+        .tabBarMinimizeBehavior(.onScrollDown)
         .onAppear {
             handleQuickActions()
         }
@@ -49,16 +48,16 @@ struct AppView: View {
             }
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
-            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
+            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: homeTabView.router)
         }
     }
     
     private func handleQuickActions() {
         switch quickActionsManager.quickAction {
             case .showAllWords:
-                router.path.append(.allWordsCategory)
+                homeTabView.router.path.append(.allWordsCategory)
             case .addNewWord:
-                router.path.append(.recentlyAddedCategory(focusNewWordField: true))
+                homeTabView.router.path.append(.recentlyAddedCategory(focusNewWordField: true))
             case .none:
                 return
         }

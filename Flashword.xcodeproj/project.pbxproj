@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
+		56203A262E153E00005A6EAD /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56203A252E153E00005A6EAD /* HomeTabView.swift */; };
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
@@ -48,7 +49,7 @@
 		568B7EC92BF509D100FC4220 /* AllWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */; };
 		568B7ECA2BF509D100FC4220 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
 		568B7ECC2BF509E800FC4220 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECB2BF509E800FC4220 /* CategoryView.swift */; };
-		568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */; };
+		568B7ECE2BF50A8E00FC4220 /* FilteredWordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* FilteredWordCardsListView.swift */; };
 		568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ED02BF50BB800FC4220 /* WordView.swift */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
 		569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */; };
@@ -66,6 +67,8 @@
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
 		56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */; };
+		56D18A672E1585C70019062F /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18A662E1585C70019062F /* SearchTabView.swift */; };
+		56D18B432E158A830019062F /* FilteredWordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18B422E158A830019062F /* FilteredWordCardsListView.swift */; };
 		56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8C3A32B6AA23900D518AA /* ColorChoice.swift */; };
 		56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */; };
 		56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */; };
@@ -104,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedWordsCategoryView.swift; sourceTree = "<group>"; };
+		56203A252E153E00005A6EAD /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +135,7 @@
 		568B7EBF2BF5078700FC4220 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		568B7EC32BF5088D00FC4220 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 		568B7ECB2BF509E800FC4220 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
+		568B7ECD2BF50A8E00FC4220 /* FilteredWordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredWordCardsListView.swift; sourceTree = "<group>"; };
 		568B7ED02BF50BB800FC4220 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		568B7ED22BF50CDF00FC4220 /* FlashwordWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlashwordWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlashwordWatch Watch App.entitlements"; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
+		56D18A662E1585C70019062F /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
+		56D18B422E158A830019062F /* FilteredWordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredWordCardsListView.swift; sourceTree = "<group>"; };
 		56D8C3A32B6AA23900D518AA /* ColorChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoice.swift; sourceTree = "<group>"; };
 		56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 		56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCategoryView.swift; sourceTree = "<group>"; };
@@ -185,6 +191,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56203A242E153D9E005A6EAD /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				56203A252E153E00005A6EAD /* HomeTabView.swift */,
+				56D18A662E1585C70019062F /* SearchTabView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		5667623B2B60071500C3F1CA = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +262,7 @@
 		566762562B6007A700C3F1CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				56203A242E153D9E005A6EAD /* Tabs */,
 				5667625B2B60080000C3F1CA /* AppView.swift */,
 				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
@@ -303,7 +319,7 @@
 			children = (
 				56A778532C076532004570F9 /* AddWordView.swift */,
 				568B7ECB2BF509E800FC4220 /* CategoryView.swift */,
-				568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */,
+				568B7ECD2BF50A8E00FC4220 /* FilteredWordCardsListView.swift */,
 				56E1FF302BF668CD00B169D6 /* WordCardView.swift */,
 			);
 			path = "Single category screen";
@@ -360,6 +376,7 @@
 				566762632B60085E00C3F1CA /* WordCardsListView.swift */,
 				566762612B60084C00C3F1CA /* WordCardView.swift */,
 				56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */,
+				56D18B422E158A830019062F /* FilteredWordCardsListView.swift */,
 			);
 			path = "Single category screen";
 			sourceTree = "<group>";
@@ -513,8 +530,10 @@
 				566BD5022D15E4D700628678 /* IAPManager.swift in Sources */,
 				56FCE2992D1433F1006B5D64 /* Delegates.swift in Sources */,
 				56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */,
+				56203A262E153E00005A6EAD /* HomeTabView.swift in Sources */,
 				56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */,
 				56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */,
+				56D18A672E1585C70019062F /* SearchTabView.swift in Sources */,
 				5667625A2B6007D800C3F1CA /* Word.swift in Sources */,
 				566762582B6007B400C3F1CA /* Router.swift in Sources */,
 				569A13AF2D19B780007F4A39 /* DictionariesExplanationView.swift in Sources */,
@@ -527,6 +546,7 @@
 				56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */,
 				56FCE29B2D143507006B5D64 /* QuickActionsManager.swift in Sources */,
 				56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */,
+				56D18B432E158A830019062F /* FilteredWordCardsListView.swift in Sources */,
 				56C775A52B6407FD00742E1F /* ColorComponents.swift in Sources */,
 				5667625C2B60080000C3F1CA /* AppView.swift in Sources */,
 				56AF22582BF7971D00E13EAC /* OptionalModifier.swift in Sources */,
@@ -566,7 +586,7 @@
 				568B7EC92BF509D100FC4220 /* AllWordsCategoryView.swift in Sources */,
 				568B7ECA2BF509D100FC4220 /* RecentlyAddedWordsCategoryView.swift in Sources */,
 				568B7EA02BF5056C00FC4220 /* Category.swift in Sources */,
-				568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */,
+				568B7ECE2BF50A8E00FC4220 /* FilteredWordCardsListView.swift in Sources */,
 				568B7EC42BF5088D00FC4220 /* CategoryListItemView.swift in Sources */,
 				568B7EC02BF5078700FC4220 /* CategoryListView.swift in Sources */,
 				56AF22592BF7971D00E13EAC /* OptionalModifier.swift in Sources */,
