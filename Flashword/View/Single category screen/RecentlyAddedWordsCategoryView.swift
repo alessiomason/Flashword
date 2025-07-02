@@ -47,7 +47,7 @@ struct RecentlyAddedWordsCategoryView: View {
     }
     
     var body: some View {
-        WordCardsListView(words: filteredWords, focusNewWordField: focusNewWordField, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
+        FilteredWordCardsListView(words: filteredWords, focusNewWordField: focusNewWordField, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle(title)
         #if os(watchOS)
             .toolbar {

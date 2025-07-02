@@ -15,7 +15,7 @@ struct AllWordsCategoryView: View {
     let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words yet: you can start now!")
     
     var body: some View {
-        WordCardsListView(words: words, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
+        FilteredWordCardsListView(words: words, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle("All words")
     }
 }

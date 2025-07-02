@@ -17,30 +17,25 @@ struct WordCardsListView: View {
     let category: Category?
     var words: [Word]
     
+    let inSearchTab: Bool
     let focusNewWordField: Bool
     let addNewWordToBookmarks: Bool
     let contentUnavailableText: String
     let contentUnavailableDescription: String
     
     @AppStorage("sortingBy") private var sortingBy = SortingOptions.creationDate
-    @State private var searchText = ""
     @State private var wordToBeReassigned: Word? = nil
     @State private var wordToBeDeleted: Word? = nil
     @State private var showingDeleteAlert = false
     
-    
     private var displayedWords: [Word] {
-        let filteredWords = words.filter {
-            $0.term.lowercased().starts(with: searchText.lowercased())
-        }
-        
         return switch sortingBy {
             case .alphabetical:
-                filteredWords.sorted(by: { a, b in
+                words.sorted(by: { a, b in
                     a.term < b.term
                 })
             case .creationDate:
-                filteredWords.sorted(by: { a, b in
+                words.sorted(by: { a, b in
                     Calendar.current.compare(a.learntOn, to: b.learntOn, toGranularity: .second) == .orderedDescending
                 })
         }
@@ -48,9 +43,16 @@ struct WordCardsListView: View {
     
     var body: some View {
         ScrollView {
+            // if mostra categorie nella ricerca
+            // LazyVStack di categorie
+            // utile solo nel tab Search
+            
+            
             LazyVStack {
-                NewWordCardView(category: category, focusNewWordField: focusNewWordField, addNewWordToBookmarks: addNewWordToBookmarks)
-                    .padding(.bottom, 8)
+                if !inSearchTab {
+                    NewWordCardView(category: category, focusNewWordField: focusNewWordField, addNewWordToBookmarks: addNewWordToBookmarks)
+                        .padding(.bottom, 8)
+                }
                 
                 if displayedWords.isEmpty {
                     ContentUnavailableView(contentUnavailableText, image: "custom.tray.slash", description: Text(contentUnavailableDescription))
@@ -71,7 +73,6 @@ struct WordCardsListView: View {
             }
             .padding(.horizontal)
         }
-        .searchable(text: $searchText)
         .toolbar {
             ToolbarItem {
                 Menu {
@@ -93,9 +94,10 @@ struct WordCardsListView: View {
         }
     }
     
-    init(category: Category? = nil, words: [Word], focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
+    init(category: Category? = nil, words: [Word], inSearchTab: Bool = false, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false, contentUnavailableText: String? = nil, contentUnavailableDescription: String? = nil) {
         self.category = category
         self.words = words
+        self.inSearchTab = inSearchTab
         self.focusNewWordField = focusNewWordField
         self.addNewWordToBookmarks = addNewWordToBookmarks
         self.contentUnavailableText = contentUnavailableText ?? ""
