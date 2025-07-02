@@ -34,6 +34,7 @@ struct NoCategoriesView: View {
                 showingAddCategorySheet = true
             }
             .buttonStyle(.borderedProminent)
+            .glassEffect(.regular.interactive())
         }
         .onAppear(perform: checkWordCount)
     }

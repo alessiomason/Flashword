@@ -37,7 +37,7 @@ struct ShowDictionaryButton: View {
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
                     .glassEffect(.regular.tint(smallerButton ? .white : primaryColor).interactive())
-                    .foregroundStyle(smallerButton ? secondaryColor : .white)
+                    .foregroundStyle(smallerButton ? primaryColor : .white)
                 .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
                     Button("Continue") {
                         alreadyUsedDictionary = true
