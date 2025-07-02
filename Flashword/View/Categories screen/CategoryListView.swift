@@ -30,7 +30,6 @@ struct CategoryListView: View {
                         Text("All words")
                     } icon: {
                         Image(systemName: "books.vertical")
-                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
                 NavigationLink(value: RouterDestination.bookmarksCategory) {
@@ -38,7 +37,6 @@ struct CategoryListView: View {
                         Text("Bookmarks")
                     } icon: {
                         Image(systemName: "bookmark")
-                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
@@ -46,7 +44,6 @@ struct CategoryListView: View {
                         Text("Recently added")
                     } icon: {
                         Image(systemName: "clock")
-                            .foregroundStyle(router.tintColor ?? .blue)
                     }
                 }
             }
@@ -82,7 +79,6 @@ struct CategoryListView: View {
             if !categories.isEmpty {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
-                        .tint(router.tintColor)
                 }
             }
             
@@ -90,7 +86,6 @@ struct CategoryListView: View {
                 Button("About Flashword", systemImage: "gear") {
                     showingSettingsScreen = true
                 }
-                .tint(router.tintColor)
                 .disabled(isEditing)
             }
             
@@ -98,7 +93,6 @@ struct CategoryListView: View {
                 Button("Insert a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
-                .tint(router.tintColor)
                 .disabled(isEditing)
             }
         }

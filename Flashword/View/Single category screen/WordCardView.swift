@@ -63,18 +63,15 @@ struct WordCardView: View {
             Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.slash" : "bookmark") {
                 word.bookmarked.toggle()
             }
-            .tint(.primary)
             
             Button("Change category", systemImage: "tray.full") {
                 wordToBeReassigned = word
             }
-            .tint(.primary)
             
             Button("Delete", systemImage: "trash", role: .destructive) {
                 wordToBeDeleted = word
                 showingDeleteAlert = true
             }
-            .tint(.red)
         }
     }
 }
