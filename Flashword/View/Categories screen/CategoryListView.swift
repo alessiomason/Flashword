@@ -102,6 +102,7 @@ struct CategoryListView: View {
                 NoCategoriesView(showingAddCategorySheet: $showingAddCategorySheet)
             }
         }
+        .scrollDismissesKeyboard(.immediately)
         .toolbar {
             if !categories.isEmpty {
                 ToolbarItem(placement: .topBarLeading) {

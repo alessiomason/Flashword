@@ -72,6 +72,7 @@ struct WordCardsListView: View {
             .padding(.horizontal)
         }
         .searchable(text: $searchText, prompt: "Search in this category")
+        .scrollDismissesKeyboard(.immediately)
         .toolbar {
             ToolbarItem {
                 Menu {
