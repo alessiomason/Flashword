@@ -83,6 +83,9 @@ struct NewWordCardView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
+        .onChange(of: router.path.count) { _oldValue, _newValue in
+            isNewWordFieldFocused = false   // defocus field when navigating away
+        }
     }
     
     init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {
@@ -139,16 +142,17 @@ struct NewWordCardView: View {
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
-        
-        if spotlightEnabled {
-            word.index()
-        }
+        isNewWordFieldFocused = false
         
         // request review
         let descriptor = FetchDescriptor<Word>()
         let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
         if wordCount >= 10 {
             requestReview()
+        }
+        
+        if spotlightEnabled {
+            word.index()
         }
     }
 }

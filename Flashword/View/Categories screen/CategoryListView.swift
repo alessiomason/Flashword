@@ -25,11 +25,18 @@ struct CategoryListView: View {
     var body: some View {
         List {
             Section {
+                NewWordCardView()
+                    .buttonStyle(.plain)
+            }
+            
+            
+            Section {
                 NavigationLink(value: RouterDestination.allWordsCategory) {
                     Label {
                         Text("All words")
                     } icon: {
                         Image(systemName: "books.vertical")
+                            .foregroundStyle(.mint)
                     }
                 }
                 NavigationLink(value: RouterDestination.bookmarksCategory) {
@@ -37,6 +44,7 @@ struct CategoryListView: View {
                         Text("Bookmarks")
                     } icon: {
                         Image(systemName: "bookmark")
+                            .foregroundStyle(.mint)
                     }
                 }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
@@ -44,6 +52,7 @@ struct CategoryListView: View {
                         Text("Recently added")
                     } icon: {
                         Image(systemName: "clock")
+                            .foregroundStyle(.mint)
                     }
                 }
             }
