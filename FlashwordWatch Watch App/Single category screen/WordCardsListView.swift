@@ -1,5 +1,5 @@
 //
-//  FilteredWordCardsListView.swift
+//  WordCardsListView.swift
 //  FlashwordWatch Watch App
 //
 //  Created by Alessio Mason on 15/05/24.
@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct FilteredWordCardsListView: View {
+struct WordCardsListView: View {
     @Environment(\.modelContext) private var modelContext
     let category: Category?
     var words: [Word]
@@ -69,7 +69,7 @@ struct FilteredWordCardsListView: View {
         }
         
         return NavigationStack {
-            FilteredWordCardsListView(words: words, contentUnavailableText: "No recent words to display", contentUnavailableDescription: "You haven't added any words in the last 30 days: there's nothing to see here!")
+            WordCardsListView(words: words, contentUnavailableText: "No recent words to display", contentUnavailableDescription: "You haven't added any words in the last 30 days: there's nothing to see here!")
         }
         .modelContainer(container)
         .environment(Router())
