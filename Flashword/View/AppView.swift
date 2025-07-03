@@ -67,6 +67,9 @@ struct AppView: View {
                 homeTabView.router.path.removeAll()
                 // NewWordCardView watches for changes in quickActionsManager.quickAction and automatically focuses the text field in this specific case
                 
+            case .searchWord:
+                selectedTab = .search
+                
             case .none:
                 return
         }

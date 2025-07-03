@@ -10,6 +10,7 @@ import SwiftUI
 enum QuickAction: Hashable {
     case showAllWords
     case addNewWord
+    case searchWord
 }
 
 @Observable
@@ -23,6 +24,8 @@ class QuickActionsManager: ObservableObject {
                 quickAction = .showAllWords
             case "AddNewWord":
                 quickAction = .addNewWord
+            case "SearchWord":
+                quickAction = .searchWord
             default:
                 return
         }

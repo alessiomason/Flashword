@@ -63,6 +63,16 @@
       },
       "shouldTranslate" : false
     },
+    "Search a word" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca una parola"
+          }
+        }
+      }
+    },
     "Show all words" : {
       "localizations" : {
         "it" : {
