@@ -66,6 +66,7 @@ struct SettingsView: View {
                 Section {
                     Toggle("Spotlight integration", isOn: $spotlightEnabled)
                         .onChange(of: spotlightEnabled, handleSpotlightIntegration)
+                        .tint(.blue)
                 } header: {
                     Text("Spotlight")
                 } footer: {
