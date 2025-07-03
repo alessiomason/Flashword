@@ -22,6 +22,8 @@ struct NewWordCardView: View {
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
+    @State private var quickActionsManager = QuickActionsManager.instance
+    
     let addNewWordToBookmarks: Bool
     let focusNewWordField: Bool
     @FocusState private var isNewWordFieldFocused: Bool
@@ -83,9 +85,14 @@ struct NewWordCardView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
-        .onChange(of: router.path.count) { _oldValue, _newValue in
-            isNewWordFieldFocused = false   // defocus field when navigating away
-        }
+//        .onChange(of: router.path.count) { _oldValue, _newValue in
+//            isNewWordFieldFocused = false   // defocus field when navigating away
+//        }
+        .onChange(of: quickActionsManager.quickAction, { _, newQAValue in
+            if let newQAValue, newQAValue == .addNewWord {
+                isNewWordFieldFocused = true
+            }
+        })
     }
     
     init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {

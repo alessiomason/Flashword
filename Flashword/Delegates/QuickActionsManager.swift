@@ -18,10 +18,13 @@ class QuickActionsManager: ObservableObject {
     var quickAction: QuickAction? = nil
     
     func handleQaItem(_ item: UIApplicationShortcutItem) {
-        if item.type == "ShowAllWords" {
-            quickAction = .showAllWords
-        } else if item.type == "AddNewWord" {
-            quickAction = .addNewWord
+        switch item.type {
+            case "ShowAllWords":
+                quickAction = .showAllWords
+            case "AddNewWord":
+                quickAction = .addNewWord
+            default:
+                return
         }
     }
 }

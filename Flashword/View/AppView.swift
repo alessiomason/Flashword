@@ -10,24 +10,30 @@ import SwiftData
 import SwiftUI
 
 struct AppView: View {
+    enum AppTab {
+        case home, quiz, search
+    }
+    
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     @State private var quickActionsManager = QuickActionsManager.instance
     
+    @State private var selectedTab = AppTab.home
+    
     private var homeTabView = HomeTabView()
     
     var body: some View {
-        TabView {
-            Tab("Home", systemImage: "house") {
+        TabView(selection: $selectedTab) {
+            Tab("Home", systemImage: "house", value: .home) {
                 homeTabView
             }
             
-            Tab("Quiz", systemImage: "questionmark.text.page") {
+            Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
                 Text("Quiz tab")
             }
             
-            Tab("Search", systemImage: "magnifyingglass", role: .search) {
+            Tab("Search", systemImage: "magnifyingglass", value: .search, role: .search) {
                 SearchTabView()
             }
         }
@@ -52,9 +58,15 @@ struct AppView: View {
     private func handleQuickActions() {
         switch quickActionsManager.quickAction {
             case .showAllWords:
+                selectedTab = .home
+                homeTabView.router.path.removeAll()
                 homeTabView.router.path.append(.allWordsCategory)
+                
             case .addNewWord:
-                homeTabView.router.path.append(.recentlyAddedCategory(focusNewWordField: true))
+                selectedTab = .home
+                homeTabView.router.path.removeAll()
+                // NewWordCardView watches for changes in quickActionsManager.quickAction and automatically focuses the text field in this specific case
+                
             case .none:
                 return
         }

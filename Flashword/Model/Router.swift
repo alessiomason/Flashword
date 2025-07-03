@@ -10,7 +10,7 @@ import SwiftUI
 
 enum RouterDestination: Hashable {
     case allWordsCategory
-    case recentlyAddedCategory(focusNewWordField: Bool = false)
+    case recentlyAddedCategory
     case bookmarksCategory
     case category(category: Category)
     case word(word: Word)
@@ -28,8 +28,8 @@ extension View {
             switch destination {
                 case .allWordsCategory:
                     AllWordsCategoryView()
-                case let .recentlyAddedCategory(focusNewWordField):
-                    RecentlyAddedWordsCategoryView(modelContext: modelContext, focusNewWordField: focusNewWordField)
+                case .recentlyAddedCategory:
+                    RecentlyAddedWordsCategoryView(modelContext: modelContext)
                 case .bookmarksCategory:
                     BookmarksCategoryView()
                 case let .category(category):
