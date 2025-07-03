@@ -25,7 +25,7 @@ struct NewWordCardView: View {
     @State private var quickActionsManager = QuickActionsManager.instance
     
     let addNewWordToBookmarks: Bool
-    let focusNewWordField: Bool
+    @State private var focusNewWordField = false
     @FocusState private var isNewWordFieldFocused: Bool
     
     var body: some View {
@@ -34,7 +34,7 @@ struct NewWordCardView: View {
                 TextField("Enter a new word", text: $term)
                     .textFieldStyle(.roundedBorder)
                     .focused($isNewWordFieldFocused)
-                    .onAppear {
+                    .onAppear {     // workaround for when router has to be popped before showing the page, focus state is not updated coherently
                         isNewWordFieldFocused = focusNewWordField
                     }
                 
@@ -85,23 +85,26 @@ struct NewWordCardView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
-//        .onChange(of: router.path.count) { _oldValue, _newValue in
-//            isNewWordFieldFocused = false   // defocus field when navigating away
-//        }
+        .onChange(of: router.path.count) { oldValue, newValue in
+            if newValue > oldValue {            // only apply when going a level down, otherwise would conflict with underlying onChange when Quick Action empties the router
+                self.isNewWordFieldFocused = false   // defocus field when navigating away
+                self.focusNewWordField = false
+            }
+        }
         .onChange(of: quickActionsManager.quickAction, { _, newQAValue in
             if let newQAValue, newQAValue == .addNewWord {
-                isNewWordFieldFocused = true
+                self.isNewWordFieldFocused = true   // sueless if router is popped in the meantime, so workaround with onAppear
+                self.focusNewWordField = true
             }
         })
     }
     
-    init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {
+    init(category: Category? = nil, addNewWordToBookmarks: Bool = false) {
         let defaultColor = ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]
         
         self.category = category
         self.primaryColor = category?.primaryColor ?? defaultColor?.primaryColor ?? .mint
         self.secondaryColor = category?.secondaryColor ?? defaultColor?.secondaryColor ?? .blue
-        self.focusNewWordField = focusNewWordField
         self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     

@@ -260,14 +260,14 @@
 		566762562B6007A700C3F1CA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56203A242E153D9E005A6EAD /* Tabs */,
 				5667625B2B60080000C3F1CA /* AppView.swift */,
 				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
-				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
+				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
+				56203A242E153D9E005A6EAD /* Tabs */,
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
 			);
 			path = View;
