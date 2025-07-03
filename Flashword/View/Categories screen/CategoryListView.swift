@@ -36,7 +36,13 @@ struct CategoryListView: View {
                         Text("All words")
                     } icon: {
                         Image(systemName: "books.vertical")
-                            .foregroundStyle(.mint)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
                 NavigationLink(value: RouterDestination.bookmarksCategory) {
@@ -44,7 +50,13 @@ struct CategoryListView: View {
                         Text("Bookmarks")
                     } icon: {
                         Image(systemName: "bookmark")
-                            .foregroundStyle(.mint)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
                 NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
@@ -52,7 +64,13 @@ struct CategoryListView: View {
                         Text("Recently added")
                     } icon: {
                         Image(systemName: "clock")
-                            .foregroundStyle(.mint)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
             }
