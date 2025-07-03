@@ -13,7 +13,7 @@ struct SearchTabView: View {
     @State private var router = Router()
     @Query private var words: [Word]
     
-    let searchText: String
+    @State private var searchText = ""
     
     private var filteredWords: [Word] {
         return words.filter {
@@ -34,9 +34,10 @@ struct SearchTabView: View {
             .withRouterDestinations(modelContext: modelContext)
         }
         .environment(router)
+        .searchable(text: $searchText)
     }
 }
 
 #Preview {
-    SearchTabView(searchText: "")
+    SearchTabView()
 }

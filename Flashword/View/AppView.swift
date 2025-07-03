@@ -15,8 +15,6 @@ struct AppView: View {
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     @State private var quickActionsManager = QuickActionsManager.instance
     
-    @State private var searchText = ""
-    
     private var homeTabView = HomeTabView()
     
     var body: some View {
@@ -30,10 +28,9 @@ struct AppView: View {
             }
             
             Tab("Search", systemImage: "magnifyingglass", role: .search) {
-                SearchTabView(searchText: searchText)
+                SearchTabView()
             }
         }
-        .searchable(text: $searchText)
         .tabBarMinimizeBehavior(.onScrollDown)
         .onAppear {
             handleQuickActions()
