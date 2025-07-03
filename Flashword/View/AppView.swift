@@ -51,6 +51,7 @@ struct AppView: View {
             }
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
+            selectedTab = .home
             handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: homeTabView.router)
         }
     }
