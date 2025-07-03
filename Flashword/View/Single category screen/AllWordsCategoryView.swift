@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 struct AllWordsCategoryView: View {
-    @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
+    @Query(sort: Word.sortDescriptors) private var words: [Word]
     
     let contentUnavailableLocalizedText = String(localized: "No words to display")
     let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words yet: you can start now!")

@@ -59,6 +59,7 @@ struct WordCardsListView: View {
                         WordCardView(word: word, wordToBeReassigned: $wordToBeReassigned, wordToBeDeleted: $wordToBeDeleted, showingDeleteAlert: $showingDeleteAlert)
                             .padding(.vertical, 5)
                     }
+                    .animation(.bouncy, value: displayedWords)
                     
                     Text((category == nil) ? "\(words.count) words" : "\(words.count) words in this category")
                         .multilineTextAlignment(.center)

@@ -29,7 +29,7 @@ struct CategoryView: View {
         self.category = category
         
         let predicate = Word.predicate(category: category)
-        _words = Query(filter: predicate, sort: Word.sortDescriptors, animation: .bouncy)
+        _words = Query(filter: predicate, sort: Word.sortDescriptors)
     }
 }
 
