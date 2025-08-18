@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct BookmarksCategoryView: View {
-    @Query(filter: #Predicate<Word> { $0.bookmarked }, sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
+    @Query(filter: #Predicate<Word> { $0.bookmarked }, sort: Word.sortDescriptors) private var words: [Word]
     
     let contentUnavailableLocalizedText = String(localized: "No bookmarked words to display")
     let contentUnavailableLocalizedDescription = String(localized: "You haven't bookmarked any words yet: there's nothing to see here!")

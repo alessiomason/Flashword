@@ -32,12 +32,10 @@ struct CategoryView: View {
                         Button("Edit category", systemImage: "paintbrush") {
                             showingModifyCategory = true
                         }
-                        .tint(.primary)
                         
                         Button("Delete", systemImage: "trash", role: .destructive) {
                             showingDeleteAlert = true
                         }
-                        .tint(.red)
                     } label: {
                         Label("More", systemImage: "ellipsis.circle")
                     }
@@ -62,7 +60,7 @@ struct CategoryView: View {
         self.category = category
         
         let predicate = Word.predicate(category: category)
-        _words = Query(filter: predicate, sort: Word.sortDescriptors, animation: .bouncy)
+        _words = Query(filter: predicate, sort: Word.sortDescriptors)
     }
     
     func deleteCategory(includingWords: Bool) {

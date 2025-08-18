@@ -22,8 +22,10 @@ struct NewWordCardView: View {
     @State private var showingDuplicateWordWarning = false
     @State private var duplicateWordIsInDifferentCategory = false
     
+    @State private var quickActionsManager = QuickActionsManager.instance
+    
     let addNewWordToBookmarks: Bool
-    let focusNewWordField: Bool
+    @State private var focusNewWordField = false
     @FocusState private var isNewWordFieldFocused: Bool
     
     var body: some View {
@@ -32,9 +34,10 @@ struct NewWordCardView: View {
                 TextField("Enter a new word", text: $term)
                     .textFieldStyle(.roundedBorder)
                     .focused($isNewWordFieldFocused)
-                    .onAppear {
+                    .onAppear {     // workaround for when router has to be popped before showing the page, focus state is not updated coherently
                         isNewWordFieldFocused = focusNewWordField
                     }
+                
                 Button {
                     term = ""
                 } label: {
@@ -48,20 +51,16 @@ struct NewWordCardView: View {
             HStack {
                 ShowDictionaryButton(
                     term: term,
-                    primaryColor: Color(red: 0.886, green: 0.886, blue: 0.890),
-                    secondaryColor: Color(red: 0.557, green: 0.557, blue: 0.576),
+                    primaryColor: primaryColor,
+                    secondaryColor: secondaryColor,
                     smaller: true
                 )
                 
                 Button("Add", action: checkWordBeforeInserting)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
-                    .buttonStyle(.plain)
-                    .background(
-                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
+                    .glassEffect(.regular.tint(primaryColor).interactive())
                     .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .padding(.top, 8)
         }
@@ -86,15 +85,26 @@ struct NewWordCardView: View {
                 Text("The word \"\(trimmedTerm)\" has already been saved in this category.")
             }
         }
+        .onChange(of: router.path.count) { oldValue, newValue in
+            if newValue > oldValue {            // only apply when going a level down, otherwise would conflict with underlying onChange when Quick Action empties the router
+                self.isNewWordFieldFocused = false   // defocus field when navigating away
+                self.focusNewWordField = false
+            }
+        }
+        .onChange(of: quickActionsManager.quickAction, { _, newQAValue in
+            if let newQAValue, newQAValue == .addNewWord {
+                self.isNewWordFieldFocused = true   // sueless if router is popped in the meantime, so workaround with onAppear
+                self.focusNewWordField = true
+            }
+        })
     }
     
-    init(category: Category? = nil, focusNewWordField: Bool = false, addNewWordToBookmarks: Bool = false) {
+    init(category: Category? = nil, addNewWordToBookmarks: Bool = false) {
         let defaultColor = ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]
         
         self.category = category
         self.primaryColor = category?.primaryColor ?? defaultColor?.primaryColor ?? .mint
         self.secondaryColor = category?.secondaryColor ?? defaultColor?.secondaryColor ?? .blue
-        self.focusNewWordField = focusNewWordField
         self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     
@@ -142,16 +152,17 @@ struct NewWordCardView: View {
         modelContext.insert(word)
         router.path.append(RouterDestination.word(word: word))
         term = ""
-        
-        if spotlightEnabled {
-            word.index()
-        }
+        isNewWordFieldFocused = false
         
         // request review
         let descriptor = FetchDescriptor<Word>()
         let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
         if wordCount >= 10 {
             requestReview()
+        }
+        
+        if spotlightEnabled {
+            word.index()
         }
     }
 }

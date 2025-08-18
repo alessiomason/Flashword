@@ -67,12 +67,10 @@ struct WordView: View {
                     Button("Change category", systemImage: "tray.full") {
                         showingChangeCategorySheet = true
                     }
-                    .tint(.primary)
                     
                     Button("Delete", systemImage: "trash", role: .destructive) {
                         showingDeleteAlert = true
                     }
-                    .tint(.red)
                 } label: {
                     Label("More", systemImage: "ellipsis.circle")
                 }

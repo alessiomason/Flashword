@@ -25,12 +25,24 @@ struct CategoryListView: View {
     var body: some View {
         List {
             Section {
+                NewWordCardView()
+                    .buttonStyle(.plain)
+            }
+            
+            
+            Section {
                 NavigationLink(value: RouterDestination.allWordsCategory) {
                     Label {
                         Text("All words")
                     } icon: {
                         Image(systemName: "books.vertical")
-                            .foregroundStyle(router.tintColor ?? .blue)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
                 NavigationLink(value: RouterDestination.bookmarksCategory) {
@@ -38,15 +50,27 @@ struct CategoryListView: View {
                         Text("Bookmarks")
                     } icon: {
                         Image(systemName: "bookmark")
-                            .foregroundStyle(router.tintColor ?? .blue)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
-                NavigationLink(value: RouterDestination.recentlyAddedCategory()) {
+                NavigationLink(value: RouterDestination.recentlyAddedCategory) {
                     Label {
                         Text("Recently added")
                     } icon: {
                         Image(systemName: "clock")
-                            .foregroundStyle(router.tintColor ?? .blue)
+                            .foregroundStyle(
+                                .linearGradient(
+                                    colors: [.mint, .blue],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                     }
                 }
             }
@@ -78,11 +102,11 @@ struct CategoryListView: View {
                 NoCategoriesView(showingAddCategorySheet: $showingAddCategorySheet)
             }
         }
+        .scrollDismissesKeyboard(.immediately)
         .toolbar {
             if !categories.isEmpty {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
-                        .tint(router.tintColor)
                 }
             }
             
@@ -90,7 +114,6 @@ struct CategoryListView: View {
                 Button("About Flashword", systemImage: "gear") {
                     showingSettingsScreen = true
                 }
-                .tint(router.tintColor)
                 .disabled(isEditing)
             }
             
@@ -98,7 +121,6 @@ struct CategoryListView: View {
                 Button("Insert a new category", systemImage: "plus") {
                     showingAddCategorySheet = true
                 }
-                .tint(router.tintColor)
                 .disabled(isEditing)
             }
         }

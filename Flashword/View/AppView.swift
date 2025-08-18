@@ -10,33 +10,34 @@ import SwiftData
 import SwiftUI
 
 struct AppView: View {
+    enum AppTab {
+        case home, quiz, search
+    }
+    
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
-    @State private var router = Router()
     @State private var quickActionsManager = QuickActionsManager.instance
     
+    @State private var selectedTab = AppTab.home
+    
+    private var homeTabView = HomeTabView()
+    
     var body: some View {
-        NavigationStack(path: $router.path) {
-            CategoryListView()
-                .navigationTitle(Text("Flashword", comment: "The name of the app"))
-                .navigationDestination(for: RouterDestination.self) { destination in
-                    switch destination {
-                        case .allWordsCategory:
-                            AllWordsCategoryView()
-                        case let .recentlyAddedCategory(focusNewWordField):
-                            RecentlyAddedWordsCategoryView(modelContext: modelContext, focusNewWordField: focusNewWordField)
-                        case .bookmarksCategory:
-                            BookmarksCategoryView()
-                        case let .category(category):
-                            CategoryView(category: category)
-                        case let .word(word):
-                            WordView(word: word)
-                    }
-                }
+        TabView(selection: $selectedTab) {
+            Tab("Home", systemImage: "house", value: .home) {
+                homeTabView
+            }
+            
+            Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
+                Text("Quiz tab")
+            }
+            
+            Tab("Search", systemImage: "magnifyingglass", value: .search, role: .search) {
+                SearchTabView()
+            }
         }
-        .tint(router.tintColor)
-        .environment(router)
+        .tabBarMinimizeBehavior(.onScrollDown)
         .onAppear {
             handleQuickActions()
         }
@@ -50,16 +51,26 @@ struct AppView: View {
             }
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
-            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: router)
+            selectedTab = .home
+            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: homeTabView.router)
         }
     }
     
     private func handleQuickActions() {
         switch quickActionsManager.quickAction {
             case .showAllWords:
-                router.path.append(.allWordsCategory)
+                selectedTab = .home
+                homeTabView.router.path.removeAll()
+                homeTabView.router.path.append(.allWordsCategory)
+                
             case .addNewWord:
-                router.path.append(.recentlyAddedCategory(focusNewWordField: true))
+                selectedTab = .home
+                homeTabView.router.path.removeAll()
+                // NewWordCardView watches for changes in quickActionsManager.quickAction and automatically focuses the text field in this specific case
+                
+            case .searchWord:
+                selectedTab = .search
+                
             case .none:
                 return
         }

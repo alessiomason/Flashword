@@ -59,6 +59,7 @@ struct TipJarView: View {
                             }
                         }
                         .buttonStyle(.borderedProminent)
+                        .glassEffect()
                     }
                 }
             }

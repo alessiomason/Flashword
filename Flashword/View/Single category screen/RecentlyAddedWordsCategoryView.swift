@@ -14,15 +14,13 @@ struct RecentlyAddedWordsCategoryView: View {
         case today, thisWeek, lastSevenDays, lastThirtyDays
     }
     
-    @Query(sort: Word.sortDescriptors, animation: .bouncy) private var words: [Word]
+    @Query(sort: Word.sortDescriptors) private var words: [Word]
     @State private var dateRange = DateRange.today
     @Environment(\.modelContext) private var modelContext
     #if os(watchOS)
     @Environment(\.dismiss) private var dismiss
     @State private var showingPickerSheet = false
     #endif
-    
-    let focusNewWordField: Bool
     
     let contentUnavailableLocalizedText = String(localized: "No recent words to display")
     let contentUnavailableLocalizedDescription = String(localized: "You haven't added any words as of late: there's nothing to see here!")
@@ -47,7 +45,7 @@ struct RecentlyAddedWordsCategoryView: View {
     }
     
     var body: some View {
-        WordCardsListView(words: filteredWords, focusNewWordField: focusNewWordField, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
+        WordCardsListView(words: filteredWords, contentUnavailableText: contentUnavailableLocalizedText, contentUnavailableDescription: contentUnavailableLocalizedDescription)
             .navigationTitle(title)
         #if os(watchOS)
             .toolbar {
@@ -118,9 +116,7 @@ struct RecentlyAddedWordsCategoryView: View {
     
     // Determines the minimum date range that displays at least a word (if possible).
     // This allows to open the view showing some data to the user, instead of a blank page.
-    init(modelContext: ModelContext, focusNewWordField: Bool = false) {
-        self.focusNewWordField = focusNewWordField
-        
+    init(modelContext: ModelContext) {
         let descriptor = FetchDescriptor<Word>()
         guard let localWords = try? modelContext.fetch(descriptor) else { return }
         

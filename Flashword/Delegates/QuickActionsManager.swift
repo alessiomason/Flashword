@@ -10,6 +10,7 @@ import SwiftUI
 enum QuickAction: Hashable {
     case showAllWords
     case addNewWord
+    case searchWord
 }
 
 @Observable
@@ -18,10 +19,15 @@ class QuickActionsManager: ObservableObject {
     var quickAction: QuickAction? = nil
     
     func handleQaItem(_ item: UIApplicationShortcutItem) {
-        if item.type == "ShowAllWords" {
-            quickAction = .showAllWords
-        } else if item.type == "AddNewWord" {
-            quickAction = .addNewWord
+        switch item.type {
+            case "ShowAllWords":
+                quickAction = .showAllWords
+            case "AddNewWord":
+                quickAction = .addNewWord
+            case "SearchWord":
+                quickAction = .searchWord
+            default:
+                return
         }
     }
 }

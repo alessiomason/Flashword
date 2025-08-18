@@ -588,6 +588,9 @@
         }
       }
     },
+    "Home" : {
+
+    },
     "How to manage your dictionaries" : {
       "localizations" : {
         "it" : {
@@ -902,6 +905,12 @@
         }
       }
     },
+    "Quiz" : {
+
+    },
+    "Quiz tab" : {
+
+    },
     "Recently added" : {
       "localizations" : {
         "it" : {
@@ -911,6 +920,9 @@
           }
         }
       }
+    },
+    "Recents" : {
+
     },
     "Remove from bookmarks" : {
       "localizations" : {
@@ -931,6 +943,12 @@
           }
         }
       }
+    },
+    "Search" : {
+
+    },
+    "Search in this category" : {
+
     },
     "Settings" : {
       "localizations" : {
@@ -1224,6 +1242,9 @@
           }
         }
       }
+    },
+    "Words" : {
+
     },
     "Writing notes" : {
       "localizations" : {

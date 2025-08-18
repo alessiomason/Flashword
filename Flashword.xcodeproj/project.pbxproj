@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
+		56203A262E153E00005A6EAD /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56203A252E153E00005A6EAD /* HomeTabView.swift */; };
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
@@ -66,6 +67,7 @@
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
 		56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */; };
+		56D18A672E1585C70019062F /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D18A662E1585C70019062F /* SearchTabView.swift */; };
 		56D8C3A42B6AA23900D518AA /* ColorChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D8C3A32B6AA23900D518AA /* ColorChoice.swift */; };
 		56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */; };
 		56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */; };
@@ -104,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedWordsCategoryView.swift; sourceTree = "<group>"; };
+		56203A252E153E00005A6EAD /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +155,7 @@
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		56CF966C2B6BA498008C4AA6 /* CategoryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIcon.swift; sourceTree = "<group>"; };
+		56D18A662E1585C70019062F /* SearchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
 		56D8C3A32B6AA23900D518AA /* ColorChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChoice.swift; sourceTree = "<group>"; };
 		56DDCB5E2B6A9109002E4644 /* CategoryListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListItemView.swift; sourceTree = "<group>"; };
 		56DF21C82BF4B98F00406605 /* BookmarksCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksCategoryView.swift; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56203A242E153D9E005A6EAD /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				56203A252E153E00005A6EAD /* HomeTabView.swift */,
+				56D18A662E1585C70019062F /* SearchTabView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		5667623B2B60071500C3F1CA = {
 			isa = PBXGroup;
 			children = (
@@ -250,10 +263,11 @@
 				5667625B2B60080000C3F1CA /* AppView.swift */,
 				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
 				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
-				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
+				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
+				56203A242E153D9E005A6EAD /* Tabs */,
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
 			);
 			path = View;
@@ -448,7 +462,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					566762432B60071500C3F1CA = {
 						CreatedOnToolsVersion = 15.2;
@@ -513,8 +527,10 @@
 				566BD5022D15E4D700628678 /* IAPManager.swift in Sources */,
 				56FCE2992D1433F1006B5D64 /* Delegates.swift in Sources */,
 				56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */,
+				56203A262E153E00005A6EAD /* HomeTabView.swift in Sources */,
 				56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */,
 				56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */,
+				56D18A672E1585C70019062F /* SearchTabView.swift in Sources */,
 				5667625A2B6007D800C3F1CA /* Word.swift in Sources */,
 				566762582B6007B400C3F1CA /* Router.swift in Sources */,
 				569A13AF2D19B780007F4A39 /* DictionariesExplanationView.swift in Sources */,
@@ -594,6 +610,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -625,6 +642,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -642,17 +660,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
@@ -661,6 +680,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -692,6 +712,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -703,30 +724,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
 		566762532B60071600C3F1CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "\"Flashword/Preview Content\"";
-				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flashword/Info.plist;
@@ -758,14 +778,12 @@
 		566762542B60071600C3F1CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "\"Flashword/Preview Content\"";
-				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flashword/Info.plist;
@@ -804,7 +822,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlashwordWatch-Watch-App-Info.plist";
@@ -837,7 +854,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = B3VCF8Y7QJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlashwordWatch-Watch-App-Info.plist";
