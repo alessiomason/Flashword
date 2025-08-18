@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Flashword icon.png",
+      "filename" : "Flashword icon-iOS-Default-1024x1024@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Flashword dark icon.png",
+      "filename" : "Flashword icon-iOS-Dark-1024x1024@2x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

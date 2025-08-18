@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560C92752E53267700BC1BE4 /* Flashword icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 560C92742E53267700BC1BE4 /* Flashword icon.icon */; };
+		560C92762E53267700BC1BE4 /* Flashword icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 560C92742E53267700BC1BE4 /* Flashword icon.icon */; };
 		561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */; };
 		56203A262E153E00005A6EAD /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56203A252E153E00005A6EAD /* HomeTabView.swift */; };
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
@@ -105,6 +107,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560C92742E53267700BC1BE4 /* Flashword icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Flashword icon.icon"; sourceTree = "<group>"; };
 		561876652B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyAddedWordsCategoryView.swift; sourceTree = "<group>"; };
 		56203A252E153E00005A6EAD /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				566762562B6007A700C3F1CA /* View */,
 				566762472B60071500C3F1CA /* FlashwordApp.swift */,
 				5667624B2B60071600C3F1CA /* Assets.xcassets */,
+				560C92742E53267700BC1BE4 /* Flashword icon.icon */,
 				566762672B60093F00C3F1CA /* Localizable.xcstrings */,
 				56FCE29D2D143A29006B5D64 /* InfoPlist.xcstrings */,
 				5667624D2B60071600C3F1CA /* Preview Content */,
@@ -503,6 +507,7 @@
 			files = (
 				5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */,
 				5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */,
+				560C92762E53267700BC1BE4 /* Flashword icon.icon in Resources */,
 				56FCE29E2D143A29006B5D64 /* InfoPlist.xcstrings in Resources */,
 				566762682B60093F00C3F1CA /* Localizable.xcstrings in Resources */,
 			);
@@ -512,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560C92752E53267700BC1BE4 /* Flashword icon.icon in Resources */,
 				56EAA53D2BF5F62900139375 /* Localizable.xcstrings in Resources */,
 				568B7E912BF5033B00FC4220 /* Assets.xcassets in Resources */,
 			);
@@ -741,8 +747,9 @@
 		566762532B60071600C3F1CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Flashword icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
@@ -778,8 +785,9 @@
 		566762542B60071600C3F1CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Flashword icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Flashword/Flashword.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
@@ -815,7 +823,7 @@
 		568B7E992BF5033B00FC4220 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Flashword icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FlashwordWatch Watch App/FlashwordWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -847,7 +855,7 @@
 		568B7E9A2BF5033B00FC4220 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Flashword icon";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "FlashwordWatch Watch App/FlashwordWatch Watch App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
