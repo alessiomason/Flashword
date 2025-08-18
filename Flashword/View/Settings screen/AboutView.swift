@@ -28,7 +28,7 @@ Below you can find some links to follow me online!
                             .containerRelativeFrame(.horizontal) { width, axis in
                                 width * 0.25
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
                             .padding(.horizontal, 8)
                         
                         Image(.flashwordIcon)
@@ -37,7 +37,6 @@ Below you can find some links to follow me online!
                             .containerRelativeFrame(.horizontal) { width, axis in
                                 width * 0.25
                             }
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
                             .padding(.horizontal, 8)
                     }
                     .padding(.bottom, 8)
