@@ -30,7 +30,7 @@ struct AppView: View {
             }
             
             Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
-                Text("Quiz tab")
+                QuizTabView()
             }
             
             Tab("Search", systemImage: "magnifyingglass", value: .search, role: .search) {

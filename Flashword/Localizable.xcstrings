@@ -107,6 +107,15 @@
     "🙏" : {
       "shouldTranslate" : false
     },
+    "5" : {
+
+    },
+    "10" : {
+
+    },
+    "25" : {
+
+    },
     "A category named \"%@\" already exists!" : {
       "localizations" : {
         "it" : {
@@ -349,6 +358,12 @@
         }
       }
     },
+    "Complete" : {
+
+    },
+    "Confirm" : {
+
+    },
     "Contact me" : {
       "localizations" : {
         "it" : {
@@ -368,6 +383,9 @@
           }
         }
       }
+    },
+    "Correct answer: %@" : {
+
     },
     "Delete" : {
       "localizations" : {
@@ -568,6 +586,12 @@
         }
       }
     },
+    "Generate quiz" : {
+
+    },
+    "Generating the quiz…" : {
+
+    },
     "GitHub profile" : {
       "localizations" : {
         "it" : {
@@ -752,6 +776,9 @@
         }
       }
     },
+    "Multiple choice" : {
+
+    },
     "Nature" : {
       "localizations" : {
         "it" : {
@@ -845,6 +872,12 @@
         }
       }
     },
+    "Number of questions" : {
+
+    },
+    "Number of words" : {
+
+    },
     "Objects" : {
       "localizations" : {
         "it" : {
@@ -864,6 +897,9 @@
           }
         }
       }
+    },
+    "Open answer" : {
+
     },
     "People" : {
       "localizations" : {
@@ -895,6 +931,9 @@
         }
       }
     },
+    "Powered by Apple Intelligence" : {
+
+    },
     "Privacy policy" : {
       "localizations" : {
         "it" : {
@@ -905,10 +944,32 @@
         }
       }
     },
+    "Question %lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Question %1$lld/%2$lld"
+          }
+        }
+      }
+    },
     "Quiz" : {
 
     },
-    "Quiz tab" : {
+    "Quiz type" : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is currently not available on your device. Please try again later." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is not supported by your device." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence. If you wish to use this functionality, turn on Apple Intelligence in your device settings." : {
 
     },
     "Recently added" : {
@@ -1040,6 +1101,9 @@
         }
       }
     },
+    "Still generating the following question. Hang on tight!" : {
+
+    },
     "Support the development" : {
       "localizations" : {
         "it" : {
@@ -1079,6 +1143,9 @@
           }
         }
       }
+    },
+    "Test your knowledge of the words you saved!" : {
+
     },
     "Thank you so very much for your support!" : {
       "localizations" : {
@@ -1190,6 +1257,9 @@
           }
         }
       }
+    },
+    "Type" : {
+
     },
     "Uncategorized words" : {
       "localizations" : {
@@ -1315,6 +1385,12 @@
           }
         }
       }
+    },
+    "Your answer" : {
+
+    },
+    "Your data are secure and will never be shared." : {
+
     }
   },
   "version" : "1.0"
