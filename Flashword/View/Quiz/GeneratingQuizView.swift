@@ -8,20 +8,36 @@
 import SwiftUI
 
 struct GeneratingQuizView: View {
+    @State private var animatingSymbol = false
+    
     var body: some View {
         VStack {
-            ProgressView()
-                .controlSize(.extraLarge)
+            Image(systemName: "questionmark.text.page")
+                .font(.system(size: 150))
+                .symbolEffect(.pulse, options: .repeat(.periodic), value: animatingSymbol)
+                .onAppear {
+                    animatingSymbol = true
+                }
             
             Text("Generating the quiz…")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
+                .padding(.bottom)
             
+            Image(systemName: "apple.intelligence")
+                .font(.title2)
+                .padding(.bottom, 4)
             Text("Powered by Apple Intelligence")
+                .padding(.bottom, 16)
             
-            Text("Your data are secure and will never be shared.")
+            Image(systemName: "lock")
+                .font(.title2)
+                .padding(.bottom, 4)
+            Text("Your data are secure and never leave your device")
         }
         .foregroundStyle(.white)
+        .multilineTextAlignment(.center)
+        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             LinearGradient(

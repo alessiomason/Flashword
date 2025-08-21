@@ -16,9 +16,17 @@ struct Quiz {
     @Guide(description: "The word that this question is about.")
     var word: String
     
-    @Guide(description: "The uuidString of the word that this question is about.")
-    var wordId: String
+    @Guide(description: "Leave this field empty.")
+    var wordId: String = ""
     
     @Guide(description: "List 4 possible answers to the previous question. One of the 4 answers MUST be the same as the word. ALL the answers MUST be different from one another.")
     var possibleAnswers: [String] = []
+}
+
+enum QuizType {
+    case multipleChoice, openAnswer
+}
+
+enum QuizPhase {
+    case start, generating, quizzing, complete
 }

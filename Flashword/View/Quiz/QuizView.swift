@@ -12,7 +12,7 @@ struct QuizView: View {
         case question, feedback
     }
     
-    let wordsNumber: Int
+    let numberOfWords: Int
     let quizType: QuizType
     @Binding var quizPhase: QuizPhase
     let quiz: [Quiz]
@@ -53,7 +53,7 @@ struct QuizView: View {
                             }
                         case .feedback:
                             withAnimation {
-                                if currentQuestion + 1 < wordsNumber {
+                                if currentQuestion + 1 < numberOfWords {
                                     currentQuestion += 1
                                     questionPhase = .question
                                 } else {
@@ -97,5 +97,5 @@ struct QuizView: View {
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(wordsNumber: 5, quizType: .openAnswer, quizPhase: .constant(.quizzing), quiz: quiz)
+    QuizView(numberOfWords: 5, quizType: .openAnswer, quizPhase: .constant(.quizzing), quiz: quiz)
 }

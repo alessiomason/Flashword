@@ -17,7 +17,7 @@ struct QuizSetupView: View {
     
     @Query private var words: [Word]
     @Binding var quizWords: [Word]
-    @Binding var wordsNumber: Int
+    @Binding var numberOfWords: Int
     @Binding var quizType: QuizType
     @Binding var quizPhase: QuizPhase
     @Binding var quiz: [Quiz]
@@ -47,7 +47,7 @@ struct QuizSetupView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                 
-                Picker("Number of words", selection: $wordsNumber) {
+                Picker("Number of words", selection: $numberOfWords) {
                     Text("5").tag(5)
                     Text("10").tag(10)
                     if numberOfSavedWords > 25 {
@@ -62,8 +62,8 @@ struct QuizSetupView: View {
                     .fontWeight(.semibold)
                 
                 Picker("Quiz type", selection: $quizType) {
-                    Text("Open answer").tag(QuizType.openAnswer)
                     Text("Multiple choice").tag(QuizType.multipleChoice)
+                    Text("Open answer").tag(QuizType.openAnswer)
                 }
                 .pickerStyle(.segmented)
                 .padding(.bottom)
@@ -102,7 +102,7 @@ struct QuizSetupView: View {
         
         let shuffled = GKShuffledDistribution(lowestValue: 0, highestValue: words.count - 1)
         
-        for _ in 0..<wordsNumber {
+        for _ in 0..<numberOfWords {
             let randomIndex = shuffled.nextInt()
             let randomWord = words[randomIndex]
             quizWords.append(randomWord)
@@ -143,10 +143,18 @@ struct QuizSetupView: View {
                 }
             }
             
+            responseContent!.word = word.term
+            responseContent!.wordId = word.uuid.uuidString
+            if !responseContent!.possibleAnswers.map({ $0.lowercased() }).contains(word.term.lowercased()) {
+                responseContent!.possibleAnswers[0] = word.term
+            }
+            
             quiz.append(responseContent!)
             
-            withAnimation { // start quizzing as soon as you have one question
-                quizPhase = .quizzing
+            if quizPhase != .quizzing {
+                withAnimation {     // start quizzing as soon as you have one question
+                    quizPhase = .quizzing
+                }
             }
         }
     }
@@ -155,8 +163,8 @@ struct QuizSetupView: View {
 #Preview {
     QuizSetupView(
         quizWords: .constant([]),
-        wordsNumber: .constant(5),
-        quizType: .constant(.openAnswer),
+        numberOfWords: .constant(5),
+        quizType: .constant(.multipleChoice),
         quizPhase: .constant(.start),
         quiz: .constant([])
     )
