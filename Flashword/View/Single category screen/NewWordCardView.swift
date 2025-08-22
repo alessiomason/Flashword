@@ -56,11 +56,17 @@ struct NewWordCardView: View {
                     smaller: true
                 )
                 
-                Button("Add", action: checkWordBeforeInserting)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .glassEffect(.regular.tint(primaryColor).interactive())
-                    .foregroundStyle(.white)
+                Button(action: checkWordBeforeInserting) {
+                    Text("Add")
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 4)
+                }
+                .tint(primaryColor)
+                .buttonStyle(.glassProminent)
+                .padding(.vertical, 6)
+                .padding(.horizontal, 4)
+                
             }
             .padding(.top, 8)
         }
