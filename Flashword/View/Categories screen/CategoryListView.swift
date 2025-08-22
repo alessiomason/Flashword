@@ -76,7 +76,7 @@ struct CategoryListView: View {
             }
             
             if !categories.isEmpty {
-                Section("Categories") {
+                Section {
                     ForEach(categories) { category in
                         NavigationLink(value: RouterDestination.category(category: category)) {
                             CategoryListItemView(category: category)
@@ -85,18 +85,27 @@ struct CategoryListView: View {
                             Button(role: .destructive) {
                                 deleteCategory(category: category)
                             } label: {
-                                Label("Delete category", systemImage: "trash")
+                                Label("Delete", systemImage: "trash")
                                     .tint(Color.red)
                             }
                             
                             Button {
                                 categoryToBeModified = category
                             } label: {
-                                Label("Edit category", systemImage: "pencil")
+                                Label("Edit", systemImage: "pencil")
                             }
                         }
                     }
                     .onDelete(perform: deleteCategories)
+                } header: {
+                    HStack {
+                        Text("Categories")
+                        
+                        Spacer()
+                        
+                        EditButton()
+                            .tint(.mint)
+                    }
                 }
             } else {
                 NoCategoriesView(showingAddCategorySheet: $showingAddCategorySheet)
@@ -104,12 +113,6 @@ struct CategoryListView: View {
         }
         .scrollDismissesKeyboard(.immediately)
         .toolbar {
-            if !categories.isEmpty {
-                ToolbarItem(placement: .topBarLeading) {
-                    EditButton()
-                }
-            }
-            
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Settings", systemImage: "gear") {
                     showingSettingsScreen = true
