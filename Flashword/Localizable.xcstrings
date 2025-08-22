@@ -107,6 +107,15 @@
     "🙏" : {
       "shouldTranslate" : false
     },
+    "5" : {
+
+    },
+    "10" : {
+
+    },
+    "25" : {
+
+    },
     "A category named \"%@\" already exists!" : {
       "localizations" : {
         "it" : {
@@ -187,6 +196,9 @@
         }
       }
     },
+    "Almost!" : {
+
+    },
     "App version: %@" : {
       "localizations" : {
         "it" : {
@@ -227,6 +239,9 @@
           }
         }
       }
+    },
+    "Button to go to the word page" : {
+
     },
     "Cancel" : {
       "localizations" : {
@@ -349,6 +364,12 @@
         }
       }
     },
+    "Close quiz" : {
+
+    },
+    "Confirm" : {
+
+    },
     "Contact me" : {
       "localizations" : {
         "it" : {
@@ -368,6 +389,9 @@
           }
         }
       }
+    },
+    "Correct!" : {
+
     },
     "Delete" : {
       "localizations" : {
@@ -489,6 +513,9 @@
         }
       }
     },
+    "Finished!" : {
+
+    },
     "Flashword" : {
       "comment" : "The name of the app",
       "localizations" : {
@@ -567,6 +594,12 @@
           }
         }
       }
+    },
+    "Generate quiz" : {
+
+    },
+    "Generating the quiz…" : {
+
     },
     "GitHub profile" : {
       "localizations" : {
@@ -752,6 +785,9 @@
         }
       }
     },
+    "Multiple choice" : {
+
+    },
     "Nature" : {
       "localizations" : {
         "it" : {
@@ -845,6 +881,12 @@
         }
       }
     },
+    "Number of questions" : {
+
+    },
+    "Number of words" : {
+
+    },
     "Objects" : {
       "localizations" : {
         "it" : {
@@ -864,6 +906,9 @@
           }
         }
       }
+    },
+    "Open answer" : {
+
     },
     "People" : {
       "localizations" : {
@@ -895,6 +940,9 @@
         }
       }
     },
+    "Powered by Apple Intelligence" : {
+
+    },
     "Privacy policy" : {
       "localizations" : {
         "it" : {
@@ -905,10 +953,32 @@
         }
       }
     },
+    "Question %lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Question %1$lld/%2$lld"
+          }
+        }
+      }
+    },
     "Quiz" : {
 
     },
-    "Quiz tab" : {
+    "Quiz type" : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is currently not available on your device. Please try again later." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence, which is not supported by your device." : {
+
+    },
+    "Quizzes are generated using Apple Intelligence. If you wish to use this functionality, turn on Apple Intelligence in your device settings." : {
 
     },
     "Recently added" : {
@@ -934,6 +1004,9 @@
         }
       }
     },
+    "Review the quiz words" : {
+
+    },
     "Save" : {
       "localizations" : {
         "it" : {
@@ -948,6 +1021,9 @@
 
     },
     "Search in this category" : {
+
+    },
+    "See word" : {
 
     },
     "Settings" : {
@@ -1040,6 +1116,9 @@
         }
       }
     },
+    "Still generating the following question. Hang on tight!" : {
+
+    },
     "Support the development" : {
       "localizations" : {
         "it" : {
@@ -1080,6 +1159,9 @@
         }
       }
     },
+    "Test your knowledge of the words you saved!" : {
+
+    },
     "Thank you so very much for your support!" : {
       "localizations" : {
         "it" : {
@@ -1089,6 +1171,9 @@
           }
         }
       }
+    },
+    "The answer was: %@" : {
+
     },
     "The name has to be unique across all categories: let's not get you confused :)" : {
       "comment" : "The text inviting the user to enter a unique name for the new category",
@@ -1190,6 +1275,9 @@
           }
         }
       }
+    },
+    "Type" : {
+
     },
     "Uncategorized words" : {
       "localizations" : {
@@ -1315,6 +1403,12 @@
           }
         }
       }
+    },
+    "Your answer" : {
+
+    },
+    "Your data are secure and never leave your device" : {
+
     }
   },
   "version" : "1.0"

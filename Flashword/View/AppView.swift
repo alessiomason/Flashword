@@ -11,7 +11,7 @@ import SwiftUI
 
 struct AppView: View {
     enum AppTab {
-        case home, quiz, search
+        case words, quiz, search
     }
     
     @Environment(\.modelContext) private var modelContext
@@ -19,18 +19,18 @@ struct AppView: View {
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
     @State private var quickActionsManager = QuickActionsManager.instance
     
-    @State private var selectedTab = AppTab.home
+    @State private var selectedTab = AppTab.words
     
     private var homeTabView = HomeTabView()
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab("Home", systemImage: "house", value: .home) {
+            Tab("Words", systemImage: "text.book.closed", value: .words) {
                 homeTabView
             }
             
             Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
-                Text("Quiz tab")
+                QuizTabView()
             }
             
             Tab("Search", systemImage: "magnifyingglass", value: .search, role: .search) {
@@ -51,7 +51,7 @@ struct AppView: View {
             }
         }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
-            selectedTab = .home
+            selectedTab = .words
             handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: homeTabView.router)
         }
     }
@@ -59,12 +59,12 @@ struct AppView: View {
     private func handleQuickActions() {
         switch quickActionsManager.quickAction {
             case .showAllWords:
-                selectedTab = .home
+                selectedTab = .words
                 homeTabView.router.path.removeAll()
                 homeTabView.router.path.append(.allWordsCategory)
                 
             case .addNewWord:
-                selectedTab = .home
+                selectedTab = .words
                 homeTabView.router.path.removeAll()
                 // NewWordCardView watches for changes in quickActionsManager.quickAction and automatically focuses the text field in this specific case
                 
