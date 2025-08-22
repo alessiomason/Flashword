@@ -9,6 +9,8 @@ import SwiftData
 import SwiftUI
 
 struct CategoryIcon: View {
+    @ScaledMetric private var iconHeight = 17.0
+    
     let category: Category?
     
     var primaryColor: Color {
@@ -31,12 +33,14 @@ struct CategoryIcon: View {
             ColorCircle(primaryColor: primaryColor, secondaryColor: secondaryColor)
             
             image
-                #if os(watchOS)
                 .resizable()
                 .scaledToFit()
+                #if os(watchOS)
                 .containerRelativeFrame(.vertical) { height, axis in
                     height * 0.32
                 }
+                #else
+                .frame(height: iconHeight)
                 #endif
                 .foregroundStyle(.white)
         }
@@ -47,8 +51,13 @@ struct ColorCircle: View {
     let primaryColor: Color
     let secondaryColor: Color
     
+    @ScaledMetric private var circleHeight = 40.0
+    
     var body: some View {
         Circle()
+            #if !os(watchOS)
+            .frame(height: circleHeight)
+            #endif
             .foregroundStyle(
                 LinearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
             )

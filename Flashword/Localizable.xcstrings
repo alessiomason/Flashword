@@ -414,6 +414,7 @@
       }
     },
     "Delete category" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -462,6 +463,9 @@
           }
         }
       }
+    },
+    "Edit" : {
+
     },
     "Edit category" : {
       "localizations" : {
@@ -620,9 +624,6 @@
           }
         }
       }
-    },
-    "Home" : {
-
     },
     "How to manage your dictionaries" : {
       "localizations" : {
@@ -1008,6 +1009,7 @@
 
     },
     "Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {

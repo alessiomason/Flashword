@@ -51,8 +51,8 @@ struct ChangeCategoryView: View {
                 AddModifyCategoryView()
             }
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Close", systemImage: "multiply.circle") {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(role: .cancel) {
                         dismiss()
                     }
                 }

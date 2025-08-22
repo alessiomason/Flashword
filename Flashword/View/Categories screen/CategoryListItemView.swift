@@ -14,9 +14,7 @@ struct CategoryListItemView: View {
     var body: some View {
         HStack {
             CategoryIcon(category: category)
-                .padding(.vertical, 8)
                 .padding(.trailing, 8)
-                .fixedSize(horizontal: true, vertical: false)
             
             VStack(alignment: .leading) {
                 Text(category.name)

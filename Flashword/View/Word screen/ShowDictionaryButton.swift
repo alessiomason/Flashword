@@ -33,11 +33,16 @@ struct ShowDictionaryButton: View {
             // smaller button is used for text fields, so avoid button appearing and disappearing as the
             // user types, always show it
             if smallerButton || dictionaryHasDefinition {
-                Button(buttonText, action: showDictionary)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .glassEffect(.regular.tint(smallerButton ? .white : primaryColor).interactive())
-                    .foregroundStyle(smallerButton ? primaryColor : .white)
+                Button(action: showDictionary) {
+                    Text(buttonText)
+                        .foregroundStyle(smallerButton ? primaryColor : .white)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 4)
+                }
+                .tint(smallerButton ? .white : primaryColor)
+                .buttonStyle(.glassProminent)
+                .padding(.vertical, 6)
+                .padding(.horizontal, 4)
                 .alert("Looking up a word", isPresented: $showingDictionaryExplanationAlert) {
                     Button("Continue") {
                         alreadyUsedDictionary = true
