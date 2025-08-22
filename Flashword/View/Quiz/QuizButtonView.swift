@@ -21,11 +21,11 @@ struct QuizButtonView: View {
         .padding(.vertical, 32)
         .frame(maxWidth: .infinity)
         .foregroundStyle(.white)
-        .background(.mint)
+        .background(selected ? .blue : .mint)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(.blue, lineWidth: 1)
+                .stroke(selected ? .mint : .blue, lineWidth: 1)
         )
         .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
     }

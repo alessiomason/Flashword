@@ -196,6 +196,9 @@
         }
       }
     },
+    "Almost!" : {
+
+    },
     "App version: %@" : {
       "localizations" : {
         "it" : {
@@ -236,6 +239,9 @@
           }
         }
       }
+    },
+    "Button to go to the word page" : {
+
     },
     "Cancel" : {
       "localizations" : {
@@ -358,7 +364,7 @@
         }
       }
     },
-    "Complete" : {
+    "Close quiz" : {
 
     },
     "Confirm" : {
@@ -384,7 +390,7 @@
         }
       }
     },
-    "Correct answer: %@" : {
+    "Correct!" : {
 
     },
     "Delete" : {
@@ -506,6 +512,9 @@
           }
         }
       }
+    },
+    "Finished!" : {
+
     },
     "Flashword" : {
       "comment" : "The name of the app",
@@ -995,6 +1004,9 @@
         }
       }
     },
+    "Review the quiz words" : {
+
+    },
     "Save" : {
       "localizations" : {
         "it" : {
@@ -1009,6 +1021,9 @@
 
     },
     "Search in this category" : {
+
+    },
+    "See word" : {
 
     },
     "Settings" : {
@@ -1156,6 +1171,9 @@
           }
         }
       }
+    },
+    "The answer was: %@" : {
+
     },
     "The name has to be unique across all categories: let's not get you confused :)" : {
       "comment" : "The text inviting the user to enter a unique name for the new category",

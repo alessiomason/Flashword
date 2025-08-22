@@ -24,7 +24,7 @@ struct QuizHomeView: View {
                 case .quizzing:
                     QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: quiz)
                 case .complete:
-                    Text("Complete")
+                    QuizCompleteView(quizWords: $quizWords, quizPhase: $quizPhase, quiz: $quiz)
             }
         }
     }

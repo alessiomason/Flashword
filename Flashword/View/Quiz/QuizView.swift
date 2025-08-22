@@ -42,14 +42,18 @@ struct QuizView: View {
                                             text: quiz[currentQuestion].possibleAnswers[0],
                                             selected: userAnswer == quiz[currentQuestion].possibleAnswers[0]
                                         ) {
-                                            userAnswer = quiz[currentQuestion].possibleAnswers[0]
+                                            withAnimation {
+                                                userAnswer = quiz[currentQuestion].possibleAnswers[0]
+                                            }
                                         }
                                         
                                         QuizButtonView(
                                             text: quiz[currentQuestion].possibleAnswers[1],
                                             selected: userAnswer == quiz[currentQuestion].possibleAnswers[1]
                                         ) {
-                                            userAnswer = quiz[currentQuestion].possibleAnswers[1]
+                                            withAnimation {
+                                                userAnswer = quiz[currentQuestion].possibleAnswers[1]
+                                            }
                                         }
                                     }
                                     
@@ -58,14 +62,18 @@ struct QuizView: View {
                                             text: quiz[currentQuestion].possibleAnswers[2],
                                             selected: userAnswer == quiz[currentQuestion].possibleAnswers[2]
                                         ) {
-                                            userAnswer = quiz[currentQuestion].possibleAnswers[2]
+                                            withAnimation {
+                                                userAnswer = quiz[currentQuestion].possibleAnswers[2]
+                                            }
                                         }
                                         
                                         QuizButtonView(
                                             text: quiz[currentQuestion].possibleAnswers[3],
                                             selected: userAnswer == quiz[currentQuestion].possibleAnswers[3]
                                         ) {
-                                            userAnswer = quiz[currentQuestion].possibleAnswers[3]
+                                            withAnimation {
+                                                userAnswer = quiz[currentQuestion].possibleAnswers[3]
+                                            }
                                         }
                                     }
                                 }
@@ -77,41 +85,26 @@ struct QuizView: View {
                                     .padding()
                         }
                     case .feedback:
-                        Text("Correct answer: \(quiz[currentQuestion].word)")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                        
-                        ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .white, secondaryColor: .white)
-                }
-                
-                Button {
-                    switch questionPhase {
-                        case .question:
-                            withAnimation {
-                                questionPhase = .feedback
+                        VStack {
+                            if userAnswer.lowercased() == quiz[currentQuestion].word.lowercased() {
+                                Text("Correct!")
+                                    .font(.largeTitle)
+                                    .fontWeight(.bold)
+                            } else {
+                                Text("Almost!")
+                                    .font(.largeTitle)
+                                    .fontWeight(.bold)
                             }
-                        case .feedback:
-                            withAnimation {
-                                if currentQuestion + 1 < numberOfWords {
-                                    currentQuestion += 1
-                                    questionPhase = .question
-                                } else {
-                                    quizPhase = .complete
-                                }
-                            }
-                    }
-                } label: {
-                    Text(questionPhase == .question ? "Confirm" : "Continue")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical)
-                }
-                .buttonStyle(.glassProminent)
-                .padding(16)
-                .disabled(questionPhase == .feedback && currentQuestion + 1 >= quiz.count)
-                
-                if questionPhase == .feedback && currentQuestion + 1 >= quiz.count {
-                    Text("Still generating the following question. Hang on tight!")
-                        .padding(.horizontal, 24)
+                            
+                            Text("The answer was: \(quiz[currentQuestion].word)")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                                .padding(.vertical)
+                            
+                            Text("Button to go to the word page")
+                            
+                            ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .white, secondaryColor: .white)
+                        }
                 }
             }
             .foregroundStyle(.white)
@@ -127,6 +120,44 @@ struct QuizView: View {
                 endPoint: .bottomTrailing
             )
         )
+        .safeAreaBar(
+            edge: .bottom,
+            alignment: .center,
+            spacing: 0) {
+                VStack {
+                    if questionPhase == .feedback && currentQuestion + 1 < numberOfWords && currentQuestion + 1 >= quiz.count {
+                        Text("Still generating the following question. Hang on tight!")
+                            .padding(.horizontal, 64)
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    Button {
+                        switch questionPhase {
+                            case .question:
+                                withAnimation {
+                                    questionPhase = .feedback
+                                }
+                            case .feedback:
+                                withAnimation {
+                                    if currentQuestion + 1 < numberOfWords {
+                                        currentQuestion += 1
+                                        questionPhase = .question
+                                    } else {
+                                        quizPhase = .complete
+                                    }
+                                }
+                        }
+                    } label: {
+                        Text(questionPhase == .question ? "Confirm" : "Continue")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical)
+                    }
+                    .tint(.mint)
+                    .buttonStyle(.glassProminent)
+                    .padding(16)
+                    .disabled(questionPhase == .feedback && currentQuestion + 1 < numberOfWords && currentQuestion + 1 >= quiz.count)
+                }
+            }
     }
 }
 

@@ -19,6 +19,7 @@
 		562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */; };
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		564AAA072E532F670049FCC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AAA062E532F670049FCC7 /* Quiz.swift */; };
+		564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D2C632E58649B001021F9 /* QuizCompleteView.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -125,6 +126,7 @@
 		562AE4EF2B65532300628C17 /* ChangeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryView.swift; sourceTree = "<group>"; };
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		564AAA062E532F670049FCC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		564D2C632E58649B001021F9 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				56024CE72E54B58100A58C06 /* GeneratingQuizView.swift */,
 				56024CE92E54BB1500A58C06 /* QuizView.swift */,
 				5699A6952E57801E00798365 /* QuizButtonView.swift */,
+				564D2C632E58649B001021F9 /* QuizCompleteView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				5667625E2B60081C00C3F1CA /* DictionaryView.swift in Sources */,
 				5699A6962E57801E00798365 /* QuizButtonView.swift in Sources */,
 				56C775A92B64096B00742E1F /* CategoryListView.swift in Sources */,
+				564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */,
 				56024CEA2E54BB1500A58C06 /* QuizView.swift in Sources */,
 				569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */,
 				56C775AD2B64134A00742E1F /* CategoryView.swift in Sources */,

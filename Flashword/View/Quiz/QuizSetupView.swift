@@ -108,8 +108,11 @@ struct QuizSetupView: View {
             quizWords.append(randomWord)
         }
         
-        for word in quizWords {
-            let prompt = """
+        for index in 0..<quizWords.count {
+            var responseContent: Quiz? = nil
+            while responseContent == nil {
+                let word = quizWords[index]
+                let prompt = """
                 Your goal is to generate a multiple-choice quiz. Generate a question that quizzes the user knowledge of the word "\(word.term)". The goal is for the user to correctly guess the word that you are referring to in the question. The question MUST NOT include the word "\(word.term)".
         
                 Example of question
@@ -127,11 +130,9 @@ struct QuizSetupView: View {
         
                 Generate a question for the word "\(word.term)".
         """
-            
-            print(prompt)
-            
-            var responseContent: Quiz? = nil
-            while responseContent == nil {
+                print(prompt)
+                
+                
                 do {
                     let response = try await session.respond(
                         to: prompt,
@@ -143,10 +144,15 @@ struct QuizSetupView: View {
                         responseContent = nil
                     }
                 } catch LanguageModelSession.GenerationError.guardrailViolation {
+                    // safety guardrail triggered, change word
+                    let randomIndex = shuffled.nextInt()
+                    let randomWord = words[randomIndex]
+                    quizWords[index] = randomWord
                     responseContent = nil
                 }
             }
             
+            let word = quizWords[index]
             responseContent!.word = word.term
             responseContent!.wordId = word.uuid.uuidString
             if !responseContent!.possibleAnswers.map({ $0.lowercased() }).contains(word.term.lowercased()) {
