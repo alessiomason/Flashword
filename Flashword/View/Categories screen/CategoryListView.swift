@@ -111,7 +111,7 @@ struct CategoryListView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button("About Flashword", systemImage: "gear") {
+                Button("Settings", systemImage: "gear") {
                     showingSettingsScreen = true
                 }
                 .disabled(isEditing)
