@@ -105,8 +105,8 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Close", systemImage: "multiply.circle") {
+                ToolbarItem {
+                    Button(role: .close) {
                         dismiss()
                     }
                 }
