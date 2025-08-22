@@ -117,7 +117,7 @@ struct QuizSetupView: View {
                 Question: "What is a word that expresses that something is possible to do?"
                 Possible answers: [Difficult, Attainable, Impossible, Preposterous]
         
-                The word ("Attainable", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong.
+                The word ("Attainable", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong and all different from one another.
         
         
                 Example of a WRONG question --> DO NOT GENERATE QUESTIONS LIKE THIS ONE!
@@ -137,7 +137,11 @@ struct QuizSetupView: View {
                         to: prompt,
                         generating: Quiz.self
                     )
+                    
                     responseContent = response.content
+                    if response.content.possibleAnswers.count < 4 {
+                        responseContent = nil
+                    }
                 } catch LanguageModelSession.GenerationError.guardrailViolation {
                     responseContent = nil
                 }

@@ -60,6 +60,7 @@
 		568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */; };
 		568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ED02BF50BB800FC4220 /* WordView.swift */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
+		5699A6962E57801E00798365 /* QuizButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699A6952E57801E00798365 /* QuizButtonView.swift */; };
 		569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */; };
 		569A13AF2D19B780007F4A39 /* DictionariesExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */; };
 		56A778542C076532004570F9 /* AddWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A778532C076532004570F9 /* AddWordView.swift */; };
@@ -154,6 +155,7 @@
 		568B7ED22BF50CDF00FC4220 /* FlashwordWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlashwordWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlashwordWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		568CE83D2B70F77300A8482D /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
+		5699A6952E57801E00798365 /* QuizButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizButtonView.swift; sourceTree = "<group>"; };
 		569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorView.swift; sourceTree = "<group>"; };
 		569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionariesExplanationView.swift; sourceTree = "<group>"; };
 		569B731E2B89FFE400F06012 /* Flashword.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashword.entitlements; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				56024CE52E54B21200A58C06 /* QuizSetupView.swift */,
 				56024CE72E54B58100A58C06 /* GeneratingQuizView.swift */,
 				56024CE92E54BB1500A58C06 /* QuizView.swift */,
+				5699A6952E57801E00798365 /* QuizButtonView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				56C775AB2B640BA700742E1F /* AddModifyCategoryView.swift in Sources */,
 				564AAA072E532F670049FCC7 /* Quiz.swift in Sources */,
 				5667625E2B60081C00C3F1CA /* DictionaryView.swift in Sources */,
+				5699A6962E57801E00798365 /* QuizButtonView.swift in Sources */,
 				56C775A92B64096B00742E1F /* CategoryListView.swift in Sources */,
 				56024CEA2E54BB1500A58C06 /* QuizView.swift in Sources */,
 				569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */,

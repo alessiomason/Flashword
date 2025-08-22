@@ -24,25 +24,64 @@ struct QuizView: View {
         ScrollView {
             VStack {
                 Text("Question \(currentQuestion + 1)/\(quiz.count)")
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom)
                 
                 switch questionPhase {
                     case .question:
                         Text(quiz[currentQuestion].question)
-                            .font(.largeTitle)
+                            .font(.title)
                             .fontWeight(.bold)
                         
-                        ForEach(quiz[currentQuestion].possibleAnswers, id: \.self) { possibleAnswer in
-                            Text(possibleAnswer)
+                        switch quizType {
+                            case .multipleChoice:
+                                VStack {
+                                    HStack {
+                                        QuizButtonView(
+                                            text: quiz[currentQuestion].possibleAnswers[0],
+                                            selected: userAnswer == quiz[currentQuestion].possibleAnswers[0]
+                                        ) {
+                                            userAnswer = quiz[currentQuestion].possibleAnswers[0]
+                                        }
+                                        
+                                        QuizButtonView(
+                                            text: quiz[currentQuestion].possibleAnswers[1],
+                                            selected: userAnswer == quiz[currentQuestion].possibleAnswers[1]
+                                        ) {
+                                            userAnswer = quiz[currentQuestion].possibleAnswers[1]
+                                        }
+                                    }
+                                    
+                                    HStack {
+                                        QuizButtonView(
+                                            text: quiz[currentQuestion].possibleAnswers[2],
+                                            selected: userAnswer == quiz[currentQuestion].possibleAnswers[2]
+                                        ) {
+                                            userAnswer = quiz[currentQuestion].possibleAnswers[2]
+                                        }
+                                        
+                                        QuizButtonView(
+                                            text: quiz[currentQuestion].possibleAnswers[3],
+                                            selected: userAnswer == quiz[currentQuestion].possibleAnswers[3]
+                                        ) {
+                                            userAnswer = quiz[currentQuestion].possibleAnswers[3]
+                                        }
+                                    }
+                                }
+                                .padding(.vertical)
+                                
+                            case .openAnswer:
+                                TextField("Your answer", text: $userAnswer)
+                                    .textFieldStyle(.roundedBorder)
+                                    .padding()
                         }
-                        
-                        TextField("Your answer", text: $userAnswer)
-                            .textFieldStyle(.roundedBorder)
-                            .padding()
                     case .feedback:
                         Text("Correct answer: \(quiz[currentQuestion].word)")
+                            .font(.title)
+                            .fontWeight(.semibold)
+                        
+                        ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .white, secondaryColor: .white)
                 }
                 
                 Button {
@@ -93,9 +132,14 @@ struct QuizView: View {
 
 #Preview {
     let quiz = [
-        Quiz(question: "What word can describe the sun?", word: "Bright", wordId: "1"),
+        Quiz(question: "What word can describe the sun?", word: "Bright", wordId: "1", possibleAnswers: [
+            "Bright",
+            "Green",
+            "Cold",
+            "Cool"
+        ]),
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(numberOfWords: 5, quizType: .openAnswer, quizPhase: .constant(.quizzing), quiz: quiz)
+    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: quiz)
 }
