@@ -69,18 +69,6 @@ struct QuizSetupView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.bottom)
-                
-                Button {
-                    Task {
-                        try await generate()
-                    }
-                } label: {
-                    Text("Generate quiz")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical)
-                }
-                .buttonStyle(.glassProminent)
-                .padding(16)
             }
             .foregroundStyle(.white)
             .multilineTextAlignment(.center)
@@ -95,6 +83,23 @@ struct QuizSetupView: View {
                 endPoint: .bottomTrailing
             )
         )
+        .safeAreaBar(
+            edge: .bottom,
+            alignment: .center,
+            spacing: 0) {
+                Button {
+                    Task {
+                        try await generate()
+                    }
+                } label: {
+                    Text("Generate quiz")
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
+                }
+                .tint(.mint)
+                .buttonStyle(.glassProminent)
+                .padding(16)
+            }
     }
     
     private func generate() async throws {
@@ -104,7 +109,7 @@ struct QuizSetupView: View {
         
         let shuffled = GKShuffledDistribution(lowestValue: 0, highestValue: words.count - 1)
         
-        for index in 0..<numberOfWords {
+        for _ in 0..<numberOfWords {
             var randomIndex = shuffled.nextInt()
             var word = words[randomIndex]
             

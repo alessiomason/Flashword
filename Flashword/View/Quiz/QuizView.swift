@@ -105,6 +105,7 @@ struct QuizView: View {
                             
                             ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .white, secondaryColor: .white)
                         }
+                        .frame(maxWidth: .infinity)
                 }
             }
             .foregroundStyle(.white)

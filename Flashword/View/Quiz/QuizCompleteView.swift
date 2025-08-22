@@ -64,8 +64,6 @@ struct QuizCompleteView: View {
                 Button {
                     withAnimation {
                         quizPhase = .start
-                        quizWords = []
-                        quiz = []
                     }
                 } label: {
                     Text("Close quiz")
@@ -75,6 +73,10 @@ struct QuizCompleteView: View {
                 .tint(.mint)
                 .buttonStyle(.glassProminent)
                 .padding(16)
+            }
+            .onDisappear {
+                quizWords = []
+                quiz = []
             }
     }
 }
