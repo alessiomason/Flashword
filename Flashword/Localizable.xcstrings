@@ -414,6 +414,7 @@
       }
     },
     "Delete category" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -462,6 +463,9 @@
           }
         }
       }
+    },
+    "Edit" : {
+
     },
     "Edit category" : {
       "localizations" : {
@@ -1005,6 +1009,7 @@
 
     },
     "Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {

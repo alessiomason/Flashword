@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct AboutView: View {
+    @Environment(\.dismiss) var dismiss
     @ScaledMetric private var iconHeight = 20.0
     
     let personalDescription = String(localized: """
@@ -101,13 +103,21 @@ Below you can find some links to follow me online!
             }
             
             Section {
-                Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/terms-of-use")!) {
+                NavigationLink {
+                    WebView(url: URL(string: "https://www.alessiomason.it/apps/flashword/terms-of-use")!)
+                        .navigationTitle("Terms of use")
+                } label: {
                     Label("Terms of use", systemImage: "doc.text.magnifyingglass")
                 }
+                .foregroundStyle(.blue)
                 
-                Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!) {
+                NavigationLink {
+                    WebView(url: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!)
+                        .navigationTitle("Privacy policy")
+                } label: {
                     Label("Privacy policy", systemImage: "lock")
                 }
+                .foregroundStyle(.blue)
                 
                 Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
                     Label("Contact me", systemImage: "paperplane")
@@ -124,5 +134,7 @@ Below you can find some links to follow me online!
 }
 
 #Preview {
-    AboutView()
+    NavigationStack {
+        AboutView()
+    }
 }
