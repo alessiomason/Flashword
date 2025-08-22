@@ -13,7 +13,9 @@ import SwiftUI
 struct QuizSetupView: View {
     @Environment(\.modelContext) private var modelContext
     
-    private let session = LanguageModelSession()
+    // a session that spans across multiple requests is not needed, so I could refresh the session at every request
+    // and not keep it in a state, but it is probably faster to instantiate a new session only when needed
+    @State private var session = LanguageModelSession()
     
     @Query private var words: [Word]
     @Binding var quizWords: [Word]
@@ -102,16 +104,12 @@ struct QuizSetupView: View {
         
         let shuffled = GKShuffledDistribution(lowestValue: 0, highestValue: words.count - 1)
         
-        for _ in 0..<numberOfWords {
-            let randomIndex = shuffled.nextInt()
-            let randomWord = words[randomIndex]
-            quizWords.append(randomWord)
-        }
-        
-        for index in 0..<quizWords.count {
+        for index in 0..<numberOfWords {
+            var randomIndex = shuffled.nextInt()
+            var word = words[randomIndex]
+            
             var responseContent: Quiz? = nil
             while responseContent == nil {
-                let word = quizWords[index]
                 let prompt = """
                 Your goal is to generate a multiple-choice quiz. Generate a question that quizzes the user knowledge of the word "\(word.term)". The goal is for the user to correctly guess the word that you are referring to in the question. The question MUST NOT include the word "\(word.term)".
         
@@ -145,21 +143,24 @@ struct QuizSetupView: View {
                     }
                 } catch LanguageModelSession.GenerationError.guardrailViolation {
                     // safety guardrail triggered, change word
-                    let randomIndex = shuffled.nextInt()
-                    let randomWord = words[randomIndex]
-                    quizWords[index] = randomWord
+                    randomIndex = shuffled.nextInt()
+                    word = words[randomIndex]
                     responseContent = nil
+                } catch LanguageModelSession.GenerationError.exceededContextWindowSize {
+                    session = LanguageModelSession()
+                } catch {
+                    print("Unexpected error: \(error)")
                 }
             }
             
-            let word = quizWords[index]
             responseContent!.word = word.term
             responseContent!.wordId = word.uuid.uuidString
             if !responseContent!.possibleAnswers.map({ $0.lowercased() }).contains(word.term.lowercased()) {
-                responseContent!.possibleAnswers[0] = word.term
+                responseContent!.possibleAnswers[0] = word.term     // add correct answer if missing
             }
             
             quiz.append(responseContent!)
+            quizWords.append(word)
             
             if quizPhase != .quizzing {
                 withAnimation {     // start quizzing as soon as you have one question
