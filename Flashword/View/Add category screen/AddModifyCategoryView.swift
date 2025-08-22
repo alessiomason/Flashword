@@ -53,22 +53,19 @@ struct AddModifyCategoryView: View {
             .navigationTitle(modifying ? "Edit the category" : "Insert a new category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Close", systemImage: "multiply.circle") {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(role: .cancel) {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem {
-                    Button {
+                    Button(role: .confirm) {
                         if modifying {
                             updateCategory()
                         } else {
                             insertNewCategory()
                         }
-                    } label: {
-                        Text(modifying ? "Save" : "Add")
-                            .bold()
                     }
                     .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
                 }

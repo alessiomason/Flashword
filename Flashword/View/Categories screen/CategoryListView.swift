@@ -121,7 +121,7 @@ struct CategoryListView: View {
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Insert a new category", systemImage: "plus") {
+                Button("Insert a new category", systemImage: "folder.badge.plus") {
                     showingAddCategorySheet = true
                 }
                 .disabled(isEditing)
