@@ -22,8 +22,9 @@ struct QuizUnavailableView: View {
                 .padding(.vertical)
             
             Text(errorText)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.semibold)
+                .padding(.horizontal)
         }
         .foregroundStyle(.white)
         .multilineTextAlignment(.center)

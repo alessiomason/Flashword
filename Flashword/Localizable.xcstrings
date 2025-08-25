@@ -970,13 +970,7 @@
     "Quiz type" : {
 
     },
-    "Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
-
-    },
-    "Quizzes are generated using Apple Intelligence, which is currently not available on your device. Please try again later." : {
-
-    },
-    "Quizzes are generated using Apple Intelligence, which is not supported by your device." : {
+    "Quizzes are generated using Apple Intelligence, which is currently not available on your device (it is likely still downloading). Please try again later." : {
 
     },
     "Quizzes are generated using Apple Intelligence. If you wish to use this functionality, turn on Apple Intelligence in your device settings." : {
@@ -1037,6 +1031,12 @@
           }
         }
       }
+    },
+    "Sorry, the quiz functionality is not available! Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
+
+    },
+    "Sorry, the quiz functionality is not available! Quizzes are generated using Apple Intelligence, which is not supported by your device." : {
+
     },
     "Sort alphabetically" : {
       "localizations" : {
