@@ -38,6 +38,7 @@ struct AppView: View {
             }
         }
         .tabBarMinimizeBehavior(.onScrollDown)
+        .sensoryFeedback(.impact(flexibility: .soft, intensity: 0.81), trigger: selectedTab)
         .onAppear {
             handleQuickActions()
         }
