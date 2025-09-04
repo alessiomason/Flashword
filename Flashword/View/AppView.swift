@@ -26,7 +26,9 @@ struct AppView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab("Words", systemImage: "text.book.closed", value: .words) {
-                homeTabView
+                DismissableKeyboardView {
+                    homeTabView
+                }
             }
             
             Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
@@ -39,6 +41,7 @@ struct AppView: View {
         }
         .tabBarMinimizeBehavior(.onScrollDown)
         .sensoryFeedback(.impact(flexibility: .soft, intensity: 0.81), trigger: selectedTab)
+        .addKeyboardVisibilityToEnvironment()
         .onAppear {
             handleQuickActions()
         }

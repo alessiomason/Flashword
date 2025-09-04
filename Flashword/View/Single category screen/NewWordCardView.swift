@@ -99,7 +99,7 @@ struct NewWordCardView: View {
         }
         .onChange(of: quickActionsManager.quickAction, { _, newQAValue in
             if let newQAValue, newQAValue == .addNewWord {
-                self.isNewWordFieldFocused = true   // sueless if router is popped in the meantime, so workaround with onAppear
+                self.isNewWordFieldFocused = true   // useless if router is popped in the meantime, so workaround with onAppear
                 self.focusNewWordField = true
             }
         })
@@ -186,3 +186,4 @@ struct NewWordCardView: View {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
 }
+
