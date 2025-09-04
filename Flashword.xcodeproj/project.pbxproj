@@ -303,16 +303,15 @@
 			isa = PBXGroup;
 			children = (
 				5667625B2B60080000C3F1CA /* AppView.swift */,
-				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
-				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
+				56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
+				56CC1B262E69A3AE00BC262B /* Modifiers */,
 				560C92B42E532C2100BC1BE4 /* Quiz */,
 				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
 				56203A242E153D9E005A6EAD /* Tabs */,
 				56DDCB5D2B6A8F12002E4644 /* Word screen */,
-				56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +372,15 @@
 				568B7ED02BF50BB800FC4220 /* WordView.swift */,
 			);
 			path = "Word screen";
+			sourceTree = "<group>";
+		};
+		56CC1B262E69A3AE00BC262B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
+				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		56CF96692B6BA209008C4AA6 /* Settings screen */ = {
