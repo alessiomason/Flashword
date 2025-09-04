@@ -36,6 +36,7 @@ When writing your notes, you can use basic Markdown syntax to format them. For e
                 }
                 
                 TextEditor(text: $notes)
+                    .tint(word.primaryColor)
                     .focused($textEditorFocused)
                     .scrollContentBackground(.hidden)
                     .padding()
@@ -54,7 +55,7 @@ When writing your notes, you can use basic Markdown syntax to format them. For e
                     word.notes = notes
                     dismiss()
                 } label: {
-                    Text("Done")
+                    Text("Save")
                         .bold()
                 }
             }

@@ -41,11 +41,12 @@ struct WordView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    if !word.notes.isEmpty {
+                    if word.notes.isEmpty {
                         Button("Add notes…") {
                             showingModifyNotesSheet = true
                         }
                         .padding(.horizontal, 5)
+                        .tint(word.primaryColor)
                     } else {
                         Text(.init(word.notes))     // allows for basic Markdown text
                             .padding(.horizontal, 5)
