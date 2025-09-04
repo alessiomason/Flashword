@@ -9,7 +9,26 @@ import FoundationModels
 import SwiftUI
 
 struct QuizTabView: View {
-    private var model = SystemLanguageModel.default
+    @Environment(\.colorScheme) var colorScheme
+    var backgroundGradient: LinearGradient {
+        return if colorScheme == .dark {
+            LinearGradient(
+                stops: [Gradient.Stop(color: .mint, location: -0.25),
+                        Gradient.Stop(color: .black, location: 1.3)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        } else {
+            LinearGradient(
+                gradient: Gradient(colors: [.mint, .blue]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+                
+            )
+        }
+    }
+    
+    private let model = SystemLanguageModel.default
     
     private var errorText: String {
         return switch model.availability {
@@ -33,9 +52,9 @@ struct QuizTabView: View {
             Group {
                 switch model.availability {
                     case .available:
-                        QuizHomeView()
+                        QuizHomeView(backgroundGradient: backgroundGradient)
                     default:
-                        QuizUnavailableView(errorText: errorText)
+                        QuizUnavailableView(errorText: errorText, backgroundGradient: backgroundGradient)
                 }
             }
         }

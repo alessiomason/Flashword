@@ -12,6 +12,8 @@ struct QuizCompleteView: View {
     @Binding var quizPhase: QuizPhase
     @Binding var quiz: [Quiz]
     
+    let backgroundGradient: LinearGradient
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -50,13 +52,7 @@ struct QuizCompleteView: View {
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
+        .background(backgroundGradient)
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -82,5 +78,5 @@ struct QuizCompleteView: View {
 }
 
 #Preview {
-    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant([]))
+    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant([]), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
 }

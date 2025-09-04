@@ -19,6 +19,9 @@ struct QuizView: View {
     @State private var currentQuestion = 0
     @State private var questionPhase: QuestionPhase = .question
     @State private var userAnswer = ""
+    @FocusState private var focusingTextField: Bool
+    
+    let backgroundGradient: LinearGradient
     
     var body: some View {
         ScrollView {
@@ -81,6 +84,7 @@ struct QuizView: View {
                                 
                             case .openAnswer:
                                 TextField("Your answer", text: $userAnswer)
+                                    .focused($focusingTextField)
                                     .textFieldStyle(.roundedBorder)
                                     .padding()
                         }
@@ -114,13 +118,7 @@ struct QuizView: View {
         }
         .frame(maxWidth: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
+        .background(backgroundGradient)
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -136,6 +134,7 @@ struct QuizView: View {
                         switch questionPhase {
                             case .question:
                                 withAnimation {
+                                    focusingTextField = false
                                     questionPhase = .feedback
                                 }
                             case .feedback:
@@ -173,5 +172,5 @@ struct QuizView: View {
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: quiz)
+    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: quiz, backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
 }
