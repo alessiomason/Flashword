@@ -450,6 +450,9 @@
         }
       }
     },
+    "Discover Flashword and the features of the latest update" : {
+
+    },
     "Discover more about Flashword and its creator!" : {
       "localizations" : {
         "it" : {
@@ -568,6 +571,9 @@
           }
         }
       }
+    },
+    "Flashword's features and the latest update" : {
+
     },
     "Flashword's repository" : {
       "localizations" : {

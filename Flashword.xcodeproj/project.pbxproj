@@ -79,6 +79,7 @@
 		56CC1B282E69D1E300BC262B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B272E69D1E300BC262B /* OnboardingView.swift */; };
 		56CC1B2B2E69D5DF00BC262B /* AppPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */; };
 		56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */; };
+		56CC1B2F2E69E98800BC262B /* PicturesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */; };
 		56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */; };
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
@@ -182,6 +183,7 @@
 		56CC1B272E69D1E300BC262B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationView.swift; sourceTree = "<group>"; };
 		56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureBoxView.swift; sourceTree = "<group>"; };
+		56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesSectionView.swift; sourceTree = "<group>"; };
 		56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyNotesView.swift; sourceTree = "<group>"; };
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				56CF966A2B6BA23E008C4AA6 /* AboutView.swift */,
 				569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */,
 				569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */,
+				56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */,
 				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
 				566BD4FE2D15E31300628678 /* TipJarView.swift */,
 			);
@@ -616,6 +619,7 @@
 				56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */,
 				56FCE2962D14269D006B5D64 /* Spotlight.swift in Sources */,
 				566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */,
+				56CC1B2F2E69E98800BC262B /* PicturesSectionView.swift in Sources */,
 				5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */,
 				56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */,
 				56FCE29B2D143507006B5D64 /* QuickActionsManager.swift in Sources */,

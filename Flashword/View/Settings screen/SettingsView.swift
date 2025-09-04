@@ -33,7 +33,6 @@ struct SettingsView: View {
                                 .containerRelativeFrame(.horizontal) { width, axis in
                                     width * 0.25
                                 }
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                             VStack(alignment: .leading) {
                                 Text("About Flashword")

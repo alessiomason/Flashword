@@ -23,25 +23,7 @@ Below you can find some links to follow me online!
         List {
             Section {
                 VStack {
-                    HStack {
-                        Image(.alessio2021)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, axis in
-                                width * 0.25
-                            }
-                            .clipShape(RoundedRectangle(cornerRadius: 24))
-                            .padding(.horizontal, 8)
-                        
-                        Image(.flashwordIcon)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, axis in
-                                width * 0.25
-                            }
-                            .padding(.horizontal, 8)
-                    }
-                    .padding(.bottom, 8)
+                    PicturesSectionView()
                     
                     Text(personalDescription)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -79,6 +61,29 @@ Below you can find some links to follow me online!
             }
             
             Section {
+                NavigationLink {
+                    OnboardingView()
+                        .navigationTitle("Flashword")
+                } label: {
+                    HStack {
+                        Image(.flashwordIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 60)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Flashword's features and the latest update")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            Text("Discover Flashword and the features of the latest update")
+                                .font(.subheadline)
+                        }
+                        .padding(.leading, 10)
+                        .foregroundStyle(.blue)
+                    }
+                }
+                
                 Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword")!) {
                     Label("Flashword's website", systemImage: "globe")
                 }

@@ -39,6 +39,7 @@ struct OnboardingView: View {
                 Text("Novità dell'aggiornamento").tag(OnboardingTabs.newVersion)
             }
             .pickerStyle(.segmented)
+            .padding(.horizontal)
             
             ScrollView {
                 switch onboardingTab {
@@ -49,7 +50,6 @@ struct OnboardingView: View {
                 }
             }
         }
-        .padding(.horizontal, 10)
         .padding(.top)
         .frame(maxWidth: .infinity)
         .animation(.default, value: onboardingTab)
