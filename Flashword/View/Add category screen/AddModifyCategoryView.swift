@@ -30,52 +30,53 @@ struct AddModifyCategoryView: View {
     @State private var selectedSymbol = Symbol.suggested[0]
     
     var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    TextField("Category's name", text: $name)
-                } footer: {
-                    Text("The name has to be unique across all categories: let's not get you confused :)", comment: "The text inviting the user to enter a unique name for the new category")
-                }
-                
-                Section("Category color") {
-                    ChooseColorView(selectedColorChoiceId: $selectedColorChoiceId)
-                }
-                
-                Section("Symbol for the category") {
-                    ChooseHighlightedSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
+        DismissableKeyboardView {
+            NavigationStack {
+                Form {
+                    Section {
+                        TextField("Category's name", text: $name)
+                    } footer: {
+                        Text("The name has to be unique across all categories: let's not get you confused :)", comment: "The text inviting the user to enter a unique name for the new category")
+                    }
                     
-                    NavigationLink("More symbols…") {
-                        ChooseSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: $previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
+                    Section("Category color") {
+                        ChooseColorView(selectedColorChoiceId: $selectedColorChoiceId)
                     }
-                }
-            }
-            .navigationTitle(modifying ? "Edit the category" : "Insert a new category")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(role: .cancel) {
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem {
-                    Button(role: .confirm) {
-                        if modifying {
-                            updateCategory()
-                        } else {
-                            insertNewCategory()
+                    
+                    Section("Symbol for the category") {
+                        ChooseHighlightedSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
+                        
+                        NavigationLink("More symbols…") {
+                            ChooseSymbolView(selectedColorChoice: selectedColorChoice, previouslySelectedSymbol: $previouslySelectedSymbol, selectedSymbol: $selectedSymbol)
                         }
                     }
-                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+                .navigationTitle(modifying ? "Edit the category" : "Insert a new category")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button(role: .cancel) {
+                            dismiss()
+                        }
+                    }
+                    
+                    ToolbarItem {
+                        Button(role: .confirm) {
+                            if modifying {
+                                updateCategory()
+                            } else {
+                                insertNewCategory()
+                            }
+                        }
+                        .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty)
+                    }
+                }
+                .alert("Cannot create a duplicate category!", isPresented: $showingDuplicateCategoryAlert) {
+                    Button("OK") { }
+                } message: {
+                    Text("A category named \"\(name)\" already exists!")
                 }
             }
-            .alert("Cannot create a duplicate category!", isPresented: $showingDuplicateCategoryAlert) {
-                Button("OK") { }
-            } message: {
-                Text("A category named \"\(name)\" already exists!")
-            }
-
         }
     }
     
