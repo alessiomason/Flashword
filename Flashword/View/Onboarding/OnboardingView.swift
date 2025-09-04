@@ -14,6 +14,7 @@ enum OnboardingTabs {
 struct OnboardingView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var onboardingTab = OnboardingTabs.welcome
+    let presentedFromSettings: Bool
     
     var body: some View {
         VStack {
@@ -53,21 +54,28 @@ struct OnboardingView: View {
         .padding(.top)
         .frame(maxWidth: .infinity)
         .animation(.default, value: onboardingTab)
-        .safeAreaBar(
-            edge: .bottom,
-            alignment: .center,
-            spacing: 0) {
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Begin")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical)
-                }
-                .tint(.mint)
-                .buttonStyle(.glassProminent)
-                .padding(16)
-            }
+        .if(!presentedFromSettings) { view in
+            view
+                .safeAreaBar(
+                    edge: .bottom,
+                    alignment: .center,
+                    spacing: 0) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Begin")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical)
+                        }
+                        .tint(.mint)
+                        .buttonStyle(.glassProminent)
+                        .padding(16)
+                    }
+        }
+    }
+    
+    init(presentedFromSettings: Bool = false) {
+        self.presentedFromSettings = presentedFromSettings
     }
 }
 

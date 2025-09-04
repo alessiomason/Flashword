@@ -62,7 +62,7 @@ Below you can find some links to follow me online!
             
             Section {
                 NavigationLink {
-                    OnboardingView()
+                    OnboardingView(presentedFromSettings: true)
                         .navigationTitle("Flashword")
                 } label: {
                     HStack {
