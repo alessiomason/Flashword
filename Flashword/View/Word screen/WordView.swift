@@ -41,9 +41,15 @@ struct WordView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    Text(.init(word.notes))     // allows for basic Markdown text
-                        .padding(.top, 8)
+                    if !word.notes.isEmpty {
+                        Button("Add notes…") {
+                            showingModifyNotesSheet = true
+                        }
                         .padding(.horizontal, 5)
+                    } else {
+                        Text(.init(word.notes))     // allows for basic Markdown text
+                            .padding(.horizontal, 5)
+                    }
                     
                     ShowDictionaryButton(term: word.term, primaryColor: word.primaryColor, secondaryColor: word.secondaryColor)
                         .frame(maxWidth: .infinity)

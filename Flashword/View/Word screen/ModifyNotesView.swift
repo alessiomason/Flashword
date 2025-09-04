@@ -43,7 +43,7 @@ When writing your notes, you can use basic Markdown syntax to format them. For e
                         textEditorFocused = true
                     }
             }
-            .navigationTitle("Modify the notes of \"\(word.term)\"")
+            .navigationTitle(word.term)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button("Writing notes", systemImage: "info.circle") {
