@@ -11,10 +11,13 @@ import SwiftUI
 struct SearchTabView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var router = Router()
+    @State private var quickActionsManager = QuickActionsManager.instance
+    
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     @Query(sort: Word.sortDescriptors) private var words: [Word]
     
     @State private var searchText = ""
+    @State private var focusingSearchField = false
     
     @State private var wordToBeReassigned: Word? = nil
     @State private var wordToBeDeleted: Word? = nil
@@ -81,11 +84,26 @@ struct SearchTabView: View {
             .navigationTitle("Search")
             .withRouterDestinations(modelContext: modelContext)
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, isPresented: $focusingSearchField)
         .environment(router)
+        .onChange(of: quickActionsManager.quickAction) { oldValue, newValue in
+            switch newValue {
+                case .searchWord:
+                    focusKeyboard()
+                default:
+                    return
+            }
+        }
     }
     
-    func deleteWord() {
+    /// A function used when arriving from Quick Actions to automatically focus the keyboard.
+    private func focusKeyboard() {
+        router.path.removeAll()
+        searchText = ""
+        focusingSearchField = true
+    }
+    
+    private func deleteWord() {
         guard let wordToBeDeleted else { return }
         wordToBeDeleted.deleteIndex()
         modelContext.delete(wordToBeDeleted)
