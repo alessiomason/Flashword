@@ -76,6 +76,9 @@
 		56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */; };
 		56CC1B232E6992FC00BC262B /* KeyboardVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B222E6992FC00BC262B /* KeyboardVisibility.swift */; };
 		56CC1B252E69965400BC262B /* DismissableKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */; };
+		56CC1B282E69D1E300BC262B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B272E69D1E300BC262B /* OnboardingView.swift */; };
+		56CC1B2B2E69D5DF00BC262B /* AppPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */; };
+		56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */; };
 		56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */; };
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
@@ -176,6 +179,9 @@
 		56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWordsCategoryView.swift; sourceTree = "<group>"; };
 		56CC1B222E6992FC00BC262B /* KeyboardVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardVisibility.swift; sourceTree = "<group>"; };
 		56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableKeyboardView.swift; sourceTree = "<group>"; };
+		56CC1B272E69D1E300BC262B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationView.swift; sourceTree = "<group>"; };
+		56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureBoxView.swift; sourceTree = "<group>"; };
 		56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyNotesView.swift; sourceTree = "<group>"; };
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -307,6 +313,7 @@
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
 				56CC1B262E69A3AE00BC262B /* Modifiers */,
+				56CC1B292E69D5B100BC262B /* Onboarding */,
 				560C92B42E532C2100BC1BE4 /* Quiz */,
 				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
@@ -381,6 +388,16 @@
 				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		56CC1B292E69D5B100BC262B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				56CC1B272E69D1E300BC262B /* OnboardingView.swift */,
+				56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */,
+				56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		56CF96692B6BA209008C4AA6 /* Settings screen */ = {
@@ -596,6 +613,7 @@
 				56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */,
 				560C92782E5329D700BC1BE4 /* QuizTabView.swift in Sources */,
 				5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */,
+				56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */,
 				56FCE2962D14269D006B5D64 /* Spotlight.swift in Sources */,
 				566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */,
 				5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */,
@@ -616,6 +634,7 @@
 				569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */,
 				56C775AD2B64134A00742E1F /* CategoryView.swift in Sources */,
 				56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */,
+				56CC1B282E69D1E300BC262B /* OnboardingView.swift in Sources */,
 				566762662B60087100C3F1CA /* WordView.swift in Sources */,
 				566762602B60083200C3F1CA /* NewWordCardView.swift in Sources */,
 				566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */,
@@ -630,6 +649,7 @@
 				56FCE2932D141F31006B5D64 /* SettingsView.swift in Sources */,
 				560C92B62E532C4000BC1BE4 /* QuizHomeView.swift in Sources */,
 				568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */,
+				56CC1B2B2E69D5DF00BC262B /* AppPresentationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
