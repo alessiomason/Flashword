@@ -43,7 +43,7 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
                 
@@ -55,7 +55,7 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
             }
@@ -80,7 +80,7 @@ Below you can find some links to follow me online!
                                 .font(.subheadline)
                         }
                         .padding(.leading, 10)
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(.primary)
                     }
                 }
                 
@@ -96,7 +96,7 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
             } header: {
@@ -114,7 +114,7 @@ Below you can find some links to follow me online!
                 } label: {
                     Label("Terms of use", systemImage: "doc.text.magnifyingglass")
                 }
-                .foregroundStyle(.blue)
+                .foregroundStyle(.primary)
                 
                 NavigationLink {
                     WebView(url: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!)
@@ -122,7 +122,7 @@ Below you can find some links to follow me online!
                 } label: {
                     Label("Privacy policy", systemImage: "lock")
                 }
-                .foregroundStyle(.blue)
+                .foregroundStyle(.primary)
                 
                 Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
                     Label("Contact me", systemImage: "paperplane")
