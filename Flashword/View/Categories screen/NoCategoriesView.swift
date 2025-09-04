@@ -33,8 +33,8 @@ struct NoCategoriesView: View {
             Button("Insert a new category") {
                 showingAddCategorySheet = true
             }
-            .buttonStyle(.borderedProminent)
-            .glassEffect(.regular.interactive())
+            .tint(.mint)
+            .buttonStyle(.glassProminent)
         }
         .onAppear(perform: checkWordCount)
     }

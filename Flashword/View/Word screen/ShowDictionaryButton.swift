@@ -15,6 +15,7 @@ struct ShowDictionaryButton: View {
     let secondaryColor: Color
     var smallerButton: Bool
     
+    @Environment(\.colorScheme) private var colorScheme
     @AppStorage("alreadyUsedDictionary") private var alreadyUsedDictionary = false
     @State private var showingDictionaryExplanationAlert = false
     @State private var showingDictionary = false
@@ -25,6 +26,18 @@ struct ShowDictionaryButton: View {
         } else {
             String(localized: "Look up word")
         }
+    }
+    
+    var buttonBackgroundColor: Color {
+        if smallerButton {
+            return if colorScheme == .dark {
+                .gray.opacity(0.25)
+            } else {
+                .white
+            }
+        }
+        
+        return primaryColor
     }
     
     var body: some View {
@@ -39,7 +52,7 @@ struct ShowDictionaryButton: View {
                         .padding(.horizontal, 6)
                         .padding(.vertical, 4)
                 }
-                .tint(smallerButton ? .white : primaryColor)
+                .tint(buttonBackgroundColor)
                 .buttonStyle(.glassProminent)
                 .padding(.vertical, 6)
                 .padding(.horizontal, 4)
@@ -98,7 +111,7 @@ struct ShowDictionaryButton: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return ShowDictionaryButton(term: Word.example.term, primaryColor: Word.example.primaryColor, secondaryColor: Word.example.secondaryColor)
+        return ShowDictionaryButton(term: Word.example.term, primaryColor: Word.example.primaryColor, secondaryColor: Word.example.secondaryColor, smaller: true)
             .modelContainer(container)
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")

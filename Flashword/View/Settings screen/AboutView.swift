@@ -135,6 +135,7 @@ Below you can find some links to follow me online!
         }
         .navigationTitle("About Flashword")
         .navigationBarTitleDisplayMode(.inline)
+        .tint(.primary)
     }
 }
 
