@@ -12,6 +12,7 @@ enum OnboardingTabs {
 }
 
 struct OnboardingView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var onboardingTab = OnboardingTabs.welcome
     
     var body: some View {
@@ -49,6 +50,7 @@ struct OnboardingView: View {
             }
         }
         .padding(.horizontal, 10)
+        .padding(.top)
         .frame(maxWidth: .infinity)
         .animation(.default, value: onboardingTab)
         .safeAreaBar(
@@ -56,7 +58,7 @@ struct OnboardingView: View {
             alignment: .center,
             spacing: 0) {
                 Button {
-                    
+                    dismiss()
                 } label: {
                     Text("Begin")
                         .frame(maxWidth: .infinity)

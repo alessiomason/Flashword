@@ -17,9 +17,12 @@ struct AppView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
-    @State private var quickActionsManager = QuickActionsManager.instance
+    @AppStorage("shownOnboardingForVersion") private var shownOnboardingForVersion = "1.0"
+    private let latestOnboardingVersion = "4.0"
     
+    @State private var quickActionsManager = QuickActionsManager.instance
     @State private var selectedTab = AppTab.words
+    @State private var showingOnboarding = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -42,19 +45,29 @@ struct AppView: View {
         .addKeyboardVisibilityToEnvironment()
         .onAppear {
             handleQuickActions()
-        }
-        .onChange(of: quickActionsManager.quickAction) { _, _ in
-            handleQuickActions()
-        }
-        .onAppear {
+            
+            if shownOnboardingForVersion != latestOnboardingVersion {
+                showingOnboarding = true
+            }
+            
             if spotlightEnabled {
                 indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
                 alreadyUpdatedWordsUuid = true
             }
         }
+        .onChange(of: quickActionsManager.quickAction) { _, _ in
+            handleQuickActions()
+        }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
             selectedTab = .words
         }
+        .sheet(isPresented: $showingOnboarding) {
+            shownOnboardingForVersion = latestOnboardingVersion
+        } content: {
+            OnboardingView()
+                .interactiveDismissDisabled()
+        }
+
     }
     
     private func handleQuickActions() {

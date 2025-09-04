@@ -233,6 +233,9 @@
         }
       }
     },
+    "Begin" : {
+
+    },
     "Bookmarks" : {
       "localizations" : {
         "it" : {
@@ -461,6 +464,7 @@
 
     },
     "Done" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -889,6 +893,9 @@
         }
       }
     },
+    "Novità dell'aggiornamento" : {
+
+    },
     "Number of questions" : {
 
     },
@@ -914,6 +921,9 @@
           }
         }
       }
+    },
+    "Onboarding tab" : {
+
     },
     "Open answer" : {
 
@@ -1010,7 +1020,6 @@
 
     },
     "Save" : {
-      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -1307,6 +1316,12 @@
           }
         }
       }
+    },
+    "Versione 4.0" : {
+
+    },
+    "Welcome to" : {
+
     },
     "When writing your notes, you can use basic Markdown syntax to format them. For example:\n\n**Bold** text\n*Italic* text\n~Strikethrough~ text\n`Monospace` text" : {
       "localizations" : {

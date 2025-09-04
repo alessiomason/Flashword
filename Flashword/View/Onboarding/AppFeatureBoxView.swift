@@ -20,7 +20,7 @@ struct AppFeatureBoxView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: iconWidth)
-                .blendingHorizontally(color: .blue)
+                .foregroundStyle(.linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .padding(.horizontal)
             
             VStack(alignment: .leading) {
