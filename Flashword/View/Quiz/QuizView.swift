@@ -30,7 +30,7 @@ struct QuizView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text("Question \(currentQuestion + 1)/\(quiz.count)")
+                Text("Question \(currentQuestion + 1)/\(numberOfWords)")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom)
