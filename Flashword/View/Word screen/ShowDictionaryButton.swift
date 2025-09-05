@@ -29,9 +29,9 @@ struct ShowDictionaryButton: View {
         }
     }
     
-    private var buttonColor: Color {
+    private var buttonTextColor: Color {
         if !onWhiteBackground {
-            return .white
+            return secondaryColor
         }
         
         return if smallerButton {
@@ -73,7 +73,7 @@ struct ShowDictionaryButton: View {
             if smallerButton || dictionaryHasDefinition {
                 Button(action: showDictionary) {
                     Text(buttonText)
-                        .foregroundStyle(buttonColor)
+                        .foregroundStyle(buttonTextColor)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 4)
                 }

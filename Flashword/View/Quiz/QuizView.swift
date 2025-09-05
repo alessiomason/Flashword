@@ -112,7 +112,7 @@ struct QuizView: View {
                             Button("Show word's page", action: showWordPage)
                                 .buttonStyle(.bordered)
                             
-                            ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .blue, secondaryColor: .white, onWhiteBackground: false)
+                            ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: colorScheme == .dark ? .black : .blue, secondaryColor: colorScheme == .dark ? .mint : .white, onWhiteBackground: false)
                         }
                         .frame(maxWidth: .infinity)
                 }
