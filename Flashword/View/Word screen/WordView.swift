@@ -2,20 +2,15 @@
 //  WordView.swift
 //  Flashword
 //
-//  Created by Alessio Mason on 18/01/24.
+//  Created by Alessio Mason on 05/09/25.
 //
 
 import SwiftData
 import SwiftUI
 
 struct WordView: View {
-    @Environment(Router.self) private var router
-    @Environment(\.modelContext) private var modelContext
     @Bindable var word: Word
-    
-    @State private var showingChangeCategorySheet = false
     @State private var showingModifyNotesSheet = false
-    @State private var showingDeleteAlert = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -68,44 +63,10 @@ struct WordView: View {
                 
                 Button(word.bookmarked ? "Remove from bookmarks" : "Add to bookmarks", systemImage: word.bookmarked ? "bookmark.fill" : "bookmark") {
                     word.bookmarked.toggle()
-                }
-                
-                Menu {
-                    Button("Change category", systemImage: "tray.full") {
-                        showingChangeCategorySheet = true
-                    }
-                    
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        showingDeleteAlert = true
-                    }
-                } label: {
-                    Label("More", systemImage: "ellipsis.circle")
-                }
-            }
+                }            }
             .sheet(isPresented: $showingModifyNotesSheet) {
                 ModifyNotesView(word: word)
             }
-            .sheet(isPresented: $showingChangeCategorySheet) {
-                ChangeCategoryView(word: word)
-            }
-            .alert("Are you sure you want to delete the word \"\(word.term)\"?", isPresented: $showingDeleteAlert) {
-                Button("Cancel", role: .cancel) { }
-                Button("Delete", role: .destructive, action: deleteWord)
-            }
-        }
-    }
-    
-    func deleteWord() {
-        let removedDestination = router.path.removeLast()
-        switch removedDestination {
-            case let .word(removedWord):
-                // check that the last word in the router path (which has now been removed)
-                // is the same word displayed in the view, otherwise something went very wrong
-                guard removedWord == word else { fallthrough }
-                removedWord.deleteIndex()
-                modelContext.delete(word)
-            default:
-                fatalError("There was an error removing the word \(word.term).")
         }
     }
 }
@@ -115,11 +76,8 @@ struct WordView: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return NavigationStack {
-            WordView(word: .example)
-        }
-        .modelContainer(container)
-        .environment(Router())
+        return WordView(word: .example)
+            .modelContainer(container)
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }

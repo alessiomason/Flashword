@@ -27,7 +27,7 @@ struct AppView: View {
                         case let .category(category):
                             CategoryView(category: category)
                         case let .word(word):
-                            WordView(word: word)
+                            WordPageView(word: word)
                     }
                 }
         }
