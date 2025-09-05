@@ -22,6 +22,7 @@ struct QuizView: View {
     @State private var userAnswer = ""
     @FocusState private var focusingTextField: Bool
     
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
     @State private var wordToBeShown: Word? = nil
     
@@ -88,8 +89,9 @@ struct QuizView: View {
                                 
                             case .openAnswer:
                                 TextField("Your answer", text: $userAnswer)
-                                    .focused($focusingTextField)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                                     .textFieldStyle(.roundedBorder)
+                                    .focused($focusingTextField)
                                     .padding()
                         }
                     case .feedback:
@@ -147,6 +149,7 @@ struct QuizView: View {
                                 withAnimation {
                                     if currentQuestion + 1 < numberOfWords {
                                         currentQuestion += 1
+                                        userAnswer = ""
                                         questionPhase = .question
                                     } else {
                                         quizPhase = .complete
