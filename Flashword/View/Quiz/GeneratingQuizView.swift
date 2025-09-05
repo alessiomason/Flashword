@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GeneratingQuizView: View {
-    let backgroundGradient: LinearGradient
     @State private var animatingSymbol = false
     
     var body: some View {
@@ -40,17 +39,10 @@ struct GeneratingQuizView: View {
         .multilineTextAlignment(.center)
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(backgroundGradient)
     }
 }
 
 #Preview {
-    GeneratingQuizView(backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
+    GeneratingQuizView()
+        .background(.mint)
 }

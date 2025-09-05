@@ -16,8 +16,6 @@ struct QuizCompleteView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var wordToBeShown: Word? = nil
     
-    let backgroundGradient: LinearGradient
-    
     var body: some View {
         ScrollView {
             VStack {
@@ -61,7 +59,6 @@ struct QuizCompleteView: View {
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(backgroundGradient)
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -115,5 +112,6 @@ struct QuizCompleteView: View {
 #Preview {
     let quiz = [Quiz(question: "", word: "", answeredCorrectly: true), Quiz(question: "", word: "", answeredCorrectly: false)]
     
-    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant(quiz), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant(quiz))
+        .background(.mint)
 }

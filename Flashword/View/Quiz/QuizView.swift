@@ -26,8 +26,6 @@ struct QuizView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var wordToBeShown: Word? = nil
     
-    let backgroundGradient: LinearGradient
-    
     var body: some View {
         ScrollView {
             VStack {
@@ -125,7 +123,6 @@ struct QuizView: View {
         }
         .frame(maxWidth: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(backgroundGradient)
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -150,6 +147,7 @@ struct QuizView: View {
                                     if currentQuestion + 1 < numberOfWords {
                                         currentQuestion += 1
                                         userAnswer = ""
+                                        focusingTextField = true
                                         questionPhase = .question
                                     } else {
                                         quizPhase = .complete
@@ -207,6 +205,7 @@ struct QuizView: View {
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: .constant(quiz), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: .constant(quiz))
+        .background(.mint)
 }
 

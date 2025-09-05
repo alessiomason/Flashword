@@ -24,8 +24,6 @@ struct QuizSetupView: View {
     @Binding var quizPhase: QuizPhase
     @Binding var quiz: [Quiz]
     
-    let backgroundGradient: LinearGradient
-    
     private var numberOfSavedWords: Int {
         let descriptor = FetchDescriptor<Word>()
         return (try? modelContext.fetchCount(descriptor)) ?? 0
@@ -78,7 +76,6 @@ struct QuizSetupView: View {
         }
         .frame(maxWidth: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(backgroundGradient)
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -178,7 +175,7 @@ struct QuizSetupView: View {
         numberOfWords: .constant(5),
         quizType: .constant(.multipleChoice),
         quizPhase: .constant(.start),
-        quiz: .constant([]),
-        backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing)
+        quiz: .constant([])
     )
+    .background(.mint)
 }

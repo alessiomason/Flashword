@@ -14,24 +14,23 @@ struct QuizHomeView: View {
     @State private var quizType: QuizType = .multipleChoice
     @State private var quizPhase: QuizPhase = .start
     
-    let backgroundGradient: LinearGradient
-    
     var body: some View {
         Group {
             switch quizPhase {
                 case .start:
-                    QuizSetupView(quizWords: $quizWords, numberOfWords: $numberOfWords, quizType: $quizType, quizPhase: $quizPhase, quiz: $quiz, backgroundGradient: backgroundGradient)
+                    QuizSetupView(quizWords: $quizWords, numberOfWords: $numberOfWords, quizType: $quizType, quizPhase: $quizPhase, quiz: $quiz)
                 case .generating:
-                    GeneratingQuizView(backgroundGradient: backgroundGradient)
+                    GeneratingQuizView()
                 case .quizzing:
-                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: $quiz, backgroundGradient: backgroundGradient)
+                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: $quiz)
                 case .complete:
-                    QuizCompleteView(quizWords: $quizWords, quizPhase: $quizPhase, quiz: $quiz, backgroundGradient: backgroundGradient)
+                    QuizCompleteView(quizWords: $quizWords, quizPhase: $quizPhase, quiz: $quiz)
             }
         }
     }
 }
 
 #Preview {
-    QuizHomeView(backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    QuizHomeView()
+        .background(.mint)
 }

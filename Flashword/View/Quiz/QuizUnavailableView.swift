@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuizUnavailableView: View {
     let errorText: String
-    let backgroundGradient: LinearGradient
     
     var body: some View {
         VStack {
@@ -31,10 +30,10 @@ struct QuizUnavailableView: View {
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(backgroundGradient)
     }
 }
 
 #Preview {
-    QuizUnavailableView(errorText: "The quiz functionality is not supported.", backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    QuizUnavailableView(errorText: "The quiz functionality is not supported.")
+        .background(.mint)
 }

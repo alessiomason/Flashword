@@ -10,24 +10,6 @@ import SwiftUI
 
 struct QuizTabView: View {
     @Environment(\.colorScheme) var colorScheme
-    var backgroundGradient: LinearGradient {
-        return if colorScheme == .dark {
-            LinearGradient(
-                stops: [Gradient.Stop(color: .mint, location: -0.25),
-                        Gradient.Stop(color: .black, location: 1.3)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        } else {
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-                
-            )
-        }
-    }
-    
     private let model = SystemLanguageModel.default
     
     private var errorText: String {
@@ -47,14 +29,35 @@ struct QuizTabView: View {
         }
     }
     
+    private var backgroundGradient: LinearGradient {
+        return if colorScheme == .dark {
+            LinearGradient(
+                stops: [Gradient.Stop(color: .mint, location: -0.25),
+                        Gradient.Stop(color: .black, location: 1.3)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        } else {
+            LinearGradient(
+                gradient: Gradient(colors: [.mint, .blue]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+                
+            )
+        }
+    }
+    
     var body: some View {
         NavigationStack {
-            Group {
+            ZStack {
+                backgroundGradient
+                    .ignoresSafeArea()
+                
                 switch model.availability {
                     case .available:
-                        QuizHomeView(backgroundGradient: backgroundGradient)
+                        QuizHomeView()
                     default:
-                        QuizUnavailableView(errorText: errorText, backgroundGradient: backgroundGradient)
+                        QuizUnavailableView(errorText: errorText)
                 }
             }
         }
