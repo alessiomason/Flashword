@@ -41,15 +41,15 @@ struct QuizCompleteView: View {
                         }
                         .buttonStyle(.bordered)
                         
-                        ShowDictionaryButton(term: word.term, primaryColor: .white, secondaryColor: .blue, smaller: true)
+                        ShowDictionaryButton(term: word.term, primaryColor: .blue, secondaryColor: .white, smaller: true, onWhiteBackground: false)
                     }
                     .padding(.vertical, 4)
+                    .padding(.horizontal)
                 }
             }
         }
         .foregroundStyle(.white)
         .multilineTextAlignment(.center)
-        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollBounceBehavior(.basedOnSize)
         .background(backgroundGradient)
@@ -63,6 +63,7 @@ struct QuizCompleteView: View {
                     }
                 } label: {
                     Text("Close quiz")
+                        .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical)
                 }

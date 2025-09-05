@@ -64,6 +64,7 @@ struct OnboardingView: View {
                             dismiss()
                         } label: {
                             Text("Begin")
+                                .fontWeight(.bold)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical)
                         }

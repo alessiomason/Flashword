@@ -89,6 +89,7 @@ struct QuizSetupView: View {
                     }
                 } label: {
                     Text("Generate quiz")
+                        .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical)
                 }

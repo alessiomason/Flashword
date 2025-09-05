@@ -246,9 +246,6 @@
         }
       }
     },
-    "Button to go to the word page" : {
-
-    },
     "Cancel" : {
       "localizations" : {
         "it" : {
@@ -1053,6 +1050,9 @@
           }
         }
       }
+    },
+    "Show word's page" : {
+
     },
     "Sorry, the quiz functionality is not available! Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
 
