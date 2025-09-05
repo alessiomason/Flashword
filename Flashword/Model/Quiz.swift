@@ -21,6 +21,9 @@ struct Quiz {
     
     @Guide(description: "List 4 possible answers to the previous question. One of the 4 answers MUST be the same as the word. ALL the answers MUST be different from one another.")
     var possibleAnswers: [String] = []
+    
+    @Guide(description: "Ignore this field.")
+    var answeredCorrectly: Bool = false
 }
 
 enum QuizType {

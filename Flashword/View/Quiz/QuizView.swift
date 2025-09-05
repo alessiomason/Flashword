@@ -16,7 +16,7 @@ struct QuizView: View {
     let numberOfWords: Int
     let quizType: QuizType
     @Binding var quizPhase: QuizPhase
-    let quiz: [Quiz]
+    @Binding var quiz: [Quiz]
     @State private var currentQuestion = 0
     @State private var questionPhase: QuestionPhase = .question
     @State private var userAnswer = ""
@@ -94,7 +94,7 @@ struct QuizView: View {
                         }
                     case .feedback:
                         VStack {
-                            if userAnswer.lowercased() == quiz[currentQuestion].word.lowercased() {
+                            if userAnswer.trimmingCharacters(in: .whitespaces).lowercased() == quiz[currentQuestion].word.lowercased() {
                                 Text("Correct!")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
@@ -140,6 +140,7 @@ struct QuizView: View {
                             case .question:
                                 withAnimation {
                                     focusingTextField = false
+                                    quiz[currentQuestion].answeredCorrectly = userAnswer.trimmingCharacters(in: .whitespaces).lowercased() == quiz[currentQuestion].word.lowercased()
                                     questionPhase = .feedback
                                 }
                             case .feedback:
@@ -203,6 +204,6 @@ struct QuizView: View {
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: quiz, backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: .constant(quiz), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
 }
 

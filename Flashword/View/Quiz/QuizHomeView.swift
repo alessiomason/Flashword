@@ -24,7 +24,7 @@ struct QuizHomeView: View {
                 case .generating:
                     GeneratingQuizView(backgroundGradient: backgroundGradient)
                 case .quizzing:
-                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: quiz, backgroundGradient: backgroundGradient)
+                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: $quiz, backgroundGradient: backgroundGradient)
                 case .complete:
                     QuizCompleteView(quizWords: $quizWords, quizPhase: $quizPhase, quiz: $quiz, backgroundGradient: backgroundGradient)
             }

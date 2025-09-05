@@ -5,12 +5,16 @@
 //  Created by Alessio Mason on 22/08/25.
 //
 
+import SwiftData
 import SwiftUI
 
 struct QuizCompleteView: View {
     @Binding var quizWords: [Word]
     @Binding var quizPhase: QuizPhase
     @Binding var quiz: [Quiz]
+    
+    @Environment(\.modelContext) private var modelContext
+    @State private var wordToBeShown: Word? = nil
     
     let backgroundGradient: LinearGradient
     
@@ -27,8 +31,15 @@ struct QuizCompleteView: View {
                     .fontWeight(.semibold)
                     .padding(.vertical)
                 
-                ForEach(quizWords) { word in
+                ForEach(quizWords.enumerated(), id: \.element.uuid) { index, word in
                     HStack {
+                        if quiz[index].answeredCorrectly {
+                            Image(systemName: "checkmark.circle")
+                        } else {
+                            Image(systemName: "x.circle")
+                        }
+                        
+                        
                         Text(word.term)
                             .font(.title3)
                             .fontWeight(.semibold)
@@ -36,12 +47,10 @@ struct QuizCompleteView: View {
                         
                         Spacer()
                         
-                        Button("See word") {
-                            
+                        Button("See word's page") {
+                            showWordPage(wordUuid: word.uuid)
                         }
                         .buttonStyle(.bordered)
-                        
-                        ShowDictionaryButton(term: word.term, primaryColor: .blue, secondaryColor: .white, smaller: true, onWhiteBackground: false)
                     }
                     .padding(.vertical, 4)
                     .padding(.horizontal)
@@ -71,13 +80,40 @@ struct QuizCompleteView: View {
                 .buttonStyle(.glassProminent)
                 .padding(16)
             }
+            .sheet(item: $wordToBeShown) { word in
+                NavigationStack {
+                    WordView(word: word)
+                        .navigationTitle(word.term)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button(role: .close) {
+                                    wordToBeShown = nil
+                                }
+                            }
+                        }
+                }
+            }
             .onDisappear {
                 quizWords = []
                 quiz = []
             }
     }
+    
+    private func showWordPage(wordUuid: UUID) {
+        let wordId = wordUuid       // SwiftData only works with local variables
+        let descriptor = FetchDescriptor<Word>(
+            predicate: #Predicate<Word> { word in
+                word.uuid == wordId
+            }
+        )
+        
+        guard let word = try? modelContext.fetch(descriptor).first else { return }
+        wordToBeShown = word
+    }
 }
 
 #Preview {
-    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant([]), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+    let quiz = [Quiz(question: "", word: "", answeredCorrectly: true), Quiz(question: "", word: "", answeredCorrectly: false)]
+    
+    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant(quiz), backgroundGradient: LinearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
 }

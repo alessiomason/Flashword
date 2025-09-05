@@ -124,14 +124,12 @@ struct QuizSetupView: View {
         
         
                 Example of a WRONG question --> DO NOT GENERATE QUESTIONS LIKE THIS ONE!
-                Question: "What does 'Attainable' mean?
+                Question: "What does 'Attainable' mean?"
                 This question is not suitable for the game because it contains the word itself ("Attainable", in this case) in the question.
         
         
                 Generate a question for the word "\(word.term)".
         """
-                print(prompt)
-                
                 
                 do {
                     let response = try await session.respond(
@@ -157,6 +155,7 @@ struct QuizSetupView: View {
             
             responseContent!.word = word.term
             responseContent!.wordId = word.uuid.uuidString
+            responseContent!.answeredCorrectly = false
             if !responseContent!.possibleAnswers.map({ $0.lowercased() }).contains(word.term.lowercased()) {
                 responseContent!.possibleAnswers[0] = word.term     // add correct answer if missing
             }
