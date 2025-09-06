@@ -1006,9 +1006,6 @@
         }
       }
     },
-    "Recents" : {
-
-    },
     "Remove from bookmarks" : {
       "localizations" : {
         "it" : {
@@ -1036,6 +1033,9 @@
 
     },
     "Search in this category" : {
+
+    },
+    "Searched on: %@" : {
 
     },
     "See word's page" : {

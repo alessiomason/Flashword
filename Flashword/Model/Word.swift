@@ -14,7 +14,7 @@ import SwiftData
 @Model
 class Word: Codable {
     enum CodingKeys: CodingKey {
-        case uuid, term, learntOn, notes, category, bookmarked
+        case uuid, term, learntOn, notes, category, bookmarked, lastSearchedOn
     }
     
     var uuid: UUID = UUID()
@@ -24,6 +24,7 @@ class Word: Codable {
     @Relationship(inverse: \Category.words) var category: Category?
     var bookmarked: Bool = false
     var spotlightIndexed: Bool = false
+    var lastSearchedOn: Date? = nil
     
     var categoryName: String {
         let localizedNoCategory = String(localized: "No category", comment: "The text to display in absence of a user-defined category")
@@ -45,7 +46,7 @@ class Word: Codable {
         category?.secondaryColor ?? ColorChoice.choices[UserDefaults.standard.integer(forKey: "defaultColorChoiceId")]?.secondaryColor ?? .blue
     }
     
-    init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false, spotlightIndexed: Bool = false) {
+    init(uuid: UUID, term: String, learntOn: Date, notes: String = "", category: Category? = nil, bookmarked: Bool = false, spotlightIndexed: Bool = false, lastSearchedOn: Date? = nil) {
         self.uuid = uuid
         self.term = term
         self.learntOn = learntOn
@@ -53,6 +54,7 @@ class Word: Codable {
         self.category = category
         self.bookmarked = bookmarked
         self.spotlightIndexed = spotlightIndexed
+        self.lastSearchedOn = lastSearchedOn
     }
     
     required init(from decoder: Decoder) throws {
@@ -64,6 +66,7 @@ class Word: Codable {
         self.notes = try container.decode(String.self, forKey: .notes)
         self.category = try container.decode(Category?.self, forKey: .category)
         self.bookmarked = try container.decode(Bool.self, forKey: .bookmarked)
+        self.lastSearchedOn = try container.decode(Date?.self, forKey: .lastSearchedOn)
     }
     
     #if canImport(CoreSpotlight)
@@ -99,6 +102,7 @@ class Word: Codable {
         try container.encode(self.notes, forKey: .notes)
         try container.encode(self.category, forKey: .category)
         try container.encode(self.bookmarked, forKey: .bookmarked)
+        try container.encode(self.lastSearchedOn, forKey: .lastSearchedOn)
     }
     
     static func decodeWords(from json: String) throws -> [Word] {
@@ -132,6 +136,6 @@ class Word: Codable {
     /// The sort order used for querying the list of words.
     static let sortDescriptors = [SortDescriptor(\Word.learntOn, order: .reverse)]
     
-    static let example = Word(uuid: UUID(), term: "Swift", learntOn: .now, notes: "A swift testing word.", bookmarked: true)
-    static let otherExample = Word(uuid: UUID(), term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?")
+    static let example = Word(uuid: UUID(), term: "Swift", learntOn: .now, notes: "A swift testing word.", bookmarked: true, lastSearchedOn: .now)
+    static let otherExample = Word(uuid: UUID(), term: "Apple", learntOn: .now.addingTimeInterval(-86400), notes: "A fruit or a company?", lastSearchedOn: .now.addingTimeInterval(-3600))
 }

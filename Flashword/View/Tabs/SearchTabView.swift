@@ -51,7 +51,7 @@ struct SearchTabView: View {
         NavigationStack(path: $router.path) {
             Group {
                 if searchText.isEmpty {
-                    Text("Recents")
+                    RecentlySearchedView()
                 } else {
                     List {
                         if !filteredCategories.isEmpty {
@@ -86,6 +86,11 @@ struct SearchTabView: View {
         }
         .searchable(text: $searchText, isPresented: $focusingSearchField)
         .environment(router)
+        .onChange(of: router.path.count, { _, _ in      // Mark recently searched words
+            if case let .word(word) = router.path.last {
+                word.lastSearchedOn = .now
+            }
+        })
         .onChange(of: quickActionsManager.quickAction) { oldValue, newValue in
             switch newValue {
                 case .searchWord:
@@ -114,10 +119,7 @@ struct SearchTabView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
-        let words: [Word] = [
-            Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400)),
-            Word(uuid: UUID(), term: "Testing Swift", learntOn: .now)
-        ]
+        let words: [Word] = [.example, .otherExample]
         
         words.forEach {
             container.mainContext.insert($0)

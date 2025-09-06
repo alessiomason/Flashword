@@ -37,6 +37,7 @@
 		566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD4FE2D15E31300628678 /* TipJarView.swift */; };
 		566BD5022D15E4D700628678 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD5012D15E4D700628678 /* IAPManager.swift */; };
 		56813C0D2E6AF35E00100BFE /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813C0C2E6AF35E00100BFE /* WordView.swift */; };
+		56813C102E6B40E700100BFE /* RecentlySearchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */; };
 		5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3D92B7D10BB008EEB16 /* Symbol.swift */; };
 		5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */; };
 		5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */; };
@@ -151,6 +152,7 @@
 		566BD4FE2D15E31300628678 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
 		566BD5012D15E4D700628678 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		56813C0C2E6AF35E00100BFE /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlySearchedView.swift; sourceTree = "<group>"; };
 		5684D3D92B7D10BB008EEB16 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
 		5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSymbolView.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
 				56CC1B262E69A3AE00BC262B /* Modifiers */,
 				56CC1B292E69D5B100BC262B /* Onboarding */,
+				56813C0E2E6B40C700100BFE /* Search */,
 				560C92B42E532C2100BC1BE4 /* Quiz */,
 				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
@@ -333,6 +336,14 @@
 				566BD5012D15E4D700628678 /* IAPManager.swift */,
 			);
 			path = "In-app purchases";
+			sourceTree = "<group>";
+		};
+		56813C0E2E6B40C700100BFE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		568B7E8B2BF5033A00FC4220 /* FlashwordWatch Watch App */ = {
@@ -651,6 +662,7 @@
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
 				56CC1B252E69965400BC262B /* DismissableKeyboardView.swift in Sources */,
 				5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */,
+				56813C102E6B40E700100BFE /* RecentlySearchedView.swift in Sources */,
 				561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */,
 				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,
 				56C775A72B64082A00742E1F /* Category.swift in Sources */,
