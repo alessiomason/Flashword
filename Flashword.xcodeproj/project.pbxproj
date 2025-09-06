@@ -20,6 +20,7 @@
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		564AAA072E532F670049FCC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AAA062E532F670049FCC7 /* Quiz.swift */; };
 		564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D2C632E58649B001021F9 /* QuizCompleteView.swift */; };
+		56591E792E6C4256005EE24F /* Version40NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E782E6C4256005EE24F /* Version40NewsView.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -136,6 +137,7 @@
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		564AAA062E532F670049FCC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		564D2C632E58649B001021F9 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
+		56591E782E6C4256005EE24F /* Version40NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version40NewsView.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -408,9 +410,10 @@
 		56CC1B292E69D5B100BC262B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				56CC1B272E69D1E300BC262B /* OnboardingView.swift */,
-				56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */,
 				56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */,
+				56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */,
+				56CC1B272E69D1E300BC262B /* OnboardingView.swift */,
+				56591E782E6C4256005EE24F /* Version40NewsView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				56C775A92B64096B00742E1F /* CategoryListView.swift in Sources */,
 				564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */,
 				56CC1B232E6992FC00BC262B /* KeyboardVisibility.swift in Sources */,
+				56591E792E6C4256005EE24F /* Version40NewsView.swift in Sources */,
 				56024CEA2E54BB1500A58C06 /* QuizView.swift in Sources */,
 				569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */,
 				56C775AD2B64134A00742E1F /* CategoryView.swift in Sources */,

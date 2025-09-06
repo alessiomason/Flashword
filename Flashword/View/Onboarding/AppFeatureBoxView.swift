@@ -10,15 +10,17 @@ import SwiftUI
 struct AppFeatureBoxView: View {
     @ScaledMetric private var iconWidth = 60.0
     
-    let systemImageName: String
+    let image: Image
+    let imageWeight: Font.Weight
     let title: String
     let subtitle: String
     
     var body: some View {
         HStack(alignment: .center) {
-            Image(systemName: systemImageName)
+            image
                 .resizable()
                 .scaledToFit()
+                .fontWeight(imageWeight)
                 .frame(width: iconWidth)
                 .foregroundStyle(.linearGradient(colors: [.mint, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .padding(.horizontal)
@@ -33,8 +35,17 @@ struct AppFeatureBoxView: View {
         }
         .padding(.bottom, 32)
     }
+    
+    init (title: String, subtitle: String, imageWeight: Font.Weight, @ViewBuilder _ image: () -> Image) {
+        self.title = title
+        self.subtitle = subtitle
+        self.imageWeight = imageWeight
+        self.image = image()
+    }
 }
 
 #Preview {
-    AppFeatureBoxView(systemImageName: "1.circle", title: "Words", subtitle: "Save words, look up their definitions, and more!")
+    AppFeatureBoxView(title: "Words", subtitle: "Save words, look up their definitions, and more!", imageWeight: .regular) {
+        Image(systemName: "books.vertical")
+    }
 }

@@ -47,7 +47,7 @@ struct OnboardingView: View {
                     case .welcome:
                         AppPresentationView()
                     case .newVersion:
-                        Text("Versione 4.0")
+                        Version40NewsView()
                 }
             }
         }
