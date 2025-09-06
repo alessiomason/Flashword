@@ -48,27 +48,29 @@ struct NewWordCardView: View {
                 .opacity(term.isEmpty ? 0 : 1)
             }
             
-            HStack {
-                ShowDictionaryButton(
-                    term: term,
-                    primaryColor: primaryColor,
-                    secondaryColor: secondaryColor,
-                    smaller: true
-                )
-                
-                Button(action: checkWordBeforeInserting) {
-                    Text("Add")
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 4)
+            GlassEffectContainer {
+                HStack {
+                    ShowDictionaryButton(
+                        term: term,
+                        primaryColor: primaryColor,
+                        secondaryColor: secondaryColor,
+                        smaller: true
+                    )
+                    
+                    Button(action: checkWordBeforeInserting) {
+                        Text("Add")
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 4)
+                    }
+                    .tint(primaryColor)
+                    .buttonStyle(.glassProminent)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 4)
+                    
                 }
-                .tint(primaryColor)
-                .buttonStyle(.glassProminent)
-                .padding(.vertical, 6)
-                .padding(.horizontal, 4)
-                
+                .padding(.top, 8)
             }
-            .padding(.top, 8)
         }
         .padding()
         .overlay {
