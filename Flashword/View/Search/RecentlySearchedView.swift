@@ -34,7 +34,7 @@ struct RecentlySearchedView: View {
                 .padding(.bottom, 8)
                 
                 ForEach(searchedLastWeek.prefix(20)) { word in
-                    WordCardView(word: word, wordToBeReassigned: .constant(nil), wordToBeDeleted: .constant(nil), showingDeleteAlert: .constant(false))
+                    WordCardView(word: word, wordToBeReassigned: .constant(nil), wordToBeDeleted: .constant(nil), showingDeleteAlert: .constant(false), showContextMenu: false)
                 }
             }
             .padding(.horizontal)
