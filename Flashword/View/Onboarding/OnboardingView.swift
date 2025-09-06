@@ -42,13 +42,11 @@ struct OnboardingView: View {
             .pickerStyle(.segmented)
             .padding(.horizontal)
             
-            ScrollView {
-                switch onboardingTab {
-                    case .welcome:
-                        AppPresentationView()
-                    case .newVersion:
-                        Version40NewsView()
-                }
+            switch onboardingTab {
+                case .welcome:
+                    AppPresentationView()
+                case .newVersion:
+                    Version40NewsView()
             }
         }
         .padding(.top)
@@ -61,9 +59,14 @@ struct OnboardingView: View {
                     alignment: .center,
                     spacing: 0) {
                         Button {
-                            dismiss()
+                            switch onboardingTab {
+                                case .welcome:
+                                    onboardingTab = .newVersion
+                                case .newVersion:
+                                    dismiss()
+                            }
                         } label: {
-                            Text("Begin")
+                            Text(onboardingTab == .welcome ? "Discover version 4.0" : "Begin")
                                 .fontWeight(.bold)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical)
