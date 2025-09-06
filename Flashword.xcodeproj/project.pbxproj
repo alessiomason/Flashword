@@ -21,6 +21,8 @@
 		564AAA072E532F670049FCC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AAA062E532F670049FCC7 /* Quiz.swift */; };
 		564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D2C632E58649B001021F9 /* QuizCompleteView.swift */; };
 		56591E792E6C4256005EE24F /* Version40NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E782E6C4256005EE24F /* Version40NewsView.swift */; };
+		56591E7B2E6C72B2005EE24F /* ImportExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E7A2E6C72B2005EE24F /* ImportExportView.swift */; };
+		56591E7E2E6C8ACC005EE24F /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -138,6 +140,8 @@
 		564AAA062E532F670049FCC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		564D2C632E58649B001021F9 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
 		56591E782E6C4256005EE24F /* Version40NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version40NewsView.swift; sourceTree = "<group>"; };
+		56591E7A2E6C72B2005EE24F /* ImportExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportExportView.swift; sourceTree = "<group>"; };
+		56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 				56C775A62B64082A00742E1F /* Category.swift */,
 				56D8C3A32B6AA23900D518AA /* ColorChoice.swift */,
 				56C775A42B6407FD00742E1F /* ColorComponents.swift */,
+				56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */,
 				564AAA062E532F670049FCC7 /* Quiz.swift */,
 				566762572B6007B400C3F1CA /* Router.swift */,
 				5684D3D92B7D10BB008EEB16 /* Symbol.swift */,
@@ -424,6 +429,7 @@
 				56CF966A2B6BA23E008C4AA6 /* AboutView.swift */,
 				569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */,
 				569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */,
+				56591E7A2E6C72B2005EE24F /* ImportExportView.swift */,
 				56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */,
 				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
 				566BD4FE2D15E31300628678 /* TipJarView.swift */,
@@ -665,7 +671,9 @@
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
 				56CC1B252E69965400BC262B /* DismissableKeyboardView.swift in Sources */,
+				56591E7E2E6C8ACC005EE24F /* AppDatabase.swift in Sources */,
 				5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */,
+				56591E7B2E6C72B2005EE24F /* ImportExportView.swift in Sources */,
 				56813C102E6B40E700100BFE /* RecentlySearchedView.swift in Sources */,
 				561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */,
 				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,

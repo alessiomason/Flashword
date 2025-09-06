@@ -202,6 +202,9 @@
     "Almost!" : {
 
     },
+    "An error occured while trying to delete all data from the app." : {
+
+    },
     "App version: %@" : {
       "localizations" : {
         "it" : {
@@ -460,6 +463,9 @@
         }
       }
     },
+    "Discover version 4.0" : {
+
+    },
     "Dismiss keyboard" : {
 
     },
@@ -517,6 +523,12 @@
         }
       }
     },
+    "Export" : {
+
+    },
+    "Failed to delete all data" : {
+
+    },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
       "localizations" : {
         "it" : {
@@ -540,6 +552,9 @@
           }
         }
       }
+    },
+    "Flashword database" : {
+
     },
     "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings → General → Dictionary on your iPhone.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings." : {
       "localizations" : {
@@ -647,6 +662,15 @@
           }
         }
       }
+    },
+    "Import" : {
+
+    },
+    "Import and export words" : {
+
+    },
+    "Import and export your words" : {
+
     },
     "Insert a new category" : {
       "localizations" : {
@@ -1322,9 +1346,6 @@
           }
         }
       }
-    },
-    "Versione 4.0" : {
-
     },
     "Welcome to" : {
 

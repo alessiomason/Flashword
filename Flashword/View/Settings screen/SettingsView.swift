@@ -100,6 +100,12 @@ struct SettingsView: View {
                         DictionariesExplanationView()
                     }
                 }
+                
+                Section("Import and export your words") {
+                    NavigationLink("Import and export words") {
+                        ImportExportView()
+                    }
+                }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
