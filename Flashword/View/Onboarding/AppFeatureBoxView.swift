@@ -32,6 +32,7 @@ struct AppFeatureBoxView: View {
                 
                 Text(subtitle)
             }
+            .padding(.trailing)
         }
         .padding(.bottom, 32)
     }
