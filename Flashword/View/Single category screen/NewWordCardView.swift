@@ -116,7 +116,7 @@ struct NewWordCardView: View {
         self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     
-    func fetchDuplicates() -> [Word]? {
+    private func fetchDuplicates() -> [Word]? {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         
         let descriptor = FetchDescriptor<Word>(
@@ -127,7 +127,7 @@ struct NewWordCardView: View {
         return try? modelContext.fetch(descriptor)
     }
     
-    @MainActor func checkWordBeforeInserting() {
+    @MainActor private func checkWordBeforeInserting() {
         let duplicates = fetchDuplicates()
         guard let duplicates else {
             insertNewWord()     // since words don't have to be unique, insert anyway
@@ -151,7 +151,7 @@ struct NewWordCardView: View {
         }
     }
     
-    @MainActor func insertNewWord() {
+    @MainActor private func insertNewWord() {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
@@ -165,7 +165,7 @@ struct NewWordCardView: View {
         // request review
         let descriptor = FetchDescriptor<Word>()
         let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
-        if wordCount >= 10 {
+        if wordCount >= 10 && wordCount % 5 == 0 {    // request review every 5 words added
             requestReview()
         }
         
