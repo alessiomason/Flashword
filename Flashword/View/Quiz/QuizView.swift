@@ -5,6 +5,7 @@
 //  Created by Alessio Mason on 19/08/25.
 //
 
+import SwiftData
 import SwiftUI
 
 struct QuizView: View {
@@ -15,15 +16,20 @@ struct QuizView: View {
     let numberOfWords: Int
     let quizType: QuizType
     @Binding var quizPhase: QuizPhase
-    let quiz: [Quiz]
+    @Binding var quiz: [Quiz]
     @State private var currentQuestion = 0
     @State private var questionPhase: QuestionPhase = .question
     @State private var userAnswer = ""
+    @FocusState private var focusingTextField: Bool
+    
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.modelContext) private var modelContext
+    @State private var wordToBeShown: Word? = nil
     
     var body: some View {
         ScrollView {
             VStack {
-                Text("Question \(currentQuestion + 1)/\(quiz.count)")
+                Text("Question \(currentQuestion + 1)/\(numberOfWords)")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom)
@@ -81,12 +87,14 @@ struct QuizView: View {
                                 
                             case .openAnswer:
                                 TextField("Your answer", text: $userAnswer)
+                                    .foregroundStyle(colorScheme == .dark ? .white : .black)
                                     .textFieldStyle(.roundedBorder)
+                                    .focused($focusingTextField)
                                     .padding()
                         }
                     case .feedback:
                         VStack {
-                            if userAnswer.lowercased() == quiz[currentQuestion].word.lowercased() {
+                            if userAnswer.trimmingCharacters(in: .whitespaces).lowercased() == quiz[currentQuestion].word.lowercased() {
                                 Text("Correct!")
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
@@ -101,9 +109,10 @@ struct QuizView: View {
                                 .fontWeight(.semibold)
                                 .padding(.vertical)
                             
-                            Text("Button to go to the word page")
+                            Button("Show word", action: showWordPage)
+                                .buttonStyle(.bordered)
                             
-                            ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: .white, secondaryColor: .white)
+                            ShowDictionaryButton(term: quiz[currentQuestion].word, primaryColor: colorScheme == .dark ? .black : .blue, secondaryColor: colorScheme == .dark ? .mint : .white, onWhiteBackground: false)
                         }
                         .frame(maxWidth: .infinity)
                 }
@@ -114,13 +123,6 @@ struct QuizView: View {
         }
         .frame(maxWidth: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -136,12 +138,16 @@ struct QuizView: View {
                         switch questionPhase {
                             case .question:
                                 withAnimation {
+                                    focusingTextField = false
+                                    quiz[currentQuestion].answeredCorrectly = userAnswer.trimmingCharacters(in: .whitespaces).lowercased() == quiz[currentQuestion].word.lowercased()
                                     questionPhase = .feedback
                                 }
                             case .feedback:
                                 withAnimation {
                                     if currentQuestion + 1 < numberOfWords {
                                         currentQuestion += 1
+                                        userAnswer = ""
+                                        focusingTextField = true
                                         questionPhase = .question
                                     } else {
                                         quizPhase = .complete
@@ -150,15 +156,41 @@ struct QuizView: View {
                         }
                     } label: {
                         Text(questionPhase == .question ? "Confirm" : "Continue")
+                            .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical)
                     }
                     .tint(.mint)
                     .buttonStyle(.glassProminent)
                     .padding(16)
-                    .disabled(questionPhase == .feedback && currentQuestion + 1 < numberOfWords && currentQuestion + 1 >= quiz.count)
+                    .disabled(userAnswer == "" || questionPhase == .feedback && currentQuestion + 1 < numberOfWords && currentQuestion + 1 >= quiz.count)
                 }
             }
+            .sheet(item: $wordToBeShown) { word in
+                NavigationStack {
+                    WordView(word: word)
+                        .navigationTitle(word.term)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button(role: .close) {
+                                    wordToBeShown = nil
+                                }
+                            }
+                        }
+                }
+            }
+    }
+    
+    private func showWordPage() {
+        guard let wordId = UUID(uuidString: quiz[currentQuestion].wordId) else { return }
+        let descriptor = FetchDescriptor<Word>(
+            predicate: #Predicate<Word> { word in
+                word.uuid == wordId
+            }
+        )
+        
+        guard let word = try? modelContext.fetch(descriptor).first else { return }
+        wordToBeShown = word
     }
 }
 
@@ -173,5 +205,7 @@ struct QuizView: View {
         Quiz(question: "What is the capital of Italy?", word: "Rome", wordId: "2")
     ]
     
-    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: quiz)
+    QuizView(numberOfWords: 5, quizType: .multipleChoice, quizPhase: .constant(.quizzing), quiz: .constant(quiz))
+        .background(.mint)
 }
+

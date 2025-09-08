@@ -39,23 +39,10 @@ struct GeneratingQuizView: View {
         .multilineTextAlignment(.center)
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
     }
 }
 
 #Preview {
     GeneratingQuizView()
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
+        .background(.mint)
 }

@@ -1,5 +1,5 @@
 //
-//  AdWordView.swift
+//  AddWordView.swift
 //  FlashwordWatch Watch App
 //
 //  Created by Alessio Mason on 29/05/24.

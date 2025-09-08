@@ -25,45 +25,48 @@ When writing your notes, you can use basic Markdown syntax to format them. For e
 """)
     
     var body: some View {
-        NavigationStack {
-            ZStack(alignment: .topLeading) {
-                if notes.isEmpty {
-                    Text("Enter your notes here…")
-                        .foregroundStyle(.secondary)
-                        .padding()
-                        .padding(.top, 8)
-                        .padding(.leading, 5)
-                }
-                
-                TextEditor(text: $notes)
-                    .focused($textEditorFocused)
-                    .scrollContentBackground(.hidden)
-                    .padding()
-                    .onAppear {
-                        textEditorFocused = true
+        DismissableKeyboardView {
+            NavigationStack {
+                ZStack(alignment: .topLeading) {
+                    if notes.isEmpty {
+                        Text("Enter your notes here…")
+                            .foregroundStyle(.secondary)
+                            .padding()
+                            .padding(.top, 8)
+                            .padding(.leading, 5)
                     }
-            }
-            .navigationTitle("Modify the notes of \"\(word.term)\"")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Button("Writing notes", systemImage: "info.circle") {
-                    showingInfoAlert = true
+                    
+                    TextEditor(text: $notes)
+                        .tint(word.primaryColor)
+                        .focused($textEditorFocused)
+                        .scrollContentBackground(.hidden)
+                        .padding()
+                        .onAppear {
+                            textEditorFocused = true
+                        }
+                }
+                .navigationTitle(word.term)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    Button("Writing notes", systemImage: "info.circle") {
+                        showingInfoAlert = true
+                    }
+                    
+                    Button {
+                        word.notes = notes
+                        dismiss()
+                    } label: {
+                        Text("Save")
+                            .bold()
+                    }
+                }
+                .alert("You can use Markdown in your notes!", isPresented: $showingInfoAlert) {
+                    Button("OK") { }
+                } message: {
+                    Text(infoAlertMessage)
                 }
                 
-                Button {
-                    word.notes = notes
-                    dismiss()
-                } label: {
-                    Text("Done")
-                        .bold()
-                }
             }
-            .alert("You can use Markdown in your notes!", isPresented: $showingInfoAlert) {
-                Button("OK") { }
-            } message: {
-                Text(infoAlertMessage)
-            }
-
         }
     }
     

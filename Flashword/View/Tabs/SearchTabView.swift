@@ -11,10 +11,13 @@ import SwiftUI
 struct SearchTabView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var router = Router()
+    @State private var quickActionsManager = QuickActionsManager.instance
+    
     @Query(sort: Category.sortDescriptors) private var categories: [Category]
     @Query(sort: Word.sortDescriptors) private var words: [Word]
     
     @State private var searchText = ""
+    @State private var focusingSearchField = false
     
     @State private var wordToBeReassigned: Word? = nil
     @State private var wordToBeDeleted: Word? = nil
@@ -48,7 +51,7 @@ struct SearchTabView: View {
         NavigationStack(path: $router.path) {
             Group {
                 if searchText.isEmpty {
-                    Text("Recents")
+                    RecentlySearchedView()
                 } else {
                     List {
                         if !filteredCategories.isEmpty {
@@ -81,11 +84,31 @@ struct SearchTabView: View {
             .navigationTitle("Search")
             .withRouterDestinations(modelContext: modelContext)
         }
-        .searchable(text: $searchText)
+        .searchable(text: $searchText, isPresented: $focusingSearchField)
         .environment(router)
+        .onChange(of: router.path.count, { _, _ in      // Mark recently searched words
+            if case let .word(word) = router.path.last {
+                word.lastSearchedOn = .now
+            }
+        })
+        .onChange(of: quickActionsManager.quickAction) { oldValue, newValue in
+            switch newValue {
+                case .searchWord:
+                    focusKeyboard()
+                default:
+                    return
+            }
+        }
     }
     
-    func deleteWord() {
+    /// A function used when arriving from Quick Actions to automatically focus the keyboard.
+    private func focusKeyboard() {
+        router.path.removeAll()
+        searchText = ""
+        focusingSearchField = true
+    }
+    
+    private func deleteWord() {
         guard let wordToBeDeleted else { return }
         wordToBeDeleted.deleteIndex()
         modelContext.delete(wordToBeDeleted)
@@ -96,10 +119,7 @@ struct SearchTabView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
-        let words: [Word] = [
-            Word(uuid: UUID(), term: "Test", learntOn: .now.addingTimeInterval(-86400)),
-            Word(uuid: UUID(), term: "Testing Swift", learntOn: .now)
-        ]
+        let words: [Word] = [.example, .otherExample]
         
         words.forEach {
             container.mainContext.insert($0)

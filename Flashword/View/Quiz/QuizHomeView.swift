@@ -22,7 +22,7 @@ struct QuizHomeView: View {
                 case .generating:
                     GeneratingQuizView()
                 case .quizzing:
-                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: quiz)
+                    QuizView(numberOfWords: numberOfWords, quizType: quizType, quizPhase: $quizPhase, quiz: $quiz)
                 case .complete:
                     QuizCompleteView(quizWords: $quizWords, quizPhase: $quizPhase, quiz: $quiz)
             }
@@ -32,4 +32,5 @@ struct QuizHomeView: View {
 
 #Preview {
     QuizHomeView()
+        .background(.mint)
 }

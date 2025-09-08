@@ -17,16 +17,19 @@ struct AppView: View {
     @Environment(\.modelContext) private var modelContext
     @AppStorage("alreadyUpdatedWordsUuid") private var alreadyUpdatedWordsUuid = false
     @AppStorage("spotlightEnabled") private var spotlightEnabled = true
+    @AppStorage("shownOnboardingForVersion") private var shownOnboardingForVersion = "1.0"
+    private let latestOnboardingVersion = "4.0"
+    
     @State private var quickActionsManager = QuickActionsManager.instance
-    
     @State private var selectedTab = AppTab.words
-    
-    private var homeTabView = HomeTabView()
+    @State private var showingOnboarding = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab("Words", systemImage: "text.book.closed", value: .words) {
-                homeTabView
+                DismissableKeyboardView {
+                    HomeTabView()
+                }
             }
             
             Tab("Quiz", systemImage: "questionmark.text.page", value: .quiz) {
@@ -38,34 +41,42 @@ struct AppView: View {
             }
         }
         .tabBarMinimizeBehavior(.onScrollDown)
+        .sensoryFeedback(.impact(flexibility: .soft, intensity: 0.81), trigger: selectedTab)
+        .addKeyboardVisibilityToEnvironment()
         .onAppear {
             handleQuickActions()
-        }
-        .onChange(of: quickActionsManager.quickAction, { _, _ in
-            handleQuickActions()
-        })
-        .onAppear {
+            
+            if shownOnboardingForVersion != latestOnboardingVersion {
+                showingOnboarding = true
+            }
+            
             if spotlightEnabled {
                 indexWords(modelContext: modelContext, alreadyUpdatedWordsUuid: alreadyUpdatedWordsUuid)
                 alreadyUpdatedWordsUuid = true
             }
         }
+        .onChange(of: quickActionsManager.quickAction) { _, _ in
+            handleQuickActions()
+        }
         .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
             selectedTab = .words
-            handleSpotlight(userActivity: userActivity, modelContext: modelContext, router: homeTabView.router)
         }
+        .sheet(isPresented: $showingOnboarding) {
+            shownOnboardingForVersion = latestOnboardingVersion
+        } content: {
+            OnboardingView()
+                .interactiveDismissDisabled()
+        }
+
     }
     
     private func handleQuickActions() {
         switch quickActionsManager.quickAction {
             case .showAllWords:
                 selectedTab = .words
-                homeTabView.router.path.removeAll()
-                homeTabView.router.path.append(.allWordsCategory)
                 
             case .addNewWord:
                 selectedTab = .words
-                homeTabView.router.path.removeAll()
                 // NewWordCardView watches for changes in quickActionsManager.quickAction and automatically focuses the text field in this specific case
                 
             case .searchWord:

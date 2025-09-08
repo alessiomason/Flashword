@@ -20,6 +20,9 @@
 		564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */; };
 		564AAA072E532F670049FCC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AAA062E532F670049FCC7 /* Quiz.swift */; };
 		564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D2C632E58649B001021F9 /* QuizCompleteView.swift */; };
+		56591E792E6C4256005EE24F /* Version40NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E782E6C4256005EE24F /* Version40NewsView.swift */; };
+		56591E7B2E6C72B2005EE24F /* ImportExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E7A2E6C72B2005EE24F /* ImportExportView.swift */; };
+		56591E7E2E6C8ACC005EE24F /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */; };
 		566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762472B60071500C3F1CA /* FlashwordApp.swift */; };
 		5667624C2B60071600C3F1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624B2B60071600C3F1CA /* Assets.xcassets */; };
 		5667624F2B60071600C3F1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5667624E2B60071600C3F1CA /* Preview Assets.xcassets */; };
@@ -30,12 +33,14 @@
 		566762602B60083200C3F1CA /* NewWordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5667625F2B60083200C3F1CA /* NewWordCardView.swift */; };
 		566762622B60084C00C3F1CA /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762612B60084C00C3F1CA /* WordCardView.swift */; };
 		566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762632B60085E00C3F1CA /* WordCardsListView.swift */; };
-		566762662B60087100C3F1CA /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762652B60087100C3F1CA /* WordView.swift */; };
+		566762662B60087100C3F1CA /* WordPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566762652B60087100C3F1CA /* WordPageView.swift */; };
 		566762682B60093F00C3F1CA /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 566762672B60093F00C3F1CA /* Localizable.xcstrings */; };
 		566BD4FB2D15E16E00628678 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 566BD4FA2D15E16E00628678 /* RevenueCat */; };
 		566BD4FD2D15E16E00628678 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 566BD4FC2D15E16E00628678 /* RevenueCatUI */; };
 		566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD4FE2D15E31300628678 /* TipJarView.swift */; };
 		566BD5022D15E4D700628678 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BD5012D15E4D700628678 /* IAPManager.swift */; };
+		56813C0D2E6AF35E00100BFE /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813C0C2E6AF35E00100BFE /* WordView.swift */; };
+		56813C102E6B40E700100BFE /* RecentlySearchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */; };
 		5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3D92B7D10BB008EEB16 /* Symbol.swift */; };
 		5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */; };
 		5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */; };
@@ -61,6 +66,7 @@
 		568B7ECE2BF50A8E00FC4220 /* WordCardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ECD2BF50A8E00FC4220 /* WordCardsListView.swift */; };
 		568B7ED12BF50BB800FC4220 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568B7ED02BF50BB800FC4220 /* WordView.swift */; };
 		568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568CE83D2B70F77300A8482D /* NoCategoriesView.swift */; };
+		569833F52E5C72AC008D39EF /* QuizUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569833F42E5C72AC008D39EF /* QuizUnavailableView.swift */; };
 		5699A6962E57801E00798365 /* QuizButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5699A6952E57801E00798365 /* QuizButtonView.swift */; };
 		569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */; };
 		569A13AF2D19B780007F4A39 /* DictionariesExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */; };
@@ -73,6 +79,12 @@
 		56C775AB2B640BA700742E1F /* AddModifyCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AA2B640BA700742E1F /* AddModifyCategoryView.swift */; };
 		56C775AD2B64134A00742E1F /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AC2B64134A00742E1F /* CategoryView.swift */; };
 		56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */; };
+		56CC1B232E6992FC00BC262B /* KeyboardVisibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B222E6992FC00BC262B /* KeyboardVisibility.swift */; };
+		56CC1B252E69965400BC262B /* DismissableKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */; };
+		56CC1B282E69D1E300BC262B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B272E69D1E300BC262B /* OnboardingView.swift */; };
+		56CC1B2B2E69D5DF00BC262B /* AppPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */; };
+		56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */; };
+		56CC1B2F2E69E98800BC262B /* PicturesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */; };
 		56CF96662B6B9705008C4AA6 /* ModifyNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */; };
 		56CF96682B6B9FB6008C4AA6 /* ShowDictionaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */; };
 		56CF966B2B6BA23E008C4AA6 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF966A2B6BA23E008C4AA6 /* AboutView.swift */; };
@@ -127,6 +139,9 @@
 		564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlendedModifier.swift; sourceTree = "<group>"; };
 		564AAA062E532F670049FCC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		564D2C632E58649B001021F9 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
+		56591E782E6C4256005EE24F /* Version40NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version40NewsView.swift; sourceTree = "<group>"; };
+		56591E7A2E6C72B2005EE24F /* ImportExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportExportView.swift; sourceTree = "<group>"; };
+		56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		566762442B60071500C3F1CA /* Flashword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		566762472B60071500C3F1CA /* FlashwordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashwordApp.swift; sourceTree = "<group>"; };
 		5667624B2B60071600C3F1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,10 +153,12 @@
 		5667625F2B60083200C3F1CA /* NewWordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordCardView.swift; sourceTree = "<group>"; };
 		566762612B60084C00C3F1CA /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
 		566762632B60085E00C3F1CA /* WordCardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardsListView.swift; sourceTree = "<group>"; };
-		566762652B60087100C3F1CA /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		566762652B60087100C3F1CA /* WordPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPageView.swift; sourceTree = "<group>"; };
 		566762672B60093F00C3F1CA /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		566BD4FE2D15E31300628678 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
 		566BD5012D15E4D700628678 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		56813C0C2E6AF35E00100BFE /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlySearchedView.swift; sourceTree = "<group>"; };
 		5684D3D92B7D10BB008EEB16 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		5684D3DB2B7D12AC008EEB16 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
 		5684D3DD2B7D1338008EEB16 /* ChooseSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSymbolView.swift; sourceTree = "<group>"; };
@@ -157,6 +174,7 @@
 		568B7ED22BF50CDF00FC4220 /* FlashwordWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlashwordWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		568B7ED32BF50CEC00FC4220 /* FlashwordWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FlashwordWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		568CE83D2B70F77300A8482D /* NoCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCategoriesView.swift; sourceTree = "<group>"; };
+		569833F42E5C72AC008D39EF /* QuizUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizUnavailableView.swift; sourceTree = "<group>"; };
 		5699A6952E57801E00798365 /* QuizButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizButtonView.swift; sourceTree = "<group>"; };
 		569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorView.swift; sourceTree = "<group>"; };
 		569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionariesExplanationView.swift; sourceTree = "<group>"; };
@@ -170,6 +188,12 @@
 		56C775AA2B640BA700742E1F /* AddModifyCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModifyCategoryView.swift; sourceTree = "<group>"; };
 		56C775AC2B64134A00742E1F /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		56C775AE2B6413B800742E1F /* AllWordsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWordsCategoryView.swift; sourceTree = "<group>"; };
+		56CC1B222E6992FC00BC262B /* KeyboardVisibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardVisibility.swift; sourceTree = "<group>"; };
+		56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableKeyboardView.swift; sourceTree = "<group>"; };
+		56CC1B272E69D1E300BC262B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationView.swift; sourceTree = "<group>"; };
+		56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureBoxView.swift; sourceTree = "<group>"; };
+		56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesSectionView.swift; sourceTree = "<group>"; };
 		56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyNotesView.swift; sourceTree = "<group>"; };
 		56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDictionaryButton.swift; sourceTree = "<group>"; };
 		56CF966A2B6BA23E008C4AA6 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -217,6 +241,7 @@
 				56024CE92E54BB1500A58C06 /* QuizView.swift */,
 				5699A6952E57801E00798365 /* QuizButtonView.swift */,
 				564D2C632E58649B001021F9 /* QuizCompleteView.swift */,
+				569833F42E5C72AC008D39EF /* QuizUnavailableView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -284,6 +309,7 @@
 				56C775A62B64082A00742E1F /* Category.swift */,
 				56D8C3A32B6AA23900D518AA /* ColorChoice.swift */,
 				56C775A42B6407FD00742E1F /* ColorComponents.swift */,
+				56591E7C2E6C8ACC005EE24F /* AppDatabase.swift */,
 				564AAA062E532F670049FCC7 /* Quiz.swift */,
 				566762572B6007B400C3F1CA /* Router.swift */,
 				5684D3D92B7D10BB008EEB16 /* Symbol.swift */,
@@ -296,10 +322,12 @@
 			isa = PBXGroup;
 			children = (
 				5667625B2B60080000C3F1CA /* AppView.swift */,
-				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
-				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
+				56CC1B242E69965400BC262B /* DismissableKeyboardView.swift */,
 				56D8C3A02B6AA17900D518AA /* Add category screen */,
 				56DDCB5B2B6A8E8D002E4644 /* Categories screen */,
+				56CC1B262E69A3AE00BC262B /* Modifiers */,
+				56CC1B292E69D5B100BC262B /* Onboarding */,
+				56813C0E2E6B40C700100BFE /* Search */,
 				560C92B42E532C2100BC1BE4 /* Quiz */,
 				56CF96692B6BA209008C4AA6 /* Settings screen */,
 				56DDCB5C2B6A8EEB002E4644 /* Single category screen */,
@@ -315,6 +343,14 @@
 				566BD5012D15E4D700628678 /* IAPManager.swift */,
 			);
 			path = "In-app purchases";
+			sourceTree = "<group>";
+		};
+		56813C0E2E6B40C700100BFE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				56813C0F2E6B40E700100BFE /* RecentlySearchedView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		568B7E8B2BF5033A00FC4220 /* FlashwordWatch Watch App */ = {
@@ -367,12 +403,34 @@
 			path = "Word screen";
 			sourceTree = "<group>";
 		};
+		56CC1B262E69A3AE00BC262B /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				564A5E1B2B6912D900F81BE3 /* ColorBlendedModifier.swift */,
+				56AF22572BF7971D00E13EAC /* OptionalModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		56CC1B292E69D5B100BC262B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				56CC1B2C2E69DC1100BC262B /* AppFeatureBoxView.swift */,
+				56CC1B2A2E69D5DF00BC262B /* AppPresentationView.swift */,
+				56CC1B272E69D1E300BC262B /* OnboardingView.swift */,
+				56591E782E6C4256005EE24F /* Version40NewsView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		56CF96692B6BA209008C4AA6 /* Settings screen */ = {
 			isa = PBXGroup;
 			children = (
 				56CF966A2B6BA23E008C4AA6 /* AboutView.swift */,
 				569A13AC2D19A4A5007F4A39 /* DefaultColorView.swift */,
 				569A13AE2D19B780007F4A39 /* DictionariesExplanationView.swift */,
+				56591E7A2E6C72B2005EE24F /* ImportExportView.swift */,
+				56CC1B2E2E69E98800BC262B /* PicturesSectionView.swift */,
 				56FCE2922D141F31006B5D64 /* SettingsView.swift */,
 				566BD4FE2D15E31300628678 /* TipJarView.swift */,
 			);
@@ -421,7 +479,8 @@
 				5667625D2B60081C00C3F1CA /* DictionaryView.swift */,
 				56CF96652B6B9705008C4AA6 /* ModifyNotesView.swift */,
 				56CF96672B6B9FB6008C4AA6 /* ShowDictionaryButton.swift */,
-				566762652B60087100C3F1CA /* WordView.swift */,
+				566762652B60087100C3F1CA /* WordPageView.swift */,
+				56813C0C2E6AF35E00100BFE /* WordView.swift */,
 			);
 			path = "Word screen";
 			sourceTree = "<group>";
@@ -430,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				56FCE2952D14269D006B5D64 /* Spotlight.swift */,
+				56CC1B222E6992FC00BC262B /* KeyboardVisibility.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -571,15 +631,19 @@
 				56D18A672E1585C70019062F /* SearchTabView.swift in Sources */,
 				56024CE62E54B21200A58C06 /* QuizSetupView.swift in Sources */,
 				5667625A2B6007D800C3F1CA /* Word.swift in Sources */,
+				569833F52E5C72AC008D39EF /* QuizUnavailableView.swift in Sources */,
 				56024CE82E54B58100A58C06 /* GeneratingQuizView.swift in Sources */,
 				566762582B6007B400C3F1CA /* Router.swift in Sources */,
 				569A13AF2D19B780007F4A39 /* DictionariesExplanationView.swift in Sources */,
 				562AE4F02B65532300628C17 /* ChangeCategoryView.swift in Sources */,
 				56DDCB5F2B6A9109002E4644 /* CategoryListItemView.swift in Sources */,
 				560C92782E5329D700BC1BE4 /* QuizTabView.swift in Sources */,
+				56813C0D2E6AF35E00100BFE /* WordView.swift in Sources */,
 				5684D3DC2B7D12AC008EEB16 /* ChooseColorView.swift in Sources */,
+				56CC1B2D2E69DC1100BC262B /* AppFeatureBoxView.swift in Sources */,
 				56FCE2962D14269D006B5D64 /* Spotlight.swift in Sources */,
 				566762642B60085E00C3F1CA /* WordCardsListView.swift in Sources */,
+				56CC1B2F2E69E98800BC262B /* PicturesSectionView.swift in Sources */,
 				5684D3DE2B7D1338008EEB16 /* ChooseSymbolView.swift in Sources */,
 				56CF966D2B6BA498008C4AA6 /* CategoryIcon.swift in Sources */,
 				56FCE29B2D143507006B5D64 /* QuickActionsManager.swift in Sources */,
@@ -593,23 +657,31 @@
 				5699A6962E57801E00798365 /* QuizButtonView.swift in Sources */,
 				56C775A92B64096B00742E1F /* CategoryListView.swift in Sources */,
 				564D2C642E58649B001021F9 /* QuizCompleteView.swift in Sources */,
+				56CC1B232E6992FC00BC262B /* KeyboardVisibility.swift in Sources */,
+				56591E792E6C4256005EE24F /* Version40NewsView.swift in Sources */,
 				56024CEA2E54BB1500A58C06 /* QuizView.swift in Sources */,
 				569A13AD2D19A4A5007F4A39 /* DefaultColorView.swift in Sources */,
 				56C775AD2B64134A00742E1F /* CategoryView.swift in Sources */,
 				56DF21C92BF4B98F00406605 /* BookmarksCategoryView.swift in Sources */,
-				566762662B60087100C3F1CA /* WordView.swift in Sources */,
+				56CC1B282E69D1E300BC262B /* OnboardingView.swift in Sources */,
+				566762662B60087100C3F1CA /* WordPageView.swift in Sources */,
 				566762602B60083200C3F1CA /* NewWordCardView.swift in Sources */,
 				566BD4FF2D15E31300628678 /* TipJarView.swift in Sources */,
 				566762622B60084C00C3F1CA /* WordCardView.swift in Sources */,
 				56C775AF2B6413B800742E1F /* AllWordsCategoryView.swift in Sources */,
 				566762482B60071500C3F1CA /* FlashwordApp.swift in Sources */,
+				56CC1B252E69965400BC262B /* DismissableKeyboardView.swift in Sources */,
+				56591E7E2E6C8ACC005EE24F /* AppDatabase.swift in Sources */,
 				5684D3DA2B7D10BB008EEB16 /* Symbol.swift in Sources */,
+				56591E7B2E6C72B2005EE24F /* ImportExportView.swift in Sources */,
+				56813C102E6B40E700100BFE /* RecentlySearchedView.swift in Sources */,
 				561876662B839CE1000EE909 /* RecentlyAddedWordsCategoryView.swift in Sources */,
 				564A5E1C2B6912D900F81BE3 /* ColorBlendedModifier.swift in Sources */,
 				56C775A72B64082A00742E1F /* Category.swift in Sources */,
 				56FCE2932D141F31006B5D64 /* SettingsView.swift in Sources */,
 				560C92B62E532C4000BC1BE4 /* QuizHomeView.swift in Sources */,
 				568CE83E2B70F77300A8482D /* NoCategoriesView.swift in Sources */,
+				56CC1B2B2E69D5DF00BC262B /* AppPresentationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

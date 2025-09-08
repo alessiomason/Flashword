@@ -23,25 +23,7 @@ Below you can find some links to follow me online!
         List {
             Section {
                 VStack {
-                    HStack {
-                        Image(.alessio2021)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, axis in
-                                width * 0.25
-                            }
-                            .clipShape(RoundedRectangle(cornerRadius: 24))
-                            .padding(.horizontal, 8)
-                        
-                        Image(.flashwordIcon)
-                            .resizable()
-                            .scaledToFit()
-                            .containerRelativeFrame(.horizontal) { width, axis in
-                                width * 0.25
-                            }
-                            .padding(.horizontal, 8)
-                    }
-                    .padding(.bottom, 8)
+                    PicturesSectionView()
                     
                     Text(personalDescription)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -61,7 +43,7 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
                 
@@ -73,12 +55,35 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
             }
             
             Section {
+                NavigationLink {
+                    OnboardingView(presentedFromSettings: true)
+                        .navigationTitle("Flashword")
+                } label: {
+                    HStack {
+                        Image(.flashwordIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 60)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Flashword's features and the latest update")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            
+                            Text("Discover Flashword and the features of the latest update")
+                                .font(.subheadline)
+                        }
+                        .padding(.leading, 10)
+                        .foregroundStyle(.primary)
+                    }
+                }
+                
                 Link(destination: URL(string: "https://www.alessiomason.it/apps/flashword")!) {
                     Label("Flashword's website", systemImage: "globe")
                 }
@@ -91,7 +96,7 @@ Below you can find some links to follow me online!
                             .resizable()
                             .scaledToFit()
                             .frame(height: iconHeight)
-                            .blendingHorizontally(color: .blue)
+                            .blendingHorizontally(color: .primary)
                     }
                 }
             } header: {
@@ -109,7 +114,7 @@ Below you can find some links to follow me online!
                 } label: {
                     Label("Terms of use", systemImage: "doc.text.magnifyingglass")
                 }
-                .foregroundStyle(.blue)
+                .foregroundStyle(.primary)
                 
                 NavigationLink {
                     WebView(url: URL(string: "https://www.alessiomason.it/apps/flashword/privacy-policy")!)
@@ -117,7 +122,7 @@ Below you can find some links to follow me online!
                 } label: {
                     Label("Privacy policy", systemImage: "lock")
                 }
-                .foregroundStyle(.blue)
+                .foregroundStyle(.primary)
                 
                 Link(destination: URL(string: "mailto:alessiomason99@gmail.com")!) {
                     Label("Contact me", systemImage: "paperplane")
@@ -130,6 +135,7 @@ Below you can find some links to follow me online!
         }
         .navigationTitle("About Flashword")
         .navigationBarTitleDisplayMode(.inline)
+        .tint(.primary)
     }
 }
 

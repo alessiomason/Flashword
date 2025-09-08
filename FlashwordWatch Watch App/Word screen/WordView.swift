@@ -1,5 +1,5 @@
 //
-//  WordView.swift
+//  WordPageView.swift
 //  FlashwordWatch Watch App
 //
 //  Created by Alessio Mason on 15/05/24.
@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct WordView: View {
+struct WordPageView: View {
     let word: Word
     
     var body: some View {
@@ -74,7 +74,7 @@ struct WordView: View {
         let container = try ModelContainer(for: Word.self, configurations: config)
         
         return NavigationStack {
-            WordView(word: .example)
+            WordPageView(word: .example)
         }
         .modelContainer(container)
         .environment(Router())

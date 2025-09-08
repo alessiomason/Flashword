@@ -33,7 +33,6 @@ struct SettingsView: View {
                                 .containerRelativeFrame(.horizontal) { width, axis in
                                     width * 0.25
                                 }
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                             VStack(alignment: .leading) {
                                 Text("About Flashword")
@@ -99,6 +98,12 @@ struct SettingsView: View {
                 Section("System dictionaries") {
                     NavigationLink("How to manage your dictionaries") {
                         DictionariesExplanationView()
+                    }
+                }
+                
+                Section("Import and export your words") {
+                    NavigationLink("Import and export") {
+                        ImportExportView()
                     }
                 }
             }

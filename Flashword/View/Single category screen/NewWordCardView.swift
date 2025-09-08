@@ -48,27 +48,29 @@ struct NewWordCardView: View {
                 .opacity(term.isEmpty ? 0 : 1)
             }
             
-            HStack {
-                ShowDictionaryButton(
-                    term: term,
-                    primaryColor: primaryColor,
-                    secondaryColor: secondaryColor,
-                    smaller: true
-                )
-                
-                Button(action: checkWordBeforeInserting) {
-                    Text("Add")
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 4)
+            GlassEffectContainer {
+                HStack {
+                    ShowDictionaryButton(
+                        term: term,
+                        primaryColor: primaryColor,
+                        secondaryColor: secondaryColor,
+                        smaller: true
+                    )
+                    
+                    Button(action: checkWordBeforeInserting) {
+                        Text("Add")
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 4)
+                    }
+                    .tint(primaryColor)
+                    .buttonStyle(.glassProminent)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 4)
+                    
                 }
-                .tint(primaryColor)
-                .buttonStyle(.glassProminent)
-                .padding(.vertical, 6)
-                .padding(.horizontal, 4)
-                
+                .padding(.top, 8)
             }
-            .padding(.top, 8)
         }
         .padding()
         .overlay {
@@ -99,7 +101,7 @@ struct NewWordCardView: View {
         }
         .onChange(of: quickActionsManager.quickAction, { _, newQAValue in
             if let newQAValue, newQAValue == .addNewWord {
-                self.isNewWordFieldFocused = true   // sueless if router is popped in the meantime, so workaround with onAppear
+                self.isNewWordFieldFocused = true   // useless if router is popped in the meantime, so workaround with onAppear
                 self.focusNewWordField = true
             }
         })
@@ -114,7 +116,7 @@ struct NewWordCardView: View {
         self.addNewWordToBookmarks = addNewWordToBookmarks
     }
     
-    func fetchDuplicates() -> [Word]? {
+    private func fetchDuplicates() -> [Word]? {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         
         let descriptor = FetchDescriptor<Word>(
@@ -125,7 +127,7 @@ struct NewWordCardView: View {
         return try? modelContext.fetch(descriptor)
     }
     
-    @MainActor func checkWordBeforeInserting() {
+    @MainActor private func checkWordBeforeInserting() {
         let duplicates = fetchDuplicates()
         guard let duplicates else {
             insertNewWord()     // since words don't have to be unique, insert anyway
@@ -149,7 +151,7 @@ struct NewWordCardView: View {
         }
     }
     
-    @MainActor func insertNewWord() {
+    @MainActor private func insertNewWord() {
         let trimmedTerm = term.trimmingCharacters(in: .whitespaces)
         guard !trimmedTerm.isEmpty else { return }
         
@@ -163,7 +165,7 @@ struct NewWordCardView: View {
         // request review
         let descriptor = FetchDescriptor<Word>()
         let wordCount = (try? modelContext.fetchCount(descriptor)) ?? 0
-        if wordCount >= 10 {
+        if wordCount >= 10 && wordCount % 5 == 0 {    // request review every 5 words added
             requestReview()
         }
         
@@ -186,3 +188,4 @@ struct NewWordCardView: View {
         return Text("Failed to create the preview: \(error.localizedDescription)")
     }
 }
+

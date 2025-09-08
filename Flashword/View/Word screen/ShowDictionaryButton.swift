@@ -13,17 +13,55 @@ struct ShowDictionaryButton: View {
     let dictionaryHasDefinition: Bool
     let primaryColor: Color
     let secondaryColor: Color
-    var smallerButton: Bool
+    let smallerButton: Bool
+    let onWhiteBackground: Bool
     
+    @Environment(\.colorScheme) private var colorScheme
     @AppStorage("alreadyUsedDictionary") private var alreadyUsedDictionary = false
     @State private var showingDictionaryExplanationAlert = false
     @State private var showingDictionary = false
     
-    var buttonText: String {
+    private var buttonText: String {
         if smallerButton {
             String(localized: "Look up")
         } else {
             String(localized: "Look up word")
+        }
+    }
+    
+    private var buttonTextColor: Color {
+        if !onWhiteBackground {
+            return secondaryColor
+        }
+        
+        return if smallerButton {
+            primaryColor
+        } else {
+            .white
+        }
+    }
+    
+    private var buttonBackgroundColor: Color {
+        if !onWhiteBackground {
+            return primaryColor
+        }
+        
+        if smallerButton {
+            return if colorScheme == .dark {
+                .gray.opacity(0.25)
+            } else {
+                .white
+            }
+        }
+        
+        return primaryColor
+    }
+    
+    private var noDefinitionColor: some ShapeStyle {
+        if onWhiteBackground {
+            AnyShapeStyle(LinearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing))
+        } else {
+            AnyShapeStyle(Color.white)
         }
     }
     
@@ -35,11 +73,11 @@ struct ShowDictionaryButton: View {
             if smallerButton || dictionaryHasDefinition {
                 Button(action: showDictionary) {
                     Text(buttonText)
-                        .foregroundStyle(smallerButton ? primaryColor : .white)
+                        .foregroundStyle(buttonTextColor)
                         .padding(.horizontal, 6)
                         .padding(.vertical, 4)
                 }
-                .tint(smallerButton ? .white : primaryColor)
+                .tint(buttonBackgroundColor)
                 .buttonStyle(.glassProminent)
                 .padding(.vertical, 6)
                 .padding(.horizontal, 4)
@@ -58,20 +96,19 @@ struct ShowDictionaryButton: View {
             } else if !smallerButton {    // say that no definition is available, but not in smaller buttons
                 Text("No definition available for \"\(term)\".")
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(
-                        .linearGradient(colors: [primaryColor, secondaryColor], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    )
+                    .foregroundStyle(noDefinitionColor)
                     .padding(.vertical, 10)
                     .padding(.horizontal, 20)
             }
         }
     }
     
-    init(term: String, primaryColor: Color, secondaryColor: Color, smaller: Bool = false) {
+    init(term: String, primaryColor: Color, secondaryColor: Color, smaller: Bool = false, onWhiteBackground: Bool = true) {
         self.term = term
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self.smallerButton = smaller
+        self.onWhiteBackground = onWhiteBackground
         
         // UIReferenceLibraryViewController is not available on the Mac
         self.dictionaryHasDefinition =
@@ -98,7 +135,7 @@ struct ShowDictionaryButton: View {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Word.self, configurations: config)
         
-        return ShowDictionaryButton(term: Word.example.term, primaryColor: Word.example.primaryColor, secondaryColor: Word.example.secondaryColor)
+        return ShowDictionaryButton(term: Word.example.term, primaryColor: Word.example.primaryColor, secondaryColor: Word.example.secondaryColor, smaller: true)
             .modelContainer(container)
     } catch {
         return Text("Failed to create the preview: \(error.localizedDescription)")

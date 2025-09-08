@@ -5,12 +5,16 @@
 //  Created by Alessio Mason on 22/08/25.
 //
 
+import SwiftData
 import SwiftUI
 
 struct QuizCompleteView: View {
     @Binding var quizWords: [Word]
     @Binding var quizPhase: QuizPhase
     @Binding var quiz: [Quiz]
+    
+    @Environment(\.modelContext) private var modelContext
+    @State private var wordToBeShown: Word? = nil
     
     var body: some View {
         ScrollView {
@@ -25,8 +29,15 @@ struct QuizCompleteView: View {
                     .fontWeight(.semibold)
                     .padding(.vertical)
                 
-                ForEach(quizWords) { word in
+                ForEach(quizWords.enumerated(), id: \.element.uuid) { index, word in
                     HStack {
+                        if quiz[index].answeredCorrectly {
+                            Image(systemName: "checkmark.circle")
+                        } else {
+                            Image(systemName: "x.circle")
+                        }
+                        
+                        
                         Text(word.term)
                             .font(.title3)
                             .fontWeight(.semibold)
@@ -34,29 +45,20 @@ struct QuizCompleteView: View {
                         
                         Spacer()
                         
-                        Button("See word") {
-                            
+                        Button("Show word") {
+                            showWordPage(wordUuid: word.uuid)
                         }
                         .buttonStyle(.bordered)
-                        
-                        ShowDictionaryButton(term: word.term, primaryColor: .white, secondaryColor: .blue, smaller: true)
                     }
                     .padding(.vertical, 4)
+                    .padding(.horizontal)
                 }
             }
         }
         .foregroundStyle(.white)
         .multilineTextAlignment(.center)
-        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollBounceBehavior(.basedOnSize)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [.mint, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
         .safeAreaBar(
             edge: .bottom,
             alignment: .center,
@@ -67,6 +69,7 @@ struct QuizCompleteView: View {
                     }
                 } label: {
                     Text("Close quiz")
+                        .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical)
                 }
@@ -74,13 +77,41 @@ struct QuizCompleteView: View {
                 .buttonStyle(.glassProminent)
                 .padding(16)
             }
+            .sheet(item: $wordToBeShown) { word in
+                NavigationStack {
+                    WordView(word: word)
+                        .navigationTitle(word.term)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button(role: .close) {
+                                    wordToBeShown = nil
+                                }
+                            }
+                        }
+                }
+            }
             .onDisappear {
                 quizWords = []
                 quiz = []
             }
     }
+    
+    private func showWordPage(wordUuid: UUID) {
+        let wordId = wordUuid       // SwiftData only works with local variables
+        let descriptor = FetchDescriptor<Word>(
+            predicate: #Predicate<Word> { word in
+                word.uuid == wordId
+            }
+        )
+        
+        guard let word = try? modelContext.fetch(descriptor).first else { return }
+        wordToBeShown = word
+    }
 }
 
 #Preview {
-    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant([]))
+    let quiz = [Quiz(question: "", word: "", answeredCorrectly: true), Quiz(question: "", word: "", answeredCorrectly: false)]
+    
+    QuizCompleteView(quizWords: .constant([Word.example, Word.otherExample]), quizPhase: .constant(.complete), quiz: .constant(quiz))
+        .background(.mint)
 }
