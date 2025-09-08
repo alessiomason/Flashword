@@ -27,6 +27,11 @@ struct Version40NewsView: View {
                 }
                 .padding(.horizontal, 8)
                 
+                AppFeatureBoxView(title: "Import and export words and categories", subtitle: "Safely back up and restore your data by importing and exporting words and categories outside the app!", imageWeight: .regular) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .padding(.horizontal, 8)
+                
                 AppFeatureBoxView(title: "Many optimizations and fixes", subtitle: "Many bugs fixed and many improvements around the app!", imageWeight: .regular) {
                     Image(systemName: "wrench.adjustable")
                 }
