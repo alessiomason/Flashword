@@ -102,7 +102,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Import and export your words") {
-                    NavigationLink("Import and export words") {
+                    NavigationLink("Import and export") {
                         ImportExportView()
                     }
                 }

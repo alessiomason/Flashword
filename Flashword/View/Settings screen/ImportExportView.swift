@@ -15,21 +15,35 @@ struct ImportExportView: View {
     @State private var errorImporting = false
     
     @State private var showingExporter = false
+    @State private var errorExporting = false
     @State private var exportedFile: ExportedDatabase? = nil
     
+    @State private var showingDeleteConfirmation = false
     @State private var errorDeleting = false
     
     let defaultFileName = String(localized: "Flashword database")
     
     var body: some View {
         List {
-            Button("Import") {
-                showingImporter = true
+            Section {
+                Text("Import and export all words and categories in the app from or to a local JSON file.")
             }
             
-            Button("Export", action: exportFile)
+            Button {
+                showingImporter = true
+            } label: {
+                Label("Import words and categories", systemImage: "square.and.arrow.down")
+            }
             
-            Button("Delete", action: emptyDatabase)
+            Button(action: exportFile) {
+                Label("Export words and categories", systemImage: "square.and.arrow.up")
+            }
+            
+            Button {
+                showingDeleteConfirmation = true
+            } label: {
+                Label("Delete all words and categories", systemImage: "trash")
+            }
         }
         .fileImporter(isPresented: $showingImporter, allowedContentTypes: [.json], onCompletion: importFile)
         .fileExporter(isPresented: $showingExporter, document: exportedFile, contentType: .json, defaultFilename: defaultFileName) { result in
@@ -40,11 +54,25 @@ struct ImportExportView: View {
                     print(error.localizedDescription)
             }
         }
-        .alert("Failed to delete all data", isPresented: $errorDeleting) {
+        .alert("Are you sure you want to delete all data in your app?", isPresented: $showingDeleteConfirmation) {
+            Button(role: .cancel) { }
+            Button(role: .destructive, action: emptyDatabase)
+        } message: {
+            Text("If you continue, all words and categories in your app will be permanently deleted. If you haven't previously exported them, you will not be able to recover them in any way.")
+        }
+        .alert("Import failed", isPresented: $errorImporting) {
+        } message: {
+            Text("An error occured while trying to import your data.")
+        }
+        .alert("Export failed", isPresented: $errorExporting) {
+        } message: {
+            Text("An error occured while trying to export your data.")
+        }
+        .alert("Delete failed", isPresented: $errorDeleting) {
         } message: {
             Text("An error occured while trying to delete all data from the app.")
         }
-        
+        .navigationTitle("Import and export")
     }
     
     private func importFile(_ result: Result<URL, Error>) {
@@ -56,22 +84,25 @@ struct ImportExportView: View {
                 
                 do {
                     let fileData = try Data(contentsOf: file)
-                    guard let fileJson = String(bytes: fileData, encoding: .utf8) else { errorImporting = true; return }
+                    let fileJson = String(bytes: fileData, encoding: .utf8)!
                     let importedDatabase = try AppDatabase(from: fileJson)
                     
                     // import categories
                     importedDatabase.categories.forEach { category in
                         modelContext.insert(category)
                     }
-                    try? modelContext.save()
+                    
+                    if modelContext.hasChanges {
+                        try modelContext.save()
+                    }
                     
                     // import words
-                    importedDatabase.words.forEach { word in
+                    try importedDatabase.words.forEach { word in
                         var wordCategory: Category? = nil
                         let wordCategoryName = word.category?.name
                         if let wordCategoryName {
                             let descriptor = FetchDescriptor<Category>(predicate: #Predicate { $0.name == wordCategoryName})
-                            wordCategory = try? modelContext.fetch(descriptor).first
+                            wordCategory = try modelContext.fetch(descriptor).first
                         }
                         
                         word.category = nil     // saving a new word with a category would duplicate the category
@@ -84,29 +115,45 @@ struct ImportExportView: View {
                 }
                 
                 file.stopAccessingSecurityScopedResource()
-            case .failure(let error):
-                // TODO: handle error
-                print(error)
+            case .failure:
+                errorImporting = true
         }
     }
     
     private func exportFile() {
-        let categoriesDescriptor = FetchDescriptor<Category>()
-        guard let categories = try? modelContext.fetch(categoriesDescriptor) else { return }
-        let wordsDescriptor = FetchDescriptor<Word>()
-        guard let words = try? modelContext.fetch(wordsDescriptor) else { return }
-        
-        let database = AppDatabase(categories: categories, words: words)
-        
-        guard let encodedDatabase = try? database.encode() else { return }
-        
-        exportedFile = ExportedDatabase(initialContent: encodedDatabase)
-        showingExporter = true
+        do {
+            let categoriesDescriptor = FetchDescriptor<Category>()
+            let categories = try modelContext.fetch(categoriesDescriptor)
+            let wordsDescriptor = FetchDescriptor<Word>()
+            let words = try modelContext.fetch(wordsDescriptor)
+            
+            let database = AppDatabase(categories: categories, words: words)
+            let encodedDatabase = try database.encode()
+            
+            exportedFile = ExportedDatabase(initialContent: encodedDatabase)
+            showingExporter = true
+        } catch {
+            errorExporting = true
+        }
     }
     
     private func emptyDatabase() {
         do {
-            try modelContext.container.erase()
+            let categoriesDescriptor = FetchDescriptor<Category>()
+            let categories = try modelContext.fetch(categoriesDescriptor)
+            let wordsDescriptor = FetchDescriptor<Word>()
+            let words = try modelContext.fetch(wordsDescriptor)
+            
+            for word in words {
+                modelContext.delete(word)
+            }
+            for category in categories {
+                modelContext.delete(category)
+            }
+            
+            if modelContext.hasChanges {
+                try modelContext.save()
+            }
         } catch {
             errorDeleting = true
         }

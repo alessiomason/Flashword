@@ -205,6 +205,12 @@
     "An error occured while trying to delete all data from the app." : {
 
     },
+    "An error occured while trying to export your data." : {
+
+    },
+    "An error occured while trying to import your data." : {
+
+    },
     "App version: %@" : {
       "localizations" : {
         "it" : {
@@ -214,6 +220,9 @@
           }
         }
       }
+    },
+    "Are you sure you want to delete all data in your app?" : {
+
     },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
@@ -409,6 +418,9 @@
         }
       }
     },
+    "Delete all words and categories" : {
+
+    },
     "Delete but keep words" : {
       "localizations" : {
         "it" : {
@@ -429,6 +441,9 @@
           }
         }
       }
+    },
+    "Delete failed" : {
+
     },
     "Delete words too" : {
       "localizations" : {
@@ -523,10 +538,10 @@
         }
       }
     },
-    "Export" : {
+    "Export failed" : {
 
     },
-    "Failed to delete all data" : {
+    "Export words and categories" : {
 
     },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
@@ -663,13 +678,22 @@
         }
       }
     },
-    "Import" : {
+    "If you continue, all words and categories in your app will be permanently deleted. If you haven't previously exported them, you will not be able to recover them in any way." : {
+
+    },
+    "Import and export" : {
 
     },
     "Import and export words" : {
 
     },
     "Import and export your words" : {
+
+    },
+    "Import failed" : {
+
+    },
+    "Import words and categories" : {
 
     },
     "Insert a new category" : {

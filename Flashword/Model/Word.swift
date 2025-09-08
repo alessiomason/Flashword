@@ -105,22 +105,6 @@ class Word: Codable {
         try container.encode(self.lastSearchedOn, forKey: .lastSearchedOn)
     }
     
-    static func decodeWords(from json: String) throws -> [Word] {
-        let data = json.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return try decoder.decode([Word].self, from: data)
-    }
-    
-    static func encodeWords(_ words: [Word]) throws -> String {
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-        encoder.outputFormatting = .prettyPrinted
-        
-        let encodedWords = try encoder.encode(words)
-        return String(data: encodedWords, encoding: .utf8)!
-    }
-    
     /// The predicate used for querying the list of words.
     static func predicate(category: Category?) -> Predicate<Word> {
         let categoryName = category?.name
