@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "        Your goal is to generate a multiple-choice quiz. Generate a question that quizzes the user knowledge of the word \"%@\". The goal is for the user to correctly guess the word that you are referring to in the question. The question MUST NOT include the word \"%@\".\n\n        Example of question\n        Word: Attainable\n        Question: \"What is a word that expresses that something is possible to do?\"\n        Possible answers: [Difficult, Attainable, Impossible, Preposterous]\n\n        The word (\"Attainable\", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong and MUST all be different from one another. All the possible answers MUST be in the same language of the provided word.\n\n\n        Example of a WRONG question --> DO NOT GENERATE QUESTIONS LIKE THIS ONE!\n        Question: \"What does 'Attainable' mean?\"\n        This question is not suitable for the game because it contains the word itself (\"Attainable\", in this case) in the question.\n\n\n        Generate a question for the word \"%@\"." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "        Your goal is to generate a multiple-choice quiz. Generate a question that quizzes the user knowledge of the word \"%1$@\". The goal is for the user to correctly guess the word that you are referring to in the question. The question MUST NOT include the word \"%2$@\".\n\n        Example of question\n        Word: Attainable\n        Question: \"What is a word that expresses that something is possible to do?\"\n        Possible answers: [Difficult, Attainable, Impossible, Preposterous]\n\n        The word (\"Attainable\", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong and MUST all be different from one another. All the possible answers MUST be in the same language of the provided word.\n\n\n        Example of a WRONG question --> DO NOT GENERATE QUESTIONS LIKE THIS ONE!\n        Question: \"What does 'Attainable' mean?\"\n        This question is not suitable for the game because it contains the word itself (\"Attainable\", in this case) in the question.\n\n\n        Generate a question for the word \"%3$@\"."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "        Il tuo obiettivo è generare un quiz a scelta multipla. Genera una domanda che testi la conoscenza dell’utente della parola \"%1$@\". L’obiettivo è che l’utente indovini correttamente la parola a cui tu fai riferimento nella domanda. La domanda NON DEVE includere la parola \"%2$@\".\n\n        Esempio di domanda\n        Parola: Attainable\n        Question: “Quale è una parola inglese che esprime che qualcosa è fattibile?”\n        Risposte possibili: [Difficult, Attainable, Impossible, Preposterous]\n\n        La parola (\"Attainable\", in questo caso) DEVE essere inclusa tra le 4 possibili risposte e NON DEVE MAI essere menzionata nella domanda. Le altre possibile risposte DEVONO essere plausibili ma sbagliate e DEVONO essere tutte diverse l’una dall’altra. Tutte le possibili risposte DEVONO essere nella stessa lingua della parola fornita.\n\n\n        Esempio di una domanda SBAGLIATA --> NON GENERARE DOMANDE COME QUESTA!\n        Question: “Cosa vuol dire la parola 'Attainable' in inglese?”\n        La domanda non è adeguata al gioco perché contiene la parola stessa (“Attainable\", in questo caso) nella domanda.\n\n\n        Genera una “domanda per la parola ”%3$@”."
+          }
+        }
+      }
+    },
     "%lld words" : {
       "localizations" : {
         "en" : {
@@ -108,13 +124,34 @@
       "shouldTranslate" : false
     },
     "5" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5"
+          }
+        }
+      }
     },
     "10" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10"
+          }
+        }
+      }
     },
     "25" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "25"
+          }
+        }
+      }
     },
     "A category named \"%@\" already exists!" : {
       "localizations" : {
@@ -122,6 +159,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Una categoria chiamata \"%@\" esiste già!"
+          }
+        }
+      }
+    },
+    "A dedicated tab for searching words and categories!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un tab dedicato per cercare parole e categorie!"
           }
         }
       }
@@ -142,6 +189,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Un’offerta per supportare lo sviluppo dell’app."
+          }
+        }
+      }
+    },
+    "A whole new look" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un look tutto nuovo"
           }
         }
       }
@@ -177,7 +234,14 @@
       }
     },
     "Add notes…" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi note…"
+          }
+        }
+      }
     },
     "Add to bookmarks" : {
       "localizations" : {
@@ -200,16 +264,44 @@
       }
     },
     "Almost!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quasi!"
+          }
+        }
+      }
     },
-    "An error occured while trying to delete all data from the app." : {
-
+    "An error occurred while trying to delete all data from the app." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore durante l’eliminazione di tutti i tuoi dati dall’app."
+          }
+        }
+      }
     },
-    "An error occured while trying to export your data." : {
-
+    "An error occurred while trying to export your data." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore durante l’esportazione dei dati."
+          }
+        }
+      }
     },
-    "An error occured while trying to import your data." : {
-
+    "An error occurred while trying to import your data." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore durante l’importazione dei dati."
+          }
+        }
+      }
     },
     "App version: %@" : {
       "localizations" : {
@@ -222,7 +314,14 @@
       }
     },
     "Are you sure you want to delete all data in your app?" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vuoi davvero eliminare tutti i tuoi dati dall’app?"
+          }
+        }
+      }
     },
     "Are you sure you want to delete the word \"%@\"?" : {
       "comment" : "Confirmation message for deleting a word",
@@ -246,7 +345,14 @@
       }
     },
     "Begin" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniziamo"
+          }
+        }
+      }
     },
     "Bookmarks" : {
       "localizations" : {
@@ -380,10 +486,24 @@
       }
     },
     "Close quiz" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi quiz"
+          }
+        }
+      }
     },
     "Confirm" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conferma"
+          }
+        }
+      }
     },
     "Contact me" : {
       "localizations" : {
@@ -406,7 +526,24 @@
       }
     },
     "Correct!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esatto!"
+          }
+        }
+      }
+    },
+    "Create custom categories to organize your words!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea categorie personalizzate per organizzare le tue parole!"
+          }
+        }
+      }
     },
     "Delete" : {
       "localizations" : {
@@ -419,7 +556,14 @@
       }
     },
     "Delete all words and categories" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina tutte le parole e categorie"
+          }
+        }
+      }
     },
     "Delete but keep words" : {
       "localizations" : {
@@ -431,19 +575,15 @@
         }
       }
     },
-    "Delete category" : {
-      "extractionState" : "stale",
+    "Delete failed" : {
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elimina categoria"
+            "value" : "Impossibile eliminare"
           }
         }
       }
-    },
-    "Delete failed" : {
-
     },
     "Delete words too" : {
       "localizations" : {
@@ -466,7 +606,14 @@
       }
     },
     "Discover Flashword and the features of the latest update" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scopri Flashword e tutte le novità dell’ultimo aggiornamento"
+          }
+        }
+      }
     },
     "Discover more about Flashword and its creator!" : {
       "localizations" : {
@@ -479,24 +626,34 @@
       }
     },
     "Discover version 4.0" : {
-
-    },
-    "Dismiss keyboard" : {
-
-    },
-    "Done" : {
-      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fine"
+            "value" : "Scopri la versione 4.0"
+          }
+        }
+      }
+    },
+    "Dismiss keyboard" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi la tastiera"
           }
         }
       }
     },
     "Edit" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica"
+          }
+        }
+      }
     },
     "Edit category" : {
       "localizations" : {
@@ -539,10 +696,24 @@
       }
     },
     "Export failed" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile esportare"
+          }
+        }
+      }
     },
     "Export words and categories" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esporta parole e categorie"
+          }
+        }
+      }
     },
     "Feel free to contact me for any comment, suggestion or problem you might have!" : {
       "localizations" : {
@@ -555,7 +726,14 @@
       }
     },
     "Finished!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finito!"
+          }
+        }
+      }
     },
     "Flashword" : {
       "comment" : "The name of the app",
@@ -569,7 +747,14 @@
       }
     },
     "Flashword database" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Database di Flashword"
+          }
+        }
+      }
     },
     "Flashword uses the system dictionaries to provide definitions for your words.\n\nTo manage your dictionaries (or to download them for the first time, if you haven't already) you can go to Settings → General → Dictionary on your iPhone.\nAlternatively, when looking up a word in Flashword, you can tap the \"Manage Dictionaries\" button to access the same settings." : {
       "localizations" : {
@@ -600,7 +785,14 @@
       }
     },
     "Flashword's features and the latest update" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funzionalità di Flashword e dell’ultimo aggiornamento"
+          }
+        }
+      }
     },
     "Flashword's repository" : {
       "localizations" : {
@@ -643,10 +835,24 @@
       }
     },
     "Generate quiz" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genera quiz"
+          }
+        }
+      }
     },
     "Generating the quiz…" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generazione del quiz in corso…"
+          }
+        }
+      }
     },
     "GitHub profile" : {
       "localizations" : {
@@ -679,22 +885,84 @@
       }
     },
     "If you continue, all words and categories in your app will be permanently deleted. If you haven't previously exported them, you will not be able to recover them in any way." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se continui, tutte le parole e le categorie nell’app verranno eliminate in modo permanente. Se non le hai precedentemente esportate, non sarai in grado di recuperarle in alcun modo."
+          }
+        }
+      }
+    },
+    "Ignore this field." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignora questo campo."
+          }
+        }
+      }
     },
     "Import and export" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa e esporta"
+          }
+        }
+      }
     },
     "Import and export all words and categories in the app from or to a local JSON file." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa e esporta le tue parole e categorie nell’app da e verso un file JSON locale."
+          }
+        }
+      }
+    },
+    "Import and export words and categories" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa e esporta parole e categorie"
+          }
+        }
+      }
     },
     "Import and export your words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa e esporta le tue parole"
+          }
+        }
+      }
     },
     "Import failed" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile importare"
+          }
+        }
+      }
     },
     "Import words and categories" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa parole e categorie"
+          }
+        }
+      }
     },
     "Insert a new category" : {
       "localizations" : {
@@ -757,6 +1025,16 @@
         }
       }
     },
+    "List 4 possible answers to the previous question. One of the 4 answers MUST be the same as the word. ALL the answers MUST be different from one another and MUST be in the same language of the provided word." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elenca 4 possibili risposte alla domanda precedente. Una delle 4 risposte DEVE essere la stessa della parola. TUTTE le risposte DEVONO essere diverse l’una dall’altra e DEVONO essere nella stessa lingua della parola fornita."
+          }
+        }
+      }
+    },
     "Look up" : {
       "localizations" : {
         "it" : {
@@ -783,6 +1061,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Definire una parola"
+          }
+        }
+      }
+    },
+    "Many bugs fixed and many improvements around the app!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molti bug sistemati e molti miglioramenti in tutta l’app!"
+          }
+        }
+      }
+    },
+    "Many optimizations and fixes" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molti aggiustamenti e ottimizzazioni"
           }
         }
       }
@@ -817,17 +1115,6 @@
         }
       }
     },
-    "Modify the notes of \"%@\"" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modifica le note di \"%@\""
-          }
-        }
-      }
-    },
     "More" : {
       "localizations" : {
         "it" : {
@@ -849,7 +1136,14 @@
       }
     },
     "Multiple choice" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scelta multipla"
+          }
+        }
+      }
     },
     "Nature" : {
       "localizations" : {
@@ -944,14 +1238,15 @@
         }
       }
     },
-    "Novità dell'aggiornamento" : {
-
-    },
     "Number of questions" : {
-
-    },
-    "Number of words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numero di domande"
+          }
+        }
+      }
     },
     "Objects" : {
       "localizations" : {
@@ -974,10 +1269,24 @@
       }
     },
     "Onboarding tab" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tab di benvenuto"
+          }
+        }
+      }
     },
     "Open answer" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Domande aperte"
+          }
+        }
+      }
     },
     "People" : {
       "localizations" : {
@@ -1010,7 +1319,14 @@
       }
     },
     "Powered by Apple Intelligence" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generato con Apple Intelligence"
+          }
+        }
+      }
     },
     "Privacy policy" : {
       "localizations" : {
@@ -1029,20 +1345,64 @@
             "state" : "new",
             "value" : "Question %1$lld/%2$lld"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Domanda %1$lld/%2$lld"
+          }
         }
       }
     },
     "Quiz" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quiz"
+          }
+        }
+      }
     },
     "Quiz type" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo di quiz"
+          }
+        }
+      }
+    },
+    "Quizzes" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quiz"
+          }
+        }
+      }
     },
     "Quizzes are generated using Apple Intelligence, which is currently not available on your device (it is likely still downloading). Please try again later." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I quiz sono generati con Apple Intelligence, che non è al momento disponibile sul tuo dispositivo (è probabilmente ancora in download). Riprova più tardi."
+          }
+        }
+      }
     },
     "Quizzes are generated using Apple Intelligence. If you wish to use this functionality, turn on Apple Intelligence in your device settings." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I quiz sono generati con Apple Intelligence. Se desideri utilizzare questa funzionalità, attiva Apple Intelligence nelle impostazioni del dispositivo."
+          }
+        }
+      }
     },
     "Recently added" : {
       "localizations" : {
@@ -1055,7 +1415,14 @@
       }
     },
     "Recently searched" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricerche recenti"
+          }
+        }
+      }
     },
     "Remove from bookmarks" : {
       "localizations" : {
@@ -1068,7 +1435,24 @@
       }
     },
     "Review the quiz words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rivedi le parole del quiz"
+          }
+        }
+      }
+    },
+    "Safely back up and restore your data by importing and exporting words and categories outside the app!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preserva e ripristina i tuoi dati importando ed esportando parole e categorie fuori dall’app!"
+          }
+        }
+      }
     },
     "Save" : {
       "localizations" : {
@@ -1080,14 +1464,35 @@
         }
       }
     },
+    "Save words, look up their definitions, and more!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva le parole, cerca le loro definizioni e tanto altro!"
+          }
+        }
+      }
+    },
     "Search" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca"
+          }
+        }
+      }
     },
     "Search in this category" : {
-
-    },
-    "See word's page" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca in questa categoria"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
@@ -1099,14 +1504,35 @@
         }
       }
     },
-    "Show word's page" : {
-
+    "Show word" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra la parola"
+          }
+        }
+      }
     },
     "Sorry, the quiz functionality is not available! Quizzes are generated using Apple Intelligence, which is currently not available on your device." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purtroppo la funzionalità dei quiz non è disponibile! I quiz sono generati con Apple Intelligence, che non è al momento disponibile sul tuo dispositivo."
+          }
+        }
+      }
     },
     "Sorry, the quiz functionality is not available! Quizzes are generated using Apple Intelligence, which is not supported by your device." : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purtroppo la funzionalità dei quiz non è disponibile! I quiz sono generati con Apple Intelligence, che non è disponibile sul tuo dispositivo."
+          }
+        }
+      }
     },
     "Sort alphabetically" : {
       "localizations" : {
@@ -1189,7 +1615,14 @@
       }
     },
     "Still generating the following question. Hang on tight!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La domanda seguente sta ancora venendo generata. Ci andrà solo un attimo!"
+          }
+        }
+      }
     },
     "Support the development" : {
       "localizations" : {
@@ -1221,6 +1654,16 @@
         }
       }
     },
+    "System integration" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Integrazione con il sistema"
+          }
+        }
+      }
+    },
     "Terms of use" : {
       "localizations" : {
         "it" : {
@@ -1231,8 +1674,25 @@
         }
       }
     },
+    "Test you knowledge with fun quizzes generated with Apple Intelligence!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metti alla prova la tua conoscenza con divertenti quiz generati con Apple Intelligence!"
+          }
+        }
+      }
+    },
     "Test your knowledge of the words you saved!" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metti alla prova la tua conoscenza delle parole che hai salvato!"
+          }
+        }
+      }
     },
     "Thank you so very much for your support!" : {
       "localizations" : {
@@ -1245,7 +1705,24 @@
       }
     },
     "The answer was: %@" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La risposta era: %@"
+          }
+        }
+      }
+    },
+    "The entire app has been redesigned for Liquid Glass and the new system look!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’intera app è stata ridisegnata per il nuovo aspetto di sistema con Liquid Glass!"
+          }
+        }
+      }
     },
     "The name has to be unique across all categories: let's not get you confused :)" : {
       "comment" : "The text inviting the user to enter a unique name for the new category",
@@ -1254,6 +1731,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il nome deve essere unico tra tutte le categorie, così non c'è il rischio di confondersi :)"
+          }
+        }
+      }
+    },
+    "The question for the user. It MUST NOT include the provided word, which constitutes the answer." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LA domanda per l’utente. NON DEVE includere la parola fornita, che costituisce la risposta."
           }
         }
       }
@@ -1294,6 +1781,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La parola esiste già!"
+          }
+        }
+      }
+    },
+    "The word that this question is about." : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La parola a cui si riferisce questa domanda."
           }
         }
       }
@@ -1348,9 +1845,6 @@
         }
       }
     },
-    "Type" : {
-
-    },
     "Uncategorized words" : {
       "localizations" : {
         "it" : {
@@ -1371,8 +1865,35 @@
         }
       }
     },
+    "Use the app at its best with Spotlight integration, iCloud syncing, and more!" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa l’app al meglio con l’integrazione con Spotlight, la sincronizzazione con iCloud e molto altro!"
+          }
+        }
+      }
+    },
     "Welcome to" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benvenuto su"
+          }
+        }
+      }
+    },
+    "What's new in this update" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novità dell’aggiornamento"
+          }
+        }
+      }
     },
     "When writing your notes, you can use basic Markdown syntax to format them. For example:\n\n**Bold** text\n*Italic* text\n~Strikethrough~ text\n`Monospace` text" : {
       "localizations" : {
@@ -1407,7 +1928,14 @@
       }
     },
     "Words" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parole"
+          }
+        }
+      }
     },
     "Writing notes" : {
       "localizations" : {
@@ -1480,10 +2008,24 @@
       }
     },
     "Your answer" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua risposta"
+          }
+        }
+      }
     },
     "Your data are secure and never leave your device" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I tuoi dati sono al sicuro e non lasciano mai il tuo dispositivo"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

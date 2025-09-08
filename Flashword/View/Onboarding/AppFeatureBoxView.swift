@@ -12,8 +12,8 @@ struct AppFeatureBoxView: View {
     
     let image: Image
     let imageWeight: Font.Weight
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringResource
+    let subtitle: LocalizedStringResource
     
     var body: some View {
         HStack(alignment: .center) {
@@ -37,7 +37,7 @@ struct AppFeatureBoxView: View {
         .padding(.bottom, 32)
     }
     
-    init (title: String, subtitle: String, imageWeight: Font.Weight, @ViewBuilder _ image: () -> Image) {
+    init (title: LocalizedStringResource, subtitle: LocalizedStringResource, imageWeight: Font.Weight, @ViewBuilder _ image: () -> Image) {
         self.title = title
         self.subtitle = subtitle
         self.imageWeight = imageWeight

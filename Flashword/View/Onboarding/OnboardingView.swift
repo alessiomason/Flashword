@@ -37,7 +37,7 @@ struct OnboardingView: View {
             
             Picker("Onboarding tab", selection: $onboardingTab) {
                 Text("Flashword").tag(OnboardingTabs.welcome)
-                Text("Novità dell'aggiornamento").tag(OnboardingTabs.newVersion)
+                Text("What's new in this update").tag(OnboardingTabs.newVersion)
             }
             .pickerStyle(.segmented)
             .padding(.horizontal)

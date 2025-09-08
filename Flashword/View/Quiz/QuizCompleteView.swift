@@ -45,7 +45,7 @@ struct QuizCompleteView: View {
                         
                         Spacer()
                         
-                        Button("See word's page") {
+                        Button("Show word") {
                             showWordPage(wordUuid: word.uuid)
                         }
                         .buttonStyle(.bordered)

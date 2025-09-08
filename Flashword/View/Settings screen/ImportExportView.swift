@@ -62,15 +62,15 @@ struct ImportExportView: View {
         }
         .alert("Import failed", isPresented: $errorImporting) {
         } message: {
-            Text("An error occured while trying to import your data.")
+            Text("An error occurred while trying to import your data.")
         }
         .alert("Export failed", isPresented: $errorExporting) {
         } message: {
-            Text("An error occured while trying to export your data.")
+            Text("An error occurred while trying to export your data.")
         }
         .alert("Delete failed", isPresented: $errorDeleting) {
         } message: {
-            Text("An error occured while trying to delete all data from the app.")
+            Text("An error occurred while trying to delete all data from the app.")
         }
         .navigationTitle("Import and export")
     }

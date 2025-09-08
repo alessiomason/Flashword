@@ -49,7 +49,7 @@ struct QuizSetupView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                 
-                Picker("Number of words", selection: $numberOfWords) {
+                Picker("Number of questions", selection: $numberOfWords) {
                     Text("5").tag(5)
                     Text("10").tag(10)
                     if numberOfSavedWords > 25 {
@@ -59,7 +59,7 @@ struct QuizSetupView: View {
                 .pickerStyle(.segmented)
                 .padding(.bottom)
                 
-                Text("Type")
+                Text("Quiz type")
                     .font(.title2)
                     .fontWeight(.semibold)
                 
@@ -109,7 +109,7 @@ struct QuizSetupView: View {
             
             var responseContent: Quiz? = nil
             while responseContent == nil {
-                let prompt = """
+                let prompt = String(localized: """
                 Your goal is to generate a multiple-choice quiz. Generate a question that quizzes the user knowledge of the word "\(word.term)". The goal is for the user to correctly guess the word that you are referring to in the question. The question MUST NOT include the word "\(word.term)".
         
                 Example of question
@@ -117,7 +117,7 @@ struct QuizSetupView: View {
                 Question: "What is a word that expresses that something is possible to do?"
                 Possible answers: [Difficult, Attainable, Impossible, Preposterous]
         
-                The word ("Attainable", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong and all different from one another.
+                The word ("Attainable", in this case) MUST be included amongst the 4 possible answers and MUST NEVER be mentioned in the question. The other possible answers MUST be plausible but wrong and MUST all be different from one another. All the possible answers MUST be in the same language of the provided word.
         
         
                 Example of a WRONG question --> DO NOT GENERATE QUESTIONS LIKE THIS ONE!
@@ -126,7 +126,7 @@ struct QuizSetupView: View {
         
         
                 Generate a question for the word "\(word.term)".
-        """
+        """)
                 
                 do {
                     let response = try await session.respond(
