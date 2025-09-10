@@ -17,4 +17,20 @@ struct FlashwordApp: App {
         }
         .modelContainer(for: Word.self)
     }
+    
+    init() {
+        // change title font fot the whole app to New York font
+        let largeTitle = UIFont.preferredFont(forTextStyle: .extraLargeTitle)
+        let regularTitle = UIFont.preferredFont(forTextStyle: .body)
+        
+        let descriptor = largeTitle.fontDescriptor.withDesign(.serif)!
+        let largeFont = UIFont(descriptor: descriptor, size: largeTitle.pointSize)
+        let regularFont = UIFont(descriptor: descriptor, size: regularTitle.pointSize)
+        
+        // for large title
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: largeFont]
+        
+        // for inline title
+        UINavigationBar.appearance().titleTextAttributes = [.font: regularFont]
+    }
 }
