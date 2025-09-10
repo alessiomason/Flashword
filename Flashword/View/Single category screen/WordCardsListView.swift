@@ -49,7 +49,7 @@ struct WordCardsListView: View {
         ScrollView {
             LazyVStack {
                 NewWordCardView(category: category, addNewWordToBookmarks: addNewWordToBookmarks)
-                    .padding(.bottom, 8)
+                    .padding(.vertical, 8)
                 
                 if displayedWords.isEmpty {
                     ContentUnavailableView(contentUnavailableText, image: "custom.tray.slash", description: Text(contentUnavailableDescription))

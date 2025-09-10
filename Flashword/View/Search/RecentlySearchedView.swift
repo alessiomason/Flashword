@@ -25,8 +25,7 @@ struct RecentlySearchedView: View {
             LazyVStack {
                 HStack {
                     Text("Recently searched")
-                        .font(.title3)
-                        .fontWeight(.medium)
+                        .font(.system(.title3, design: .serif, weight: .semibold))
                     
                     Spacer()
                 }

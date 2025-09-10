@@ -33,7 +33,7 @@ struct WordView: View {
                     
                     Text("Notes")
                         .padding(.bottom, 5)
-                        .font(.title2)
+                        .font(.system(.title2, design: .serif))
                         .fontWeight(.semibold)
                     
                     if word.notes.isEmpty {
