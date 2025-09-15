@@ -21,15 +21,16 @@ Flashword is the first iOS app I developed!
 It started as a personal project to create something I personally needed. Every time I would learn a new word (maybe watching a film or TV series in English, or even some rarely-used Italian word) I would look it up on my phone's dictionary, but then quickly forget it. So I decided to create a place where to store and revisit these words, so that I wouldn't forget them, and that's how the idea for Flashword came to be!
 
 ## Features
-- Save words you learn and append notes to each word
+- Save words you learn and take notes for each word
 - Divide words into categories to better sort them
 - Create and modify categories, assigning a color and a symbol to each of them
+- Test your knowledge of the words you saved with fun quizzes generated with Apple Intelligence
 - Every word is synced with iCloud and indexed in Spotlight
 
 ## Technologies
 The app is entirely built using the SwiftUI framework. All data are stored using SwiftData.
 
-## Screenshots
+## Screenshots (to be updated)
 | ![Home screen](images/en/Home%20screen.png) Home screen | ![All words list](images/en/All%20words%20list.png) All words list | ![Category view](images/en/Category%20view.png) Category view |
 | :-------------: | :-------------: | :-------------: |
 | ![Word view](images/en/Word%20view.png) **Word view** | ![Modify a category](images/en/Modify%20category.png) **Modify a category** | |
